@@ -32,7 +32,7 @@ export const calculadoras = [
 <li><strong>2ª parcela:</strong> paga até 20 de dezembro. Sobre o total do 13º incidem INSS e IRRF, e o que você já recebeu na 1ª parcela é abatido.</li>
 </ul>
 <h3>Descontos</h3>
-<p>O INSS segue a tabela progressiva de {ANO}, calculada sobre o 13º separadamente do salário do mês. O IRRF também é calculado à parte, com a dedução mais vantajosa entre INSS mais dependentes e o desconto simplificado. Aplicamos ao 13º a mesma tabela e a mesma redução do IRRF mensal (Lei 15.270/2025). Confirme com o departamento pessoal da empresa, porque a forma de aplicar a redução ao 13º pode variar.</p>
+<p>O INSS segue a tabela progressiva de {ANO}, calculada sobre o 13º separadamente do salário do mês. Para o IRRF vale a tabela própria do 13º — os limites e a parcela da tabela mensal divididos por 2 (Lei 7.713/1988, art. 12, §1º) — com a dedução mais vantajosa entre INSS mais dependentes e o desconto simplificado. A redução do IR de 2026 (Lei 15.270/2025, art. 3º-A, §3º) também se aplica ao 13º.</p>
 <h3>Exemplo</h3>
 <p>Salário de R$ 3.000,00 e 12 meses trabalhados: 13º bruto de R$ 3.000,00, INSS de R$ 248,60 e IRRF zero. O líquido é R$ 2.751,40, pago em R$ 1.500,00 na 1ª parcela e R$ 1.251,40 na 2ª.</p>`,
     faq: [
@@ -67,13 +67,13 @@ export const calculadoras = [
 <p>O valor das férias é o salário proporcional aos dias de descanso, acrescido de 1/3 (terço constitucional).</p>
 <p class="formula">férias = (salário + média de variáveis) ÷ 30 × dias de férias<br>1/3 constitucional = férias ÷ 3</p>
 <h3>Abono pecuniário</h3>
-<p>Você pode converter até 1/3 das férias (10 dias) em dinheiro. O abono vale o salário de 10 dias mais 1/3 e <strong>não sofre INSS nem Imposto de Renda</strong>. O pedido precisa ser feito até 15 dias antes do fim do período aquisitivo.</p>
+<p>Você pode converter até 1/3 das férias (10 dias) em dinheiro. O abono vale o salário de 10 dias mais 1/3: o valor do abono sofre INSS, e abono e 1/3 entram na base do Imposto de Renda. O pedido precisa ser feito até 15 dias antes do fim do período aquisitivo.</p>
 <h3>Descontos e prazo</h3>
-<p>INSS e IRRF incidem sobre as férias mais o 1/3, pelas tabelas de {ANO}. O pagamento deve ser feito até 2 dias antes do início do descanso.</p>
+<p>O IRRF incide sobre as férias mais o 1/3; o INSS incide só sobre as férias — o 1/3 constitucional é isento desde 2020 (Lei 8.212/1991, art. 28, §9º, IV). As alíquotas são as tabelas de {ANO}. O pagamento deve ser feito até 2 dias antes do início do descanso.</p>
 <h3>Fracionamento</h3>
 <p>As férias podem ser divididas em até 3 períodos, desde que você concorde: um deles com pelo menos 14 dias corridos e os demais com pelo menos 5 dias cada.</p>
 <h3>Exemplo</h3>
-<p>Salário de R$ 3.000,00 e 30 dias: férias de R$ 3.000,00 mais R$ 1.000,00 de terço, total bruto de R$ 4.000,00. O INSS é R$ 368,60 e o IRRF é zero, então o líquido é R$ 3.631,40.</p>`,
+<p>Salário de R$ 3.000,00 e 30 dias: férias de R$ 3.000,00 mais R$ 1.000,00 de terço, total bruto de R$ 4.000,00. O INSS é R$ 248,60 e o IRRF é zero, então o líquido é R$ 3.751,40.</p>`,
     faq: [
       ['Quando tenho direito a tirar férias?', 'Depois de 12 meses de trabalho (período aquisitivo). A empresa tem os 12 meses seguintes (período concessivo) para conceder o descanso.'],
       ['Quem escolhe a época das férias?', 'O empregador define, de acordo com o interesse da empresa. Ele precisa avisar com pelo menos 30 dias de antecedência.'],
@@ -126,14 +126,14 @@ export const calculadoras = [
 <li><strong>Aviso prévio:</strong> 30 dias mais 3 dias por ano completo de serviço, no máximo 90 dias (Lei 12.506/2011). O aviso indenizado conta como tempo de serviço e soma meses ao 13º e às férias proporcionais.</li>
 <li><strong>13º proporcional:</strong> salário ÷ 12 × meses trabalhados no ano, contando o mês com 15 dias ou mais.</li>
 <li><strong>Férias proporcionais:</strong> salário ÷ 12 × meses desde o último aniversário de admissão, mais 1/3.</li>
-<li><strong>FGTS:</strong> o empregador deposita 8% sobre as verbas rescisórias. A multa é de 40% (ou 20% no acordo) sobre o saldo total, incluindo esse depósito. Ela é paga pelo empregador e não sai do seu saldo.</li>
+<li><strong>FGTS:</strong> o empregador deposita 8% sobre as verbas de natureza salarial (saldo, aviso indenizado, 13º e férias com o 1/3 — Lei 8.036, art. 15). A multa é de 40% (ou 20% no acordo) sobre o saldo total, incluindo esse depósito. Ela é paga pelo empregador e não sai do seu saldo.</li>
 </ul>
 <h3>Descontos</h3>
-<p>INSS e IRRF incidem sobre o saldo de salário e sobre o 13º, calculados separadamente. O aviso indenizado e as férias indenizadas, com o 1/3, não sofrem INSS nem Imposto de Renda. No pedido de demissão sem cumprir o aviso, o empregador pode descontar 30 dias de salário.</p>
+<p>INSS e IRRF incidem sobre o saldo de salário e sobre o 13º, calculados separadamente. O aviso prévio indenizado e as férias indenizadas, com o 1/3, não sofrem INSS; o aviso indenizado, porém, entra na base do IRRF, enquanto as férias indenizadas são isentas dele. No pedido de demissão sem cumprir o aviso, o empregador pode descontar 30 dias de salário.</p>
 <h3>Prazo de pagamento</h3>
 <p>O pagamento deve ocorrer em até 10 dias corridos depois do término do contrato.</p>
 <h3>Exemplo</h3>
-<p>Salário de R$ 3.000,00, admissão em 01/03/2022, demissão sem justa causa em 15/09/2026 com aviso indenizado e FGTS de R$ 10.000,00. O aviso é de 42 dias (30 + 3 × 4 anos) e projeta o contrato até 27/10/2026. Saldo de salário de R$ 1.500,00, aviso de R$ 4.200,00, 13º de 10/12 (R$ 2.500,00) e férias de 8/12 (R$ 2.000,00 mais R$ 666,67 de terço). O bruto é R$ 10.866,67, os descontos somam R$ 313,19 e o líquido é R$ 10.553,48. A multa do FGTS é de R$ 4.262,40.</p>`,
+<p>Salário de R$ 3.000,00, admissão em 01/03/2022, demissão sem justa causa em 15/09/2026 com aviso indenizado e FGTS de R$ 10.000,00. O aviso é de 42 dias (30 + 3 × 4 anos) e projeta o contrato até 27/10/2026. Saldo de salário de R$ 1.500,00, aviso de R$ 4.200,00, 13º de 10/12 (R$ 2.500,00) e férias de 8/12 (R$ 2.000,00 mais R$ 666,67 de terço). O bruto é R$ 10.866,67, os descontos somam R$ 585,29 e o líquido é R$ 10.281,38. A multa do FGTS é de R$ 4.347,73.</p>`,
     faq: [
       ['Em quanto tempo a empresa precisa pagar a rescisão?', 'Em até 10 dias corridos contados do término do contrato, qualquer que seja o tipo de aviso prévio.'],
       ['Qual a diferença entre aviso trabalhado e indenizado?', 'No trabalhado, você cumpre o aviso na empresa, com redução de 2 horas por dia ou de 7 dias corridos. No indenizado, a empresa dispensa você de trabalhar e paga o valor do aviso.'],
@@ -277,7 +277,7 @@ export const blog = [
     slug: 'como-calcular-rescisao-sem-justa-causa',
     titulo: 'Como calcular a rescisão sem justa causa, passo a passo',
     descricao: 'Aprenda a calcular cada verba da rescisão sem justa causa: saldo de salário, aviso prévio, 13º, férias e multa de 40% do FGTS, com um exemplo numérico.',
-    data: '2026-10-11',
+    data: '2026-10-12',
     calc: 'rescisao',
     corpo: `
 <p>Quando uma empresa dispensa um empregado sem justa causa, ele recebe o maior conjunto de verbas previsto na CLT. Veja como cada uma é calculada.</p>
@@ -293,7 +293,7 @@ export const blog = [
 <h2>5. FGTS e multa</h2>
 <p>A empresa deposita 8% sobre as verbas rescisórias e paga multa de 40% sobre o saldo total do FGTS. Você pode sacar todo o saldo e ainda tem direito ao seguro-desemprego, se cumprir os requisitos.</p>
 <h2>6. Descontos</h2>
-<p>INSS e Imposto de Renda incidem sobre o saldo de salário e sobre o 13º. O aviso indenizado e as férias com 1/3 não sofrem desconto.</p>
+<p>INSS e Imposto de Renda incidem sobre o saldo de salário e sobre o 13º. O aviso indenizado e as férias com 1/3 não sofrem INSS: o aviso indenizado entra apenas na base do Imposto de Renda, e as férias indenizadas são isentas dele.</p>
 <p>A empresa tem até 10 dias corridos depois do fim do contrato para pagar.</p>
 <p>Para fazer o cálculo com os seus dados, use a <a href="/rescisao/">calculadora de rescisão</a>.</p>`,
   },

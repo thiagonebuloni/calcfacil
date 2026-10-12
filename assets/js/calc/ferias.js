@@ -26,12 +26,15 @@ export function calcular(e, t) {
   const terco = arredondar(ferias / 3);
   const abono = e.abono ? arredondar((remuneracao * 10) / 30) : 0;
   const abonoTerco = e.abono ? arredondar(abono / 3) : 0;
-  const tributavel = ferias + terco;
-  const inss = calcularINSS(tributavel, t);
-  const irrf = calcularIRRF({ rendimento: tributavel, inss, dependentes: e.dependentes ?? 0 }, t);
-  const liquido = tributavel + abono + abonoTerco - inss - irrf.imposto;
+  // O 1/3 constitucional é isento de INSS (Lei 8.212/1991, art. 28, §9º, IV), mas entra na base do IRRF.
+  // O abono pecuniário sofre INSS (sobre o valor vendido) e IRRF (abono e seu 1/3).
+  const baseInss = ferias + abono;
+  const baseIrrf = ferias + terco + abono + abonoTerco;
+  const inss = calcularINSS(baseInss, t);
+  const irrf = calcularIRRF({ rendimento: baseIrrf, inss, dependentes: e.dependentes ?? 0 }, t);
+  const liquido = baseIrrf - inss - irrf.imposto;
   return {
-    remuneracao, dias: e.dias, ferias, terco, abono, abonoTerco, tributavel, inss, irrf, liquido,
+    remuneracao, dias: e.dias, ferias, terco, abono, abonoTerco, baseInss, baseIrrf, inss, irrf, liquido,
     pagarAte: e.inicio ? addDias(e.inicio, -2) : null,
   };
 }
@@ -55,11 +58,13 @@ export function exibir(r) {
     ]),
     detalhes: [
       { descricao: 'Remuneração mensal considerada', valor: brl(r.remuneracao) },
-      { descricao: 'Base tributável (férias + 1/3)', valor: brl(r.tributavel) },
+      { descricao: 'Base do INSS (férias + abono; o 1/3 é isento)', valor: brl(r.baseInss) },
+      { descricao: 'Base do IRRF (férias + abono + 1/3)', valor: brl(r.baseIrrf) },
       ...detalheIRRF(r.irrf),
     ],
     avisos: [
-      'O abono pecuniário e o 1/3 sobre ele não sofrem INSS nem IRRF.',
+      'O 1/3 constitucional não sofre INSS (Lei 8.212/1991, art. 28, §9º, IV), mas entra na base do IRRF.',
+      'O abono pecuniário sofre INSS sobre o valor vendido, e abono e 1/3 sobre o abono entram na base do IRRF.',
       'O cálculo considera as férias isoladas. Se o salário do mês for pago na mesma folha, o imposto pode mudar.',
       AVISO_ESTIMATIVA,
     ],

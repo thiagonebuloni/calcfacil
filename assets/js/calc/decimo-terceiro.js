@@ -19,7 +19,10 @@ export function calcular(e, t) {
   const bruto = arredondar((remuneracao * e.meses) / 12);
   const inss = calcularINSS(bruto, t);
   const irrf = calcularIRRF(
-    { rendimento: bruto, inss, dependentes: e.dependentes ?? 0, aplicarReducao: t.irrf.reducao?.aplicaAoDecimoTerceiro !== false },
+    {
+      rendimento: bruto, inss, dependentes: e.dependentes ?? 0, decimoTerceiro: true,
+      aplicarReducao: t.irrf.reducao?.aplicaAoDecimoTerceiro !== false,
+    },
     t,
   );
   const liquido = bruto - inss - irrf.imposto;

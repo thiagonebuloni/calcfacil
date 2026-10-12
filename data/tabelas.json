@@ -1,7 +1,7 @@
 {
   "vigencia": "2026-01-01",
-  "atualizadoEm": "2026-10-11",
-  "observacao": "Valores vigentes em 2026. Atualize todo janeiro e rode os testes (node --test).",
+  "atualizadoEm": "2026-10-12",
+  "observacao": "Valores vigentes em 2026. Atualize em janeiro (salário mínimo e INSS), confira a tabela do 13º publicada em dezembro e rode os testes (node --test). Calendário completo na seção 8 do README.",
 
   "salarioMinimo": {
     "valor": 1621.0,
@@ -22,7 +22,7 @@
   },
 
   "irrf": {
-    "fonte": "Receita Federal: tabela progressiva mensal (Lei 15.191/2025) e redução mensal da Lei 15.270/2025",
+    "fonte": "Receita Federal: tabela progressiva mensal (Lei 15.191/2025, vigente desde maio/2025) e redução mensal da Lei 15.270/2025 (art. 3º-A, aplicável também ao 13º)",
     "url": "https://www.gov.br/receitafederal",
     "faixas": [
       { "ate": 2428.8, "aliquota": 0, "parcela": 0 },
@@ -31,6 +31,14 @@
       { "ate": 4664.68, "aliquota": 0.225, "parcela": 675.49 },
       { "ate": null, "aliquota": 0.275, "parcela": 908.73 }
     ],
+    "faixasDecimoTerceiro": [
+      { "ate": 1214.4, "aliquota": 0, "parcela": 0 },
+      { "ate": 1413.32, "aliquota": 0.075, "parcela": 91.08 },
+      { "ate": 1875.52, "aliquota": 0.15, "parcela": 197.08 },
+      { "ate": 2332.34, "aliquota": 0.225, "parcela": 337.75 },
+      { "ate": null, "aliquota": 0.275, "parcela": 454.36 }
+    ],
+    "fonteDecimoTerceiro": "Lei 7.713/1988, art. 12, §1º: no IRRF do 13º salário os limites da tabela mensal e a parcela a deduzir são divididos por 2 (IN RFB anual da Receita Federal)",
     "deducaoDependente": 189.59,
     "descontoSimplificado": 607.2,
     "reducao": {

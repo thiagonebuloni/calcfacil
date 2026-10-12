@@ -46,3 +46,12 @@ test('IRRF: acima de R$ 7.350 não há redução', () => {
   assert.equal(r.imposto, 129455);
   assert.equal(ir(900000, 2).imposto, 119027);
 });
+
+test('IRRF do 13º usa a tabela própria (limites e parcela ÷ 2)', () => {
+  const r = calcularIRRF({ rendimento: 600000, inss: 64151, decimoTerceiro: true }, tabelas);
+  assert.equal(r.impostoTabela, 101922); // base 5.358,49 × 27,5% − 454,36 (Lei 7.713/88, art. 12, §1º)
+  assert.equal(r.reducao, 17975); // a redução também alcança o 13º (Lei 15.270/2025, art. 3º-A, §3º)
+  assert.equal(r.imposto, 83947);
+  // 13º de R$ 3.000,00: a redução zera o imposto.
+  assert.equal(calcularIRRF({ rendimento: 300000, inss: 24860, decimoTerceiro: true }, tabelas).imposto, 0);
+});

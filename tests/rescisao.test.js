@@ -20,11 +20,16 @@ test('sem justa causa, aviso indenizado (caso de referência)', () => {
   assert.equal(r.totalProventos, 1086667);
   assert.equal(r.inssSaldo, 11250);
   assert.equal(r.inss13, 20069);
-  assert.equal(r.totalDescontos, 31319);
-  assert.equal(r.liquido, 1055348);
-  assert.equal(r.fgts.deposito, 65600);
-  assert.equal(r.fgts.multa, 426240);
-  assert.equal(r.fgts.saque, 1491840);
+  // IRRF sobre saldo + aviso indenizado (5.700,00): 27,5% − 908,73 = 491,79;
+  // redução da Lei 15.270/2025 (978,62 − 0,133145 × 5.700) = 219,69 -> imposto 272,10.
+  assert.equal(r.irSaldo.imposto, 27210);
+  assert.equal(r.totalDescontos, 58529);
+  assert.equal(r.liquido, 1028138);
+  // FGTS: 8% sobre saldo + aviso indenizado + 13º + férias proporcionais com 1/3 (Lei 8.036, art. 15)
+  assert.equal(r.fgts.base, 1086667);
+  assert.equal(r.fgts.deposito, 86933);
+  assert.equal(r.fgts.multa, 434773);
+  assert.equal(r.fgts.saque, 1521706);
   assert.equal(r.pagarAte, '2026-09-25');
 });
 
@@ -44,6 +49,9 @@ test('justa causa: sem 13º e férias proporcionais, sem multa, mantém férias 
   assert.equal(r.feriasVenc, 300000);
   assert.equal(r.tercoVenc, 100000);
   assert.equal(r.fgts.multa, 0);
+  // FGTS continua devido sobre saldo e férias vencidas + 1/3 (Lei 8.036, art. 15)
+  assert.equal(r.fgts.base, 550000);
+  assert.equal(r.fgts.deposito, 44000);
 });
 
 test('pedido de demissão com aviso indenizado desconta 30 dias; sem multa', () => {

@@ -170,7 +170,7 @@ Depois abra o endereço indicado no terminal. Sempre que editar `site.config.jso
 
 ## 7. Testes
 
-As funções de cálculo são puras, então os testes não precisam de navegador (hoje são 50 testes, incluindo verificações das próprias páginas geradas):
+As funções de cálculo são puras, então os testes não precisam de navegador (hoje são 51 testes, incluindo verificações das próprias páginas geradas):
 
 ```bash
 node --test
@@ -184,16 +184,31 @@ Regras para os testes:
 
 ## 8. Atualização anual das tabelas
 
-Todos os valores legais ficam em `data/tabelas.json`: salário mínimo, faixas e teto do INSS, tabela do IRRF (com desconto simplificado, dedução por dependente e a redução da Lei 15.270/2025), aviso prévio, FGTS e IR regressivo. Cada bloco traz `fonte` e `url`, e o arquivo traz `vigencia` e `atualizadoEm`, que aparecem no rodapé e nas páginas.
+Todos os valores legais ficam em `data/tabelas.json`: salário mínimo, faixas e teto do INSS, tabela do IRRF (mensal e do 13º, com desconto simplificado, dedução por dependente e a redução da Lei 15.270/2025), aviso prévio, FGTS e IR regressivo. Cada bloco traz `fonte` e `url`, e o arquivo traz `vigencia` e `atualizadoEm`, que aparecem no rodapé e nas páginas.
 
 > Os valores atuais são os de 2026 e **devem ser conferidos** nas fontes oficiais (Receita Federal, Ministério da Previdência, Planalto) antes da publicação e a cada janeiro. O teste `site.test.js` impede que algum valor legal seja colado dentro das fórmulas.
 
-Roteiro de atualização:
+### 8.1 Calendário: quando os valores precisam ser atualizados
 
-1. Consultar as fontes oficiais.
+| Quando | O que verificar e atualizar | Base legal (referência 2026) |
+| --- | --- | --- |
+| **Dezembro (2ª quinzena)** | 1) Novo decreto do salário mínimo (anunciado em dezembro, vigente desde 1º de janeiro); 2) IN da Receita com a tabela do IRRF do 13º — os limites da tabela mensal divididos por 2, para usar no pagamento de dezembro; 3) IN anual com o desconto simplificado e a dedução por dependente; 4) checar se o Congresso aprovou alguma mudança na tabela do IRRF | Lei 7.713/1988, art. 12, §1º; IN RFB anual |
+| **Janeiro (obrigatório, todo ano)** | 1) Portaria interministerial MPS/MF com as faixas e o teto do INSS (vigência 1º/01 — em 2026: nº 13, de 9/1/2026); 2) salário mínimo do ano (em 2026: R$ 1.621,00); 3) conferir a tabela mensal do IRRF e os parâmetros da redução (em 2026: isenção até R$ 5.000 e limite de R$ 7.350, pela Lei 15.270/2025) | Portaria Interministerial MPS/MF; Lei 9.250/1995 e Lei 15.191/2025; Lei 15.270/2025 |
+| **Julho (a partir de 2027)** | Possível 2º reajuste do salário mínimo: a EC 132/2023 (art. 103) prevê reajuste semestral até a remuneração mínima chegar a 60% da média salarial. Em 2026 não houve reajuste intermediário — o valor nacional seguiu em R$ 1.621,00 | EC 132/2023 |
+| **Ao longo do ano, sempre que houver lei nova** | Tabela do IRRF e redução só mudam por lei. Acompanhar: (a) o PL da política nacional de atualização dos valores do IRRF, que o Executivo deve enviar até 26/11/2026 (Lei 15.270/2025, art. 6º); (b) propostas de reajuste da tabela mensal; (c) IR regressivo de renda fixa, FGTS e aviso prévio — mudam raramente e só por lei | Lei 15.270/2025, art. 6º; Lei 11.033/2004; Lei 8.036/1990; Lei 12.506/2011 |
+
+Datas fixas em lei (valem conferir a cada reforma trabalhista ou previdenciária, mas não mudam de ano para ano):
+
+- 13º salário: 1ª parcela até **30/11** e 2ª até **20/12** (Leis 4.090/1962 e 4.749/1965).
+- Rescisão: pagamento em até **10 dias** corridos do término do contrato (CLT, art. 477, §6º).
+- Férias: pagamento até **2 dias antes** do início do descanso; abono solicitado até **15 dias antes** do fim do período aquisitivo (CLT, art. 134, §1º; Lei 605/1949, art. 13).
+
+### 8.2 Roteiro de atualização
+
+1. Consultar as fontes oficiais da tabela em pauta (conforme o calendário acima).
 2. Atualizar o JSON, `vigencia` e `atualizadoEm`.
 3. Rodar `node --test` e ajustar os casos de teste que dependem das faixas (`tests/impostos.test.js`, `ferias.test.js`, `rescisao.test.js`, `decimo-terceiro.test.js`), conferindo os novos valores esperados por um cálculo independente.
-4. Rodar `npm run gerar` (atualiza as datas nas páginas e no sitemap).
+4. Revisar `scripts/conteudo.mjs`: os textos das páginas e do blog citam regras legais (isenção do 1/3 no INSS, tributação do abono e do aviso indenizado, tabela do 13º). Se a lei mudar, corrija o texto e rode `npm run gerar` (atualiza páginas e sitemap).
 5. Fazer o deploy.
 
 ## 9. Checklist de lançamento

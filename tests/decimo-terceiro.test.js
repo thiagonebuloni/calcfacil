@@ -13,12 +13,14 @@ test('13º integral de R$ 3.000', () => {
   assert.equal(r.segunda, 125140);
 });
 
-test('13º integral de R$ 6.000 (com IRRF após redução)', () => {
+test('13º integral de R$ 6.000 (tabela do 13º e redução)', () => {
   const r = calcular({ salario: 6000, meses: 12 }, tabelas);
   assert.equal(r.inss, 64151);
-  assert.equal(r.irrf.imposto, 38510);
-  assert.equal(r.liquido, 497339);
-  assert.equal(r.segunda, 197339);
+  // Base 5.358,49 na tabela do 13º (Lei 7.713/88, art. 12, §1º): 27,5% − 454,36 = 1.019,22;
+  // redução da Lei 15.270/2025 (978,62 − 0,133145 × 6.000) = 179,75 -> imposto 839,47.
+  assert.equal(r.irrf.imposto, 83947);
+  assert.equal(r.liquido, 451902);
+  assert.equal(r.segunda, 151902);
 });
 
 test('13º proporcional 7/12', () => {

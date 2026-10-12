@@ -82,13 +82,17 @@ export function calcular(e, t) {
   const feriasVenc = e.feriasVencidas ? sal : 0;
   const tercoVenc = e.feriasVencidas ? arredondar(sal / 3) : 0;
 
-  // Descontos: INSS e IRRF incidem sobre saldo de salário e 13º (separados).
-  // Aviso indenizado e férias indenizadas não sofrem INSS/IRRF.
+  // Descontos: INSS e IRRF incidem sobre saldo de salário e 13º (bases separadas).
+  // O aviso prévio indenizado não sofre INSS, mas entra na base do IRRF (tributável).
+  // Férias indenizadas (vencidas e proporcionais, com o 1/3) são isentas de INSS e de IRRF.
   const inssSaldo = calcularINSS(saldoSalario, t);
-  const irSaldo = calcularIRRF({ rendimento: saldoSalario, inss: inssSaldo, dependentes: dep }, t);
+  const irSaldo = calcularIRRF({ rendimento: saldoSalario + avisoPago, inss: inssSaldo, dependentes: dep }, t);
   const inss13 = calcularINSS(decimoTerceiro, t);
   const ir13 = calcularIRRF(
-    { rendimento: decimoTerceiro, inss: inss13, dependentes: dep, aplicarReducao: t.irrf.reducao?.aplicaAoDecimoTerceiro !== false },
+    {
+      rendimento: decimoTerceiro, inss: inss13, dependentes: dep, decimoTerceiro: true,
+      aplicarReducao: t.irrf.reducao?.aplicaAoDecimoTerceiro !== false,
+    },
     t,
   );
 
@@ -97,8 +101,9 @@ export function calcular(e, t) {
   const totalDescontos = inssSaldo + irSaldo.imposto + inss13 + ir13.imposto + descontoAviso;
   const liquido = totalProventos - totalDescontos;
 
-  // FGTS
-  const baseFgts = saldoSalario + decimoTerceiro + avisoPago;
+  // FGTS: 8% sobre todas as verbas de natureza salarial — saldo, 13º, aviso indenizado
+  // e férias vencidas/proporcionais com o 1/3 (Lei 8.036/1990, art. 15, §1º).
+  const baseFgts = saldoSalario + decimoTerceiro + avisoPago + feriasProp + tercoProp + feriasVenc + tercoVenc;
   const deposito = arredondar(baseFgts * t.fgts.aliquotaDeposito);
   const saldoInformado = emCentavos(e.saldoFgts ?? 0);
   const percMulta = semJusta ? t.fgts.multaSemJustaCausa : acordo ? t.fgts.multaAcordo : 0;
@@ -111,7 +116,7 @@ export function calcular(e, t) {
     tipo: e.tipo, aviso, anos, diasSaldo, saldoSalario, diasAviso, avisoPago, descontoAviso, fimProjetado, projeta,
     avos13, decimoTerceiro, avosFerias, feriasProp, tercoProp, feriasVenc, tercoVenc,
     inssSaldo, irSaldo, inss13, ir13, totalProventos, totalDescontos, liquido,
-    fgts: { deposito, saldoInformado, percMulta, multa, saque },
+    fgts: { base: baseFgts, deposito, saldoInformado, percMulta, multa, saque },
     pagarAte: addDias(e.demissao, 10),
   };
 }
@@ -132,7 +137,7 @@ export function exibir(r) {
   }
   const descontos = [
     { descricao: 'INSS sobre saldo de salário', valor: r.inssSaldo },
-    { descricao: 'IRRF sobre saldo de salário', valor: r.irSaldo.imposto },
+    { descricao: r.avisoPago > 0 ? 'IRRF sobre saldo de salário e aviso indenizado' : 'IRRF sobre saldo de salário', valor: r.irSaldo.imposto },
   ];
   if (r.decimoTerceiro > 0) {
     descontos.push({ descricao: 'INSS sobre 13º', valor: r.inss13 });
@@ -145,6 +150,7 @@ export function exibir(r) {
   if (r.tipo === 'justa_causa') avisos.push('Na justa causa não há aviso prévio, 13º proporcional, férias proporcionais, multa nem saque do FGTS.');
   if (r.tipo === 'pedido_demissao') avisos.push('No pedido de demissão não há multa do FGTS, saque do FGTS nem seguro-desemprego.');
   if (r.tipo === 'acordo') avisos.push('No acordo: metade do aviso indenizado, multa de 20%, saque de até 80% do FGTS e sem seguro-desemprego.');
+  if (r.avisoPago > 0) avisos.push('O aviso prévio indenizado não sofre INSS, mas entra na base do IRRF.');
   if (r.projeta) avisos.push(`O aviso indenizado projeta o contrato até ${formatarBR(r.fimProjetado)}, o que soma meses ao 13º e às férias proporcionais.`);
   avisos.push('Não inclui horas extras, adicionais, comissões, estabilidades, férias em dobro, 13º já antecipado nem descontos como vale-transporte e pensão.');
   avisos.push(AVISO_ESTIMATIVA);
@@ -153,10 +159,11 @@ export function exibir(r) {
   const detalhes = [
     { descricao: 'Tempo de serviço (anos completos)', valor: String(r.anos) },
     { descricao: 'Dias de aviso prévio devidos', valor: String(r.diasAviso) },
+    { descricao: 'Base de cálculo do FGTS (saldo, 13º, aviso e férias — Lei 8.036, art. 15)', valor: brl(f.base) },
     { descricao: 'FGTS a depositar sobre as verbas rescisórias (8%)', valor: brl(f.deposito) },
     ...(f.percMulta > 0 ? [{ descricao: `Multa do FGTS (${Math.round(f.percMulta * 100)}%), paga pelo empregador`, valor: brl(f.multa) }] : []),
     ...(f.saque > 0 ? [{ descricao: r.tipo === 'acordo' ? 'Saque estimado do FGTS (até 80%)' : 'Saque estimado do FGTS', valor: brl(f.saque) }] : []),
-    ...detalheIRRF(r.irSaldo, 'IRRF do saldo de salário'),
+    ...detalheIRRF(r.irSaldo, r.avisoPago > 0 ? 'IRRF do saldo e do aviso indenizado' : 'IRRF do saldo de salário'),
     ...(r.decimoTerceiro > 0 ? detalheIRRF(r.ir13, 'IRRF do 13º') : []),
   ];
 
