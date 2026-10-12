@@ -10,17 +10,18 @@ Site estático com calculadoras e simuladores financeiros para o Brasil: rescis�
 
 1. [Visão rápida](#1-visão-rápida)
 2. [Pré-requisitos](#2-pré-requisitos)
-3. [Passo a passo](#3-passo-a-passo)
-4. [Estrutura do projeto](#4-estrutura-do-projeto)
-5. [Rodando localmente](#5-rodando-localmente)
-6. [Testes](#6-testes)
-7. [Atualização anual das tabelas](#7-atualização-anual-das-tabelas)
-8. [Checklist de lançamento](#8-checklist-de-lançamento)
-9. [Checklist do AdSense](#9-checklist-do-adsense)
-10. [Afiliados](#10-afiliados)
-11. [Padrão de página de calculadora](#11-padrão-de-página-de-calculadora)
-12. [Convenções de código](#12-convenções-de-código)
-13. [Aviso legal](#13-aviso-legal)
+3. [Antes de publicar: o que preencher](#3-antes-de-publicar-o-que-preencher)
+4. [Passo a passo](#4-passo-a-passo)
+5. [Estrutura do projeto](#5-estrutura-do-projeto)
+6. [Rodando localmente](#6-rodando-localmente)
+7. [Testes](#7-testes)
+8. [Atualização anual das tabelas](#8-atualização-anual-das-tabelas)
+9. [Checklist de lançamento](#9-checklist-de-lançamento)
+10. [Checklist do AdSense](#10-checklist-do-adsense)
+11. [Afiliados](#11-afiliados)
+12. [Padrão de página de calculadora](#12-padrão-de-página-de-calculadora)
+13. [Convenções de código](#13-convenções-de-código)
+14. [Aviso legal](#14-aviso-legal)
 
 ---
 
@@ -43,7 +44,22 @@ Site estático com calculadoras e simuladores financeiros para o Brasil: rescis�
 - [ ] Conta Google (Search Console, AdSense, Analytics)
 - [ ] Cartão ou Pix para registrar o domínio
 
-## 3. Passo a passo
+## 3. Antes de publicar: o que preencher
+
+Em `site.config.json`:
+
+| Campo | O que colocar |
+|---|---|
+| `url` | O endereço final com https, sem barra no fim (ex.: `https://www.meusite.com.br`). Vale para canonical, sitemap e dados estruturados |
+| `email` | O e-mail de contato real (aparece em Contato e Privacidade) |
+| `responsavel` | Seu nome ou razão social, para a política de privacidade |
+| `nome` | O nome definitivo do site |
+| `adsenseClient`, `adsenseSlots` | Preencher só depois da aprovação do AdSense |
+| `gaId` | ID do Google Analytics 4, se quiser usar |
+
+Depois: `npm run gerar`, `node --test` e publicar.
+
+## 4. Passo a passo
 
 ### Fase 0 — Preparação (semana 1)
 
@@ -51,34 +67,34 @@ Site estático com calculadoras e simuladores financeiros para o Brasil: rescis�
 - [ ] Registrar o domínio
 - [ ] Criar o repositório no GitHub e clonar
 - [ ] Criar conta no Google Search Console
-- [ ] Pesquisar programas de afiliados (ver [seção 10](#10-afiliados)) e preparar o cadastro
+- [ ] Pesquisar programas de afiliados (ver [seção 11](#11-afiliados)) e preparar o cadastro
 
 ### Fase 1 — Fundação (semanas 1–2)
 
-- [ ] Criar a estrutura de pastas (ver [seção 4](#4-estrutura-do-projeto))
-- [ ] Criar `assets/css/base.css` (variáveis, tipografia, layout responsivo, estilos de impressão)
-- [ ] Criar módulos em `assets/js/core/`: `moeda.js`, `datas.js`, `validacao.js`
-- [ ] Criar `data/tabelas.json` com INSS, IRRF, salário mínimo, **fonte e data de vigência de cada valor**
-- [ ] Criar o cabeçalho, o rodapé e a navegação padrão
-- [ ] Publicar páginas institucionais: Sobre, Contato, Privacidade, Termos
-- [ ] Implementar o banner de consentimento de cookies
+- [x] Criar a estrutura de pastas (ver [seção 5](#5-estrutura-do-projeto))
+- [x] Criar `assets/css/base.css` (variáveis, tipografia, layout responsivo, estilos de impressão)
+- [x] Criar módulos em `assets/js/core/`: `moeda.js`, `datas.js`, `validacao.js`
+- [x] Criar `data/tabelas.json` com INSS, IRRF, salário mínimo, **fonte e data de vigência de cada valor** (conferir valores nas fontes antes de publicar)
+- [x] Criar o cabeçalho, o rodapé e a navegação padrão
+- [x] Páginas institucionais criadas (Sobre, Contato, Privacidade, Termos, Aviso legal). Revise os textos, preencha e-mail e responsável em `site.config.json` e, de preferência, peça uma revisão jurídica da privacidade e dos termos
+- [x] Implementar o banner de consentimento de cookies
 
 ### Fase 2 — Calculadoras (semanas 2–4)
 
 Ordem sugerida (sazonalidade e complexidade):
 
-- [ ] 13º salário
-- [ ] Férias
-- [ ] Rescisão
-- [ ] Juros compostos
-- [ ] Financiamento (Price e SAC)
-- [ ] Aposentadoria (estimativa)
+- [x] 13º salário
+- [x] Férias
+- [x] Rescisão
+- [x] Juros compostos
+- [x] Financiamento (Price e SAC)
+- [x] Aposentadoria (estimativa)
 
 Para **cada** calculadora:
 
 1. Escrever a função pura em `assets/js/calc/<nome>.js`
 2. Escrever os testes em `tests/<nome>.test.js` com casos conferidos manualmente em fontes oficiais
-3. Montar a página seguindo o [padrão da seção 11](#11-padrão-de-página-de-calculadora)
+3. Montar a página seguindo o [padrão da seção 12](#12-padrão-de-página-de-calculadora)
 4. Escrever o texto "Como é calculado" e o FAQ
 5. Adicionar dados estruturados (JSON-LD)
 6. Rodar o Lighthouse e corrigir
@@ -91,12 +107,12 @@ Para **cada** calculadora:
 - [ ] Gerar e publicar `sitemap.xml` e `robots.txt`
 - [ ] Verificar o site no Search Console e enviar o sitemap
 - [ ] Solicitar indexação das páginas principais
-- [ ] Instalar analytics (respeitando o consentimento)
+- [ ] Preencher `gaId` em `site.config.json` para ativar o Analytics (só carrega com consentimento)
 
 ### Fase 4 — Monetização (semanas 5–6)
 
-- [ ] Conferir o [checklist do AdSense](#9-checklist-do-adsense) e solicitar a aprovação
-- [ ] Após aprovado, adicionar o script do AdSense e o arquivo `ads.txt`
+- [ ] Conferir o [checklist do AdSense](#10-checklist-do-adsense) e solicitar a aprovação
+- [ ] Após aprovado, preencher `adsenseClient` e `adsenseSlots` em `site.config.json` e rodar `npm run gerar` (o `ads.txt` é criado sozinho; os blocos de anúncio só aparecem depois do consentimento de cookies)
 - [ ] Posicionar os slots com altura reservada (evitar deslocamento de layout)
 - [ ] Inserir os blocos de afiliados com rótulo de publicidade
 - [ ] Verificar Core Web Vitals depois de ativar os anúncios
@@ -114,51 +130,50 @@ Para **cada** calculadora:
 - [ ] Revisar o conteúdo quando houver mudança de lei
 - [ ] Revisar o aviso de "última atualização" nas páginas
 
-## 4. Estrutura do projeto
+## 5. Estrutura do projeto
 
 ```
 /
-├── index.html
-├── rescisao/index.html
-├── decimo-terceiro/index.html
-├── ferias/index.html
-├── financiamento/index.html
-├── juros-compostos/index.html
-├── aposentadoria/index.html
-├── blog/
-├── sobre/  contato/  privacidade/  termos/
+├── site.config.json          # nome, URL, e-mail, IDs de AdSense e Analytics
+├── scripts/
+│   ├── gerar.mjs             # gera todas as páginas HTML (npm run gerar)
+│   ├── conteudo.mjs          # textos, campos dos formulários, FAQ, blog, institucionais
+│   └── layout.mjs            # cabeçalho, rodapé, SEO e JSON-LD
 ├── assets/
 │   ├── css/base.css
 │   ├── js/
-│   │   ├── core/      # moeda, datas, validação
-│   │   ├── calc/      # funções puras de cálculo
-│   │   └── ui/        # formulários, cookies, anúncios
-│   └── img/
-├── data/tabelas.json
-├── tests/
-├── sitemap.xml
-├── robots.txt
-├── ads.txt            # após aprovação do AdSense
+│   │   ├── core/             # moeda, datas, validação
+│   │   ├── calc/             # funções puras de cálculo (uma por calculadora + impostos.js)
+│   │   └── ui/               # formulários, resultado, gráfico, cookies, anúncios, afiliados
+│   └── img/              # favicon.svg e og.png (imagem de compartilhamento 1200×630)
+├── data/tabelas.json         # INSS, IRRF, FGTS, aviso prévio, IR regressivo
+├── tests/                    # node --test
+├── index.html                # páginas abaixo são GERADAS: não edite à mão
+├── rescisao/ decimo-terceiro/ ferias/ financiamento/ juros-compostos/ aposentadoria/
+├── blog/  sobre/  contato/  privacidade/  termos/  aviso-legal/
+├── 404.html  sitemap.xml  robots.txt  _headers
+├── ads.txt                   # gerado quando adsenseClient estiver preenchido
 ├── README.md
 └── PRD.md
 ```
 
-## 5. Rodando localmente
+## 6. Rodando localmente
 
 Como o projeto usa módulos ES, é preciso servir os arquivos por HTTP (não abra o `index.html` direto):
 
 ```bash
-npx serve .
+npm run gerar   # gera as páginas a partir do conteúdo e da configuração
+npm run serve   # servidor local (ou: python3 -m http.server 8000)
 ```
 
-Depois abra o endereço indicado no terminal (normalmente `http://localhost:3000`).
+Depois abra o endereço indicado no terminal. Sempre que editar `site.config.json`, `scripts/conteudo.mjs` ou `data/tabelas.json`, rode `npm run gerar` e publique os arquivos gerados junto com o resto.
 
-## 6. Testes
+## 7. Testes
 
-As funções de cálculo são puras, então os testes não precisam de navegador:
+As funções de cálculo são puras, então os testes não precisam de navegador (hoje são 50 testes, incluindo verificações das próprias páginas geradas):
 
 ```bash
-node --test tests/
+node --test
 ```
 
 Regras para os testes:
@@ -167,42 +182,26 @@ Regras para os testes:
 - Compare os resultados com uma fonte oficial (por exemplo, a Calculadora do Cidadão do Banco Central para financiamento e juros) ou com um cálculo manual documentado no próprio teste.
 - Nunca altere o resultado esperado de um teste só para ele passar; investigue a diferença.
 
-## 7. Atualização anual das tabelas
+## 8. Atualização anual das tabelas
 
-Todos os valores legais ficam em `data/tabelas.json`. Estrutura sugerida:
+Todos os valores legais ficam em `data/tabelas.json`: salário mínimo, faixas e teto do INSS, tabela do IRRF (com desconto simplificado, dedução por dependente e a redução da Lei 15.270/2025), aviso prévio, FGTS e IR regressivo. Cada bloco traz `fonte` e `url`, e o arquivo traz `vigencia` e `atualizadoEm`, que aparecem no rodapé e nas páginas.
 
-```json
-{
-  "vigencia": "2026-01-01",
-  "salarioMinimo": { "valor": 0, "fonte": "URL oficial" },
-  "inss": {
-    "fonte": "URL oficial",
-    "faixas": [{ "ate": 0, "aliquota": 0 }]
-  },
-  "irrf": {
-    "fonte": "URL oficial",
-    "faixas": [{ "ate": 0, "aliquota": 0, "deducao": 0 }],
-    "deducaoPorDependente": 0
-  }
-}
-```
-
-> Os zeros acima são **marcadores**. Preencha com os valores vigentes consultando as fontes oficiais (Receita Federal, Ministério da Previdência, Planalto) antes de publicar qualquer calculadora que dependa deles.
+> Os valores atuais são os de 2026 e **devem ser conferidos** nas fontes oficiais (Receita Federal, Ministério da Previdência, Planalto) antes da publicação e a cada janeiro. O teste `site.test.js` impede que algum valor legal seja colado dentro das fórmulas.
 
 Roteiro de atualização:
 
 1. Consultar as fontes oficiais.
-2. Atualizar o JSON e a data de vigência.
-3. Rodar `node --test tests/` e ajustar os casos de teste que dependem das faixas.
-4. Atualizar a data de "última atualização" nas páginas.
+2. Atualizar o JSON, `vigencia` e `atualizadoEm`.
+3. Rodar `node --test` e ajustar os casos de teste que dependem das faixas (`tests/impostos.test.js`, `ferias.test.js`, `rescisao.test.js`, `decimo-terceiro.test.js`), conferindo os novos valores esperados por um cálculo independente.
+4. Rodar `npm run gerar` (atualiza as datas nas páginas e no sitemap).
 5. Fazer o deploy.
 
-## 8. Checklist de lançamento
+## 9. Checklist de lançamento
 
 - [ ] Todos os testes passam
 - [ ] Lighthouse mobile: Performance ≥ 90, Acessibilidade ≥ 90, SEO ≥ 95
 - [ ] Cada página tem `title`, `meta description`, H1 único e `canonical`
-- [ ] Open Graph e imagem de compartilhamento configurados
+- [x] Open Graph e imagem de compartilhamento configurados (`assets/img/og.png`)
 - [ ] JSON-LD (WebApplication, FAQPage, BreadcrumbList) validado
 - [ ] Páginas institucionais publicadas e linkadas no rodapé
 - [ ] Banner de cookies funciona (recusar bloqueia analytics e anúncios)
@@ -210,7 +209,7 @@ Roteiro de atualização:
 - [ ] Testado em celular real (Android e iOS)
 - [ ] `sitemap.xml` enviado ao Search Console
 
-## 9. Checklist do AdSense
+## 10. Checklist do AdSense
 
 As regras mudam; confirme sempre na Central de Ajuda do AdSense antes de enviar.
 
@@ -225,14 +224,14 @@ As regras mudam; confirme sempre na Central de Ajuda do AdSense antes de enviar.
 
 Depois da aprovação:
 
-- [ ] Criar `ads.txt` na raiz com a linha fornecida pelo AdSense
+- [ ] Conferir se o `ads.txt` gerado na raiz está acessível em `/ads.txt`
 - [ ] Não clicar nos próprios anúncios e não pedir cliques a visitantes (risco de banimento)
 
-## 10. Afiliados
+## 11. Afiliados
 
 1. Escolha plataformas e programas relevantes para o público (cartões, contas, crédito, corretoras, previdência).
 2. Cadastre-se e leia as regras de cada programa (palavras proibidas, uso de marca, anúncios pagos).
-3. Gere os links e coloque-os em `assets/js/ui/afiliados.js` (um único lugar para trocar links e rótulos).
+3. Gere os links e coloque-os em `assets/js/ui/afiliados.js` (um único lugar para trocar links e rótulos). Enquanto a lista de uma calculadora estiver vazia, nenhum bloco aparece.
 4. Mostre o bloco **depois** do resultado da calculadora, com o rótulo "Publicidade" ou "Links de afiliado".
 5. Mantenha no rodapé o aviso de que o site pode receber comissão.
 6. Acompanhe cliques e conversões e remova o que não converte.
@@ -245,7 +244,7 @@ Mapa inicial (validar com os programas disponíveis):
 | Financiamento | Simulação de crédito imobiliário/veicular |
 | Juros compostos, aposentadoria | Corretoras, bancos digitais, previdência |
 
-## 11. Padrão de página de calculadora
+## 12. Padrão de página de calculadora
 
 Ordem dos blocos em cada página:
 
@@ -263,7 +262,7 @@ Ordem dos blocos em cada página:
 12. Aviso legal, fonte da legislação e data da última atualização
 13. Rodapé
 
-## 12. Convenções de código
+## 13. Convenções de código
 
 - Cálculos de dinheiro em **centavos inteiros** ou com arredondamento explícito em `moeda.js`; nunca somar decimais de ponto flutuante direto.
 - Funções de cálculo **puras**: recebem um objeto, devolvem um objeto, sem tocar no DOM.
@@ -273,6 +272,6 @@ Ordem dos blocos em cada página:
 - Scripts de terceiros (anúncios, analytics) só carregam depois do consentimento.
 - Commits curtos e no imperativo (ex.: `Adiciona calculadora de 13º`).
 
-## 13. Aviso legal
+## 14. Aviso legal
 
 Os resultados são **estimativas informativas** e não substituem o cálculo oficial, nem a orientação de contador, advogado ou consultor financeiro. O site não oferece aconselhamento financeiro, jurídico ou de investimento. Este texto deve aparecer, de forma resumida, em todas as páginas de calculadora.
