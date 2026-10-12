@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador de financiamento Price e SAC com tabela de amortização</title>
+<meta name="description" content="Simule um financiamento nos sistemas Price e SAC: parcela, total de juros, saldo devedor e tabela de amortização completa para baixar em CSV.">
+<link rel="canonical" href="https://www.seudominio.com.br/financiamento/">
+<meta name="theme-color" content="#0b7557">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="CalcFácil">
+<meta property="og:title" content="Simulador de financiamento Price e SAC com tabela de amortização">
+<meta property="og:description" content="Simule um financiamento nos sistemas Price e SAC: parcela, total de juros, saldo devedor e tabela de amortização completa para baixar em CSV.">
+<meta property="og:url" content="https://www.seudominio.com.br/financiamento/">
+<meta property="og:image" content="https://www.seudominio.com.br/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/base.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Simulador de financiamento","url":"https://www.seudominio.com.br/financiamento/","description":"Simule um financiamento nos sistemas Price e SAC: parcela, total de juros, saldo devedor e tabela de amortização completa para baixar em CSV.","applicationCategory":"FinanceApplication","operatingSystem":"Any","inLanguage":"pt-BR","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Price ou SAC: qual compensa mais?","acceptedAnswer":{"@type":"Answer","text":"Em juros totais, o SAC compensa mais. Se o orçamento do começo for apertado, o Price pode ser a opção possível. A melhor escolha depende da sua renda e do prazo."}},{"@type":"Question","name":"O que é o CET?","acceptedAnswer":{"@type":"Answer","text":"É o Custo Efetivo Total: soma juros, tarifas, seguros e impostos em uma única taxa anual. É o número certo para comparar propostas."}},{"@type":"Question","name":"Como converter a taxa anual em mensal?","acceptedAnswer":{"@type":"Answer","text":"Pela equivalência composta: (1 + taxa anual)^(1/12) − 1. Dividir por 12 só dá certo para taxas nominais."}},{"@type":"Question","name":"Vale a pena amortizar antecipadamente?","acceptedAnswer":{"@type":"Answer","text":"Em geral, sim, porque reduz o saldo sobre o qual os juros incidem. Pergunte ao banco se o abatimento reduz a parcela ou o prazo."}},{"@type":"Question","name":"Uma entrada maior reduz os juros?","acceptedAnswer":{"@type":"Answer","text":"Reduz. Quanto menor o valor financiado, menores os juros em reais, mesmo com a mesma taxa."}},{"@type":"Question","name":"A parcela do meu contrato ficou diferente da simulação. Por quê?","acceptedAnswer":{"@type":"Answer","text":"Provavelmente por seguros, tarifas, correção do saldo ou uma taxa diferente da informada. Compare com o CET e com a planilha de evolução do contrato."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.seudominio.com.br/"},{"@type":"ListItem","position":2,"name":"Financiamento","item":"https://www.seudominio.com.br/financiamento/"}]}</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="wrap topo-in">
+    <a class="marca" href="/" aria-label="CalcFácil, página inicial">Calc<span>Fácil</span></a>
+    <nav class="menu" aria-label="Calculadoras"><a href="/decimo-terceiro/">13º salário</a><a href="/ferias/">Férias</a><a href="/rescisao/">Rescisão</a><a href="/juros-compostos/">Juros compostos</a><a href="/financiamento/" aria-current="page">Financiamento</a><a href="/aposentadoria/">Aposentadoria</a><a href="/blog/">Blog</a></nav>
+  </div>
+</header>
+<main id="conteudo" class="wrap">
+
+<nav class="migalhas" aria-label="Você está em"><a href="/">Início</a> / <span>Financiamento</span></nav>
+<article>
+<h1>Simulador de financiamento: Price e SAC</h1>
+<p class="lead">Informe o valor do bem, a entrada, a taxa e o prazo. Compare as parcelas e o total de juros nos dois sistemas.</p>
+<form class="calc" data-calc="financiamento" novalidate>
+<div class="campos">
+<div class="campo"><label for="f-valor">Valor do bem (R$)</label><input type="text" inputmode="decimal" autocomplete="off" id="f-valor" name="valor" data-tipo="money" value="300.000,00"><span class="erro" id="erro-valor" role="alert"></span></div>
+<div class="campo"><label for="f-entrada">Entrada (R$)</label><input type="text" inputmode="decimal" autocomplete="off" id="f-entrada" name="entrada" data-tipo="money" value="60.000,00"><span class="erro" id="erro-entrada" role="alert"></span></div>
+<div class="campo"><label for="f-taxa">Taxa de juros (%)</label><input type="text" inputmode="decimal" autocomplete="off" id="f-taxa" name="taxa" data-tipo="percent" value="0,9"><span class="erro" id="erro-taxa" role="alert"></span></div>
+<div class="campo"><label for="f-periodoTaxa">A taxa é</label><select id="f-periodoTaxa" name="periodoTaxa" data-tipo="select"><option value="mensal" selected>Ao mês</option><option value="anual">Ao ano</option></select><span class="erro" id="erro-periodoTaxa" role="alert"></span></div>
+<div class="campo"><label for="f-prazo">Prazo (meses)</label><input type="text" inputmode="numeric" autocomplete="off" id="f-prazo" name="prazo" data-tipo="number" value="360" aria-describedby="ajuda-prazo"><span class="ajuda" id="ajuda-prazo">Até 600 meses.</span><span class="erro" id="erro-prazo" role="alert"></span></div>
+<div class="campo"><label for="f-sistema">Sistema de amortização</label><select id="f-sistema" name="sistema" data-tipo="select"><option value="price" selected>Price (parcelas fixas)</option><option value="sac">SAC (parcelas decrescentes)</option></select><span class="erro" id="erro-sistema" role="alert"></span></div>
+</div>
+<div class="acoes"><button class="btn" type="submit">Calcular</button><button class="btn-sec" type="reset">Limpar</button></div>
+</form>
+<section id="resultado" class="resultado" aria-live="polite" tabindex="-1" hidden></section>
+<div class="ad-slot" data-slot="resultado" hidden></div>
+<section class="texto">
+<h2>Como o financiamento é calculado</h2>
+<p>Em qualquer sistema, cada parcela tem duas partes: os juros do mês, que incidem sobre o saldo devedor, e a amortização, que reduz a dívida.</p>
+<h3>Price (Tabela Price)</h3>
+<p>As parcelas são iguais do início ao fim. No começo, a maior parte paga juros, e a amortização cresce ao longo do tempo.</p>
+<p class="formula">parcela = valor financiado × i ÷ (1 − (1 + i)^−n)</p>
+<h3>SAC (Sistema de Amortização Constante)</h3>
+<p>A amortização é a mesma todo mês (valor financiado ÷ n). Como os juros caem junto com o saldo, as parcelas diminuem. A primeira é a mais alta.</p>
+<p class="formula">parcela do mês k = amortização + saldo devedor × i</p>
+<h3>Qual escolher</h3>
+<p>O SAC costuma custar menos juros no total, mas exige uma parcela inicial maior. O Price cabe melhor em um orçamento apertado no começo, com um custo total maior.</p>
+<h3>Exemplo</h3>
+<p>R$ 100.000,00 a 1% ao mês em 12 meses. No Price, a parcela é de R$ 8.884,88 e os juros somam R$ 6.618,53. No SAC, a primeira parcela é de R$ 9.333,33, a última de R$ 8.416,70 e os juros somam R$ 6.500,00.</p>
+<h3>O que esta simulação não inclui</h3>
+<p>Seguros, tarifas, IOF, correção monetária (como TR ou IPCA) e o Custo Efetivo Total (CET). A parcela do contrato real costuma ser maior. Peça o CET ao banco antes de comparar propostas.</p></section>
+<div class="ad-slot" data-slot="meio" hidden></div>
+<section class="faq">
+<h2>Perguntas frequentes</h2>
+<details><summary>Price ou SAC: qual compensa mais?</summary><p>Em juros totais, o SAC compensa mais. Se o orçamento do começo for apertado, o Price pode ser a opção possível. A melhor escolha depende da sua renda e do prazo.</p></details>
+<details><summary>O que é o CET?</summary><p>É o Custo Efetivo Total: soma juros, tarifas, seguros e impostos em uma única taxa anual. É o número certo para comparar propostas.</p></details>
+<details><summary>Como converter a taxa anual em mensal?</summary><p>Pela equivalência composta: (1 + taxa anual)^(1/12) − 1. Dividir por 12 só dá certo para taxas nominais.</p></details>
+<details><summary>Vale a pena amortizar antecipadamente?</summary><p>Em geral, sim, porque reduz o saldo sobre o qual os juros incidem. Pergunte ao banco se o abatimento reduz a parcela ou o prazo.</p></details>
+<details><summary>Uma entrada maior reduz os juros?</summary><p>Reduz. Quanto menor o valor financiado, menores os juros em reais, mesmo com a mesma taxa.</p></details>
+<details><summary>A parcela do meu contrato ficou diferente da simulação. Por quê?</summary><p>Provavelmente por seguros, tarifas, correção do saldo ou uma taxa diferente da informada. Compare com o CET e com a planilha de evolução do contrato.</p></details>
+</section>
+<div class="ad-slot" data-slot="fim" hidden></div>
+<section class="relacionadas">
+<h2>Outras calculadoras</h2>
+<ul><li><a href="/juros-compostos/">Juros compostos<small>Quanto seu dinheiro rende com aportes e tempo.</small></a></li><li><a href="/aposentadoria/">Aposentadoria<small>Patrimônio e aporte para viver de renda.</small></a></li><li><a href="/decimo-terceiro/">13º salário<small>Valor das duas parcelas, já com INSS e IR.</small></a></li></ul>
+</section>
+<aside class="aviso-legal">
+<p><strong>Aviso:</strong> resultado estimado, de caráter informativo. Não substitui o cálculo oficial nem a orientação de contador, advogado ou consultor financeiro. <a href="/aviso-legal/">Leia o aviso legal</a>.</p>
+<p>Base legal: Matemática financeira (sem tabelas legais). Tabelas de INSS e IRRF vigentes em 01/01/2026. Última revisão: 11/10/2026.</p>
+</aside>
+</article>
+</main>
+<footer class="rodape">
+  <div class="wrap rodape-in">
+    <nav aria-label="Institucional">
+      <a href="/sobre/">Sobre</a>
+      <a href="/contato/">Contato</a>
+      <a href="/privacidade/">Privacidade</a>
+      <a href="/termos/">Termos de uso</a>
+      <a href="/aviso-legal/">Aviso legal</a>
+      <button type="button" class="link" data-abrir-cookies hidden>Preferências de cookies</button>
+    </nav>
+    <p>Os resultados são estimativas informativas e não substituem contador, advogado ou consultor financeiro. Este site pode receber comissão por indicações feitas por links de afiliados, sempre identificados como publicidade.</p>
+    <p>© 2026 CalcFácil. Tabelas de INSS e IRRF vigentes em 01/01/2026.</p>
+  </div>
+</footer>
+<script type="application/json" id="site-config">{"adsenseClient":"","adsenseSlots":{"resultado":"","meio":"","fim":""},"gaId":""}</script>
+<script type="module" src="/assets/js/ui/app.js"></script>
+</body>
+</html>
