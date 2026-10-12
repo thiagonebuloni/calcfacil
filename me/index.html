@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de tributos do ME 2026: DAS, pró-labore e lucros</title>
+<meta name="description" content="Saiu do MEI e virou ME? Estime o DAS do Simples Nacional, o desconto do pró-labore e quanto pode distribuir de lucros, com as tabelas de 2026.">
+<link rel="canonical" href="https://www.seudominio.com.br/me/">
+<meta name="theme-color" content="#0b7557">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="CalcFácil">
+<meta property="og:title" content="Calculadora de tributos do ME 2026: DAS, pró-labore e lucros">
+<meta property="og:description" content="Saiu do MEI e virou ME? Estime o DAS do Simples Nacional, o desconto do pró-labore e quanto pode distribuir de lucros, com as tabelas de 2026.">
+<meta property="og:url" content="https://www.seudominio.com.br/me/">
+<meta property="og:image" content="https://www.seudominio.com.br/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/base.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de tributos do ME","url":"https://www.seudominio.com.br/me/","description":"Saiu do MEI e virou ME? Estime o DAS do Simples Nacional, o desconto do pró-labore e quanto pode distribuir de lucros, com as tabelas de 2026.","applicationCategory":"FinanceApplication","operatingSystem":"Any","inLanguage":"pt-BR","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"MEI que estourou o teto vira ME automaticamente?","acceptedAnswer":{"@type":"Answer","text":"Não. Até 20% acima do teto, a transição vale para o ano seguinte, com DAS complementar sobre o excedente. Acima de 20%, o desenquadramento retroage ao início do ano. Em ambos os casos é preciso pedir o desenquadramento no Portal do Simples Nacional."}},{"@type":"Question","name":"O que é o Fator R?","acceptedAnswer":{"@type":"Answer","text":"É a divisão da folha de salários e pró-labore dos últimos 12 meses pelo faturamento dos últimos 12 meses. A partir de 28%, atividades intelectuais pagam pelo Anexo III (mais barato); abaixo disso, pelo Anexo V. Aumentar o pró-labore pode mudar o anexo."}},{"@type":"Question","name":"ME paga FGTS sobre o pró-labore?","acceptedAnswer":{"@type":"Answer","text":"Não. Sobre o pró-labore incidem apenas INSS e Imposto de Renda. FGTS, férias e 13º existem só para empregados com carteira assinada."}},{"@type":"Question","name":"Lucro distribuído pela ME paga Imposto de Renda?","acceptedAnswer":{"@type":"Answer","text":"Em regra, não: o lucro da ME no Simples é isento. A exceção é a distribuição acima de R$ 50 mil por mês para a mesma pessoa, com retenção de 10% na fonte — que não se aplica se a empresa tiver escrituração contábil e balanço mensal."}},{"@type":"Question","name":"Vale a pena aumentar o pró-labore para melhorar o Fator R?","acceptedAnswer":{"@type":"Answer","text":"Depende: o pró-labore entra na folha e pode levar a empresa ao Anexo III, mas ele próprio sofre INSS e IR. Use a calculadora para comparar o DAS economizado com o desconto a mais no pró-labore."}},{"@type":"Question","name":"O DAS inclui todos os impostos da ME?","acceptedAnswer":{"@type":"Answer","text":"Quase todos: IRPJ, CSLL, PIS, Cofins, IPI, ICMS, ISS e a contribuição previdenciária patronal (exceto no Anexo IV). Fora do DAS ficam, por exemplo, o INSS do pró-labore e, acima do sublimite, ICMS e ISS recolhidos à parte."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.seudominio.com.br/"},{"@type":"ListItem","position":2,"name":"ME (ex-MEI)","item":"https://www.seudominio.com.br/me/"}]}</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="wrap topo-in">
+    <a class="marca" href="/" aria-label="CalcFácil, página inicial">Calc<span>Fácil</span></a>
+    <nav class="menu" aria-label="Calculadoras"><a href="/decimo-terceiro/">13º salário</a><a href="/ferias/">Férias</a><a href="/rescisao/">Rescisão</a><a href="/juros-compostos/">Juros compostos</a><a href="/financiamento/">Financiamento</a><a href="/aposentadoria/">Aposentadoria</a><a href="/me/" aria-current="page">ME (ex-MEI)</a><a href="/blog/">Blog</a></nav>
+  </div>
+</header>
+<main id="conteudo" class="wrap">
+
+<nav class="migalhas" aria-label="Você está em"><a href="/">Início</a> / <span>ME (ex-MEI)</span></nav>
+<article>
+<h1>Calculadora de tributos do ME</h1>
+<p class="lead">Informe o faturamento, o segmento e o pró-labore. Você vê o DAS estimado, o que sobra do pró-labore e quanto pode distribuir de lucros.</p>
+<form class="calc" data-calc="me" novalidate>
+<div class="campos">
+<div class="campo"><label for="f-segmento">Segmento da empresa</label><select id="f-segmento" name="segmento" data-tipo="select"><option value="comercio">Comércio varejista (loja, mercadinho, roupas)</option><option value="alimentacao">Bar, restaurante, lanchonete ou delivery</option><option value="industria">Indústria / fabricação</option><option value="servicos" selected>Serviços em geral (salão, reparos, saúde, educação)</option><option value="transporte">Transporte de cargas ou passageiros</option><option value="construcao">Construção, reforma, limpeza ou vigilância</option><option value="advocacia">Advocacia</option><option value="intelectual">TI, consultoria, marketing, engenharia, design… (Fator R)</option></select><span class="erro" id="erro-segmento" role="alert"></span></div>
+<div class="campo"><label for="f-receitaMensal">Faturamento do mês (R$)</label><input type="text" inputmode="decimal" autocomplete="off" id="f-receitaMensal" name="receitaMensal" data-tipo="money" value="15.000,00"><span class="erro" id="erro-receitaMensal" role="alert"></span></div>
+<div class="campo"><label for="f-rbt12">Faturamento dos últimos 12 meses (R$)</label><input type="text" inputmode="decimal" autocomplete="off" id="f-rbt12" name="rbt12" data-tipo="money" value="150.000,00" aria-describedby="ajuda-rbt12"><span class="ajuda" id="ajuda-rbt12">Soma do faturamento dos 12 meses anteriores. Define a faixa e a alíquota do DAS.</span><span class="erro" id="erro-rbt12" role="alert"></span></div>
+<div class="campo"><label for="f-folha12">Folha dos últimos 12 meses, com pró-labore (R$)</label><input type="text" inputmode="decimal" autocomplete="off" id="f-folha12" name="folha12" data-tipo="money" value="0,00" aria-describedby="ajuda-folha12"><span class="ajuda" id="ajuda-folha12">Só muda o resultado no segmento com Fator R. Conta salários e pró-labore.</span><span class="erro" id="erro-folha12" role="alert"></span></div>
+<div class="campo"><label for="f-tipoMei">Atividade no MEI (para comparar)</label><select id="f-tipoMei" name="tipoMei" data-tipo="select"><option value="comercio">Comércio/indústria (INSS + ICMS)</option><option value="servicos" selected>Serviços (INSS + ISS)</option><option value="ambos">Comércio + serviços (INSS + ICMS + ISS)</option></select><span class="erro" id="erro-tipoMei" role="alert"></span></div>
+<div class="campo campo-largo"><label for="f-prolabore">Pró-labore mensal (R$)</label><input type="text" inputmode="decimal" autocomplete="off" id="f-prolabore" name="prolabore" data-tipo="money" value="3.000,00"><span class="erro" id="erro-prolabore" role="alert"></span></div>
+<div class="campo"><label for="f-modalidade">INSS do pró-labore</label><select id="f-modalidade" name="modalidade" data-tipo="select"><option value="empresa" selected>Retido pela empresa (11%)</option><option value="carne">Recolhido no carnê-leão (20%)</option></select><span class="erro" id="erro-modalidade" role="alert"></span></div>
+<div class="campo"><label for="f-dependentes">Dependentes no Imposto de Renda</label><input type="text" inputmode="numeric" autocomplete="off" id="f-dependentes" name="dependentes" data-tipo="number" value="0"><span class="erro" id="erro-dependentes" role="alert"></span></div>
+<div class="campo"><label for="f-distribuicao">Lucros distribuídos no mês (R$)</label><input type="text" inputmode="decimal" autocomplete="off" id="f-distribuicao" name="distribuicao" data-tipo="money" value="5.000,00"><span class="erro" id="erro-distribuicao" role="alert"></span></div>
+<div class="campo campo-check campo-largo"><input type="checkbox" id="f-escrituracao" name="escrituracao" data-tipo="checkbox"><div><label for="f-escrituracao">Empresa com escrituração contábil e balanço mensal</label><br><span class="ajuda" id="ajuda-escrituracao">Dispensa a retenção sobre lucros acima do limite mensal.</span></div></div>
+</div>
+<div class="acoes"><button class="btn" type="submit">Calcular</button><button class="btn-sec" type="reset">Limpar</button></div>
+</form>
+<section id="resultado" class="resultado" aria-live="polite" tabindex="-1" hidden></section>
+<div class="ad-slot" data-slot="resultado" hidden></div>
+<section class="texto">
+<h2>Como o imposto do ME é calculado</h2>
+<p>O Microempreendedor Individual (MEI) paga um valor fixo por mês. A microempresa (ME) no Simples Nacional paga um percentual sobre o faturamento, na guia única do DAS, mais o INSS sobre o pró-labore do sócio.</p>
+<h3>DAS do Simples Nacional</h3>
+<p>Cada atividade pertence a um anexo, com 6 faixas de faturamento. A alíquota efetiva é (faturamento de 12 meses × alíquota da faixa − parcela a deduzir) ÷ faturamento de 12 meses. O DAS do mês é o faturamento do mês × alíquota efetiva.</p>
+<ul>
+<li><strong>Comércio e indústria</strong> têm anexos próprios, com alíquotas iniciais de 4% e 4,5%.</li>
+<li><strong>Serviços gerais</strong> ficam no Anexo III, a partir de 6%.</li>
+<li><strong>Construção, limpeza, vigilância e advocacia</strong> ficam no Anexo IV: o INSS patronal não está no DAS e é pago à parte.</li>
+<li><strong>TI, consultoria e profissões intelectuais</strong> dependem do Fator R: se a folha de 12 meses (com o pró-labore) for ao menos 28% do faturamento de 12 meses, paga pelo Anexo III; abaixo disso, pelo Anexo V.</li>
+</ul>
+<h3>MEI que virou ME</h3>
+<p>O teto do MEI é de R$ 81 mil por ano. Até 20% acima disso, a empresa vira ME no ano seguinte e recolhe DAS complementar sobre o excedente. Acima de 20%, o desenquadramento vale desde o início do ano.</p>
+<h3>Pró-labore</h3>
+<p>O sócio recolhe INSS de 11% (retido pela empresa) ou 20% (no carnê-leão), até o teto da Previdência, mais Imposto de Renda pela tabela mensal. Não há FGTS, férias nem 13º sobre o pró-labore.</p>
+<h3>Distribuição de lucros</h3>
+<p>O lucro da ME no Simples é isento de Imposto de Renda. Desde 2026, porém, valores acima de R$ 50 mil por mês para a mesma pessoa sofrem retenção de 10% na fonte — exceto se a empresa tiver escrituração contábil e balanço mensal.</p>
+<h3>Exemplo</h3>
+<p>Prestadora de serviços com faturamento de R$ 40 mil no mês e R$ 420 mil em 12 meses: cai na faixa 3 do Anexo III, alíquota efetiva de 9,3% e DAS de R$ 3.720,00. Com pró-labore de R$ 5.000,00 retido pela empresa, o INSS é de R$ 550,00, o IR é zero e o líquido é de R$ 4.450,00.</p>
+<p class="fonte">Valores estimados: a apuração oficial é feita no PGDAS-D, e o enquadramento do anexo deve ser confirmado com o contador.</p></section>
+<div class="ad-slot" data-slot="meio" hidden></div>
+<section class="faq">
+<h2>Perguntas frequentes</h2>
+<details><summary>MEI que estourou o teto vira ME automaticamente?</summary><p>Não. Até 20% acima do teto, a transição vale para o ano seguinte, com DAS complementar sobre o excedente. Acima de 20%, o desenquadramento retroage ao início do ano. Em ambos os casos é preciso pedir o desenquadramento no Portal do Simples Nacional.</p></details>
+<details><summary>O que é o Fator R?</summary><p>É a divisão da folha de salários e pró-labore dos últimos 12 meses pelo faturamento dos últimos 12 meses. A partir de 28%, atividades intelectuais pagam pelo Anexo III (mais barato); abaixo disso, pelo Anexo V. Aumentar o pró-labore pode mudar o anexo.</p></details>
+<details><summary>ME paga FGTS sobre o pró-labore?</summary><p>Não. Sobre o pró-labore incidem apenas INSS e Imposto de Renda. FGTS, férias e 13º existem só para empregados com carteira assinada.</p></details>
+<details><summary>Lucro distribuído pela ME paga Imposto de Renda?</summary><p>Em regra, não: o lucro da ME no Simples é isento. A exceção é a distribuição acima de R$ 50 mil por mês para a mesma pessoa, com retenção de 10% na fonte — que não se aplica se a empresa tiver escrituração contábil e balanço mensal.</p></details>
+<details><summary>Vale a pena aumentar o pró-labore para melhorar o Fator R?</summary><p>Depende: o pró-labore entra na folha e pode levar a empresa ao Anexo III, mas ele próprio sofre INSS e IR. Use a calculadora para comparar o DAS economizado com o desconto a mais no pró-labore.</p></details>
+<details><summary>O DAS inclui todos os impostos da ME?</summary><p>Quase todos: IRPJ, CSLL, PIS, Cofins, IPI, ICMS, ISS e a contribuição previdenciária patronal (exceto no Anexo IV). Fora do DAS ficam, por exemplo, o INSS do pró-labore e, acima do sublimite, ICMS e ISS recolhidos à parte.</p></details>
+</section>
+<div class="ad-slot" data-slot="fim" hidden></div>
+<section class="relacionadas">
+<h2>Outras calculadoras</h2>
+<ul><li><a href="/juros-compostos/">Juros compostos<small>Quanto seu dinheiro rende com aportes e tempo.</small></a></li><li><a href="/financiamento/">Financiamento<small>Price ou SAC, com tabela de amortização.</small></a></li><li><a href="/aposentadoria/">Aposentadoria<small>Patrimônio e aporte para viver de renda.</small></a></li></ul>
+</section>
+<aside class="aviso-legal">
+<p><strong>Aviso:</strong> resultado estimado, de caráter informativo. Não substitui o cálculo oficial nem a orientação de contador, advogado ou consultor financeiro. <a href="/aviso-legal/">Leia o aviso legal</a>.</p>
+<p>Base legal: LC 123/2006 (Simples Nacional), Lei 8.212/1991 (INSS do sócio) e Lei 15.270/2025 (IR vigente). Tabelas de INSS e IRRF vigentes em 01/01/2026. Última revisão: 12/10/2026.</p>
+</aside>
+</article>
+</main>
+<footer class="rodape">
+  <div class="wrap rodape-in">
+    <nav aria-label="Institucional">
+      <a href="/sobre/">Sobre</a>
+      <a href="/contato/">Contato</a>
+      <a href="/privacidade/">Privacidade</a>
+      <a href="/termos/">Termos de uso</a>
+      <a href="/aviso-legal/">Aviso legal</a>
+      <button type="button" class="link" data-abrir-cookies hidden>Preferências de cookies</button>
+    </nav>
+    <p>Os resultados são estimativas informativas e não substituem contador, advogado ou consultor financeiro. Este site pode receber comissão por indicações feitas por links de afiliados, sempre identificados como publicidade.</p>
+    <p>© 2026 CalcFácil. Tabelas de INSS e IRRF vigentes em 01/01/2026.</p>
+  </div>
+</footer>
+<script type="application/json" id="site-config">{"adsenseClient":"","adsenseSlots":{"resultado":"","meio":"","fim":""},"gaId":""}</script>
+<script type="module" src="/assets/js/ui/app.js"></script>
+</body>
+</html>

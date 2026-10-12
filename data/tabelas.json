@@ -74,5 +74,80 @@
       { "ateDias": 720, "aliquota": 0.175 },
       { "ateDias": null, "aliquota": 0.15 }
     ]
+  },
+
+  "simples": {
+    "fonte": "LC 123/2006, Anexos I a V (redação LC 155/2016); teto e sublimite do art. 3º; Fator R do art. 18, §5º-J",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm",
+    "limite": 4800000.0,
+    "sublimite": 3600000.0,
+    "fatorR": 0.28,
+    "cppNoDas": { "I": true, "II": true, "III": true, "IV": false, "V": false },
+    "anexos": {
+      "I": { "rotulo": "Comércio", "faixas": [
+        { "ate": 180000.0, "nominal": 0.04, "deducao": 0 },
+        { "ate": 360000.0, "nominal": 0.073, "deducao": 5940 },
+        { "ate": 720000.0, "nominal": 0.095, "deducao": 13860 },
+        { "ate": 1800000.0, "nominal": 0.107, "deducao": 22500 },
+        { "ate": 3600000.0, "nominal": 0.143, "deducao": 87300 },
+        { "ate": null, "nominal": 0.19, "deducao": 378000 }
+      ] },
+      "II": { "rotulo": "Indústria", "faixas": [
+        { "ate": 180000.0, "nominal": 0.045, "deducao": 0 },
+        { "ate": 360000.0, "nominal": 0.078, "deducao": 5940 },
+        { "ate": 720000.0, "nominal": 0.1, "deducao": 13860 },
+        { "ate": 1800000.0, "nominal": 0.112, "deducao": 22500 },
+        { "ate": 3600000.0, "nominal": 0.147, "deducao": 85500 },
+        { "ate": null, "nominal": 0.3, "deducao": 720000 }
+      ] },
+      "III": { "rotulo": "Serviços (Anexo III)", "faixas": [
+        { "ate": 180000.0, "nominal": 0.06, "deducao": 0 },
+        { "ate": 360000.0, "nominal": 0.112, "deducao": 9360 },
+        { "ate": 720000.0, "nominal": 0.135, "deducao": 17640 },
+        { "ate": 1800000.0, "nominal": 0.16, "deducao": 35640 },
+        { "ate": 3600000.0, "nominal": 0.21, "deducao": 125640 },
+        { "ate": null, "nominal": 0.33, "deducao": 648000 }
+      ] },
+      "IV": { "rotulo": "Serviços sem CPP no DAS (Anexo IV)", "faixas": [
+        { "ate": 180000.0, "nominal": 0.045, "deducao": 0 },
+        { "ate": 360000.0, "nominal": 0.09, "deducao": 8100 },
+        { "ate": 720000.0, "nominal": 0.102, "deducao": 12420 },
+        { "ate": 1800000.0, "nominal": 0.14, "deducao": 39780 },
+        { "ate": 3600000.0, "nominal": 0.22, "deducao": 183780 },
+        { "ate": null, "nominal": 0.33, "deducao": 828000 }
+      ] },
+      "V": { "rotulo": "Serviços sujeitos ao Fator R (Anexo V)", "faixas": [
+        { "ate": 180000.0, "nominal": 0.155, "deducao": 0 },
+        { "ate": 360000.0, "nominal": 0.18, "deducao": 4500 },
+        { "ate": 720000.0, "nominal": 0.195, "deducao": 9900 },
+        { "ate": 1800000.0, "nominal": 0.205, "deducao": 17100 },
+        { "ate": 3600000.0, "nominal": 0.23, "deducao": 62100 },
+        { "ate": null, "nominal": 0.305, "deducao": 540000 }
+      ] }
+    }
+  },
+
+  "mei": {
+    "fonte": "LC 123/2006 (teto e regras de desenquadramento); PGMEI — valores de 2026 (Decreto nº 12.797/2025)",
+    "url": "https://www8.receita.fazenda.gov.br/simplesnacional/",
+    "tetoAnual": 81000.0,
+    "tetoMesProporcional": 6750.0,
+    "tolerancia": 0.2,
+    "das": { "inss": 81.05, "icms": 1.0, "iss": 5.0 }
+  },
+
+  "proLabore": {
+    "fonte": "Lei 8.212/1991, art. 21: 11% retido pela empresa ou 20% no carnê-leão, até o teto do INSS",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm",
+    "retencaoEmpresa": 0.11,
+    "carneLeao": 0.2
+  },
+
+  "lucros": {
+    "fonte": "LC 123/2006, art. 14 (isenção); Lei 15.270/2025, arts. 6º-A (retenção de 10% acima de R$ 50 mil/mês) e 16-A (imposto mínimo anual)",
+    "url": "https://www.gov.br/receitafederal",
+    "limiteRetencaoMensal": 50000.0,
+    "aliquotaRetencao": 0.1,
+    "limiteImpostoMinimoAnual": 600000.0
   }
 }

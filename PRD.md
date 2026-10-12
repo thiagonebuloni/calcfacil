@@ -26,7 +26,7 @@ Cada calculadora é uma página própria que responde a uma intenção de busca 
 | Trabalhador CLT | Saber quanto vai receber (rescisão, 13º, férias) | Rescisão, 13º, férias |
 | Consumidor / comprador | Comparar financiamentos e entender juros | Financiamento, juros compostos |
 | Poupador / investidor iniciante | Planejar acúmulo e aposentadoria | Juros compostos, aposentadoria |
-| Autônomo / MEI | Estimar valores líquidos | (fase 2) |
+| Autônomo / MEI que virou ME | Estimar DAS, pró-labore líquido e lucros | Tributos do ME |
 
 ## 4. Objetivos e métricas de sucesso
 
@@ -52,7 +52,7 @@ Cada calculadora é uma página própria que responde a uma intenção de busca 
 ### 5.1 Dentro do escopo (MVP)
 
 - Página inicial com lista de calculadoras.
-- 6 calculadoras: rescisão, 13º salário, férias, financiamento, juros compostos, aposentadoria (estimativa).
+- 7 calculadoras: rescisão, 13º salário, férias, financiamento, juros compostos, aposentadoria (estimativa) e tributos do ME (Simples, pró-labore e lucros para quem saiu do MEI).
 - Páginas institucionais: Sobre, Contato, Política de Privacidade, Termos de Uso, Aviso Legal.
 - Banner de consentimento de cookies (LGPD) integrado a anúncios e analytics.
 - Espaços reservados para anúncios e blocos de afiliados.
@@ -64,7 +64,7 @@ Cada calculadora é uma página própria que responde a uma intenção de busca 
 - Contas de usuário, login, salvamento de dados no servidor.
 - Banco de dados e back-end.
 - Aplicativo mobile.
-- Cálculos tributários complexos (declaração de IR completa, MEI, pró-labore).
+- Cálculos tributários complexos (declaração de IR completa, Lucro Presumido/Real).
 - Versões em outros idiomas.
 
 ## 6. Calculadoras do MVP

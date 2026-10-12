@@ -270,9 +270,81 @@ export const calculadoras = [
       ['E se eu quiser me aposentar mais cedo?', 'Mude a idade para se aposentar. Você vai ver o aporte mensal subir, porque há menos anos de juros e a meta chega mais cedo.'],
     ],
   },
+  {
+    slug: 'me',
+    nome: 'Calculadora de tributos do ME',
+    nomeCurto: 'ME (ex-MEI)',
+    titulo: 'Calculadora de tributos do ME {ANO}: DAS, pró-labore e lucros',
+    descricao: 'Saiu do MEI e virou ME? Estime o DAS do Simples Nacional, o desconto do pró-labore e quanto pode distribuir de lucros, com as tabelas de {ANO}.',
+    resumoLista: 'DAS do Simples, pró-labore e lucros para quem saiu do MEI.',
+    h1: 'Calculadora de tributos do ME',
+    lead: 'Informe o faturamento, o segmento e o pró-labore. Você vê o DAS estimado, o que sobra do pró-labore e quanto pode distribuir de lucros.',
+    campos: [
+      { name: 'segmento', rotulo: 'Segmento da empresa', tipo: 'select', valor: 'servicos', opcoes: [['comercio', 'Comércio varejista (loja, mercadinho, roupas)'], ['alimentacao', 'Bar, restaurante, lanchonete ou delivery'], ['industria', 'Indústria / fabricação'], ['servicos', 'Serviços em geral (salão, reparos, saúde, educação)'], ['transporte', 'Transporte de cargas ou passageiros'], ['construcao', 'Construção, reforma, limpeza ou vigilância'], ['advocacia', 'Advocacia'], ['intelectual', 'TI, consultoria, marketing, engenharia, design… (Fator R)']] },
+      { name: 'receitaMensal', rotulo: 'Faturamento do mês (R$)', tipo: 'money', valor: '15.000,00' },
+      { name: 'rbt12', rotulo: 'Faturamento dos últimos 12 meses (R$)', tipo: 'money', valor: '150.000,00', ajuda: 'Soma do faturamento dos 12 meses anteriores. Define a faixa e a alíquota do DAS.' },
+      { name: 'folha12', rotulo: 'Folha dos últimos 12 meses, com pró-labore (R$)', tipo: 'money', valor: '0,00', ajuda: 'Só muda o resultado no segmento com Fator R. Conta salários e pró-labore.' },
+      { name: 'tipoMei', rotulo: 'Atividade no MEI (para comparar)', tipo: 'select', valor: 'servicos', opcoes: [['comercio', 'Comércio/indústria (INSS + ICMS)'], ['servicos', 'Serviços (INSS + ISS)'], ['ambos', 'Comércio + serviços (INSS + ICMS + ISS)']] },
+      { name: 'prolabore', rotulo: 'Pró-labore mensal (R$)', tipo: 'money', valor: '3.000,00', largo: true },
+      { name: 'modalidade', rotulo: 'INSS do pró-labore', tipo: 'select', valor: 'empresa', opcoes: [['empresa', 'Retido pela empresa (11%)'], ['carne', 'Recolhido no carnê-leão (20%)']] },
+      { name: 'dependentes', rotulo: 'Dependentes no Imposto de Renda', tipo: 'number', valor: '0' },
+      { name: 'distribuicao', rotulo: 'Lucros distribuídos no mês (R$)', tipo: 'money', valor: '5.000,00' },
+      { name: 'escrituracao', rotulo: 'Empresa com escrituração contábil e balanço mensal', tipo: 'checkbox', valor: false, ajuda: 'Dispensa a retenção sobre lucros acima do limite mensal.' },
+    ],
+    lei: 'LC 123/2006 (Simples Nacional), Lei 8.212/1991 (INSS do sócio) e Lei 15.270/2025 (IR vigente)',
+    relacionadas: ['juros-compostos', 'financiamento', 'aposentadoria'],
+    comoCalcula: `
+<h2>Como o imposto do ME é calculado</h2>
+<p>O Microempreendedor Individual (MEI) paga um valor fixo por mês. A microempresa (ME) no Simples Nacional paga um percentual sobre o faturamento, na guia única do DAS, mais o INSS sobre o pró-labore do sócio.</p>
+<h3>DAS do Simples Nacional</h3>
+<p>Cada atividade pertence a um anexo, com 6 faixas de faturamento. A alíquota efetiva é (faturamento de 12 meses × alíquota da faixa − parcela a deduzir) ÷ faturamento de 12 meses. O DAS do mês é o faturamento do mês × alíquota efetiva.</p>
+<ul>
+<li><strong>Comércio e indústria</strong> têm anexos próprios, com alíquotas iniciais de 4% e 4,5%.</li>
+<li><strong>Serviços gerais</strong> ficam no Anexo III, a partir de 6%.</li>
+<li><strong>Construção, limpeza, vigilância e advocacia</strong> ficam no Anexo IV: o INSS patronal não está no DAS e é pago à parte.</li>
+<li><strong>TI, consultoria e profissões intelectuais</strong> dependem do Fator R: se a folha de 12 meses (com o pró-labore) for ao menos 28% do faturamento de 12 meses, paga pelo Anexo III; abaixo disso, pelo Anexo V.</li>
+</ul>
+<h3>MEI que virou ME</h3>
+<p>O teto do MEI é de R$ 81 mil por ano. Até 20% acima disso, a empresa vira ME no ano seguinte e recolhe DAS complementar sobre o excedente. Acima de 20%, o desenquadramento vale desde o início do ano.</p>
+<h3>Pró-labore</h3>
+<p>O sócio recolhe INSS de 11% (retido pela empresa) ou 20% (no carnê-leão), até o teto da Previdência, mais Imposto de Renda pela tabela mensal. Não há FGTS, férias nem 13º sobre o pró-labore.</p>
+<h3>Distribuição de lucros</h3>
+<p>O lucro da ME no Simples é isento de Imposto de Renda. Desde {ANO}, porém, valores acima de R$ 50 mil por mês para a mesma pessoa sofrem retenção de 10% na fonte — exceto se a empresa tiver escrituração contábil e balanço mensal.</p>
+<h3>Exemplo</h3>
+<p>Prestadora de serviços com faturamento de R$ 40 mil no mês e R$ 420 mil em 12 meses: cai na faixa 3 do Anexo III, alíquota efetiva de 9,3% e DAS de R$ 3.720,00. Com pró-labore de R$ 5.000,00 retido pela empresa, o INSS é de R$ 550,00, o IR é zero e o líquido é de R$ 4.450,00.</p>
+<p class="fonte">Valores estimados: a apuração oficial é feita no PGDAS-D, e o enquadramento do anexo deve ser confirmado com o contador.</p>`,
+    faq: [
+      ['MEI que estourou o teto vira ME automaticamente?', 'Não. Até 20% acima do teto, a transição vale para o ano seguinte, com DAS complementar sobre o excedente. Acima de 20%, o desenquadramento retroage ao início do ano. Em ambos os casos é preciso pedir o desenquadramento no Portal do Simples Nacional.'],
+      ['O que é o Fator R?', 'É a divisão da folha de salários e pró-labore dos últimos 12 meses pelo faturamento dos últimos 12 meses. A partir de 28%, atividades intelectuais pagam pelo Anexo III (mais barato); abaixo disso, pelo Anexo V. Aumentar o pró-labore pode mudar o anexo.'],
+      ['ME paga FGTS sobre o pró-labore?', 'Não. Sobre o pró-labore incidem apenas INSS e Imposto de Renda. FGTS, férias e 13º existem só para empregados com carteira assinada.'],
+      ['Lucro distribuído pela ME paga Imposto de Renda?', 'Em regra, não: o lucro da ME no Simples é isento. A exceção é a distribuição acima de R$ 50 mil por mês para a mesma pessoa, com retenção de 10% na fonte — que não se aplica se a empresa tiver escrituração contábil e balanço mensal.'],
+      ['Vale a pena aumentar o pró-labore para melhorar o Fator R?', 'Depende: o pró-labore entra na folha e pode levar a empresa ao Anexo III, mas ele próprio sofre INSS e IR. Use a calculadora para comparar o DAS economizado com o desconto a mais no pró-labore.'],
+      ['O DAS inclui todos os impostos da ME?', 'Quase todos: IRPJ, CSLL, PIS, Cofins, IPI, ICMS, ISS e a contribuição previdenciária patronal (exceto no Anexo IV). Fora do DAS ficam, por exemplo, o INSS do pró-labore e, acima do sublimite, ICMS e ISS recolhidos à parte.'],
+    ],
+  },
 ];
 
 export const blog = [
+  {
+    slug: 'mei-virou-me-o-que-muda-no-imposto',
+    titulo: 'MEI que virou ME: o que muda no imposto',
+    descricao: 'Estourou o teto do MEI? Entenda como funciona o DAS da ME no Simples Nacional, o Fator R, o pró-labore e a distribuição de lucros, com exemplo numérico.',
+    data: '2026-10-12',
+    calc: 'me',
+    corpo: `
+<p>Quando o faturamento passa de R$ 81 mil por ano, o MEI vira microempresa (ME) no Simples Nacional. O imposto deixa de ser fixo e passa a ser um percentual sobre o faturamento, pago na guia única do DAS. Veja o que muda, ponto a ponto.</p>
+<h2>1. Do valor fixo ao percentual</h2>
+<p>No MEI, você paga por mês R$ 81,05 de INSS mais R$ 1,00 de ICMS (comércio) ou R$ 5,00 de ISS (serviços). Na ME, o DAS é o faturamento do mês vezes a alíquota efetiva do seu anexo — que depende do faturamento dos últimos 12 meses. Quanto mais a empresa fatura, maior a alíquota.</p>
+<h2>2. O anexo define a alíquota</h2>
+<p>Comércio e indústria têm anexos próprios. Serviços gerais ficam no Anexo III, que começa em 6%. Construção, limpeza, vigilância e advocacia ficam no Anexo IV, onde o INSS patronal é pago à parte, fora do DAS. E profissões intelectuais (TI, consultoria, marketing, engenharia) dependem do Fator R: se a folha de 12 meses, incluindo o pró-labore, for ao menos 28% do faturamento, a empresa paga pelo Anexo III; abaixo disso, pelo Anexo V, bem mais caro.</p>
+<h2>3. O pró-labore tem desconto</h2>
+<p>Diferente do MEI, o sócio da ME recolhe INSS sobre o pró-labore: 11% retido pela empresa ou 20% no carnê-leão, até o teto da Previdência, mais Imposto de Renda pela tabela mensal. Não há FGTS, férias nem 13º sobre o pró-labore. E o pró-labore conta na folha do Fator R — às vezes, aumentá-lo reduz o DAS mais do que custa.</p>
+<h2>4. Lucro distribuído é isento — com uma novidade</h2>
+<p>O lucro da ME no Simples é isento de Imposto de Renda. A novidade é que, desde 2026, distribuições acima de R$ 50 mil por mês para a mesma pessoa sofrem retenção de 10% na fonte — exceto se a empresa tiver escrituração contábil e balanço mensal.</p>
+<h2>5. Exemplo</h2>
+<p>Prestadora de serviços com R$ 40 mil de faturamento no mês e R$ 420 mil em 12 meses: faixa 3 do Anexo III, alíquota efetiva de 9,3% e DAS de R$ 3.720,00. Compare com os R$ 86,05 mensais do MEI de serviços — por isso, ao estourar o teto, vale refazer as contas.</p>
+<p>Para estimar o seu caso, use a <a href="/me/">calculadora de tributos do ME</a>.</p>`,
+  },
   {
     slug: 'como-calcular-rescisao-sem-justa-causa',
     titulo: 'Como calcular a rescisão sem justa causa, passo a passo',

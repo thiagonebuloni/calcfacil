@@ -9,7 +9,7 @@
 //     url: 'https://seu-link-de-afiliado.exemplo/...',
 //   }],
 //
-// Chaves aceitas: decimo-terceiro, ferias, rescisao, juros-compostos, financiamento, aposentadoria.
+// Chaves aceitas: decimo-terceiro, ferias, rescisao, juros-compostos, financiamento, aposentadoria, me.
 
 export const AFILIADOS = {
   'decimo-terceiro': [],
@@ -18,6 +18,7 @@ export const AFILIADOS = {
   'juros-compostos': [],
   'financiamento': [],
   'aposentadoria': [],
+  'me': [],
 };
 
 import { el } from './render.js';
