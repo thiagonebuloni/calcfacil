@@ -1,0 +1,15 @@
+{
+  "name": "calcfacil",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Calculadoras financeiras em português (site estático)",
+  "type": "module",
+  "scripts": {
+    "gerar": "node scripts/gerar.mjs",
+    "test": "node --test",
+    "serve": "npx serve ."
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
