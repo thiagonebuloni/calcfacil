@@ -38,7 +38,7 @@ Site estático com calculadoras e simuladores financeiros para o Brasil: rescis�
 
 ## 2. Pré-requisitos
 
-- [ ] Node.js 20+ (apenas para testes e servidor local)
+- [x] Node.js 20+ (apenas para testes e servidor local)
 - [ ] Git e conta no GitHub
 - [ ] Conta na Cloudflare (ou Vercel/Netlify)
 - [ ] Conta Google (Search Console, AdSense, Analytics)
@@ -198,14 +198,14 @@ Roteiro de atualização:
 
 ## 9. Checklist de lançamento
 
-- [ ] Todos os testes passam
-- [ ] Lighthouse mobile: Performance ≥ 90, Acessibilidade ≥ 90, SEO ≥ 95
-- [ ] Cada página tem `title`, `meta description`, H1 único e `canonical`
+- [x] Todos os testes passam
+- [x] Lighthouse mobile: Performance ≥ 90, Acessibilidade ≥ 90, SEO ≥ 95
+- [x] Cada página tem `title`, `meta description`, H1 único e `canonical`
 - [x] Open Graph e imagem de compartilhamento configurados (`assets/img/og.png`)
 - [ ] JSON-LD (WebApplication, FAQPage, BreadcrumbList) validado
-- [ ] Páginas institucionais publicadas e linkadas no rodapé
-- [ ] Banner de cookies funciona (recusar bloqueia analytics e anúncios)
-- [ ] Aviso legal visível nas calculadoras
+- [x] Páginas institucionais publicadas e linkadas no rodapé
+- [x] Banner de cookies funciona (recusar bloqueia analytics e anúncios)
+- [x] Aviso legal visível nas calculadoras
 - [ ] Testado em celular real (Android e iOS)
 - [ ] `sitemap.xml` enviado ao Search Console
 

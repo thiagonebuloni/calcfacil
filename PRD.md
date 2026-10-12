@@ -230,11 +230,11 @@ Todas as faixas, alíquotas e valores legais ficam em um único arquivo de dados
 
 ## 14. Critérios de aceite do MVP
 
-- [ ] Todas as 6 calculadoras passam nos testes automatizados com casos de referência conferidos manualmente.
-- [ ] Nenhum valor legal está fixo no código; tudo vem de `data/tabelas.json` com fonte e vigência.
-- [ ] Lighthouse mobile: Performance ≥ 90, SEO ≥ 95, Acessibilidade ≥ 90.
-- [ ] Páginas institucionais e política de privacidade publicadas.
-- [ ] Banner de consentimento funcional.
+- [x] Todas as 6 calculadoras passam nos testes automatizados com casos de referência conferidos manualmente.
+- [x] Nenhum valor legal está fixo no código; tudo vem de `data/tabelas.json` com fonte e vigência.
+- [x] Lighthouse mobile: Performance ≥ 90, SEO ≥ 95, Acessibilidade ≥ 90.
+- [x] Páginas institucionais e política de privacidade publicadas.
+- [x] Banner de consentimento funcional.
 - [ ] Sitemap enviado e páginas indexadas no Search Console.
 - [ ] Aviso legal e rótulo de afiliado visíveis onde aplicável.
 
