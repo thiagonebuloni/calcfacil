@@ -82,6 +82,7 @@
     "limite": 4800000.0,
     "sublimite": 3600000.0,
     "fatorR": 0.28,
+    "margemFatorR": 0.02,
     "cppNoDas": { "I": true, "II": true, "III": true, "IV": false, "V": false },
     "anexos": {
       "I": { "rotulo": "Comércio", "faixas": [

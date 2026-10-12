@@ -283,7 +283,7 @@ export const calculadoras = [
       { name: 'segmento', rotulo: 'Segmento da empresa', tipo: 'select', valor: 'servicos', opcoes: [['comercio', 'Comércio varejista (loja, mercadinho, roupas)'], ['alimentacao', 'Bar, restaurante, lanchonete ou delivery'], ['industria', 'Indústria / fabricação'], ['servicos', 'Serviços em geral (salão, reparos, saúde, educação)'], ['transporte', 'Transporte de cargas ou passageiros'], ['construcao', 'Construção, reforma, limpeza ou vigilância'], ['advocacia', 'Advocacia'], ['intelectual', 'TI, consultoria, marketing, engenharia, design… (Fator R)']] },
       { name: 'receitaMensal', rotulo: 'Faturamento do mês (R$)', tipo: 'money', valor: '15.000,00' },
       { name: 'rbt12', rotulo: 'Faturamento dos últimos 12 meses (R$)', tipo: 'money', valor: '150.000,00', ajuda: 'Soma do faturamento dos 12 meses anteriores. Define a faixa e a alíquota do DAS.' },
-      { name: 'folha12', rotulo: 'Folha dos últimos 12 meses, com pró-labore (R$)', tipo: 'money', valor: '0,00', ajuda: 'Só muda o resultado no segmento com Fator R. Conta salários e pró-labore.' },
+      { name: 'folha12', rotulo: 'Folha de funcionários dos últimos 12 meses (R$)', tipo: 'money', valor: '0,00', ajuda: 'Só muda o resultado no segmento com Fator R. Não inclua aqui o seu pró-labore: ele entra abaixo e é somado automaticamente.' },
       { name: 'tipoMei', rotulo: 'Atividade no MEI (para comparar)', tipo: 'select', valor: 'servicos', opcoes: [['comercio', 'Comércio/indústria (INSS + ICMS)'], ['servicos', 'Serviços (INSS + ISS)'], ['ambos', 'Comércio + serviços (INSS + ICMS + ISS)']] },
       { name: 'prolabore', rotulo: 'Pró-labore mensal (R$)', tipo: 'money', valor: '3.000,00', largo: true },
       { name: 'modalidade', rotulo: 'INSS do pró-labore', tipo: 'select', valor: 'empresa', opcoes: [['empresa', 'Retido pela empresa (11%)'], ['carne', 'Recolhido no carnê-leão (20%)']] },
@@ -302,7 +302,7 @@ export const calculadoras = [
 <li><strong>Comércio e indústria</strong> têm anexos próprios, com alíquotas iniciais de 4% e 4,5%.</li>
 <li><strong>Serviços gerais</strong> ficam no Anexo III, a partir de 6%.</li>
 <li><strong>Construção, limpeza, vigilância e advocacia</strong> ficam no Anexo IV: o INSS patronal não está no DAS e é pago à parte.</li>
-<li><strong>TI, consultoria e profissões intelectuais</strong> dependem do Fator R: se a folha de 12 meses (com o pró-labore) for ao menos 28% do faturamento de 12 meses, paga pelo Anexo III; abaixo disso, pelo Anexo V.</li>
+<li><strong>TI, consultoria e profissões intelectuais</strong> dependem do Fator R: se a folha de 12 meses — salários mais o seu pró-labore — for ao menos 28% do faturamento de 12 meses, paga pelo Anexo III; abaixo disso, pelo Anexo V. O pró-labore informado entra nessa conta automaticamente, nos 12 meses do ano.</li>
 </ul>
 <h3>MEI que virou ME</h3>
 <p>O teto do MEI é de R$ 81 mil por ano. Até 20% acima disso, a empresa vira ME no ano seguinte e recolhe DAS complementar sobre o excedente. Acima de 20%, o desenquadramento vale desde o início do ano.</p>
@@ -310,15 +310,25 @@ export const calculadoras = [
 <p>O sócio recolhe INSS de 11% (retido pela empresa) ou 20% (no carnê-leão), até o teto da Previdência, mais Imposto de Renda pela tabela mensal. Não há FGTS, férias nem 13º sobre o pró-labore.</p>
 <h3>Distribuição de lucros</h3>
 <p>O lucro da ME no Simples é isento de Imposto de Renda. Desde {ANO}, porém, valores acima de R$ 50 mil por mês para a mesma pessoa sofrem retenção de 10% na fonte — exceto se a empresa tiver escrituração contábil e balanço mensal.</p>
+<h3>Quanto retirar de cada um</h3>
+<p>O valor destacado no resultado não é o imposto: é o total sugerido para o seu bolso. A calculadora compara duas formas de dividir o faturamento do mês e recomenda a que deixa mais:</p>
+<ul>
+<li><strong>Pró-labore maior</strong>, para segurar o Fator R no Anexo III e pagar DAS mais baixo.</li>
+<li><strong>Pró-labore menor</strong>, no piso previdenciário, para maximizar o lucro isento quando o anexo não muda.</li>
+</ul>
+<p>O lucro disponível é o faturamento menos o DAS menos o pró-labore bruto. O INSS do sócio não é descontado outra vez nessa conta: ele já está dentro do pró-labore — parte vai para você e parte é repassada à Previdência. A linha <em>caixa do mês</em> mostra esse valor, e <em>reserva</em> o que fica na empresa se você distribuir menos.</p>
 <h3>Exemplo</h3>
 <p>Prestadora de serviços com faturamento de R$ 40 mil no mês e R$ 420 mil em 12 meses: cai na faixa 3 do Anexo III, alíquota efetiva de 9,3% e DAS de R$ 3.720,00. Com pró-labore de R$ 5.000,00 retido pela empresa, o INSS é de R$ 550,00, o IR é zero e o líquido é de R$ 4.450,00.</p>
-<p class="fonte">Valores estimados: a apuração oficial é feita no PGDAS-D, e o enquadramento do anexo deve ser confirmado com o contador.</p>`,
+<p class="fonte">Valores estimados: a apuração oficial é feita no PGDAS-D, e o enquadramento do anexo deve ser confirmado com o contador.</p>
+<h3>Exemplo da divisão</h3>
+<p>Profissional intelectual faturando R$ 7.000 por mês: o lucro isento convida a tirar o mínimo de pró-labore, mas aí o Fator R cai e o anexo vira V, com DAS de 15,5% (R$ 1.085,00) em vez de 6%. Retirando R$ 2.100,00 de pró-labore, o anexo fica em III (com folga de 2 pontos sobre o corte de 28%), o DAS cai para R$ 420,00 e sobram R$ 4.480,00 de lucro isento — total de R$ 6.349,00 no bolso, contra R$ 5.736,69 na alternativa.</p>`,
     faq: [
       ['MEI que estourou o teto vira ME automaticamente?', 'Não. Até 20% acima do teto, a transição vale para o ano seguinte, com DAS complementar sobre o excedente. Acima de 20%, o desenquadramento retroage ao início do ano. Em ambos os casos é preciso pedir o desenquadramento no Portal do Simples Nacional.'],
       ['O que é o Fator R?', 'É a divisão da folha de salários e pró-labore dos últimos 12 meses pelo faturamento dos últimos 12 meses. A partir de 28%, atividades intelectuais pagam pelo Anexo III (mais barato); abaixo disso, pelo Anexo V. Aumentar o pró-labore pode mudar o anexo.'],
       ['ME paga FGTS sobre o pró-labore?', 'Não. Sobre o pró-labore incidem apenas INSS e Imposto de Renda. FGTS, férias e 13º existem só para empregados com carteira assinada.'],
       ['Lucro distribuído pela ME paga Imposto de Renda?', 'Em regra, não: o lucro da ME no Simples é isento. A exceção é a distribuição acima de R$ 50 mil por mês para a mesma pessoa, com retenção de 10% na fonte — que não se aplica se a empresa tiver escrituração contábil e balanço mensal.'],
-      ['Vale a pena aumentar o pró-labore para melhorar o Fator R?', 'Depende: o pró-labore entra na folha e pode levar a empresa ao Anexo III, mas ele próprio sofre INSS e IR. Use a calculadora para comparar o DAS economizado com o desconto a mais no pró-labore.'],
+      ['Vale a pena aumentar o pró-labore para melhorar o Fator R?', 'Em geral, sim, e a calculadora já compara os dois casos: o pró-labore entra na folha do Fator R e pode levar a empresa ao Anexo III, mas ele próprio sofre INSS e IR. A sugestão mostra quanto retirar e quanto sobra no bolso em cada cenário.'],
+      ['Por que o INSS do pró-labore não é descontado duas vezes do lucro?', 'Porque ele já está dentro do valor do pró-labore. O caixa disponível é o faturamento menos o DAS menos o pró-labore bruto; desse valor, parte é sua e parte vai para a Previdência.'],
       ['O DAS inclui todos os impostos da ME?', 'Quase todos: IRPJ, CSLL, PIS, Cofins, IPI, ICMS, ISS e a contribuição previdenciária patronal (exceto no Anexo IV). Fora do DAS ficam, por exemplo, o INSS do pró-labore e, acima do sublimite, ICMS e ISS recolhidos à parte.'],
     ],
   },
