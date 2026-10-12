@@ -1,6 +1,6 @@
 // Banner de consentimento (LGPD). "Apenas essenciais" não carrega analytics nem anúncios.
 
-import { ativarTerceiros } from './anuncios.js';
+import { ativarTerceiros, desativarTerceiros } from './anuncios.js';
 import { el } from './render.js';
 
 const CHAVE = 'cf_consent_v1';
@@ -24,7 +24,8 @@ export function iniciarCookies(cfg) {
         el('a', { href: '/privacidade/' }, 'Política de privacidade')),
       el('div', { class: 'acoes' },
         el('button', { type: 'button', class: 'btn', onclick: () => escolher('todos') }, 'Aceitar todos'),
-        el('button', { type: 'button', class: 'btn-sec', onclick: () => escolher('essenciais') }, 'Apenas essenciais'))));
+        el('button', { type: 'button', class: 'btn-sec', onclick: () => escolher('essenciais') }, 'Apenas essenciais'),
+        el('button', { type: 'button', class: 'btn-sec', onclick: () => recusar() }, 'Recusar'))));
   document.body.append(banner);
 
   function escolher(v) {
@@ -33,6 +34,14 @@ export function iniciarCookies(cfg) {
     banner.hidden = true;
     if (v === 'todos') ativarTerceiros(cfg);
     if (mudouParaEssenciais) location.reload();
+  }
+
+  function recusar() {
+    gravar('recusado');
+    banner.hidden = true;
+    // Recusa explícita: remove scripts de terceiros já injetados nesta página
+    // (ex.: quando o visitante havia aceitado antes e mudou de ideia)
+    desativarTerceiros();
   }
 
   if (precisa && atual === null) banner.hidden = false;

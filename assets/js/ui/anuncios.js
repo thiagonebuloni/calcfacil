@@ -39,3 +39,12 @@ export function ativarTerceiros(cfg) {
     });
   }
 }
+
+// Remove os scripts de terceiros já injetados (recusa de cookies) e libera
+// nova ativação na mesma página, caso o consentimento mude para "todos".
+export function desativarTerceiros() {
+  document
+    .querySelectorAll('script[src*="googletagmanager"], script[src*="googlesyndication"]')
+    .forEach((s) => s.remove());
+  ativado = false;
+}
