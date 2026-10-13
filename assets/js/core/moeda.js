@@ -30,6 +30,19 @@ export function formatarNumero(n, casas = 2) {
   return fmtNum(casas).format(n);
 }
 
+/**
+ * Máscara monetária em tempo real a partir de dígitos.
+ * Mantém só os dígitos, trata como centavos e devolve no padrão "1.234,56".
+ * Qualquer outro caractere (letras, ponto, vírgula, ponto e vírgula etc.)
+ * é descartado — o separador é inserido pela máscara, não digitado.
+ * Retorna '' quando não há dígitos (campo limpo).
+ */
+export function mascararMoeda(texto) {
+  const dig = String(texto ?? '').replace(/\D/g, '').slice(0, 15);
+  if (dig === '') return '';
+  return formatarNumero(parseInt(dig, 10) / 100, 2);
+}
+
 /** 0.0875 -> "8,75%". */
 export function formatarPercentual(fracao, casas = 2) {
   return formatarNumero(fracao * 100, casas) + '%';

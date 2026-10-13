@@ -80,6 +80,7 @@
     "fonte": "LC 123/2006, Anexos I a V (redação LC 155/2016); teto e sublimite do art. 3º; Fator R do art. 18, §5º-J",
     "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm",
     "limite": 4800000.0,
+    "limiteME": 360000.0,
     "sublimite": 3600000.0,
     "fatorR": 0.28,
     "margemFatorR": 0.02,
@@ -149,6 +150,10 @@
     "url": "https://www.gov.br/receitafederal",
     "limiteRetencaoMensal": 50000.0,
     "aliquotaRetencao": 0.1,
-    "limiteImpostoMinimoAnual": 600000.0
+    "limiteImpostoMinimoAnual": 600000.0,
+    "presuncao": {
+      "fonte": "Aproximação usual do lucro presumido por setor (IRPJ/CSLL): 8% comércio/indústria, 32% serviços. Sem contabilidade completa, a distribuição isenta fica limitada a esse percentual da receita.",
+      "margens": { "I": 0.08, "II": 0.08, "III": 0.32, "IV": 0.32, "V": 0.32 }
+    }
   }
 }

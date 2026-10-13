@@ -1,6 +1,6 @@
 // Liga cada <form data-calc="..."> ao módulo de cálculo correspondente.
 
-import { parseNumero, formatarNumero } from '../core/moeda.js';
+import { parseNumero, mascararMoeda, formatarBRL } from '../core/moeda.js';
 import { renderizar } from './render.js';
 import { blocoAfiliado } from './afiliados.js';
 import { iniciarCookies } from './cookies.js';
@@ -18,10 +18,25 @@ function lerCampos(form) {
   for (const campo of form.elements) {
     if (!campo.name) continue;
     switch (campo.dataset.tipo) {
-      case 'money':
+      case 'money': {
+        if (campo.value.trim() === '') { v[campo.name] = undefined; break; }
+        // Máscara em tempo real grava "1.234,56"; parseNumero entende esse formato.
+        // Fallback: só dígitos como centavos (ex.: "500000" -> 5000,00).
+        let n = parseNumero(campo.value);
+        if (!Number.isFinite(n)) {
+          const dig = String(campo.value).replace(/\D/g, '');
+          n = dig === '' ? NaN : parseInt(dig, 10) / 100;
+        }
+        v[campo.name] = n;
+        break;
+      }
       case 'number':
       case 'percent':
         v[campo.name] = campo.value.trim() === '' ? undefined : parseNumero(campo.value);
+        break;
+      case 'calculado':
+        // Campo somente-leitura preenchido pelo motor: não entra na validação
+        // nem no cálculo; serve apenas para exibir o lucro limitado ao caixa.
         break;
       case 'checkbox':
         v[campo.name] = campo.checked;
@@ -84,7 +99,8 @@ async function iniciar(form) {
     }
     mostrarErros(form, {});
     resultado.classList.remove('desatualizado');
-    const exibicao = modulo.exibir(modulo.calcular(entrada, tabelas));
+    const calculado = modulo.calcular(entrada, tabelas);
+    const exibicao = modulo.exibir(calculado);
     const afiliado = blocoAfiliado(nome);
     resultado.hidden = false; // antes de desenhar: o gráfico mede a largura do contêiner
     renderizar(resultado, exibicao, afiliado ? [afiliado] : []);
@@ -97,8 +113,28 @@ async function iniciar(form) {
 
   form.addEventListener('submit', (ev) => { ev.preventDefault(); executar({ aoEnviar: true }); });
 
+  // Nos campos monetários só entram dígitos: ponto, vírgula e ponto e vírgula
+  // (e letras) são bloqueados na digitação; o formato "1.234,56" é posto pela
+  // máscara em tempo real. Atalhos (Ctrl+V etc.) e navegação seguem livres —
+  // o que vier de colagem é higienizado no 'input' abaixo.
+  form.addEventListener('keydown', (ev) => {
+    const c = ev.target;
+    if (c?.dataset?.tipo !== 'money') return;
+    if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
+    if (['Backspace', 'Delete', 'Tab', 'Enter', 'Escape', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(ev.key)) return;
+    if (/^\d$/.test(ev.key)) return;
+    ev.preventDefault();
+  });
+
   let timer;
-  form.addEventListener('input', () => {
+  form.addEventListener('input', (ev) => {
+    const c = ev.target;
+    // Máscara monetária em tempo real: só entram dígitos; o formato "1.234,56"
+    // é aplicado enquanto se digita. Ponto, vírgula e ponto e vírgula digitados
+    // são descartados — nunca chegam ao valor do campo.
+    if (c?.dataset?.tipo === 'money' && c.value !== mascararMoeda(c.value)) {
+      c.value = mascararMoeda(c.value);
+    }
     if (!calculou) return;
     clearTimeout(timer);
     timer = setTimeout(() => executar({ aoEnviar: false }), 200);
@@ -109,7 +145,7 @@ async function iniciar(form) {
     const c = ev.target;
     if (c.dataset?.tipo === 'money' && c.value.trim() !== '') {
       const n = parseNumero(c.value);
-      if (Number.isFinite(n)) c.value = formatarNumero(n, 2);
+      if (Number.isFinite(n)) c.value = mascararMoeda(c.value);
     }
   });
 

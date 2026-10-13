@@ -89,6 +89,8 @@ h3 { font-size: 1.15rem; margin-top: 1.5rem; }
 .campo input:hover, .campo select:hover { border-color: var(--tinta-suave); }
 .campo input[aria-invalid="true"], .campo select[aria-invalid="true"] { border-color: var(--erro); }
 .campo .erro { color: var(--erro); font-size: .875rem; font-weight: 600; min-height: 0; }
+.campo .erro:not(:empty) { margin-top: .15rem; }
+.campo input[readonly] { background: color-mix(in srgb, var(--papel) 60%, var(--superficie)); cursor: default; }
 .campo-check { flex-direction: row; align-items: flex-start; gap: .6rem; }
 .campo-check input { width: 1.25rem; height: 1.25rem; margin-top: .2rem; accent-color: var(--verde); }
 .campo-check label { font-weight: 500; }
@@ -139,6 +141,7 @@ h3 { font-size: 1.15rem; margin-top: 1.5rem; }
 .detalhes dl > div { display: flex; justify-content: space-between; gap: 1rem; padding: .35rem 0; border-bottom: 1px solid var(--linha); font-size: .925rem; }
 .detalhes dd { margin: 0; font-family: var(--mono); text-align: right; font-variant-numeric: tabular-nums; }
 .avisos { font-size: .875rem; color: var(--tinta-suave); padding-left: 1.1rem; }
+.avisos li:first-child { color: var(--erro); font-weight: 700; }
 .ferramentas { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
 .ferramentas .btn-sec { min-height: 2.4rem; font-size: .9rem; padding-inline: 1rem; }
 

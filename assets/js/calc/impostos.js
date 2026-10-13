@@ -25,10 +25,10 @@ export function calcularINSS(baseCentavos, tabelas) {
  * Com `decimoTerceiro: true`, usa a tabela própria do 13º (limites e parcela ÷ 2,
  * Lei 7.713/1988, art. 12, §1º); a redução também se aplica ao 13º (Lei 15.270/2025, art. 3º-A, §3º).
  */
-export function calcularIRRF({ rendimento, inss, dependentes = 0, aplicarReducao = true, decimoTerceiro = false }, tabelas) {
+export function calcularIRRF({ rendimento, inss, dependentes = 0, deducaoExtra = 0, aplicarReducao = true, decimoTerceiro = false }, tabelas) {
   const t = tabelas.irrf;
   const faixas = decimoTerceiro && Array.isArray(t.faixasDecimoTerceiro) ? t.faixasDecimoTerceiro : t.faixas;
-  const deducaoLegal = inss + dependentes * emCentavos(t.deducaoDependente);
+  const deducaoLegal = inss + dependentes * emCentavos(t.deducaoDependente) + deducaoExtra;
   const simplificado = emCentavos(t.descontoSimplificado);
   const usouSimplificado = simplificado > deducaoLegal;
   const deducao = usouSimplificado ? simplificado : deducaoLegal;

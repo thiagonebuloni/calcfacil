@@ -79,6 +79,9 @@ export function campoHTML(c) {
   const erro = `<span class="erro" id="erro-${c.name}" role="alert"></span>`;
   const largo = c.largo ? ' campo-largo' : '';
   const desc = c.ajuda ? ` aria-describedby="ajuda-${c.name}"` : '';
+  if (c.tipo === 'calculado') {
+    return `<div class="campo${largo}"><label for="${id}">${esc(c.rotulo)}</label><input type="text" inputmode="decimal" autocomplete="off" id="${id}" name="${c.name}" data-tipo="calculado" value="${esc(c.valor ?? '')}"${c.placeholder ? ` placeholder="${esc(c.placeholder)}"` : ''}${desc} readonly aria-readonly="true"><span class="erro" id="erro-${c.name}" role="alert"></span></div>`;
+  }
   if (c.tipo === 'checkbox') {
     return `<div class="campo campo-check campo-largo"><input type="checkbox" id="${id}" name="${c.name}" data-tipo="checkbox"${c.valor ? ' checked' : ''}><div><label for="${id}">${esc(c.rotulo)}</label>${c.ajuda ? `<br>${ajuda}` : ''}</div></div>`;
   }

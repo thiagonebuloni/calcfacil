@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { emCentavos, arredondar, parseNumero, formatarBRL, formatarNumero } from '../assets/js/core/moeda.js';
+import { emCentavos, arredondar, parseNumero, formatarBRL, formatarNumero, mascararMoeda } from '../assets/js/core/moeda.js';
 import {
   parseISO, addDias, addMeses, diffDias, mesesEDias, anosCompletos, avosEntre, avos13NoAno, formatarBR, ultimoAniversario,
 } from '../assets/js/core/datas.js';
@@ -26,6 +26,18 @@ test('parseNumero entende formatos brasileiros e internacionais', () => {
 test('formatarBRL usa padrão brasileiro', () => {
   assert.equal(formatarBRL(123456).replace(/ /g, ' '), 'R$ 1.234,56');
   assert.equal(formatarNumero(1234.5, 2), '1.234,50');
+});
+
+test('mascararMoeda: só dígitos entram, formato aplicado em tempo real', () => {
+  assert.equal(mascararMoeda('5'), '0,05');
+  assert.equal(mascararMoeda('5000'), '50,00');
+  assert.equal(mascararMoeda('5.000,00'), '5.000,00');
+  // Ponto, vírgula e ponto e vírgula digitados são descartados (separador vem da máscara).
+  assert.equal(mascararMoeda('5.000;00'), '5.000,00');
+  assert.equal(mascararMoeda('15.000.00'), '15.000,00');
+  assert.equal(mascararMoeda('1a2b3c'), '1,23');
+  assert.equal(mascararMoeda(''), '');
+  assert.equal(mascararMoeda('abc'), '');
 });
 
 test('datas: validação, soma e diferença', () => {
