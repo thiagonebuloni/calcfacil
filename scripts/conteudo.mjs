@@ -437,7 +437,7 @@ export const institucionais = {
     descricao: 'Conheça o {NOME}: calculadoras financeiras e trabalhistas gratuitas, com a conta explicada e tabelas oficiais atualizadas.',
     corpo: `
 <h1>Sobre o {NOME}</h1>
-<p>O {NOME} reúne calculadoras de rescisão, 13º salário, férias, financiamento, juros compostos e aposentadoria, em português e de graça.</p>
+<p>O {NOME} reúne calculadoras de rescisão, 13º salário, férias, financiamento, juros compostos e aposentadoria, e de graça.</p>
 <h2>Como trabalhamos</h2>
 <ul>
 <li><strong>Conta explicada.</strong> Cada calculadora mostra as fórmulas, um exemplo numérico e as regras que usou.</li>

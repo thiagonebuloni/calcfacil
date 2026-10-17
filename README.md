@@ -1,4 +1,4 @@
-# CalcFácil — Calculadoras Financeiras em Português
+# CalcFácil — Calculadoras Financeiras
 
 Site estático com calculadoras e simuladores financeiros para o Brasil: rescisão, 13º salário, férias, financiamento, juros compostos e aposentadoria. Monetizado com Google AdSense e links de afiliados.
 
