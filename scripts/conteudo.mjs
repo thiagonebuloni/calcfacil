@@ -337,6 +337,92 @@ export const calculadoras = [
 
 export const blog = [
   {
+    slug: 'quanto-precisa-para-viver-de-renda',
+    titulo: 'Quanto preciso juntar para viver de renda? Faça as contas',
+    descricao: 'Planejamento de aposentadoria particular: quanto patrimônio você precisa para retirar uma renda mensal sem consumir o principal, com exemplo numérico.',
+    data: '2026-10-17',
+    calc: 'aposentadoria',
+    corpo: `
+<p>Quanto é preciso ter investido para viver só dos rendimentos? A conta é simples, mas depende de duas decisões: a renda mensal desejada e a rentabilidade real — o rendimento acima da inflação.</p>
+<h2>A regra do patrimônio necessário</h2>
+<p>A ideia é não consumir o principal: o patrimônio rende o suficiente para pagar a sua renda todo mês. Dividindo a renda desejada pela rentabilidade real mensal, chega-se ao patrimônio alvo. Com 4% reais ao ano, isso equivale a juntar cerca de 25 vezes o gasto anual — quer dizer, R$ 5.000,00 por mês exigem aproximadamente R$ 1,5 milhão.</p>
+<h2>Exemplo completo</h2>
+<p>Quem tem 30 anos e quer R$ 5.000,00 por mês aos 60, com hipótese de 4% reais ao ano, precisa de R$ 1.527.305,26. Investindo R$ 1.000,00 por mês desde zero, chega-se a R$ 685.270,56 no prazo — faltam R$ 842.034,70. Para atingir a meta, o aporte mensal teria de ser de R$ 2.228,76.</p>
+<h2>Por que falar em rentabilidade real</h2>
+<p>Se você informar a renda em valores de hoje e o rendimento acima da inflação, o resultado já vem corrigido — a renda mantém o poder de compra no futuro. Colocar a rentabilidade nominal infla a projeção e cria uma meta menor do que a necessária.</p>
+<h2>O que esta conta não considera</h2>
+<p>É um planejamento financeiro, não uma simulação do INSS: benefício público, Imposto de Renda sobre os rendimentos e imprevistos ficam de fora. Uma hipótese prudente de rentabilidade e uma reserva separada para emergências são parte do plano.</p>
+<p>Descubra o seu patrimônio-alvo e o aporte necessário na <a href="/aposentadoria/">calculadora de aposentadoria</a>.</p>`,
+  },
+  {
+    slug: 'juros-compostos-aporte-mensal-e-tempo',
+    titulo: 'Juros compostos: como o aporte mensal e o tempo mudam o resultado',
+    descricao: 'Entenda a fórmula dos juros compostos com um exemplo de aporte mensal de R$ 500 e veja por que o tempo pesa mais que o valor aplicado de uma vez.',
+    data: '2026-10-17',
+    calc: 'juros-compostos',
+    corpo: `
+<p>Juros compostos são juros sobre juros: a cada período, os rendimentos entram no saldo e passam a render também. É o que faz o patrimônio crescer mais rápido com o tempo.</p>
+<h2>A fórmula</h2>
+<p class="formula">M = C × (1 + i)ⁿ + PMT × ((1 + i)ⁿ − 1) ÷ i</p>
+<p>Onde C é o capital inicial, PMT o aporte mensal, i a taxa mensal e n o número de meses. Na calculadora, os aportes são contados no fim de cada mês.</p>
+<h2>Exemplo: R$ 500 por mês</h2>
+<p>Quem aplica R$ 500,00 por mês a 0,8% ao mês durante 10 anos investe R$ 60.000,00 ao todo — e chega a R$ 100.108,75. Os juros somam R$ 40.108,75: quase metade do montante final veio do rendimento, e não do bolso.</p>
+<h2>Tempo × valor de uma vez só</h2>
+<p>A 0,8% ao mês, o dinheiro dobra a cerca de 87 meses — cerca de 7 anos e 4 meses. Por isso o tempo pesa tanto: R$ 10.000,00 aplicados uma única vez na mesma taxa chegam a R$ 67.690,48 em 20 anos, com R$ 57.690,48 de juros. Quem começa cedo com aportes menores costuma terminar à frente de quem aplica mais, mas tarde.</p>
+<h2>O imposto na retirada</h2>
+<p>No resgate, os rendimentos de investimentos sofrem Imposto de Renda pela tabela regressiva: de 22,5% para resgates até 180 dias até 15% após 720 dias. Quanto mais tempo o dinheiro fica investido, menor a alíquota. A calculadora estima esse valor junto com o montante.</p>
+<p>Monte o seu cenário com capital inicial, aporte e prazo na <a href="/juros-compostos/">calculadora de juros compostos</a>.</p>`,
+  },
+  {
+    slug: 'ferias-como-calcular-terco-e-abono',
+    titulo: 'Férias: como calcular o valor, o 1/3 constitucional e o abono de 10 dias',
+    descricao: 'Passo a passo do cálculo das férias com o terço constitucional, a venda de 10 dias (abono pecuniário), os descontos de INSS e IRRF e os prazos de pagamento.',
+    data: '2026-10-17',
+    calc: 'ferias',
+    corpo: `
+<p>Depois de 12 meses de trabalho (o período aquisitivo), o empregado tem direito a 30 dias de férias com pagamento extra de 1/3. Veja como o valor é calculado.</p>
+<h2>Como é calculado</h2>
+<p>O valor é o salário proporcional aos dias de descanso, mais o terço constitucional. Com salário de R$ 3.000,00 e 30 dias: férias de R$ 3.000,00 mais R$ 1.000,00 de 1/3, bruto de R$ 4.000,00. Os descontos da simulação são de R$ 248,60 de INSS e nenhum IRRF, resultando em R$ 3.751,40 líquidos.</p>
+<h2>O que cada desconto alcança</h2>
+<ul>
+<li><strong>INSS:</strong> incide sobre as férias. O 1/3 constitucional é isento desde 2020 (Lei 8.212/1991, art. 28, §9º, IV).</li>
+<li><strong>IRRF:</strong> incide sobre férias mais o 1/3. Dependentes e o desconto simplificado reduzem a base.</li>
+</ul>
+<h2>Vender 10 dias (abono pecuniário)</h2>
+<p>Até 1/3 das férias pode ser convertido em dinheiro: você descansa 20 dias e recebe os 10 restantes. O pedido precisa ser feito até 15 dias antes do fim do período aquisitivo. No exemplo do salário de R$ 3.000,00, o abono vale R$ 1.000,00 mais R$ 333,33 de 1/3. O abono sofre INSS e entra na base do IRRF — como o total bruto é o mesmo, o líquido da simulação permanece R$ 3.751,40: vender os dias troca descanso por dinheiro, sem mudar a conta de impostos deste exemplo.</p>
+<h2>Prazos e regras que mudam os dias</h2>
+<ul>
+<li>O pagamento deve ser feito até 2 dias antes do início do descanso.</li>
+<li>Faltas injustificadas reduzem os dias: de 6 a 14 faltas, 24 dias; de 15 a 23, 18 dias.</li>
+<li>Férias vencidas (não concedidas no prazo) são pagas em dobro.</li>
+<li>As férias podem ser divididas em até 3 períodos, se você concordar.</li>
+</ul>
+<p>Simule com o seu salário, os dias e o abono na <a href="/ferias/">calculadora de férias</a>.</p>`,
+  },
+  {
+    slug: 'rescisao-por-acordo-o-que-muda',
+    titulo: 'Rescisão por acordo: o que muda no aviso prévio, no FGTS e no valor final',
+    descricao: 'Na rescisão de comum acordo, o aviso indenizado é pago pela metade e a multa do FGTS cai de 40% para 20%. Veja um exemplo lado a lado com a demissão sem justa causa.',
+    data: '2026-10-17',
+    calc: 'rescisao',
+    corpo: `
+<p>O acordo entre as partes (CLT, art. 484-A) permite sair da empresa sem justa causa e sem pedido de demissão, com metade das penalidades dos dois lados. Veja o que muda na prática e quanto.</p>
+<h2>O aviso prévio é pago pela metade</h2>
+<p>Na demissão sem justa causa, o aviso indenizado é integral: com salário de R$ 3.000,00 e 2 anos e 4 meses de casa, o aviso de 36 dias vale R$ 3.600,00. No acordo, o mesmo aviso é pago pela metade — R$ 1.800,00. O período continua contando como tempo de serviço.</p>
+<h2>FGTS: multa de 20% e saque de 80%</h2>
+<p>É a diferença mais expressiva. Na demissão sem justa causa, a multa é de 40% do saldo e o saque é de 100%. No acordo, a multa cai para 20% e só dá para sacar 80% do total. Com saldo de FGTS de R$ 10.000,00 e R$ 644,00 de depósitos da rescisão:</p>
+<ul>
+<li><strong>Sem justa causa:</strong> multa de R$ 4.315,20 e saque de R$ 15.103,20.</li>
+<li><strong>Acordo:</strong> multa de R$ 2.128,80 e saque de R$ 10.218,24.</li>
+</ul>
+<p>No acordo, o valor que não pode ser sacado permanece na conta e só fica disponível nas regras gerais do fundo.</p>
+<h2>13º, férias e saldo são iguais</h2>
+<p>O saldo de salário, o 13º proporcional e as férias proporcionais com 1/3 seguem as mesmas fórmulas dos outros tipos de saída. A diferença está só no aviso e no FGTS.</p>
+<h2>Exemplo lado a lado</h2>
+<p>Com salário de R$ 3.000,00, admissão em 01/06/2024 e demissão em 15/10/2026: no acordo, o líquido das verbas é de R$ 7.714,31 mais R$ 10.218,24 de saque do FGTS. Na demissão sem justa causa, R$ 9.478,50 mais R$ 15.103,20. A diferença total é de cerca de R$ 6.650,00 — e no acordo o trabalhador não tem direito ao seguro-desemprego.</p>
+<p>Faça a conta com os seus dados na <a href="/rescisao/">calculadora de rescisão</a>, escolhendo o tipo "Acordo entre as partes".</p>`,
+  },
+  {
     slug: 'mei-virou-me-o-que-muda-no-imposto',
     titulo: 'MEI que virou ME: o que muda no imposto',
     descricao: 'Estourou o teto do MEI? Entenda como funciona o DAS da ME no Simples Nacional, o Fator R, o pró-labore e a distribuição de lucros, com exemplo numérico.',
