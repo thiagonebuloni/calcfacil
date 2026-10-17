@@ -115,7 +115,7 @@ test('artigos do blog marcam article:published_time e JSON-LD com author', () =>
 
 test('vercel.json e _headers refletem a mesma política de headers', () => {
   const vc = JSON.parse(readFileSync(join(raiz, 'vercel.json'), 'utf8'));
-  const headersVercel = vc.headers.find((h) => h.source === '/*').headers;
+  const headersVercel = vc.headers.find((h) => h.source === '/(.*)').headers;
   const keys = headersVercel.map((h) => h.key);
   for (const k of ['X-Content-Type-Options', 'Referrer-Policy', 'X-Frame-Options', 'Content-Security-Policy', 'Permissions-Policy']) {
     assert.ok(keys.includes(k), `falta ${k} no vercel.json`);

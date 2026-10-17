@@ -207,6 +207,8 @@ if (cfg.adsenseClient) {
 }
 
 // Headers de segurança e cache — fonte única para _headers (Cloudflare/Netlify) e vercel.json (Vercel).
+// A Vercel exige padrão `/(.*)`; o formato _headers usa `/*`.
+const paraVercel = (source) => source.replace(/\/\*$/, '/(.*)');
 const cabecalhos = [
   { source: '/*', lines: ['X-Content-Type-Options: nosniff', 'Referrer-Policy: strict-origin-when-cross-origin', "X-Frame-Options: DENY", "Content-Security-Policy: frame-ancestors 'none'", 'Permissions-Policy: camera=(), geolocation=(), microphone=()'] },
   { source: '/assets/*', lines: ['Cache-Control: public, max-age=3600'] },
@@ -215,7 +217,7 @@ const cabecalhos = [
 escrever('_headers', cabecalhos.map((c) => `${c.source}\n${c.lines.map((l) => `  ${l}`).join('\n')}`).join('\n\n') + '\n');
 escrever('vercel.json', JSON.stringify({
   headers: cabecalhos.map((c) => ({
-    source: c.source,
+    source: paraVercel(c.source),
     headers: c.lines.map((l) => {
       const i = l.indexOf(':');
       return { key: l.slice(0, i).trim(), value: l.slice(i + 1).trim() };

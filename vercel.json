@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/*",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "X-Content-Type-Options",
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "source": "/assets/*",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "source": "/data/*",
+      "source": "/data/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
