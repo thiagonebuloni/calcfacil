@@ -105,6 +105,7 @@ for (const a of blog) {
   const calc = calculadoras.find((c) => c.slug === a.calc);
   emitir(caminho, {
     titulo: a.titulo, descricao: a.descricao, menuAtual: 'blog', tipoOG: 'article',
+    dataPublicacao: a.data, dataModificacao: tabelas.atualizadoEm,
     corpo: `
 <nav class="migalhas" aria-label="Você está em"><a href="/">Início</a> / <a href="/blog/">Blog</a> / <span>${esc(a.titulo)}</span></nav>
 <article class="artigo">
@@ -119,7 +120,9 @@ ${tokens(a.corpo)}
       {
         '@context': 'https://schema.org', '@type': 'Article', headline: a.titulo, description: a.descricao,
         datePublished: a.data, dateModified: tabelas.atualizadoEm, inLanguage: 'pt-BR',
-        mainEntityOfPage: base + caminho, publisher: { '@type': 'Organization', name: cfg.nome },
+        mainEntityOfPage: base + caminho, image: base + '/assets/img/og.png',
+        author: { '@type': 'Organization', name: cfg.nome, url: base + '/' },
+        publisher: { '@type': 'Organization', name: cfg.nome },
       },
       migalhas([['Início', '/'], ['Blog', '/blog/'], [a.titulo, caminho]]),
     ],
@@ -203,16 +206,22 @@ if (cfg.adsenseClient) {
   rmSync(join(raiz, 'ads.txt'));
 }
 
-escrever('_headers', `/*
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-
-/assets/*
-  Cache-Control: public, max-age=3600
-
-/data/*
-  Cache-Control: public, max-age=3600
-`);
+// Headers de segurança e cache — fonte única para _headers (Cloudflare/Netlify) e vercel.json (Vercel).
+const cabecalhos = [
+  { source: '/*', lines: ['X-Content-Type-Options: nosniff', 'Referrer-Policy: strict-origin-when-cross-origin', "X-Frame-Options: DENY", "Content-Security-Policy: frame-ancestors 'none'", 'Permissions-Policy: camera=(), geolocation=(), microphone=()'] },
+  { source: '/assets/*', lines: ['Cache-Control: public, max-age=3600'] },
+  { source: '/data/*', lines: ['Cache-Control: public, max-age=3600'] },
+];
+escrever('_headers', cabecalhos.map((c) => `${c.source}\n${c.lines.map((l) => `  ${l}`).join('\n')}`).join('\n\n') + '\n');
+escrever('vercel.json', JSON.stringify({
+  headers: cabecalhos.map((c) => ({
+    source: c.source,
+    headers: c.lines.map((l) => {
+      const i = l.indexOf(':');
+      return { key: l.slice(0, i).trim(), value: l.slice(i + 1).trim() };
+    }),
+  })),
+}, null, 2) + '\n');
 
 escrever('assets/img/favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0b7557"/><rect x="8" y="10" width="16" height="3.5" rx="1.5" fill="#fff"/><rect x="8" y="18.5" width="16" height="3.5" rx="1.5" fill="#ffe58a"/></svg>
 `);

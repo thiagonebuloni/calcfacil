@@ -77,6 +77,54 @@ test('sitemap lista todas as páginas indexáveis e robots aponta para ele', () 
   assert.match(readFileSync(join(raiz, 'robots.txt'), 'utf8'), /Sitemap: https?:\/\/.+\/sitemap\.xml/);
 });
 
+test('canonical, og:url e sitemap usam a url base do site.config.json sem barra final', () => {
+  const cfgUrl = JSON.parse(readFileSync(join(raiz, 'site.config.json'), 'utf8')).url;
+  assert.ok(!cfgUrl.endsWith('/'), 'url do site.config.json não deve terminar com /');
+  const base = cfgUrl.replace(/\/$/, '');
+  for (const p of todas) {
+    const h = readFileSync(p, 'utf8');
+    const canon = h.match(/<link rel="canonical" href="([^"]+)"/)[1];
+    assert.ok(canon.startsWith(base + '/'), `${rel(p)}: canonical fora da base`);
+    const og = h.match(/property="og:url" content="([^"]+)"/)[1];
+    assert.equal(og, canon, `og:url ≠ canonical em ${rel(p)}`);
+  }
+  const sm = readFileSync(join(raiz, 'sitemap.xml'), 'utf8');
+  for (const [, loc] of sm.matchAll(/<loc>([^<]+)<\/loc>/g)) assert.ok(loc.startsWith(base + '/'), `sitemap fora da base: ${loc}`);
+});
+
+test('twitter card completa em todas as páginas', () => {
+  for (const p of todas) {
+    const h = readFileSync(p, 'utf8');
+    for (const m of ['twitter:card', 'twitter:title', 'twitter:description', 'twitter:image']) {
+      assert.match(h, new RegExp(`<meta name="${m}" content="[^"]+`), `${m} em ${rel(p)}`);
+    }
+    assert.match(h, /<meta property="og:image:alt" content="[^"]+/, `og:image:alt em ${rel(p)}`);
+  }
+});
+
+test('artigos do blog marcam article:published_time e JSON-LD com author', () => {
+  for (const a of readdirSync(join(raiz, 'blog'))) {
+    if (!statSync(join(raiz, 'blog', a)).isDirectory()) continue; // ignora blog/index.html
+    const p = join(raiz, 'blog', a, 'index.html');
+    const h = readFileSync(p, 'utf8');
+    assert.match(h, /property="article:published_time" content="\d{4}-\d{2}-\d{2}"/, rel(p));
+    assert.match(h, /"author":\{"@type":"Organization"/, rel(p));
+    assert.match(h, /"datePublished":"\d{4}-\d{2}-\d{2}"/, rel(p));
+  }
+});
+
+test('vercel.json e _headers refletem a mesma política de headers', () => {
+  const vc = JSON.parse(readFileSync(join(raiz, 'vercel.json'), 'utf8'));
+  const headersVercel = vc.headers.find((h) => h.source === '/*').headers;
+  const keys = headersVercel.map((h) => h.key);
+  for (const k of ['X-Content-Type-Options', 'Referrer-Policy', 'X-Frame-Options', 'Content-Security-Policy', 'Permissions-Policy']) {
+    assert.ok(keys.includes(k), `falta ${k} no vercel.json`);
+  }
+  const hdr = readFileSync(join(raiz, '_headers'), 'utf8');
+  for (const h of headersVercel) assert.ok(hdr.includes(`${h.key}: ${h.value}`), `${h.key} diverge entre _headers e vercel.json`);
+});
+
+
 test('nenhum valor legal fixo nos módulos de cálculo', () => {
   const proibidos = ['607.2', '2428.8', '8475.55', '0.133145', '978.62', '189.59', '1621'];
   for (const arq of readdirSync(join(raiz, 'assets/js/calc'))) {

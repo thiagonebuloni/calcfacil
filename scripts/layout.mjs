@@ -8,7 +8,7 @@ export function jsonld(obj) {
   return `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;
 }
 
-export function pagina({ cfg, caminho, titulo, descricao, corpo, ld = [], menuAtual = '', calculadoras, tipoOG = 'website', noindex = false }) {
+export function pagina({ cfg, caminho, titulo, descricao, corpo, ld = [], menuAtual = '', calculadoras, tipoOG = 'website', noindex = false, dataPublicacao = '', dataModificacao = '' }) {
   const url = cfg.url.replace(/\/$/, '') + caminho;
   const siteCfg = { adsenseClient: cfg.adsenseClient || '', adsenseSlots: cfg.adsenseSlots || {}, gaId: cfg.gaId || '' };
   const menu = calculadoras
@@ -27,6 +27,7 @@ export function pagina({ cfg, caminho, titulo, descricao, corpo, ld = [], menuAt
 <meta name="description" content="${esc(descricao)}">
 <link rel="canonical" href="${esc(url)}">
 ${noindex ? '<meta name="robots" content="noindex">\n' : ''}<meta name="theme-color" content="#0b7557">
+<meta name="color-scheme" content="light">
 <meta property="og:type" content="${tipoOG}">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="${nome}">
@@ -34,9 +35,14 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : ''}<meta name="theme-co
 <meta property="og:description" content="${esc(descricao)}">
 <meta property="og:url" content="${esc(url)}">
 <meta property="og:image" content="${esc(cfg.url.replace(/\/$/, '') + '/assets/img/og.png')}">
+<meta property="og:image:alt" content="${esc(titulo)}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
+${tipoOG === 'article' && dataPublicacao ? `<meta property="article:published_time" content="${esc(dataPublicacao)}">\n<meta property="article:modified_time" content="${esc(dataModificacao || dataPublicacao)}">\n` : ''}<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(titulo)}">
+<meta name="twitter:description" content="${esc(descricao)}">
+<meta name="twitter:image" content="${esc(cfg.url.replace(/\/$/, '') + '/assets/img/og.png')}">
+<meta name="twitter:image:alt" content="${esc(titulo)}">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/css/base.css">
 ${ld.map(jsonld).join('\n')}
