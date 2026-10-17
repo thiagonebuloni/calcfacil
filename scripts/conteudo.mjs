@@ -67,7 +67,7 @@ export const calculadoras = [
 <p>O valor das férias é o salário proporcional aos dias de descanso, acrescido de 1/3 (terço constitucional).</p>
 <p class="formula">férias = (salário + média de variáveis) ÷ 30 × dias de férias<br>1/3 constitucional = férias ÷ 3</p>
 <h3>Abono pecuniário</h3>
-<p>Você pode converter até 1/3 das férias (10 dias) em dinheiro. O abono vale o salário de 10 dias mais 1/3: o valor do abono sofre INSS, e abono e 1/3 entram na base do Imposto de Renda. O pedido precisa ser feito até 15 dias antes do fim do período aquisitivo.</p>
+<p>Você pode converter até 1/3 das férias (10 dias) em dinheiro. O abono vale o salário de 10 dias mais 1/3: o valor do abono sofre INSS, e abono e 1/3 entram na base do Imposto de Renda. O pedido pode ser feito a qualquer tempo, dentro do período concessivo.</p>
 <h3>Descontos e prazo</h3>
 <p>O IRRF incide sobre as férias mais o 1/3; o INSS incide só sobre as férias — o 1/3 constitucional é isento desde 2020 (Lei 8.212/1991, art. 28, §9º, IV). As alíquotas são as tabelas de {ANO}. O pagamento deve ser feito até 2 dias antes do início do descanso.</p>
 <h3>Fracionamento</h3>
@@ -337,6 +337,103 @@ export const calculadoras = [
 
 export const blog = [
   {
+    slug: 'fator-r-como-folha-e-prolabore-mudam-o-das',
+    titulo: 'Fator R: como a folha e o pró-labore mudam o DAS da ME no Simples',
+    descricao: 'Entenda o Fator R do Simples Nacional: a conta de 28% da folha sobre o faturamento, o que entra no cálculo e um exemplo com o DAS no Anexo V e no Anexo III.',
+    data: '2026-10-17',
+    calc: 'me',
+    corpo: `
+<p>Para serviços intelectuais — TI, consultoria, marketing, design, engenharia — o Fator R decide qual anexo do Simples Nacional a empresa paga. Abaixo de 28%, o DAS é pelo Anexo V; a partir de 28%, pelo Anexo III, muito mais barato.</p>
+<h2>A conta é simples</h2>
+<p class="formula">Fator R = folha dos últimos 12 meses ÷ faturamento dos últimos 12 meses</p>
+<p>A folha inclui salários de funcionários <strong>e o pró-labore dos sócios</strong>, com encargos. Se o resultado chegar a 28% ou mais, a empresa fica no Anexo III. O enquadramento oficial olha os últimos 12 meses pagos — por isso a mudança nem aparece no DAS de imediato.</p>
+<h2>Exemplo: consultoria com R$ 12.000 por mês</h2>
+<p>Uma prestadora de serviços intelectuais fatura R$ 12.000,00 por mês (RBT12 de R$ 144.000,00), sem funcionários. Com pró-labore mínimo, ela paga o Anexo V:</p>
+<ul>
+<li><strong>Anexo V (Fator R abaixo de 28%):</strong> alíquota efetiva de 15,50% — DAS de R$ 1.860,00 por mês.</li>
+<li><strong>Anexo III (Fator R ≥ 28%):</strong> alíquota efetiva de 6,00% — DAS de R$ 720,00 por mês.</li>
+</ul>
+<p>O ponto exato do Fator R nesta receita é um pró-labore de R$ 3.360,00 (28% de R$ 12.000,00). A diferença de DAS é de R$ 1.140,00 por mês — R$ 13.680,00 por ano.</p>
+<h2>O custo de chegar lá</h2>
+<p>Aumentar o pró-labore de R$ 1.621,00 (salário mínimo de {ANO}) para R$ 3.360,00 faz o INSS do sócio subir de R$ 178,31 para R$ 369,60 por mês e leva a base do pró-labore a uma faixa tributável de IRRF — mas, com o redutor do IR de {ANO}, o imposto pode seguir zero. No fim das contas, a economia de R$ 1.140,00 no DAS supera com folga o custo adicional: o próprio otimizador testa o pró-labore do mínimo ao teto e recomenda o valor que atinge a meta com menos imposto total.</p>
+<p>Descubra o seu ponto exato e compare os cenários no <a href="/me/">otimizador pró-labore × lucros</a>.</p>`,
+  },
+  {
+    slug: 'quanto-guardar-aos-30-40-e-50-anos',
+    titulo: 'Quanto guardar por mês aos 30, 40 e 50 anos para se aposentar',
+    descricao: 'Mesma meta, prazos diferentes: veja quanto é preciso investir por mês aos 30, 40 e 50 anos para alcançar uma renda de R$ 5.000 aos 60, com 4% reais ao ano.',
+    data: '2026-10-17',
+    calc: 'aposentadoria',
+    corpo: `
+<p>A meta de aposentadoria é a mesma para todo mundo na conta — o que muda é o tempo disponível. Usando a calculadora de aposentadoria com uma meta de renda de R$ 5.000,00 por mês aos 60 anos e hipótese de 4% reais ao ano, o patrimônio necessário é sempre de R$ 1.527.305,26. O que varia é o aporte mensal para chegar lá.</p>
+<h2>A conta em três idades</h2>
+<ul>
+<li><strong>Aos 30 anos</strong> (30 anos de aporte): R$ 2.228,76 por mês. Quem aplica R$ 1.000,00 chega a R$ 685.270,56 — e falta a maior parte do caminho, por isso o ajuste é barato.</li>
+<li><strong>Aos 40 anos</strong> (20 anos): R$ 4.197,72 por mês. O mesmo aporte de R$ 1.000,00 chega a R$ 363.841,73.</li>
+<li><strong>Aos 50 anos</strong> (10 anos): R$ 10.411,37 por mês. Com R$ 1.000,00 por mês, o patrimônio projetado é de R$ 146.695,92.</li>
+</ul>
+<h2>O que o exemplo mostra</h2>
+<p>Começar dez anos mais tarde praticamente dobra o aporte mensal necessário — e começar aos 50 exige quase cinco vezes o aporte dos 30. Os juros compostos trabalham a favor de quem tem tempo, não de quem aplica mais. Note também que o patrimônio-alvo não muda: ele depende da renda desejada e da rentabilidade real, não da sua idade.</p>
+<h2>Três ajustes que ajudam</h2>
+<ul>
+<li><strong>Rentabilidade real:</strong> informe o rendimento acima da inflação. Usar o valor nominal superestima o resultado e cria uma meta falsa.</li>
+<li><strong>Patrimônio já investido:</strong> quem já tem reserva reduz o aporte necessário — a calculadora mostra a conta desde o zero e com o que você já tem.</li>
+<li><strong>Revisar a meta:</strong> adiar a idade-alvo ou aceitar uma renda menor reduz o patrimônio necessário rapidamente.</li>
+</ul>
+<p>Monte o seu cenário com a sua idade, a sua meta e a sua hipótese de rentabilidade na <a href="/aposentadoria/">calculadora de aposentadoria</a>.</p>`,
+  },
+  {
+    slug: 'decimo-terceiro-de-quem-sai-no-meio-do-ano',
+    titulo: '13º de quem sai no meio do ano: como é calculado na rescisão',
+    descricao: 'Quem é demitido no meio do ano recebe o 13º proporcional aos meses trabalhados. Veja como contar os avos, o efeito do aviso prévio e um exemplo numérico.',
+    data: '2026-10-17',
+    calc: 'decimo-terceiro',
+    corpo: `
+<p>Quem sai da empresa antes do fim do ano não perde o 13º: recebe a parte proporcional aos meses trabalhados no ano da rescisão. A conta é simples, mas dois detalhes mudam o resultado.</p>
+<h2>A regra dos avos</h2>
+<p>O 13º equivale a 1/12 da remuneração por mês trabalhado. Na rescisão, cada mês do ano civil conta se você trabalhou <strong>15 dias ou mais</strong> nele — no admissões e saídas no meio do mês, é essa régua que decide. Quem trabalhou 8 meses recebe 8/12 do salário.</p>
+<h2>O aviso prévio projeta o contrato</h2>
+<p>Se o aviso é indenizado (a empresa paga sem você trabalhar), o contrato se estende pelo prazo do aviso para todos os efeitos. Isso pode acrescentar meses ao 13º — e também às férias proporcionais.</p>
+<h2>Exemplo com a calculadora</h2>
+<ul>
+<li><strong>Demissão em 20/08/2026</strong> com aviso indenizado de 36 dias: o contrato projeta até 25/09. São 9 meses de 2026 (janeiro a setembro, com o mês cheio contando pela projeção) — 13º proporcional de R$ 2.250,00 sobre um salário de R$ 3.000,00.</li>
+<li><strong>Admissão em 20/01 e saída em 05/12/2026, com aviso indenizado de 30 dias:</strong> janeiro não conta (12 dias trabalhados, menos de 15). O aviso projeta o fim para 04/01/2027, dezembro é contado — são 11 avos, R$ 2.750,00. Sem a projeção, dezembro também ficaria de fora e seriam apenas 10 avos.</li>
+</ul>
+<p>Na rescisão, o 13º vem na mesma folha com INSS e Imposto de Renda descontados — diferente da 1ª parcela do ano, que é paga sem descontos até 30 de novembro.</p>
+<p>Conte os seus meses e veja cada desconto na <a href="/decimo-terceiro/">calculadora de 13º salário</a> e na <a href="/rescisao/">calculadora de rescisão</a>.</p>`,
+  },
+  {
+    slug: 'seguro-desemprego-2026-quem-tem-direito',
+    titulo: 'Seguro-desemprego em 2026: quem tem direito, quantas parcelas e quanto recebe',
+    descricao: 'Regras do seguro-desemprego em 2026: número de parcelas conforme o tempo de trabalho, valores mínimo e máximo do ano, quem não tem direito e como solicitar.',
+    data: '2026-10-17',
+    calc: 'rescisao',
+    corpo: `
+<p>Quem é dispensado sem justa causa pode requerer o seguro-desemprego. Em 2026, a tabela foi atualizada pelo Ministério do Trabalho e Emprego com base no INPC e no salário mínimo — veja as regras.</p>
+<h2>Quem tem direito</h2>
+<ul>
+<li>Trabalhadores CLT (inclusive domésticos) dispensados <strong>sem justa causa</strong> — ou em dispensa indireta (falta grave do empregador).</li>
+<li>Quem teve o contrato suspenso por programa de qualificação do empregador, pescador profissional no defeso e trabalhador resgatado de condição análoga à escravidão.</li>
+</ul>
+<p><strong>Não dá direito:</strong> a rescisão por acordo entre as partes (CLT, art. 484-A), a dispensa por justa causa, a demissão do próprio pedido, além de quem já recebe benefício de prestação continuada da Previdência (exceto auxílio-acidente e pensão por morte) ou tem participação societária em empresas.</p>
+<h2>Quantas parcelas</h2>
+<p>O número de parcelas depende do tempo de trabalho comprovado:</p>
+<ul>
+<li>Ao menos <strong>6 meses</strong> de atividade: <strong>3 parcelas</strong>.</li>
+<li>Ao menos <strong>12 meses</strong>: <strong>4 parcelas</strong>.</li>
+<li>Mais de <strong>24 meses</strong>: <strong>5 parcelas</strong>.</li>
+</ul>
+<h2>Quanto recebe em 2026</h2>
+<p>O valor segue a média dos salários dos três meses anteriores à demissão, pela tabela anual do MTE, com piso e teto:</p>
+<ul>
+<li><strong>Piso:</strong> R$ 1.621,00 — o benefício nunca fica abaixo do salário mínimo de {ANO}.</li>
+<li><strong>Teto:</strong> R$ 3.703,99 — para salário médio acima de R$ 3.564,96.</li>
+</ul>
+<h2>Como solicitar</h2>
+<p>Pelo aplicativo da Carteira de Trabalho Digital, pelo portal gov.br ou presencialmente nas Superintendências Regionais do Trabalho (agendamento pelo 158). Perder o direito se você conseguir novo emprego com carteira assinada durante o recebimento.</p>
+<p>Se a sua saída foi combinada com a empresa, simule os valores na <a href="/rescisao/">calculadora de rescisão</a> — no acordo, o que muda é o aviso prévio e o FGTS.</p>`,
+  },
+  {
     slug: 'quanto-precisa-para-viver-de-renda',
     titulo: 'Quanto preciso juntar para viver de renda? Faça as contas',
     descricao: 'Planejamento de aposentadoria particular: quanto patrimônio você precisa para retirar uma renda mensal sem consumir o principal, com exemplo numérico.',
@@ -368,7 +465,7 @@ export const blog = [
 <h2>Exemplo: R$ 500 por mês</h2>
 <p>Quem aplica R$ 500,00 por mês a 0,8% ao mês durante 10 anos investe R$ 60.000,00 ao todo — e chega a R$ 100.108,75. Os juros somam R$ 40.108,75: quase metade do montante final veio do rendimento, e não do bolso.</p>
 <h2>Tempo × valor de uma vez só</h2>
-<p>A 0,8% ao mês, o dinheiro dobra a cerca de 87 meses — cerca de 7 anos e 4 meses. Por isso o tempo pesa tanto: R$ 10.000,00 aplicados uma única vez na mesma taxa chegam a R$ 67.690,48 em 20 anos, com R$ 57.690,48 de juros. Quem começa cedo com aportes menores costuma terminar à frente de quem aplica mais, mas tarde.</p>
+<p>A 0,8% ao mês, o dinheiro dobra a cerca de 87 meses — cerca de 7 anos e 3 meses. Por isso o tempo pesa tanto: R$ 10.000,00 aplicados uma única vez na mesma taxa chegam a R$ 67.690,48 em 20 anos, com R$ 57.690,48 de juros. Quem começa cedo com aportes menores costuma terminar à frente de quem aplica mais, mas tarde.</p>
 <h2>O imposto na retirada</h2>
 <p>No resgate, os rendimentos de investimentos sofrem Imposto de Renda pela tabela regressiva: de 22,5% para resgates até 180 dias até 15% após 720 dias. Quanto mais tempo o dinheiro fica investido, menor a alíquota. A calculadora estima esse valor junto com o montante.</p>
 <p>Monte o seu cenário com capital inicial, aporte e prazo na <a href="/juros-compostos/">calculadora de juros compostos</a>.</p>`,
@@ -389,7 +486,7 @@ export const blog = [
 <li><strong>IRRF:</strong> incide sobre férias mais o 1/3. Dependentes e o desconto simplificado reduzem a base.</li>
 </ul>
 <h2>Vender 10 dias (abono pecuniário)</h2>
-<p>Até 1/3 das férias pode ser convertido em dinheiro: você descansa 20 dias e recebe os 10 restantes. O pedido precisa ser feito até 15 dias antes do fim do período aquisitivo. No exemplo do salário de R$ 3.000,00, o abono vale R$ 1.000,00 mais R$ 333,33 de 1/3. O abono sofre INSS e entra na base do IRRF — como o total bruto é o mesmo, o líquido da simulação permanece R$ 3.751,40: vender os dias troca descanso por dinheiro, sem mudar a conta de impostos deste exemplo.</p>
+<p>Até 1/3 das férias pode ser convertido em dinheiro: você descansa 20 dias e recebe os 10 restantes. O pedido pode ser feito a qualquer tempo, dentro do período concessivo (CLT, art. 130, §1º). No exemplo do salário de R$ 3.000,00, o abono vale R$ 1.000,00 mais R$ 333,33 de 1/3. O abono sofre INSS e entra na base do IRRF — como o total bruto é o mesmo, o líquido da simulação permanece R$ 3.751,40: vender os dias troca descanso por dinheiro, sem mudar a conta de impostos deste exemplo.</p>
 <h2>Prazos e regras que mudam os dias</h2>
 <ul>
 <li>O pagamento deve ser feito até 2 dias antes do início do descanso.</li>

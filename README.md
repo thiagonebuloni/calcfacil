@@ -204,7 +204,7 @@ Datas fixas em lei (valem conferir a cada reforma trabalhista ou previdenciária
 
 - 13º salário: 1ª parcela até **30/11** e 2ª até **20/12** (Leis 4.090/1962 e 4.749/1965).
 - Rescisão: pagamento em até **10 dias** corridos do término do contrato (CLT, art. 477, §6º).
-- Férias: pagamento até **2 dias antes** do início do descanso; abono solicitado até **15 dias antes** do fim do período aquisitivo (CLT, art. 134, §1º; Lei 605/1949, art. 13).
+- Férias: pagamento até **2 dias antes** do início do descanso; abono pecuniário pode ser solicitado a qualquer tempo, dentro do período concessivo (CLT, arts. 130, §1º, e 134, §1º; Lei 605/1949, art. 13).
 
 ### 8.2 Roteiro de atualização
 
