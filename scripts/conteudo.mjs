@@ -248,7 +248,7 @@ export const calculadoras = [
       { name: 'rentabilidade', rotulo: 'Rentabilidade real ao ano (%)', tipo: 'percent', valor: '4,00', ajuda: 'Acima da inflação. Algo entre 3% e 6% é uma hipótese comum.' },
     ],
     lei: 'Matemática financeira (planejamento; não é simulação do INSS)',
-    relacionadas: ['juros-compostos', 'financiamento', 'ferias'],
+    relacionadas: ['juros-compostos', 'financiamento', 'inss'],
     comoCalcula: `
 <h2>Como calculamos a aposentadoria</h2>
 <p>Esta é uma calculadora de planejamento financeiro, não uma simulação do benefício do INSS. Ela responde: quanto preciso ter investido para viver só dos rendimentos?</p>
@@ -262,7 +262,7 @@ export const calculadoras = [
 <h3>Exemplo</h3>
 <p>Quem tem 30 anos e quer R$ 5.000,00 por mês aos 60, com 4% reais ao ano, precisa de cerca de R$ 1.527.305,26. Investindo R$ 1.000,00 por mês a partir do zero, chega a cerca de R$ 685.270,56 nesse prazo. Para atingir a meta, o aporte teria de ser de aproximadamente R$ 2.228,76 por mês.</p>`,
     faq: [
-      ['Isto simula a aposentadoria do INSS?', 'Não. Para estimar o benefício do INSS, use o Meu INSS (site ou aplicativo). Esta calculadora trata da renda que você constrói com investimentos próprios.'],
+      ['Isto simula a aposentadoria do INSS?', 'Não. Use a calculadora de aposentadoria do INSS deste site para estimar quando você se aposenta e quanto vai receber. Esta página trata da renda que você constrói com investimentos próprios, que pode complementar o benefício.'],
       ['O que é rentabilidade real?', 'É o rendimento acima da inflação. Se o investimento rende 10% e a inflação é de 5%, o ganho real é de cerca de 4,8%.'],
       ['Por que a meta supõe não consumir o patrimônio?', 'Porque, assim, a renda dura para sempre e pode ser deixada para a família. Se aceitar consumir o patrimônio até uma certa idade, a meta necessária é menor.'],
       ['O resultado considera a inflação?', 'Sim, se você usar uma renda em valores de hoje e uma rentabilidade real. Não coloque a rentabilidade nominal.'],
@@ -331,6 +331,52 @@ export const calculadoras = [
       ['E se a meta não couber no faturamento?', 'O otimizador marca como inviável, mostra o melhor cenário possível e estima o faturamento mínimo necessário para atingir a meta.'],
       ['O que muda perto do teto de ME?', 'ME fatura até R$ 360 mil por ano. Perto do teto o otimizador avisa; acima dele a empresa vira EPP, ainda no Simples, com alíquotas maiores.'],
       ['Preciso de contador mesmo com a simulação?', 'Sim. É uma estimativa com as tabelas vigentes: o contador valida o anexo, a folha de pró-labore e os recolhimentos antes de colocar em prática.'],
+    ],
+  },
+  {
+    slug: 'inss',
+    nome: 'Calculadora de aposentadoria do INSS',
+    nomeCurto: 'INSS',
+    titulo: 'Calculadora de aposentadoria do INSS {ANO}: quando vou me aposentar e quanto vou receber',
+    descricao: 'Estime quando você se aposenta pelo INSS e o valor do benefício: regra permanente, transição por pontos, idade mínima progressiva e pedágio de 100%.',
+    resumoLista: 'Quando aposenta e valor do benefício.',
+    h1: 'Calculadora de aposentadoria do INSS',
+    lead: 'Informe sexo, nascimento, tempo de contribuição e média salarial. Você vê em qual regra se aposenta primeiro e quanto deve receber.',
+    campos: [
+      { name: 'sexo', rotulo: 'Sexo', tipo: 'select', valor: 'mulher', opcoes: [['mulher', 'Mulher'], ['homem', 'Homem']], ajuda: 'As idades e os tempos mínimos são diferentes para homens e mulheres.' },
+      { name: 'nascimento', rotulo: 'Data de nascimento', tipo: 'date', valor: '' },
+      { name: 'tempoAnos', rotulo: 'Tempo de contribuição: anos', tipo: 'number', valor: '20' },
+      { name: 'tempoMeses', rotulo: 'Tempo de contribuição: meses', tipo: 'number', valor: '0', ajuda: 'De 0 a 11, além dos anos.' },
+      { name: 'media', rotulo: 'Média dos salários desde 07/1994 (R$)', tipo: 'money', valor: '3.000,00', largo: true, ajuda: 'Veja no Meu INSS, em Extrato de Contribuição (CNIS). Sem o extrato, use o salário atual como aproximação.' },
+      { name: 'salarioAtual', rotulo: 'Salário atual (R$)', tipo: 'money', valor: '', placeholder: '0,00', ajuda: 'Opcional. Usado para projetar a média até a concessão. Vazio = igual à média.' },
+      { name: 'em2019', rotulo: 'Contribuição em 11/2019 (anos)', tipo: 'number', valor: '', placeholder: '0', ajuda: 'Opcional. Só para o pedágio de 100%. Vazio = supõe contribuição contínua desde 2019.' },
+    ],
+    lei: 'Emenda Constitucional 103/2019 (reforma da Previdência)',
+    relacionadas: ['aposentadoria', 'me', 'juros-compostos'],
+    comoCalcula: `
+<h2>Como estimamos a aposentadoria do INSS</h2>
+<p>Esta calculadora testa 4 regras da reforma de 2019 e mostra em qual delas você se aposenta primeiro, com o valor estimado do benefício. É uma estimativa: sem o seu CNIS completo, usamos a média que você informa e a projetamos com o salário atual até a data da concessão.</p>
+<p class="formula">benefício = média projetada × coeficiente (limitado ao piso e ao teto)</p>
+<h3>As 4 regras testadas</h3>
+<ul>
+<li><strong>Permanente:</strong> mulher 62 anos + 15 de contribuição; homem 65 anos + 20.</li>
+<li><strong>Pontos:</strong> idade + contribuição somando 93 (mulher) ou 103 (homem) em {ANO}, subindo 1 ponto por ano; exige 30/35 de contribuição.</li>
+<li><strong>Idade progressiva:</strong> 59,5 (mulher) ou 64,5 (homem) em {ANO}, subindo 6 meses por ano; exige 30/35 de contribuição.</li>
+<li><strong>Pedágio de 100%:</strong> 57 (mulher) ou 60 (homem) + 30/35 de contribuição + o dobro do tempo que faltava em 11/2019. Paga 100% da média.</li>
+</ul>
+<h3>O coeficiente</h3>
+<p>Nas três primeiras regras, o benefício é 60% da média mais 2% por ano de contribuição além de 15 (mulher) ou 20 (homem), até 100%. No pedágio de 100%, o coeficiente é 100% direto. O resultado respeita o piso (salário mínimo) e o teto do INSS.</p>
+<h3>Exemplo</h3>
+<p>Mulher nascida em 01/03/1971, com 27 anos de contribuição, média de R$ 4.000,00 e salário atual de R$ 4.500,00: pela transição da idade mínima, aposenta-se em março de 2033 com cerca de 96% da média projetada. O pedágio de 100% pagaria 100% da média, mas chegaria bem depois.</p>
+<h3>O que fica de fora</h3>
+<p>Pedágio de 50% (com fator previdenciário) e direito adquirido anterior a 11/2019. Para esses casos — e para o valor oficial com o seu CNIS — use o simulador do Meu INSS.</p>`,
+    faq: [
+      ['De onde tiro a média dos salários?', 'No Meu INSS, em Extrato de Contribuição (CNIS): some os salários desde julho de 1994 e divida pela quantidade de meses. Sem o extrato, informe o salário atual como aproximação — o resultado fica menos preciso.'],
+      ['Por que o resultado pode diferir do Meu INSS?', 'Porque o INSS usa todos os seus salários corrigidos mês a mês, e aqui usamos uma média única projetada. É uma estimativa para planejar, não o valor oficial da concessão.'],
+      ['Qual regra chega primeiro no meu caso?', 'O resultado mostra as 4 regras lado a lado, com o tempo que falta em cada uma. Em geral, quem tem muito tempo de contribuição chega pelos pontos; quem tem mais idade, pela permanente ou pela idade progressiva.'],
+      ['O que é o pedágio de 100%?', 'Para quem já contribuía antes da reforma: é preciso pagar em dobro o tempo que faltava em 11/2019 para 30/35 anos, além de ter 57/60 anos de idade. Em troca, o benefício é 100% da média, sem o redutor do coeficiente.'],
+      ['Aposentadoria do INSS tem piso e teto?', 'Tem. Nenhum benefício fica abaixo do salário mínimo nem acima do teto do INSS. A calculadora já aplica os dois.'],
+      ['E se eu quiser complementar a renda?', 'Use a calculadora de aposentadoria privada do site: informe a renda total que você quer e descubra quanto precisa investir por mês para completar o que o INSS vai pagar.'],
     ],
   },
 ];

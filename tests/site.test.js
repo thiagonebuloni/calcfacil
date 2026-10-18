@@ -24,7 +24,7 @@ const rel = (p) => p.slice(raiz.length);
 
 test('existem as páginas esperadas', () => {
   assert.ok(todas.length >= 17, `só ${todas.length} páginas`);
-  for (const s of ['rescisao', 'decimo-terceiro', 'ferias', 'financiamento', 'juros-compostos', 'aposentadoria', 'me', 'privacidade', 'sobre', 'contato', 'termos', 'aviso-legal', 'blog']) {
+  for (const s of ['rescisao', 'decimo-terceiro', 'ferias', 'financiamento', 'juros-compostos', 'aposentadoria', 'me', 'inss', 'privacidade', 'sobre', 'contato', 'termos', 'aviso-legal', 'blog']) {
     assert.ok(existsSync(join(raiz, s, 'index.html')), `falta /${s}/`);
   }
 });
@@ -58,7 +58,7 @@ test('links internos apontam para páginas ou arquivos existentes', () => {
 });
 
 test('calculadoras: formulário, FAQ, JSON-LD e aviso legal', () => {
-  for (const s of ['rescisao', 'decimo-terceiro', 'ferias', 'financiamento', 'juros-compostos', 'aposentadoria', 'me']) {
+  for (const s of ['rescisao', 'decimo-terceiro', 'ferias', 'financiamento', 'juros-compostos', 'aposentadoria', 'me', 'inss']) {
     const h = readFileSync(join(raiz, s, 'index.html'), 'utf8');
     assert.match(h, new RegExp(`<form class="calc" data-calc="${s}"`));
     assert.ok((h.match(/<details><summary>/g) || []).length >= 5, `FAQ curto em ${s}`);

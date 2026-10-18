@@ -145,6 +145,45 @@
     "carneLeao": 0.2
   },
 
+  "aposentadoriaInss": {
+    "fonte": "EC 103/2019 (reforma da Previdência); valores das transições em 2026 conforme gov.br/INSS e MTE",
+    "url": "https://www.gov.br/inss/pt-br/direitos-e-deveres/aposentadorias/regras-de-aposentadorias",
+    "carenciaMeses": 180,
+    "permanente": {
+      "mulher": { "idade": 62, "contribuicaoAnos": 15 },
+      "homem": { "idade": 65, "contribuicaoAnos": 20 }
+    },
+    "coeficiente": { "base": 0.6, "adicionalPorAno": 0.02, "anosBaseMulher": 15, "anosBaseHomem": 20 },
+    "pontos": {
+      "contribuicaoAnos": { "mulher": 30, "homem": 35 },
+      "porAno": [
+        { "ano": 2026, "mulher": 93, "homem": 103 },
+        { "ano": 2027, "mulher": 94, "homem": 104 },
+        { "ano": 2028, "mulher": 95, "homem": 105 },
+        { "ano": 2029, "mulher": 96, "homem": 105 },
+        { "ano": 2030, "mulher": 97, "homem": 105 },
+        { "ano": 2031, "mulher": 98, "homem": 105 },
+        { "ano": 2032, "mulher": 99, "homem": 105 },
+        { "ano": 2033, "mulher": 100, "homem": 105 }
+      ]
+    },
+    "idadeProgressiva": {
+      "contribuicaoAnos": { "mulher": 30, "homem": 35 },
+      "porAno": [
+        { "ano": 2026, "mulher": 59.5, "homem": 64.5 },
+        { "ano": 2027, "mulher": 60, "homem": 65 },
+        { "ano": 2028, "mulher": 60.5, "homem": 65 },
+        { "ano": 2029, "mulher": 61, "homem": 65 },
+        { "ano": 2030, "mulher": 61.5, "homem": 65 },
+        { "ano": 2031, "mulher": 62, "homem": 65 }
+      ]
+    },
+    "pedagio100": {
+      "mulher": { "idade": 57, "contribuicaoAnos": 30 },
+      "homem": { "idade": 60, "contribuicaoAnos": 35 }
+    }
+  },
+
   "lucros": {
     "fonte": "LC 123/2006, art. 14 (isenção); Lei 15.270/2025, arts. 6º-A (retenção de 10% acima de R$ 50 mil/mês) e 16-A (imposto mínimo anual)",
     "url": "https://www.gov.br/receitafederal",
