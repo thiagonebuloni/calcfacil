@@ -383,6 +383,27 @@ export const calculadoras = [
 
 export const blog = [
   {
+    slug: 'inss-pedagio-100-vale-a-pena',
+    titulo: 'Pedágio de 100% do INSS: quando pagar o dobro do tempo vale a pena',
+    descricao: 'O pedágio de 100% paga 100% da média, mas exige contribuir o dobro do que faltava em 2019. Veja em quais casos ele vence — e quando é uma cilada.',
+    data: '2026-10-20',
+    calc: 'inss',
+    corpo: `
+<p>De todas as regras da reforma, o pedágio de 100% é a que mais parece um bom negócio — e a que mais engana. "100% da média" soa imbatível. Só que o preço é salgado: contribuir <strong>o dobro</strong> do tempo que faltava em novembro de 2019. Para alguns, é a melhor porta. Para a maioria, é a mais lenta. A diferença está nos números.</p>
+<h2>Como funciona, sem juridiquês</h2>
+<p>Valia para quem já contribuía antes da reforma. A conta: pegue quanto faltava em 11/2019 para completar 30 anos (mulher) ou 35 (homem), multiplique por dois e some ao que você já tinha. Além disso, é preciso ter 57 anos (mulher) ou 60 (homem). Em troca, o benefício é <strong>100% da média</strong> — sem o redutor de 60% + 2% ao ano das outras regras.</p>
+<h2>Paula: o caso em que o pedágio vence</h2>
+<p>Paula tem 57 anos, 29 de contribuição e já tinha 27 em 2019 — faltava 1 ano, então o pedágio cobra 2. Ela se aposenta em outubro de 2030 com R$ 6.060,61 (100% da média projetada de R$ 6.000,00 com salário atual de R$ 6.500,00). A idade progressiva liberaria só em dezembro de 2030, com 96% da média (R$ 5.820,30). Aqui o pedágio ganha duas vezes: <strong>chega 2 meses antes e paga R$ 240 a mais por mês</strong>. Quando faltava pouco em 2019, o preço do pedágio é baixo — e ele vence.</p>
+<h2>Marcos: a cilada dos R$ 228</h2>
+<p>Marcos tem 60 anos, 34 de contribuição, mas só 27 em 2019 — faltavam 8 anos, e o pedágio cobra 16. Resultado: o pedágio só libera em outubro de 2035, com R$ 4.604,65. A regra permanente libera em abril de 2031, com R$ 4.376,10. Ou seja: <strong>esperar 4 anos e meio a mais por R$ 228 mensais</strong> — e abrir mão de 54 meses de benefício (mais de R$ 236 mil). Para o Marcos, o "100%" é o pior negócio da lista.</p>
+<h2>Renata: longe demais para fazer sentido</h2>
+<p>Renata tem 50 anos, 25 de contribuição e 18 em 2019 — faltavam 12 anos, o pedágio cobra 24. Ele só chegaria em outubro de 2043, mais de 5 anos depois da permanente (março de 2038), por uma diferença de R$ 18 por mês. Quando faltava muito em 2019, o pedágio nem entra na conversa.</p>
+<h2>A regra de bolso</h2>
+<p>O padrão é claro: o pedágio de 100% só compete quando <strong>faltava pouco tempo em 2019</strong> — algo como 1 a 3 anos. Acima disso, o dobro do tempo empurra a concessão para tão longe que nenhuma diferença de coeficiente compensa os anos de benefício perdido. E tem o detalhe final: quem tem salário alto sente mais o efeito dos 100%, porque o redutor do coeficiente morde mais quem ganha mais.</p>
+<p>Quer saber de que lado você está? Informe o seu tempo de contribuição em 11/2019 na <a href="/inss/">calculadora de aposentadoria do INSS</a> — ela compara o pedágio com as outras três regras, lado a lado, com data e valor. E se o seu caso envolve pedágio de 50% ou direito adquirido anterior a 2019, o caminho é o simulador do Meu INSS com o CNIS completo.</p>`,
+  },
+
+  {
     slug: 'inss-qual-regra-chega-primeiro',
     titulo: 'INSS: qual regra de aposentadoria chega primeiro no seu caso',
     descricao: 'Permanente, pontos, idade progressiva ou pedágio de 100%? Entenda as 4 regras do INSS com exemplos reais e descubra qual libera a sua aposentadoria antes.',
