@@ -32,7 +32,7 @@ export const calculadoras = [
 <li><strong>2ª parcela:</strong> paga até 20 de dezembro. Sobre o total do 13º incidem INSS e IRRF, e o que você já recebeu na 1ª parcela é abatido.</li>
 </ul>
 <h3>Descontos</h3>
-<p>O INSS segue a tabela progressiva de {ANO}, calculada sobre o 13º separadamente do salário do mês. Para o IRRF vale a tabela própria do 13º — os limites e a parcela da tabela mensal divididos por 2 (Lei 7.713/1988, art. 12, §1º) — com a dedução mais vantajosa entre INSS mais dependentes e o desconto simplificado. A redução do IR de 2026 (Lei 15.270/2025, art. 3º-A, §3º) também se aplica ao 13º.</p>
+<p>O INSS segue a tabela progressiva de {ANO}, calculada sobre o 13º separadamente do salário do mês. Para o IRRF vale a tabela própria do 13º - os limites e a parcela da tabela mensal divididos por 2 (Lei 7.713/1988, art. 12, §1º) - com a dedução mais vantajosa entre INSS mais dependentes e o desconto simplificado. A redução do IR de 2026 (Lei 15.270/2025, art. 3º-A, §3º) também se aplica ao 13º.</p>
 <h3>Exemplo</h3>
 <p>Salário de R$ 3.000,00 e 12 meses trabalhados: 13º bruto de R$ 3.000,00, INSS de R$ 248,60 e IRRF zero. O líquido é R$ 2.751,40, pago em R$ 1.500,00 na 1ª parcela e R$ 1.251,40 na 2ª.</p>`,
     faq: [
@@ -69,7 +69,7 @@ export const calculadoras = [
 <h3>Abono pecuniário</h3>
 <p>Você pode converter até 1/3 das férias (10 dias) em dinheiro. O abono vale o salário de 10 dias mais 1/3: o valor do abono sofre INSS, e abono e 1/3 entram na base do Imposto de Renda. O pedido pode ser feito a qualquer tempo, dentro do período concessivo.</p>
 <h3>Descontos e prazo</h3>
-<p>O IRRF incide sobre as férias mais o 1/3; o INSS incide só sobre as férias — o 1/3 constitucional é isento desde 2020 (Lei 8.212/1991, art. 28, §9º, IV). As alíquotas são as tabelas de {ANO}. O pagamento deve ser feito até 2 dias antes do início do descanso.</p>
+<p>O IRRF incide sobre as férias mais o 1/3; o INSS incide só sobre as férias - o 1/3 constitucional é isento desde 2020 (Lei 8.212/1991, art. 28, §9º, IV). As alíquotas são as tabelas de {ANO}. O pagamento deve ser feito até 2 dias antes do início do descanso.</p>
 <h3>Fracionamento</h3>
 <p>As férias podem ser divididas em até 3 períodos, desde que você concorde: um deles com pelo menos 14 dias corridos e os demais com pelo menos 5 dias cada.</p>
 <h3>Exemplo</h3>
@@ -126,7 +126,7 @@ export const calculadoras = [
 <li><strong>Aviso prévio:</strong> 30 dias mais 3 dias por ano completo de serviço, no máximo 90 dias (Lei 12.506/2011). O aviso indenizado conta como tempo de serviço e soma meses ao 13º e às férias proporcionais.</li>
 <li><strong>13º proporcional:</strong> salário ÷ 12 × meses trabalhados no ano, contando o mês com 15 dias ou mais.</li>
 <li><strong>Férias proporcionais:</strong> salário ÷ 12 × meses desde o último aniversário de admissão, mais 1/3.</li>
-<li><strong>FGTS:</strong> o empregador deposita 8% sobre as verbas de natureza salarial (saldo, aviso indenizado, 13º e férias com o 1/3 — Lei 8.036, art. 15). A multa é de 40% (ou 20% no acordo) sobre o saldo total, incluindo esse depósito. Ela é paga pelo empregador e não sai do seu saldo.</li>
+<li><strong>FGTS:</strong> o empregador deposita 8% sobre as verbas de natureza salarial (saldo, aviso indenizado, 13º e férias com o 1/3 - Lei 8.036, art. 15). A multa é de 40% (ou 20% no acordo) sobre o saldo total, incluindo esse depósito. Ela é paga pelo empregador e não sai do seu saldo.</li>
 </ul>
 <h3>Descontos</h3>
 <p>INSS e IRRF incidem sobre o saldo de salário e sobre o 13º, calculados separadamente. O aviso prévio indenizado e as férias indenizadas, com o 1/3, não sofrem INSS; o aviso indenizado, porém, entra na base do IRRF, enquanto as férias indenizadas são isentas dele. No pedido de demissão sem cumprir o aviso, o empregador pode descontar 30 dias de salário.</p>
@@ -283,7 +283,7 @@ export const calculadoras = [
       { name: 'meta', rotulo: 'Quanto quer receber líquido por mês (R$)', tipo: 'money', valor: '8.000,00', ajuda: 'No bolso, depois dos impostos pessoais.' },
       { name: 'atividade', rotulo: 'Atividade principal', tipo: 'select', valor: 'intelectual', opcoes: [['comercio', 'Comércio (Anexo I)'], ['industria', 'Indústria (Anexo II)'], ['servicos', 'Serviços em geral (Anexo III)'], ['construcao', 'Construção, limpeza, vigilância (Anexo IV)'], ['intelectual', 'TI, consultoria, marketing, engenharia, design… (Fator R)']] },
       { name: 'receitaMensal', rotulo: 'Faturamento mensal esperado (R$)', tipo: 'money', valor: '20.000,00' },
-      { name: 'rbt12', rotulo: 'Faturamento dos últimos 12 meses — RBT12 (R$)', tipo: 'money', valor: '200.000,00', ajuda: 'Inclui o período como MEI. Empresa nova: use a média mensal × 12.' },
+      { name: 'rbt12', rotulo: 'Faturamento dos últimos 12 meses - RBT12 (R$)', tipo: 'money', valor: '200.000,00', ajuda: 'Inclui o período como MEI. Empresa nova: use a média mensal × 12.' },
       { name: 'dataMigracao', rotulo: 'Data da migração MEI → ME (opcional)', tipo: 'date', valor: '' },
       { name: 'despesas', rotulo: 'Despesas e custos mensais, sem impostos nem pró-labore (R$)', tipo: 'money', valor: '2.000,00' },
       { name: 'folhaMensal', rotulo: 'Folha de funcionários no mês, com encargos (R$)', tipo: 'money', valor: '0,00' },
@@ -293,7 +293,7 @@ export const calculadoras = [
       { name: 'numSocios', rotulo: 'Número de sócios', tipo: 'number', valor: '1' },
       { name: 'participacao', rotulo: 'Sua participação no lucro (%)', tipo: 'number', valor: '100' },
       { name: 'metaPorSocio', rotulo: 'A meta é por sócio', tipo: 'checkbox', valor: false, ajuda: 'Com mais de um sócio, a empresa precisa gerar a meta para cada um.' },
-      { name: 'outrasRendas', rotulo: 'Outras rendas tributáveis mensais — CLT, aluguel, autônomo (R$)', tipo: 'money', valor: '0,00' },
+      { name: 'outrasRendas', rotulo: 'Outras rendas tributáveis mensais - CLT, aluguel, autônomo (R$)', tipo: 'money', valor: '0,00' },
       { name: 'inssOutro', rotulo: 'Base mensal no outro vínculo para o teto do INSS (R$)', tipo: 'money', valor: '0,00', ajuda: 'O teto é compartilhado: o pró-labore usa só a folga.' },
       { name: 'dependentes', rotulo: 'Número de dependentes', tipo: 'number', valor: '0' },
       { name: 'pensao', rotulo: 'Pensão alimentícia paga (R$)', tipo: 'money', valor: '0,00' },
@@ -308,25 +308,25 @@ export const calculadoras = [
 <p>Você informa a meta líquida e a situação da empresa. O otimizador testa o pró-labore do mínimo ao teto, em passos de R$ 50, e para cada valor calcula DAS, INSS com o teto compartilhado, IRRF marginal e o lucro que sobra. Entre os valores que atingem a meta, vence o de menor imposto total.</p>
 <p class="formula">alíquota efetiva = (RBT12 × nominal − parcela) ÷ RBT12 · DAS = receita × efetiva</p>
 <h3>Fator R</h3>
-<p>Atividades intelectuais pagam pelo Anexo III quando a folha de 12 meses chega a 28% do faturamento, e pelo Anexo V abaixo disso. O realizado usa a folha já paga; a varredura usa o projetado — (funcionários + pró-labore) × 12 sobre o maior entre o RBT12 e a receita anualizada. O enquadramento oficial usa os últimos 12 meses, então o DAS menor pode demorar até um ano para aparecer.</p>
+<p>Atividades intelectuais pagam pelo Anexo III quando a folha de 12 meses chega a 28% do faturamento, e pelo Anexo V abaixo disso. O realizado usa a folha já paga; a varredura usa o projetado - (funcionários + pró-labore) × 12 sobre o maior entre o RBT12 e a receita anualizada. O enquadramento oficial usa os últimos 12 meses, então o DAS menor pode demorar até um ano para aparecer.</p>
 <h3>Pró-labore</h3>
 <p>INSS de 11% até o teto, descontando o que já foi pago em outro vínculo, mais IRRF pela tabela mensal com o redutor vigente. Outras rendas entram na conta porque empurram a faixa do IR: o custo atribuído ao pró-labore é a parcela marginal. Gera aposentadoria, auxílio-doença e salário-maternidade, e o mínimo é obrigatório para o sócio administrador.</p>
 <h3>Distribuição de lucros</h3>
 <p>Lucro disponível = receita − DAS − despesas − folha − pró-labore. Sem contabilidade completa, a isenção limita-se ao lucro presumido do setor (cerca de 32% da receita em serviços, 8% em comércio e indústria); acima disso, ou acima de R$ 50 mil por mês de uma só fonte, há retenção de 10% sobre o excedente.</p>
 <h3>Cenários comparados</h3>
 <ul>
-<li><strong>(A) pró-labore mínimo</strong> — maximiza o lucro isento quando o anexo não muda.</li>
-<li><strong>(B) ponto do Fator R</strong> — o pró-labore exato que entrega 28% na projeção.</li>
-<li><strong>(C) ótimo</strong> — o que atinge a meta com menos imposto.</li>
-<li><strong>(D) tudo como pró-labore</strong> — sem distribuição, para comparar o pior caso.</li>
+<li><strong>(A) pró-labore mínimo</strong> - maximiza o lucro isento quando o anexo não muda.</li>
+<li><strong>(B) ponto do Fator R</strong> - o pró-labore exato que entrega 28% na projeção.</li>
+<li><strong>(C) ótimo</strong> - o que atinge a meta com menos imposto.</li>
+<li><strong>(D) tudo como pró-labore</strong> - sem distribuição, para comparar o pior caso.</li>
 </ul>
 <h3>Folha mensal de pagamentos</h3>
 <p>O DAS vence no dia 20. O INSS do pró-labore vai na GPS do dia 20 do mês seguinte. Emita a folha de pró-labore e recolha corretamente.</p>
-<p class="fonte">Parâmetros editáveis: salário mínimo de {ANO}, teto do INSS, tabelas do Simples (Anexos I a V), IRRF com redutor, dedução por dependente e limite de dividendos. Simulação — valide com o contador antes de colocar em prática.</p>`,
+<p class="fonte">Parâmetros editáveis: salário mínimo de {ANO}, teto do INSS, tabelas do Simples (Anexos I a V), IRRF com redutor, dedução por dependente e limite de dividendos. Simulação - valide com o contador antes de colocar em prática.</p>`,
     faq: [
       ['Como o otimizador escolhe o pró-labore ideal?', 'Ele testa valores do mínimo ao teto e, entre os que atingem a sua meta líquida, recomenda o de menor imposto total (DAS + INSS + IRRF + IR dos lucros). A retirada de lucro é o complemento para fechar a meta.'],
       ['O que é o Fator R e quanto falta para 28%?', 'É a folha dos últimos 12 meses dividida pelo faturamento dos últimos 12 meses. A partir de 28%, serviços intelectuais pagam pelo Anexo III; abaixo, pelo Anexo V. O resultado mostra o realizado, o projetado e quanto de folha falta.'],
-      ['Por que o benefício do Fator R pode demorar?', 'Porque o enquadramento oficial usa os últimos 12 meses pagos. Subir o pró-labore hoje só reflete no DAS quando a folha nova compõe o período — até um ano.'],
+      ['Por que o benefício do Fator R pode demorar?', 'Porque o enquadramento oficial usa os últimos 12 meses pagos. Subir o pró-labore hoje só reflete no DAS quando a folha nova compõe o período - até um ano.'],
       ['Quando o lucro distribuído paga Imposto de Renda?', 'Sem contabilidade completa, acima do lucro presumido do setor; acima de R$ 50 mil por mês de uma só fonte, com retenção de 10% sobre o excedente. Com escrituração e balanço, a retenção é dispensada.'],
       ['E se a meta não couber no faturamento?', 'O otimizador marca como inviável, mostra o melhor cenário possível e estima o faturamento mínimo necessário para atingir a meta.'],
       ['O que muda perto do teto de ME?', 'ME fatura até R$ 360 mil por ano. Perto do teto o otimizador avisa; acima dele a empresa vira EPP, ainda no Simples, com alíquotas maiores.'],
@@ -369,9 +369,9 @@ export const calculadoras = [
 <h3>Exemplo</h3>
 <p>Mulher nascida em 01/03/1971, com 27 anos de contribuição, média de R$ 4.000,00 e salário atual de R$ 4.500,00: pela transição da idade mínima, aposenta-se em março de 2033 com cerca de 96% da média projetada. O pedágio de 100% pagaria 100% da média, mas chegaria bem depois.</p>
 <h3>O que fica de fora</h3>
-<p>Pedágio de 50% (com fator previdenciário) e direito adquirido anterior a 11/2019. Para esses casos — e para o valor oficial com o seu CNIS — use o simulador do Meu INSS.</p>`,
+<p>Pedágio de 50% (com fator previdenciário) e direito adquirido anterior a 11/2019. Para esses casos - e para o valor oficial com o seu CNIS - use o simulador do Meu INSS.</p>`,
     faq: [
-      ['De onde tiro a média dos salários?', 'No Meu INSS, em Extrato de Contribuição (CNIS): some os salários desde julho de 1994 e divida pela quantidade de meses. Sem o extrato, informe o salário atual como aproximação — o resultado fica menos preciso.'],
+      ['De onde tiro a média dos salários?', 'No Meu INSS, em Extrato de Contribuição (CNIS): some os salários desde julho de 1994 e divida pela quantidade de meses. Sem o extrato, informe o salário atual como aproximação - o resultado fica menos preciso.'],
       ['Por que o resultado pode diferir do Meu INSS?', 'Porque o INSS usa todos os seus salários corrigidos mês a mês, e aqui usamos uma média única projetada. É uma estimativa para planejar, não o valor oficial da concessão.'],
       ['Qual regra chega primeiro no meu caso?', 'O resultado mostra as 4 regras lado a lado, com o tempo que falta em cada uma. Em geral, quem tem muito tempo de contribuição chega pelos pontos; quem tem mais idade, pela permanente ou pela idade progressiva.'],
       ['O que é o pedágio de 100%?', 'Para quem já contribuía antes da reforma: é preciso pagar em dobro o tempo que faltava em 11/2019 para 30/35 anos, além de ter 57/60 anos de idade. Em troca, o benefício é 100% da média, sem o redutor do coeficiente.'],
@@ -389,8 +389,8 @@ export const blog = [
     data: '2026-10-20',
     calc: 'inss',
     corpo: `
-<p>Você abre o simulador do INSS, responde meia dúzia de perguntas e recebe uma data. Mas <em>por que</em> aquela regra, e não outra? E será que esperar mais um ano por uma regra diferente não pagaria um benefício maior? Quem entende as quatro portas de saída consegue escolher — em vez de apenas aceitar a primeira que abre.</p>
-<p>Vamos passar pelas quatro regras com três pessoas fictícias, mas com contas reais — todas rodadas na nossa calculadora. Depois, um passo a passo para descobrir a sua.</p>
+<p>Você abre o simulador do INSS, responde meia dúzia de perguntas e recebe uma data. Mas <em>por que</em> aquela regra, e não outra? E será que esperar mais um ano por uma regra diferente não pagaria um benefício maior? Quem entende as quatro portas de saída consegue escolher - em vez de apenas aceitar a primeira que abre.</p>
+<p>Vamos passar pelas quatro regras com três pessoas fictícias, mas com contas reais - todas rodadas na nossa calculadora. Depois, um passo a passo para descobrir a sua.</p>
 <h2>As quatro portas, em linguagem simples</h2>
 <div class="tabela-wrap"><table>
 <thead><tr><th scope="col">Regra</th><th scope="col">Mulher</th><th scope="col">Homem</th><th scope="col">Quanto paga</th></tr></thead>
@@ -400,16 +400,16 @@ export const blog = [
 <tr><td>Idade progressiva</td><td>59,5 anos + 30 de contribuição</td><td>64,5 anos + 35 de contribuição</td><td>Mesmo coeficiente acima</td></tr>
 <tr><td>Pedágio de 100%</td><td>57 anos + dobro do que faltava em 2019</td><td>60 anos + dobro do que faltava em 2019</td><td>100% da média</td></tr>
 </tbody></table></div>
-<p>Pontos, vale lembrar, é a soma da sua idade com o tempo de contribuição. E as metas de pontos e idade progressiva sobem todo ano — os valores acima são os de 2026.</p>
+<p>Pontos, vale lembrar, é a soma da sua idade com o tempo de contribuição. E as metas de pontos e idade progressiva sobem todo ano - os valores acima são os de 2026.</p>
 <h2>Ana, 52 anos: a idade decide</h2>
-<p>Ana contribui há 28 anos, com média de R$ 3.500,00. Faltam 2 anos de contribuição para os 30 — parece que os pontos vão resolver, certo? Errado: com 52 anos, ela soma 80 pontos hoje, longe dos 93. O que chega primeiro é a <strong>idade progressiva</strong> (junto com a permanente): aposentadoria em maio de 2036, com coeficiente já no teto de 100% pelos 37 anos de contribuição — benefício estimado em R$ 3.576,50. O pedágio de 100% pagaria um pouco mais (R$ 3.584,62), mas só em outubro de 2037: um ano e meio esperando por R$ 8 a mais por mês não compensa.</p>
+<p>Ana contribui há 28 anos, com média de R$ 3.500,00. Faltam 2 anos de contribuição para os 30 - parece que os pontos vão resolver, certo? Errado: com 52 anos, ela soma 80 pontos hoje, longe dos 93. O que chega primeiro é a <strong>idade progressiva</strong> (junto com a permanente): aposentadoria em maio de 2036, com coeficiente já no teto de 100% pelos 37 anos de contribuição - benefício estimado em R$ 3.576,50. O pedágio de 100% pagaria um pouco mais (R$ 3.584,62), mas só em outubro de 2037: um ano e meio esperando por R$ 8 a mais por mês não compensa.</p>
 <h2>Carlos, 58 anos: o pedágio que não vale o pedágio</h2>
-<p>Carlos tem 33 anos de contribuição e média de R$ 5.000,00. A permanente e a idade progressiva liberam em fevereiro de 2033, com 98% da média — cerca de R$ 4.978,90. O pedágio de 100% daria os 100% cheios (R$ 5.125,00), mas só em outubro de 2037, quase 5 anos depois. Faça a conta: R$ 146 a mais por mês contra 56 meses de benefício perdido (mais de R$ 278 mil deixados na mesa). Para o Carlos, a regra "pior" no papel é a melhor no bolso.</p>
+<p>Carlos tem 33 anos de contribuição e média de R$ 5.000,00. A permanente e a idade progressiva liberam em fevereiro de 2033, com 98% da média - cerca de R$ 4.978,90. O pedágio de 100% daria os 100% cheios (R$ 5.125,00), mas só em outubro de 2037, quase 5 anos depois. Faça a conta: R$ 146 a mais por mês contra 56 meses de benefício perdido (mais de R$ 278 mil deixados na mesa). Para o Carlos, a regra "pior" no papel é a melhor no bolso.</p>
 <h2>A jovem de 30 anos: os pontos vencem no longo prazo</h2>
-<p>Com 8 anos de contribuição e média de R$ 3.000,00, ela se aposenta pelos <strong>pontos</strong> em setembro de 2057 — onze meses antes da permanente. Repare: com 39 anos de contribuição na concessão, o coeficiente já bateu no teto de 100% em qualquer regra. No longo prazo, as diferenças de valor somem; o que resta é a data.</p>
+<p>Com 8 anos de contribuição e média de R$ 3.000,00, ela se aposenta pelos <strong>pontos</strong> em setembro de 2057 - onze meses antes da permanente. Repare: com 39 anos de contribuição na concessão, o coeficiente já bateu no teto de 100% em qualquer regra. No longo prazo, as diferenças de valor somem; o que resta é a data.</p>
 <h2>Descubra a sua regra em 3 passos</h2>
-<p>Primeiro, pegue o seu <strong>tempo total de contribuição</strong> — vale contar carteira assinada, carnê, serviço militar e tempo rural comprovado. Segundo, calcule a sua <strong>média salarial desde julho de 1994</strong> no extrato do Meu INSS (sem ele, use o salário atual como aproximação). Terceiro, jogue tudo na <a href="/inss/">calculadora de aposentadoria do INSS</a>: ela testa as 4 regras, mostra o tempo que falta em cada uma e diz qual abre primeiro — com o valor estimado lado a lado.</p>
-<p>E lembre-se do que a calculadora não faz: pedágio de 50% e direito adquirido anterior a 2019 ficam de fora, e o valor oficial só o INSS calcula com o seu CNIS completo. Use a estimativa para planejar — e confirme no Meu INSS antes de pedir.</p>`,
+<p>Primeiro, pegue o seu <strong>tempo total de contribuição</strong> - vale contar carteira assinada, carnê, serviço militar e tempo rural comprovado. Segundo, calcule a sua <strong>média salarial desde julho de 1994</strong> no extrato do Meu INSS (sem ele, use o salário atual como aproximação). Terceiro, jogue tudo na <a href="/inss/">calculadora de aposentadoria do INSS</a>: ela testa as 4 regras, mostra o tempo que falta em cada uma e diz qual abre primeiro - com o valor estimado lado a lado.</p>
+<p>E lembre-se do que a calculadora não faz: pedágio de 50% e direito adquirido anterior a 2019 ficam de fora, e o valor oficial só o INSS calcula com o seu CNIS completo. Use a estimativa para planejar - e confirme no Meu INSS antes de pedir.</p>`,
   },
 
   {
@@ -419,13 +419,13 @@ export const blog = [
     data: '2026-10-17',
     calc: 'me',
     corpo: `
-<p>Se você é PJ em TI, consultoria, marketing ou engenharia, existe um número que pode cortar seu imposto quase pela metade — e a maioria dos contadores só comenta por alto: o Fator R. Entender essa conta é a diferença entre pagar 6% e 15,5% sobre o mesmo faturamento.</p>
-<p>A regra é direta: some tudo que a empresa gastou com folha nos últimos 12 meses — salários <em>e</em> pró-labore, com encargos — e divida pelo faturamento do mesmo período. Se o resultado bater 28% ou mais, você cai no Anexo III, bem mais barato. Abaixo disso, vai para o Anexo V. Não tem meio-termo.</p>
+<p>Se você é PJ em TI, consultoria, marketing ou engenharia, existe um número que pode cortar seu imposto quase pela metade - e a maioria dos contadores só comenta por alto: o Fator R. Entender essa conta é a diferença entre pagar 6% e 15,5% sobre o mesmo faturamento.</p>
+<p>A regra é direta: some tudo que a empresa gastou com folha nos últimos 12 meses - salários <em>e</em> pró-labore, com encargos - e divida pelo faturamento do mesmo período. Se o resultado bater 28% ou mais, você cai no Anexo III, bem mais barato. Abaixo disso, vai para o Anexo V. Não tem meio-termo.</p>
 <h2>Quanto isso representa em reais?</h2>
-<p>Pegue uma consultoria faturando R$ 12.000,00 por mês (R$ 144.000,00 em 12 meses), sem funcionários. Com pró-labore mínimo, ela fica no Anexo V: alíquota efetiva de 15,50%, DAS de R$ 1.860,00 por mês. Subindo o pró-labore para R$ 3.360,00 — exatamente os 28% — ela migra para o Anexo III: 6%, DAS de R$ 720,00. Economia de R$ 1.140,00 todo mês, R$ 13.680,00 no ano.</p>
+<p>Pegue uma consultoria faturando R$ 12.000,00 por mês (R$ 144.000,00 em 12 meses), sem funcionários. Com pró-labore mínimo, ela fica no Anexo V: alíquota efetiva de 15,50%, DAS de R$ 1.860,00 por mês. Subindo o pró-labore para R$ 3.360,00 - exatamente os 28% - ela migra para o Anexo III: 6%, DAS de R$ 720,00. Economia de R$ 1.140,00 todo mês, R$ 13.680,00 no ano.</p>
 <h2>O custo de atravessar a linha</h2>
-<p>Claro que aumentar o pró-labore tem preço: sair de R$ 1.621,00 para R$ 3.360,00 eleva o INSS do sócio de R$ 178,31 para R$ 369,60 mensais, e a base maior pode alcançar faixa tributável de IRRF — embora, com o redutor do IR de {ANO}, o imposto siga zerado nesse patamar. A conta final continua amplamente favorável: o custo extra é uma fração da economia no DAS.</p>
-<p>Só que o enquadramento oficial olha os últimos 12 meses pagos — a mudança não aparece no DAS do mês seguinte. É um planejamento de médio prazo, não um truque de última hora. O otimizador da <a href="/me/">calculadora de tributos do ME</a> testa o pró-labore do mínimo ao teto e aponta o ponto exato onde a troca compensa no seu caso.</p>`,
+<p>Claro que aumentar o pró-labore tem preço: sair de R$ 1.621,00 para R$ 3.360,00 eleva o INSS do sócio de R$ 178,31 para R$ 369,60 mensais, e a base maior pode alcançar faixa tributável de IRRF - embora, com o redutor do IR de {ANO}, o imposto siga zerado nesse patamar. A conta final continua amplamente favorável: o custo extra é uma fração da economia no DAS.</p>
+<p>Só que o enquadramento oficial olha os últimos 12 meses pagos - a mudança não aparece no DAS do mês seguinte. É um planejamento de médio prazo, não um truque de última hora. O otimizador da <a href="/me/">calculadora de tributos do ME</a> testa o pró-labore do mínimo ao teto e aponta o ponto exato onde a troca compensa no seu caso.</p>`,
   },
   {
     slug: 'quanto-guardar-aos-30-40-e-50-anos',
@@ -434,8 +434,8 @@ export const blog = [
     data: '2026-10-17',
     calc: 'aposentadoria',
     corpo: `
-<p>Aos 30, aposentadoria parece ficção científica. Aos 40, vira uma preocupação de domingo à noite. Aos 50, vira urgência. A matemática por trás é a mesma nas três idades — o que muda é o preço do atraso. E ele é mais salgado do que a intuição sugere.</p>
-<p>Vamos fixar o alvo: renda de R$ 5.000,00 por mês aos 60 anos, com hipótese de 4% reais ao ano. O patrimônio necessário é sempre R$ 1.527.305,26 — ele depende da renda e da rentabilidade, não da sua idade. O que a idade decide é em quantas mensalidades você divide o esforço.</p>
+<p>Aos 30, aposentadoria parece ficção científica. Aos 40, vira uma preocupação de domingo à noite. Aos 50, vira urgência. A matemática por trás é a mesma nas três idades - o que muda é o preço do atraso. E ele é mais salgado do que a intuição sugere.</p>
+<p>Vamos fixar o alvo: renda de R$ 5.000,00 por mês aos 60 anos, com hipótese de 4% reais ao ano. O patrimônio necessário é sempre R$ 1.527.305,26 - ele depende da renda e da rentabilidade, não da sua idade. O que a idade decide é em quantas mensalidades você divide o esforço.</p>
 <h2>O preço de cada década de atraso</h2>
 <div class="tabela-wrap"><table>
 <thead><tr><th scope="col">Começando aos</th><th scope="col">Tempo de aporte</th><th scope="col">Aporte mensal necessário</th></tr></thead>
@@ -444,10 +444,10 @@ export const blog = [
 <tr><td>40 anos</td><td>20 anos</td><td>R$ 4.197,72</td></tr>
 <tr><td>50 anos</td><td>10 anos</td><td>R$ 10.411,37</td></tr>
 </tbody></table></div>
-<p>Dez anos de atraso quase dobram a mensalidade. Vinte anos quase quintuplicam. E veja o outro lado: aplicando só R$ 1.000,00 por mês, quem começa aos 30 chega a R$ 685.270,56; aos 40, a R$ 363.841,73; aos 50, a R$ 146.695,92. Os juros compostos trabalham para quem tem tempo — não para quem aplica mais.</p>
+<p>Dez anos de atraso quase dobram a mensalidade. Vinte anos quase quintuplicam. E veja o outro lado: aplicando só R$ 1.000,00 por mês, quem começa aos 30 chega a R$ 685.270,56; aos 40, a R$ 363.841,73; aos 50, a R$ 146.695,92. Os juros compostos trabalham para quem tem tempo - não para quem aplica mais.</p>
 <h2>Três alavancas para quem começou tarde</h2>
-<p>Primeiro, confira a hipótese: rentabilidade sempre <em>acima da inflação</em> — usar taxa nominal cria uma meta de mentira. Segundo, abata o que você já tem investido: a calculadora parte do zero, mas qualquer reserva existente reduz o aporte. Terceiro, mexa nas duas pontas da meta: adiar a idade-alvo em poucos anos ou aceitar uma renda inicial menor derruba o patrimônio necessário rapidamente.</p>
-<p>Monte o seu cenário real — sua idade, sua meta, sua hipótese — na <a href="/aposentadoria/">calculadora de aposentadoria</a>. O melhor dia para começar foi há dez anos; o segundo melhor é hoje.</p>`,
+<p>Primeiro, confira a hipótese: rentabilidade sempre <em>acima da inflação</em> - usar taxa nominal cria uma meta de mentira. Segundo, abata o que você já tem investido: a calculadora parte do zero, mas qualquer reserva existente reduz o aporte. Terceiro, mexa nas duas pontas da meta: adiar a idade-alvo em poucos anos ou aceitar uma renda inicial menor derruba o patrimônio necessário rapidamente.</p>
+<p>Monte o seu cenário real - sua idade, sua meta, sua hipótese - na <a href="/aposentadoria/">calculadora de aposentadoria</a>. O melhor dia para começar foi há dez anos; o segundo melhor é hoje.</p>`,
   },
   {
     slug: 'decimo-terceiro-de-quem-sai-no-meio-do-ano',
@@ -456,13 +456,13 @@ export const blog = [
     data: '2026-10-17',
     calc: 'decimo-terceiro',
     corpo: `
-<p>Ser demitido em agosto e ouvir que "tem 13º proporcional" tranquiliza — até chegar a hora de conferir o valor. Quantos meses contam, afinal? Janeiro com admissão no dia 20 entra? O aviso indenizado muda alguma coisa? É aqui que a conta costuma sair errada, para os dois lados.</p>
+<p>Ser demitido em agosto e ouvir que "tem 13º proporcional" tranquiliza - até chegar a hora de conferir o valor. Quantos meses contam, afinal? Janeiro com admissão no dia 20 entra? O aviso indenizado muda alguma coisa? É aqui que a conta costuma sair errada, para os dois lados.</p>
 <p>O princípio é simples: o 13º vale 1/12 do salário por mês trabalhado no ano. Mas cada mês só conta se você trabalhou <strong>15 dias ou mais</strong> nele. Essa régua de 15 dias é a juíza de todas as admissões e saídas no meio do mês.</p>
 <h2>Dois casos que mostram como a régua funciona</h2>
-<p>Demissão em 20/08/2026 com aviso indenizado de 36 dias, sobre salário de R$ 3.000,00: o aviso projeta o contrato até 25/09, então contam janeiro a setembro — 9 avos, R$ 2.250,00. Sem a projeção do aviso, setembro ficaria de fora.</p>
-<p>Agora o caso traiçoeiro: admissão em 20/01 e saída em 05/12/2026, com aviso de 30 dias. Janeiro não conta — foram só 12 dias, abaixo dos 15. Mas o aviso projeta o fim para 04/01/2027, e dezembro entra na conta: 11 avos, R$ 2.750,00. Sem a projeção, dezembro também cairia fora e seriam só 10 avos. Uma diferença de R$ 250,00 decidida por dias.</p>
+<p>Demissão em 20/08/2026 com aviso indenizado de 36 dias, sobre salário de R$ 3.000,00: o aviso projeta o contrato até 25/09, então contam janeiro a setembro - 9 avos, R$ 2.250,00. Sem a projeção do aviso, setembro ficaria de fora.</p>
+<p>Agora o caso traiçoeiro: admissão em 20/01 e saída em 05/12/2026, com aviso de 30 dias. Janeiro não conta - foram só 12 dias, abaixo dos 15. Mas o aviso projeta o fim para 04/01/2027, e dezembro entra na conta: 11 avos, R$ 2.750,00. Sem a projeção, dezembro também cairia fora e seriam só 10 avos. Uma diferença de R$ 250,00 decidida por dias.</p>
 <h2>Na rescisão, o desconto vem junto</h2>
-<p>Diferente do 13º de dezembro — cuja primeira parcela sai limpa —, na rescisão o 13º proporcional já vem com INSS e Imposto de Renda descontados, tudo na mesma folha. Não estranhe se o líquido parecer menor que "tantos doze avos" redondos: os descontos já foram mordidos.</p>
+<p>Diferente do 13º de dezembro - cuja primeira parcela sai limpa -, na rescisão o 13º proporcional já vem com INSS e Imposto de Renda descontados, tudo na mesma folha. Não estranhe se o líquido parecer menor que "tantos doze avos" redondos: os descontos já foram mordidos.</p>
 <p>Conte os seus meses e confira cada desconto na <a href="/decimo-terceiro/">calculadora de 13º salário</a> e na <a href="/rescisao/">calculadora de rescisão</a> antes de assinar o termo.</p>`,
   },
   {
@@ -472,15 +472,15 @@ export const blog = [
     data: '2026-10-17',
     calc: 'rescisao',
     corpo: `
-<p>Perder o emprego já é duro; descobrir depois que perdeu um direito por falta de informação é pior ainda. O seguro-desemprego existe para segurar as pontas entre um trabalho e outro — mas ele tem regras de entrada, valores atualizados todo ano e um relógio correndo. Vamos ao que vale em 2026.</p>
-<p>Quem tem direito? Empregados CLT dispensados <strong>sem justa causa</strong> — incluindo domésticos — e casos de dispensa indireta, quando a falta grave é do empregador. Também entram contrato suspenso para qualificação, pescador no defeso e trabalhador resgatado de condição análoga à escravidão.</p>
+<p>Perder o emprego já é duro; descobrir depois que perdeu um direito por falta de informação é pior ainda. O seguro-desemprego existe para segurar as pontas entre um trabalho e outro - mas ele tem regras de entrada, valores atualizados todo ano e um relógio correndo. Vamos ao que vale em 2026.</p>
+<p>Quem tem direito? Empregados CLT dispensados <strong>sem justa causa</strong> - incluindo domésticos - e casos de dispensa indireta, quando a falta grave é do empregador. Também entram contrato suspenso para qualificação, pescador no defeso e trabalhador resgatado de condição análoga à escravidão.</p>
 <h2>Quem fica de fora (e surpreende muita gente)</h2>
-<p>Não dá direito: acordo entre as partes, justa causa, pedido de demissão, quem já recebe benefício continuado da Previdência (salvo auxílio-acidente e pensão por morte) e quem tem participação societária em empresa. Muita gente só descobre a exclusão do acordo na hora do requerimento — tarde demais para renegociar a saída.</p>
+<p>Não dá direito: acordo entre as partes, justa causa, pedido de demissão, quem já recebe benefício continuado da Previdência (salvo auxílio-acidente e pensão por morte) e quem tem participação societária em empresa. Muita gente só descobre a exclusão do acordo na hora do requerimento - tarde demais para renegociar a saída.</p>
 <h2>Quantas parcelas e de quanto</h2>
-<p>O número de parcelas segue o tempo de trabalho comprovado: ao menos 6 meses rendem 3 parcelas, ao menos 12 meses rendem 4, e mais de 24 meses rendem 5. O valor parte da média dos três últimos salários, pela tabela anual do Ministério do Trabalho — com piso de R$ 1.621,00 (o mínimo de {ANO}, ninguém recebe menos que isso) e teto de R$ 3.703,99 para médias acima de R$ 3.564,96.</p>
+<p>O número de parcelas segue o tempo de trabalho comprovado: ao menos 6 meses rendem 3 parcelas, ao menos 12 meses rendem 4, e mais de 24 meses rendem 5. O valor parte da média dos três últimos salários, pela tabela anual do Ministério do Trabalho - com piso de R$ 1.621,00 (o mínimo de {ANO}, ninguém recebe menos que isso) e teto de R$ 3.703,99 para médias acima de R$ 3.564,96.</p>
 <h2>Como pedir sem errar</h2>
 <p>O pedido sai pelo aplicativo da Carteira de Trabalho Digital, pelo portal gov.br ou presencialmente nas Superintendências Regionais (agende pelo 158). E atenção ao detalhe que corta o benefício: conseguir um emprego com carteira assinada no meio do recebimento suspende as parcelas restantes.</p>
-<p>Se a sua saída foi combinada com a empresa, confira antes o que muda no aviso e no FGTS na <a href="/rescisao/">calculadora de rescisão</a> — e confirme se o tipo de saída escolhido mantém o seu acesso ao benefício.</p>`,
+<p>Se a sua saída foi combinada com a empresa, confira antes o que muda no aviso e no FGTS na <a href="/rescisao/">calculadora de rescisão</a> - e confirme se o tipo de saída escolhido mantém o seu acesso ao benefício.</p>`,
   },
   {
     slug: 'quanto-precisa-para-viver-de-renda',
@@ -489,13 +489,13 @@ export const blog = [
     data: '2026-10-17',
     calc: 'aposentadoria',
     corpo: `
-<p>Pare um minuto e faça a pergunta que quase ninguém faz em voz alta: quanto dinheiro eu precisaria ter investido para parar de trabalhar e viver só dos rendimentos? A resposta assusta no início — mas ter o número na cabeça muda completamente a forma de planejar.</p>
-<p>A lógica é mais simples do que parece. Se o seu patrimônio rende, acima da inflação, o suficiente para cobrir o seu custo de vida todo mês, você nunca precisa mexer no principal — a renda dura para sempre e ainda pode ficar para a família. Com uma hipótese de 4% reais ao ano, isso equivale a juntar cerca de 25 vezes o seu gasto anual. Para R$ 5.000,00 por mês, falamos de algo em torno de R$ 1,5 milhão.</p>
+<p>Pare um minuto e faça a pergunta que quase ninguém faz em voz alta: quanto dinheiro eu precisaria ter investido para parar de trabalhar e viver só dos rendimentos? A resposta assusta no início - mas ter o número na cabeça muda completamente a forma de planejar.</p>
+<p>A lógica é mais simples do que parece. Se o seu patrimônio rende, acima da inflação, o suficiente para cobrir o seu custo de vida todo mês, você nunca precisa mexer no principal - a renda dura para sempre e ainda pode ficar para a família. Com uma hipótese de 4% reais ao ano, isso equivale a juntar cerca de 25 vezes o seu gasto anual. Para R$ 5.000,00 por mês, falamos de algo em torno de R$ 1,5 milhão.</p>
 <h2>Um exemplo com começo, meio e fim</h2>
-<p>Quem tem 30 anos e mira R$ 5.000,00 mensais aos 60, com 4% reais ao ano, precisa acumular R$ 1.527.305,26. Aplicando R$ 1.000,00 por mês desde zero, chega a R$ 685.270,56 — faltam R$ 842.034,70. Para fechar a conta, o aporte teria de ser de R$ 2.228,76 por mês.</p>
+<p>Quem tem 30 anos e mira R$ 5.000,00 mensais aos 60, com 4% reais ao ano, precisa acumular R$ 1.527.305,26. Aplicando R$ 1.000,00 por mês desde zero, chega a R$ 685.270,56 - faltam R$ 842.034,70. Para fechar a conta, o aporte teria de ser de R$ 2.228,76 por mês.</p>
 <p>Repare no que o exemplo ensina: o patrimônio-alvo não depende da sua idade, e sim da renda que você quer e da rentabilidade que assume. A idade só decide em quantas parcelas mensais você divide o esforço.</p>
 <h2>O erro que estraga a conta: usar rentabilidade nominal</h2>
-<p>Se você projeta com 10% ao ano "porque é o que a renda fixa paga", mas a inflação come 5%, seu poder de compra real cresce bem menos. Informe a renda em valores de hoje e o rendimento <em>acima da inflação</em> — aí o resultado já vem corrigido e a meta não nasce furada.</p>
+<p>Se você projeta com 10% ao ano "porque é o que a renda fixa paga", mas a inflação come 5%, seu poder de compra real cresce bem menos. Informe a renda em valores de hoje e o rendimento <em>acima da inflação</em> - aí o resultado já vem corrigido e a meta não nasce furada.</p>
 <h2>O que este número não inclui</h2>
 <p>É um planejamento com investimentos próprios, não uma simulação do INSS. Benefício público, Imposto de Renda sobre os rendimentos e imprevistos da vida ficam de fora. Use uma hipótese prudente de rentabilidade, mantenha uma reserva de emergência separada e revise a meta todo ano.</p>
 <p>Descubra o seu patrimônio-alvo e o aporte que fecha a sua conta na <a href="/aposentadoria/">calculadora de aposentadoria</a>.</p>`,
@@ -507,15 +507,15 @@ export const blog = [
     data: '2026-10-17',
     calc: 'juros-compostos',
     corpo: `
-<p>Todo mundo já ouviu que juros compostos são "a oitava maravilha do mundo". A frase é gasta, mas esconde uma verdade incômoda: a maioria das pessoas subestima brutalmente o quanto o tempo — não o valor aplicado — decide o resultado final.</p>
-<p>A mecânica é simples: a cada mês, os rendimentos se somam ao saldo e passam a render também. É juro sobre juro, mês após mês. A fórmula leva capital inicial, aporte mensal, taxa e prazo — e a calculadora faz essa conta considerando os aportes no fim de cada mês.</p>
+<p>Todo mundo já ouviu que juros compostos são "a oitava maravilha do mundo". A frase é gasta, mas esconde uma verdade incômoda: a maioria das pessoas subestima brutalmente o quanto o tempo - não o valor aplicado - decide o resultado final.</p>
+<p>A mecânica é simples: a cada mês, os rendimentos se somam ao saldo e passam a render também. É juro sobre juro, mês após mês. A fórmula leva capital inicial, aporte mensal, taxa e prazo - e a calculadora faz essa conta considerando os aportes no fim de cada mês.</p>
 <h2>R$ 500 por mês viram quanto em 10 anos?</h2>
-<p>A 0,8% ao mês, quem aplica R$ 500,00 mensais durante 10 anos tira R$ 60.000,00 do bolso — e termina com R$ 100.108,75. Os juros somam R$ 40.108,75: quase metade do montante final foi o dinheiro trabalhando sozinho, não você.</p>
+<p>A 0,8% ao mês, quem aplica R$ 500,00 mensais durante 10 anos tira R$ 60.000,00 do bolso - e termina com R$ 100.108,75. Os juros somam R$ 40.108,75: quase metade do montante final foi o dinheiro trabalhando sozinho, não você.</p>
 <h2>O experimento que muda a cabeça</h2>
-<p>A 0,8% ao mês, o dinheiro dobra em cerca de 87 meses — por volta de 7 anos e 3 meses. Agora compare: R$ 10.000,00 aplicados uma única vez, na mesma taxa, chegam a R$ 67.690,48 em 20 anos, com R$ 57.690,48 de juros. Moral da história: quem começa cedo com pouco costuma terminar à frente de quem começa tarde com muito. Tempo é o ativo mais caro da conta.</p>
+<p>A 0,8% ao mês, o dinheiro dobra em cerca de 87 meses - por volta de 7 anos e 3 meses. Agora compare: R$ 10.000,00 aplicados uma única vez, na mesma taxa, chegam a R$ 67.690,48 em 20 anos, com R$ 57.690,48 de juros. Moral da história: quem começa cedo com pouco costuma terminar à frente de quem começa tarde com muito. Tempo é o ativo mais caro da conta.</p>
 <h2>E o Imposto de Renda no resgate?</h2>
-<p>Os rendimentos pagam IR pela tabela regressiva: 22,5% para resgates de até 180 dias, caindo até 15% após 720 dias. Mais um prêmio para a paciência — deixar o dinheiro quieto por mais de dois anos corta o imposto quase pela metade. A calculadora já estima esse desconto junto com o montante.</p>
-<p>Monte o seu cenário — capital inicial, aporte e prazo — na <a href="/juros-compostos/">calculadora de juros compostos</a> e veja onde você estaria daqui a 10, 20, 30 anos se começasse hoje.</p>`,
+<p>Os rendimentos pagam IR pela tabela regressiva: 22,5% para resgates de até 180 dias, caindo até 15% após 720 dias. Mais um prêmio para a paciência - deixar o dinheiro quieto por mais de dois anos corta o imposto quase pela metade. A calculadora já estima esse desconto junto com o montante.</p>
+<p>Monte o seu cenário - capital inicial, aporte e prazo - na <a href="/juros-compostos/">calculadora de juros compostos</a> e veja onde você estaria daqui a 10, 20, 30 anos se começasse hoje.</p>`,
   },
   {
     slug: 'ferias-como-calcular-terco-e-abono',
@@ -524,15 +524,15 @@ export const blog = [
     data: '2026-10-17',
     calc: 'ferias',
     corpo: `
-<p>As férias estão chegando e, junto com a mala, vem a dúvida de todo ano: quanto vou receber, afinal? O contracheque das férias parece escrito em outro idioma — salário, terço, abono, descontos. Vamos traduzir, com um exemplo de R$ 3.000,00 de salário para acompanhar.</p>
-<p>O ponto de partida: depois de 12 meses de trabalho, você tem direito a 30 dias de descanso, e cada dia vale o salário dividido por 30. Em cima do total vem o famoso <strong>terço constitucional</strong> — um bônus de 1/3 previsto na Constituição. Com 30 dias, são R$ 3.000,00 de férias mais R$ 1.000,00 de terço: R$ 4.000,00 brutos.</p>
-<h2>Quanto o governo morde — e o que escapa</h2>
-<p>Nem todo desconto pega tudo. O <strong>INSS</strong> incide só sobre as férias — o terço é isento desde 2020. Já o <strong>Imposto de Renda</strong> morde férias mais terço juntos, com dependentes e desconto simplificado aliviando a base. No nosso exemplo, o INSS dá R$ 248,60, o IRRF zera e o líquido fica em R$ 3.751,40.</p>
+<p>As férias estão chegando e, junto com a mala, vem a dúvida de todo ano: quanto vou receber, afinal? O contracheque das férias parece escrito em outro idioma - salário, terço, abono, descontos. Vamos traduzir, com um exemplo de R$ 3.000,00 de salário para acompanhar.</p>
+<p>O ponto de partida: depois de 12 meses de trabalho, você tem direito a 30 dias de descanso, e cada dia vale o salário dividido por 30. Em cima do total vem o famoso <strong>terço constitucional</strong> - um bônus de 1/3 previsto na Constituição. Com 30 dias, são R$ 3.000,00 de férias mais R$ 1.000,00 de terço: R$ 4.000,00 brutos.</p>
+<h2>Quanto o governo morde - e o que escapa</h2>
+<p>Nem todo desconto pega tudo. O <strong>INSS</strong> incide só sobre as férias - o terço é isento desde 2020. Já o <strong>Imposto de Renda</strong> morde férias mais terço juntos, com dependentes e desconto simplificado aliviando a base. No nosso exemplo, o INSS dá R$ 248,60, o IRRF zera e o líquido fica em R$ 3.751,40.</p>
 <h2>Vender 10 dias: quando vale a pena?</h2>
-<p>O abono pecuniário permite converter até 10 dias em dinheiro: você descansa 20 e recebe 10. O pedido pode ser feito a qualquer tempo dentro do período concessivo. No exemplo, o abono vale R$ 1.000,00 mais R$ 333,33 de terço — e como o bruto total é o mesmo, o líquido segue R$ 3.751,40. Ou seja: vender dias troca descanso por dinheiro na mão, sem mágica tributária. Vale a pena quando você precisa do reforço no caixa mais do que dos dias livres.</p>
+<p>O abono pecuniário permite converter até 10 dias em dinheiro: você descansa 20 e recebe 10. O pedido pode ser feito a qualquer tempo dentro do período concessivo. No exemplo, o abono vale R$ 1.000,00 mais R$ 333,33 de terço - e como o bruto total é o mesmo, o líquido segue R$ 3.751,40. Ou seja: vender dias troca descanso por dinheiro na mão, sem mágica tributária. Vale a pena quando você precisa do reforço no caixa mais do que dos dias livres.</p>
 <h2>Os prazos que ninguém pode furar</h2>
-<p>A empresa tem que pagar até 2 dias antes de você sair — se atrasar, paga em dobro. Faltas injustificadas cortam os dias (de 6 a 14 faltas, caem para 24 dias; de 15 a 23, para 18). E dá para dividir as férias em até 3 períodos, desde que você concorde: um com pelo menos 14 dias e os outros com 5 ou mais.</p>
-<p>Antes de combinar as datas com o chefe, simule o seu caso — salário, dias, abono — na <a href="/ferias/">calculadora de férias</a> e chegue na conversa sabendo exatamente quanto vai receber.</p>`,
+<p>A empresa tem que pagar até 2 dias antes de você sair - se atrasar, paga em dobro. Faltas injustificadas cortam os dias (de 6 a 14 faltas, caem para 24 dias; de 15 a 23, para 18). E dá para dividir as férias em até 3 períodos, desde que você concorde: um com pelo menos 14 dias e os outros com 5 ou mais.</p>
+<p>Antes de combinar as datas com o chefe, simule o seu caso - salário, dias, abono - na <a href="/ferias/">calculadora de férias</a> e chegue na conversa sabendo exatamente quanto vai receber.</p>`,
   },
   {
     slug: 'rescisao-por-acordo-o-que-muda',
@@ -541,10 +541,10 @@ export const blog = [
     data: '2026-10-17',
     calc: 'rescisao',
     corpo: `
-<p>A conversa costuma começar assim: "e se a gente fizer um acordo?" Empresa e funcionário querem encerrar o contrato sem briga — mas ninguém quer sair no prejuízo. O acordo entre as partes (CLT, art. 484-A) existe exatamente para isso: um meio-termo entre a demissão e o pedido, com metade das penalidades para cada lado.</p>
+<p>A conversa costuma começar assim: "e se a gente fizer um acordo?" Empresa e funcionário querem encerrar o contrato sem briga - mas ninguém quer sair no prejuízo. O acordo entre as partes (CLT, art. 484-A) existe exatamente para isso: um meio-termo entre a demissão e o pedido, com metade das penalidades para cada lado.</p>
 <p>Só que "metade" aqui tem pegadinhas. Vamos ver onde o acordo pesa no bolso, comparando com a demissão sem justa causa num exemplo de salário de R$ 3.000,00.</p>
 <h2>O aviso prévio cai pela metade</h2>
-<p>Na demissão, o aviso indenizado de 36 dias (para 2 anos e 4 meses de casa) vale R$ 3.600,00 cheios. No acordo, o mesmo aviso sai pela metade: R$ 1.800,00. O período continua contando como tempo de serviço — isso não muda.</p>
+<p>Na demissão, o aviso indenizado de 36 dias (para 2 anos e 4 meses de casa) vale R$ 3.600,00 cheios. No acordo, o mesmo aviso sai pela metade: R$ 1.800,00. O período continua contando como tempo de serviço - isso não muda.</p>
 <h2>O FGTS é onde dói de verdade</h2>
 <p>Na demissão, a multa é de 40% e você saca 100% do saldo. No acordo, a multa cai para 20% e o saque fica limitado a 80%. Com saldo de R$ 10.000,00 mais R$ 644,00 de depósitos da rescisão, a diferença é gritante:</p>
 <div class="tabela-wrap"><table>
@@ -554,9 +554,9 @@ export const blog = [
 <tr><td>Saque liberado</td><td>R$ 15.103,20</td><td>R$ 10.218,24</td></tr>
 </tbody></table></div>
 <p>O que fica retido não some: continua na sua conta do fundo, disponível pelas regras normais (como compra da casa própria ou aposentadoria).</p>
-<h2>O que não muda — e o que você perde</h2>
-<p>Saldo de salário, 13º proporcional e férias com terço seguem as mesmas fórmulas. No exemplo completo — admissão em 01/06/2024, saída em 15/10/2026 — o acordo entrega R$ 7.714,31 de verbas mais R$ 10.218,24 de FGTS, contra R$ 9.478,50 mais R$ 15.103,20 na demissão. Diferença total de cerca de R$ 6.650,00. E tem mais: no acordo, <strong>não há seguro-desemprego</strong>.</p>
-<p>Vale a pena? Depende do que você ganha em troca — rapidez, carta de recomendação, parcelamento de valores. Só não assine sem saber o preço: simule os dois cenários na <a href="/rescisao/">calculadora de rescisão</a>, escolhendo o tipo "Acordo entre as partes", e compare antes de decidir.</p>`,
+<h2>O que não muda - e o que você perde</h2>
+<p>Saldo de salário, 13º proporcional e férias com terço seguem as mesmas fórmulas. No exemplo completo - admissão em 01/06/2024, saída em 15/10/2026 - o acordo entrega R$ 7.714,31 de verbas mais R$ 10.218,24 de FGTS, contra R$ 9.478,50 mais R$ 15.103,20 na demissão. Diferença total de cerca de R$ 6.650,00. E tem mais: no acordo, <strong>não há seguro-desemprego</strong>.</p>
+<p>Vale a pena? Depende do que você ganha em troca - rapidez, carta de recomendação, parcelamento de valores. Só não assine sem saber o preço: simule os dois cenários na <a href="/rescisao/">calculadora de rescisão</a>, escolhendo o tipo "Acordo entre as partes", e compare antes de decidir.</p>`,
   },
   {
     slug: 'mei-virou-me-o-que-muda-no-imposto',
@@ -565,16 +565,16 @@ export const blog = [
     data: '2026-10-12',
     calc: 'me',
     corpo: `
-<p>O dia em que o faturamento passa de R$ 81 mil no ano é agridoce: o negócio cresceu, parabéns — mas o imposto fixo e baratinho do MEI ficou para trás. Agora você é microempresa no Simples Nacional, e a conta muda de figura. Calma, que não é nenhum bicho de sete cabeças.</p>
-<p>A diferença central é esta: no MEI, você pagava por mês R$ 81,05 de INSS mais R$ 1,00 ou R$ 5,00 de imposto. Na ME, o DAS vira um percentual sobre o faturamento — e esse percentual depende do seu anexo e de quanto a empresa faturou nos últimos 12 meses. Quanto mais fatura, maior a alíquota.</p>
+<p>O dia em que o faturamento passa de R$ 81 mil no ano é agridoce: o negócio cresceu, parabéns - mas o imposto fixo e baratinho do MEI ficou para trás. Agora você é microempresa no Simples Nacional, e a conta muda de figura. Calma, que não é nenhum bicho de sete cabeças.</p>
+<p>A diferença central é esta: no MEI, você pagava por mês R$ 81,05 de INSS mais R$ 1,00 ou R$ 5,00 de imposto. Na ME, o DAS vira um percentual sobre o faturamento - e esse percentual depende do seu anexo e de quanto a empresa faturou nos últimos 12 meses. Quanto mais fatura, maior a alíquota.</p>
 <h2>Seu anexo decide o tamanho da conta</h2>
-<p>Cada atividade cai num anexo diferente. Serviços gerais ficam no Anexo III, que começa em 6%. Construção, limpeza, vigilância e advocacia caem no Anexo IV — onde o INSS patronal é pago à parte, fora do DAS. E profissões intelectuais como TI, consultoria e marketing dependem do <strong>Fator R</strong>: se a folha de 12 meses, incluindo o pró-labore, chegar a 28% do faturamento, você paga pelo Anexo III; abaixo disso, cai no Anexo V, bem mais salgado.</p>
+<p>Cada atividade cai num anexo diferente. Serviços gerais ficam no Anexo III, que começa em 6%. Construção, limpeza, vigilância e advocacia caem no Anexo IV - onde o INSS patronal é pago à parte, fora do DAS. E profissões intelectuais como TI, consultoria e marketing dependem do <strong>Fator R</strong>: se a folha de 12 meses, incluindo o pró-labore, chegar a 28% do faturamento, você paga pelo Anexo III; abaixo disso, cai no Anexo V, bem mais salgado.</p>
 <h2>O pró-labore vira um jogo de xadrez</h2>
-<p>Diferente do MEI, o sócio da ME recolhe INSS sobre o pró-labore — 11% retido pela empresa ou 20% no carnê, até o teto — mais Imposto de Renda pela tabela mensal. Sem FGTS, sem férias, sem 13º em cima. Só que o pró-labore conta na folha do Fator R: às vezes, aumentá-lo derruba o DAS mais do que custa. É uma conta que vale fazer todo ano.</p>
-<h2>Lucro distribuído continua isento — com um porém novo</h2>
-<p>O lucro da ME no Simples segue isento de Imposto de Renda. A novidade, desde 2026, é que distribuições acima de R$ 50 mil por mês para a mesma pessoa sofrem retenção de 10% na fonte — a menos que a empresa tenha escrituração contábil e balanço mensal. Para quem distribui valores altos, a contabilidade deixou de ser opcional.</p>
+<p>Diferente do MEI, o sócio da ME recolhe INSS sobre o pró-labore - 11% retido pela empresa ou 20% no carnê, até o teto - mais Imposto de Renda pela tabela mensal. Sem FGTS, sem férias, sem 13º em cima. Só que o pró-labore conta na folha do Fator R: às vezes, aumentá-lo derruba o DAS mais do que custa. É uma conta que vale fazer todo ano.</p>
+<h2>Lucro distribuído continua isento - com um porém novo</h2>
+<p>O lucro da ME no Simples segue isento de Imposto de Renda. A novidade, desde 2026, é que distribuições acima de R$ 50 mil por mês para a mesma pessoa sofrem retenção de 10% na fonte - a menos que a empresa tenha escrituração contábil e balanço mensal. Para quem distribui valores altos, a contabilidade deixou de ser opcional.</p>
 <h2>Quanto isso dá em reais?</h2>
-<p>Uma prestadora de serviços faturando R$ 40 mil no mês, com R$ 420 mil acumulados em 12 meses, cai na faixa 3 do Anexo III: alíquota efetiva de 9,3%, DAS de R$ 3.720,00. Compare com os R$ 86,05 do MEI de serviços e entenda por que estourar o teto pede um replanejamento — de preços, de pró-labore e de anexo.</p>
+<p>Uma prestadora de serviços faturando R$ 40 mil no mês, com R$ 420 mil acumulados em 12 meses, cai na faixa 3 do Anexo III: alíquota efetiva de 9,3%, DAS de R$ 3.720,00. Compare com os R$ 86,05 do MEI de serviços e entenda por que estourar o teto pede um replanejamento - de preços, de pró-labore e de anexo.</p>
 <p>Para estimar o seu cenário, com o Fator R e o pró-labore otimizado, use a <a href="/me/">calculadora de tributos do ME</a>.</p>`,
   },
   {
@@ -584,15 +584,15 @@ export const blog = [
     data: '2026-10-12',
     calc: 'rescisao',
     corpo: `
-<p>Ser mandado embora sem justa causa mexe com tudo ao mesmo tempo: o susto, a papelada, o exame demissional — e aquela pulga atrás da orelha de que o valor na conta não bate. É normal desconfiar, porque a rescisão junta um monte de verbas diferentes numa conta só.</p>
+<p>Ser mandado embora sem justa causa mexe com tudo ao mesmo tempo: o susto, a papelada, o exame demissional - e aquela pulga atrás da orelha de que o valor na conta não bate. É normal desconfiar, porque a rescisão junta um monte de verbas diferentes numa conta só.</p>
 <p>A boa notícia: quando você entende o que cada linha do termo significa, conferir vira coisa de dez minutos. Vamos passar por cada uma, com um exemplo de salário de R$ 3.000,00 para acompanhar.</p>
 <h2>Comece pelo que você já trabalhou</h2>
-<p>O <strong>saldo de salário</strong> é o mais simples — dias trabalhados no mês da saída, com o mês valendo 30 dias. Saiu dia 15? São R$ 1.500,00. Junto dele vêm o <strong>13º proporcional</strong> (salário dividido por 12 vezes os meses com 15 dias ou mais) e as <strong>férias proporcionais com o terço</strong>. Com 8 meses desde o último aniversário de admissão, dá R$ 2.000,00 mais R$ 666,67 de terço. Férias vencidas, se existirem, entram à parte — também com terço.</p>
+<p>O <strong>saldo de salário</strong> é o mais simples - dias trabalhados no mês da saída, com o mês valendo 30 dias. Saiu dia 15? São R$ 1.500,00. Junto dele vêm o <strong>13º proporcional</strong> (salário dividido por 12 vezes os meses com 15 dias ou mais) e as <strong>férias proporcionais com o terço</strong>. Com 8 meses desde o último aniversário de admissão, dá R$ 2.000,00 mais R$ 666,67 de terço. Férias vencidas, se existirem, entram à parte - também com terço.</p>
 <h2>O aviso prévio muda o tamanho de tudo</h2>
-<p>O aviso é de 30 dias mais 3 por ano completo, até 90. Quem tem 4 anos de casa soma 42 dias — que, indenizados, valem R$ 4.200,00. E tem um detalhe que muita gente perde: o aviso indenizado conta como tempo de serviço. É ele que pode empurrar o fim do contrato para 27/10, por exemplo, e transformar o 13º em 10 meses (R$ 2.500,00) em vez de 9.</p>
+<p>O aviso é de 30 dias mais 3 por ano completo, até 90. Quem tem 4 anos de casa soma 42 dias - que, indenizados, valem R$ 4.200,00. E tem um detalhe que muita gente perde: o aviso indenizado conta como tempo de serviço. É ele que pode empurrar o fim do contrato para 27/10, por exemplo, e transformar o 13º em 10 meses (R$ 2.500,00) em vez de 9.</p>
 <h2>FGTS, multa e o que vem depois</h2>
 <p>A empresa deposita os 8% sobre as verbas e paga a <strong>multa de 40%</strong> sobre o saldo total. Você saca tudo e, cumprindo os requisitos, ainda pode pedir o <strong>seguro-desemprego</strong>. Sobre descontos, a lógica é esta: INSS e Imposto de Renda mordem o saldo e o 13º; o aviso indenizado escapa do INSS (mas entra no IR) e as férias indenizadas escapam do IR.</p>
-<p>A empresa tem até 10 dias corridos depois do fim do contrato para pagar. Antes de assinar, rode os seus dados na <a href="/rescisao/">calculadora de rescisão</a>, imprima o resultado e confira linha por linha — questionar na hora é muito mais fácil que correr atrás depois.</p>`,
+<p>A empresa tem até 10 dias corridos depois do fim do contrato para pagar. Antes de assinar, rode os seus dados na <a href="/rescisao/">calculadora de rescisão</a>, imprima o resultado e confira linha por linha - questionar na hora é muito mais fácil que correr atrás depois.</p>`,
   },
   {
     slug: 'price-ou-sac-qual-compensa',
@@ -601,7 +601,7 @@ export const blog = [
     data: '2026-10-11',
     calc: 'financiamento',
     corpo: `
-<p>Imagine a cena: você sai do banco com duas simulações na mão, a taxa de juros igual nas duas, e mesmo assim uma delas custa milhares de reais a mais no fim. Nenhum gerente vai explicar isso em voz alta — mas o nome no cabeçalho da simulação explica: <strong>Price</strong> ou <strong>SAC</strong>.</p>
+<p>Imagine a cena: você sai do banco com duas simulações na mão, a taxa de juros igual nas duas, e mesmo assim uma delas custa milhares de reais a mais no fim. Nenhum gerente vai explicar isso em voz alta - mas o nome no cabeçalho da simulação explica: <strong>Price</strong> ou <strong>SAC</strong>.</p>
 <p>Os dois são jeitos diferentes de fatiar a mesma dívida. Na Price, a parcela é igual do primeiro ao último mês. No SAC, ela começa mais salgada e vai emagrecendo. Parece detalhe, mas é esse formato que decide quanto de juro você paga e quando o aperto acontece.</p>
 <h2>Na prática, o que muda no seu orçamento</h2>
 <p>Vamos aos números de verdade. Num financiamento de R$ 100.000,00 em 12 meses, a 1% ao mês:</p>
@@ -611,17 +611,17 @@ export const blog = [
 <tr><td>Price</td><td>12x de R$ 8.884,88</td><td>R$ 6.618,53</td></tr>
 <tr><td>SAC</td><td>de R$ 9.333,33 até R$ 8.416,70</td><td>R$ 6.500,00</td></tr>
 </tbody></table></div>
-<p>A diferença aqui é de pouco mais de R$ 100 — porque o prazo é curto. Num financiamento de 30 anos, essa mesma lógica vira dezenas de milhares de reais. É por isso que a escolha pesa tanto no crédito imobiliário.</p>
+<p>A diferença aqui é de pouco mais de R$ 100 - porque o prazo é curto. Num financiamento de 30 anos, essa mesma lógica vira dezenas de milhares de reais. É por isso que a escolha pesa tanto no crédito imobiliário.</p>
 <h2>Por que o SAC cobra menos juro?</h2>
-<p>Juro incide sobre o saldo devedor. No SAC, como a amortização (o pedaço que abate a dívida) é igual todo mês desde o início, o saldo cai rápido — e o juro de cada mês seguinte cai junto. Na Price, as primeiras parcelas são quase só juro: a dívida demora a encolher, e você paga juro sobre um saldo alto por mais tempo.</p>
+<p>Juro incide sobre o saldo devedor. No SAC, como a amortização (o pedaço que abate a dívida) é igual todo mês desde o início, o saldo cai rápido - e o juro de cada mês seguinte cai junto. Na Price, as primeiras parcelas são quase só juro: a dívida demora a encolher, e você paga juro sobre um saldo alto por mais tempo.</p>
 <h2>Qual faz sentido para você?</h2>
 <p>Esqueça a resposta única; pense no seu momento:</p>
 <ul>
 <li><strong>A renda deve crescer e o bolso aguenta o começo?</strong> O SAC costuma compensar: o início aperta, mas as parcelas diminuem e o custo total é menor.</li>
-<li><strong>Está no limite — aluguel e prestação se sobrepondo, por exemplo?</strong> A Price dá previsibilidade e uma primeira parcela menor. O truque é usar 13º, férias e bônus para amortizar o saldo de tempos em tempos.</li>
+<li><strong>Está no limite - aluguel e prestação se sobrepondo, por exemplo?</strong> A Price dá previsibilidade e uma primeira parcela menor. O truque é usar 13º, férias e bônus para amortizar o saldo de tempos em tempos.</li>
 </ul>
 <h2>O detalhe que o banco não destaca: o CET</h2>
-<p>Sistema de amortização é metade da conversa. Seguros, taxa de administração e tarifas entram no Custo Efetivo Total — e duas propostas com a mesma taxa nominal podem ter CETs bem diferentes. Compare sempre CET com CET, nunca taxa com CET.</p>
+<p>Sistema de amortização é metade da conversa. Seguros, taxa de administração e tarifas entram no Custo Efetivo Total - e duas propostas com a mesma taxa nominal podem ter CETs bem diferentes. Compare sempre CET com CET, nunca taxa com CET.</p>
 <p>Antes de assinar qualquer coisa, rode os seus números no <a href="/financiamento/">simulador de financiamento</a>: ele mostra Price e SAC lado a lado, com a tabela de amortização completa para levar impressa na negociação.</p>`,
   },
   {
@@ -631,19 +631,19 @@ export const blog = [
     data: '2026-10-11',
     calc: 'decimo-terceiro',
     corpo: `
-<p>Todo fim de ano a mesma novela: o 13º cai na conta, some em dois dias, e ninguém sabe dizer quanto veio em cada parcela — nem por que a segunda é sempre menor. Vamos acabar com esse mistério de uma vez.</p>
+<p>Todo fim de ano a mesma novela: o 13º cai na conta, some em dois dias, e ninguém sabe dizer quanto veio em cada parcela - nem por que a segunda é sempre menor. Vamos acabar com esse mistério de uma vez.</p>
 <p>A regra do calendário é simples e está na lei há décadas: a <strong>primeira parcela</strong>, de 50% do valor bruto e sem nenhum desconto, sai entre 1º de fevereiro e 30 de novembro. Muita empresa paga junto com as férias ou na data-base. A <strong>segunda parcela</strong>, com todos os descontos, tem prazo final em 20 de dezembro. Se o dia 20 cair no fim de semana, o pagamento é antecipado.</p>
 <h2>Quanto cai em cada parcela, com números de verdade</h2>
-<p>Pegue um salário de R$ 3.000,00 com o ano completo trabalhado. O 13º bruto é R$ 3.000,00. O INSS sobre ele dá R$ 248,60 e, nessa faixa, o IRRF fica zerado. O líquido é R$ 2.751,40 — mas ele não vem de uma vez:</p>
+<p>Pegue um salário de R$ 3.000,00 com o ano completo trabalhado. O 13º bruto é R$ 3.000,00. O INSS sobre ele dá R$ 248,60 e, nessa faixa, o IRRF fica zerado. O líquido é R$ 2.751,40 - mas ele não vem de uma vez:</p>
 <ul>
 <li><strong>1ª parcela:</strong> R$ 1.500,00 limpos, sem desconto nenhum.</li>
-<li><strong>2ª parcela:</strong> R$ 1.251,40 — é aqui que descontam o INSS e o IR sobre o total.</li>
+<li><strong>2ª parcela:</strong> R$ 1.251,40 - é aqui que descontam o INSS e o IR sobre o total.</li>
 </ul>
 <p>É por isso que tanta gente estranha: a segunda parcela parece "errada", mas ela carrega os descontos do 13º inteiro.</p>
 <h2>E se eu entrei no meio do ano ou saí da empresa?</h2>
-<p>Aí entra a proporcionalidade: cada mês com 15 dias ou mais trabalhados vale 1/12. Quem foi admitido no dia 20 de janeiro, por exemplo, não ganha aquele mês — foram só 12 dias. E quem é demitido com aviso indenizado de 36 dias em agosto ganha esses dias projetados como tempo a mais, o que pode render um avo extra.</p>
+<p>Aí entra a proporcionalidade: cada mês com 15 dias ou mais trabalhados vale 1/12. Quem foi admitido no dia 20 de janeiro, por exemplo, não ganha aquele mês - foram só 12 dias. E quem é demitido com aviso indenizado de 36 dias em agosto ganha esses dias projetados como tempo a mais, o que pode render um avo extra.</p>
 <h2>Como usar bem esse dinheiro</h2>
-<p>Como a primeira parcela chega sem desconto, ela é ideal para abater dívida cara — cartão, cheque especial — antes dos juros de dezembro. A segunda, já líquida, pode ir para a reserva ou para amortizar financiamento. O erro clássico é tratar as duas como "extras" separados e gastar dobrado.</p>
+<p>Como a primeira parcela chega sem desconto, ela é ideal para abater dívida cara - cartão, cheque especial - antes dos juros de dezembro. A segunda, já líquida, pode ir para a reserva ou para amortizar financiamento. O erro clássico é tratar as duas como "extras" separados e gastar dobrado.</p>
 <p>Quer saber exatamente quanto vem em cada parcela no seu caso, com horas extras e dependentes? Jogue os números na <a href="/decimo-terceiro/">calculadora de 13º salário</a> e confira antes do contracheque chegar.</p>`,
   },
 ];

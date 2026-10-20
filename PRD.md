@@ -1,4 +1,4 @@
-# PRD — Calculadoras Financeiras em Português
+# PRD - Calculadoras Financeiras em Português
 
 > Versão 0.1 · 11/10/2026 · Status: rascunho inicial
 > Nome provisório do projeto: **CalcFácil** (trocar após checar disponibilidade de domínio)
@@ -264,7 +264,7 @@ Todas as faixas, alíquotas e valores legais ficam em um único arquivo de dados
 1. Nome final e domínio.
 2. Escolha de analytics (GA4 vs. alternativa leve).
 3. Programas de afiliados prioritários e condições vigentes.
-4. Ordem de lançamento das calculadoras (sugestão: 13º, férias, rescisão, juros compostos, financiamento, aposentadoria — a ordem segue sazonalidade e complexidade).
+4. Ordem de lançamento das calculadoras (sugestão: 13º, férias, rescisão, juros compostos, financiamento, aposentadoria - a ordem segue sazonalidade e complexidade).
 5. Nível de detalhe jurídico aceitável na rescisão (casos especiais: estabilidade, comissões, insalubridade).
 
 ## 18. Referências a consultar durante o desenvolvimento

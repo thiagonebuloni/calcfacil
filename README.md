@@ -1,4 +1,4 @@
-# CalcFácil — Calculadoras Financeiras
+# CalcFácil - Calculadoras Financeiras
 
 Site estático com calculadoras e simuladores financeiros para o Brasil: rescisão, 13º salário, férias, financiamento, juros compostos e aposentadoria. Monetizado com Google AdSense e links de afiliados.
 
@@ -61,7 +61,7 @@ Depois: `npm run gerar`, `node --test` e publicar.
 
 ## 4. Passo a passo
 
-### Fase 0 — Preparação (semana 1)
+### Fase 0 - Preparação (semana 1)
 
 - [ ] Escolher o nome definitivo e checar disponibilidade no [Registro.br](https://registro.br) e em um registrador .com
 - [ ] Registrar o domínio
@@ -69,7 +69,7 @@ Depois: `npm run gerar`, `node --test` e publicar.
 - [ ] Criar conta no Google Search Console
 - [ ] Pesquisar programas de afiliados (ver [seção 11](#11-afiliados)) e preparar o cadastro
 
-### Fase 1 — Fundação (semanas 1–2)
+### Fase 1 - Fundação (semanas 1–2)
 
 - [x] Criar a estrutura de pastas (ver [seção 5](#5-estrutura-do-projeto))
 - [x] Criar `assets/css/base.css` (variáveis, tipografia, layout responsivo, estilos de impressão)
@@ -79,7 +79,7 @@ Depois: `npm run gerar`, `node --test` e publicar.
 - [x] Páginas institucionais criadas (Sobre, Contato, Privacidade, Termos, Aviso legal). Revise os textos, preencha e-mail e responsável em `site.config.json` e, de preferência, peça uma revisão jurídica da privacidade e dos termos
 - [x] Implementar o banner de consentimento de cookies
 
-### Fase 2 — Calculadoras (semanas 2–4)
+### Fase 2 - Calculadoras (semanas 2–4)
 
 Ordem sugerida (sazonalidade e complexidade):
 
@@ -101,7 +101,7 @@ Para **cada** calculadora:
 6. Rodar o Lighthouse e corrigir
 7. Adicionar a página ao `sitemap.xml`
 
-### Fase 3 — Publicação (semana 4)
+### Fase 3 - Publicação (semana 4)
 
 - [ ] Conectar o repositório à Cloudflare Pages (diretório de saída: raiz do projeto, sem comando de build)
 - [ ] Apontar o domínio para a hospedagem e confirmar HTTPS
@@ -110,7 +110,7 @@ Para **cada** calculadora:
 - [ ] Solicitar indexação das páginas principais
 - [ ] Preencher `gaId` em `site.config.json` para ativar o Analytics (só carrega com consentimento)
 
-### Fase 4 — Monetização (semanas 5–6)
+### Fase 4 - Monetização (semanas 5–6)
 
 - [ ] Conferir o [checklist do AdSense](#10-checklist-do-adsense) e solicitar a aprovação
 - [ ] Após aprovado, preencher `adsenseClient` e `adsenseSlots` em `site.config.json` e rodar `npm run gerar` (o `ads.txt` é criado sozinho; os blocos de anúncio só aparecem depois do consentimento de cookies)
@@ -118,14 +118,14 @@ Para **cada** calculadora:
 - [ ] Inserir os blocos de afiliados com rótulo de publicidade
 - [ ] Verificar Core Web Vitals depois de ativar os anúncios
 
-### Fase 5 — Crescimento (contínuo)
+### Fase 5 - Crescimento (contínuo)
 
 - [ ] Escrever artigos de apoio (blog) ligados às calculadoras
 - [ ] Acompanhar consultas e posições no Search Console e melhorar títulos e textos das páginas com muitas impressões e poucos cliques
 - [ ] Criar novas calculadoras a partir das buscas observadas (ex.: seguro-desemprego, FGTS, salário líquido, reajuste, MEI)
 - [ ] Testar posições de anúncio e blocos de afiliados
 
-### Fase 6 — Manutenção
+### Fase 6 - Manutenção
 
 - [ ] **Todo janeiro:** atualizar `data/tabelas.json` e rodar os testes
 - [ ] Revisar o conteúdo quando houver mudança de lei
@@ -193,13 +193,13 @@ Todos os valores legais ficam em `data/tabelas.json`: salário mínimo, faixas e
 
 | Quando | O que verificar e atualizar | Base legal (referência 2026) |
 | --- | --- | --- |
-| **Dezembro (2ª quinzena)** | 1) Novo decreto do salário mínimo (anunciado em dezembro, vigente desde 1º de janeiro); 2) IN da Receita com a tabela do IRRF do 13º — os limites da tabela mensal divididos por 2, para usar no pagamento de dezembro; 3) IN anual com o desconto simplificado e a dedução por dependente; 4) checar se o Congresso aprovou alguma mudança na tabela do IRRF | Lei 7.713/1988, art. 12, §1º; IN RFB anual |
-| **Janeiro (obrigatório, todo ano)** | 1) Portaria interministerial MPS/MF com as faixas e o teto do INSS (vigência 1º/01 — em 2026: nº 13, de 9/1/2026); 2) salário mínimo do ano (em 2026: R$ 1.621,00); 3) conferir a tabela mensal do IRRF e os parâmetros da redução (em 2026: isenção até R$ 5.000 e limite de R$ 7.350, pela Lei 15.270/2025) | Portaria Interministerial MPS/MF; Lei 9.250/1995 e Lei 15.191/2025; Lei 15.270/2025 |
-| **Julho (a partir de 2027)** | Possível 2º reajuste do salário mínimo: a EC 132/2023 (art. 103) prevê reajuste semestral até a remuneração mínima chegar a 60% da média salarial. Em 2026 não houve reajuste intermediário — o valor nacional seguiu em R$ 1.621,00 | EC 132/2023 |
+| **Dezembro (2ª quinzena)** | 1) Novo decreto do salário mínimo (anunciado em dezembro, vigente desde 1º de janeiro); 2) IN da Receita com a tabela do IRRF do 13º - os limites da tabela mensal divididos por 2, para usar no pagamento de dezembro; 3) IN anual com o desconto simplificado e a dedução por dependente; 4) checar se o Congresso aprovou alguma mudança na tabela do IRRF | Lei 7.713/1988, art. 12, §1º; IN RFB anual |
+| **Janeiro (obrigatório, todo ano)** | 1) Portaria interministerial MPS/MF com as faixas e o teto do INSS (vigência 1º/01 - em 2026: nº 13, de 9/1/2026); 2) salário mínimo do ano (em 2026: R$ 1.621,00); 3) conferir a tabela mensal do IRRF e os parâmetros da redução (em 2026: isenção até R$ 5.000 e limite de R$ 7.350, pela Lei 15.270/2025) | Portaria Interministerial MPS/MF; Lei 9.250/1995 e Lei 15.191/2025; Lei 15.270/2025 |
+| **Julho (a partir de 2027)** | Possível 2º reajuste do salário mínimo: a EC 132/2023 (art. 103) prevê reajuste semestral até a remuneração mínima chegar a 60% da média salarial. Em 2026 não houve reajuste intermediário - o valor nacional seguiu em R$ 1.621,00 | EC 132/2023 |
 | **Janeiro: aposentadoria do INSS** | Pontos e idade progressiva mudam todo ano até 2031–2033: conferir `aposentadoriaInss.pontos.porAno` e `idadeProgressiva.porAno` no gov.br/INSS, além do piso (mínimo) e do teto | EC 103/2019 |
-| **Janeiro: DAS-MEI e teto do MEI** | O DAS-MEI acompanha o salário mínimo (5% do mínimo + R$ 1,00 de ICMS e/ou R$ 5,00 de ISS — em 2026: R$ 82,05 / 86,05 / 87,05); o teto de R$ 81.000 só muda por lei complementar | LC 123/2006; Decreto anual do salário mínimo |
-| **Simples, pró-labore e lucros** | Anexos I–V do Simples, teto de R$ 4,8 mi, sublimite de R$ 3,6 mi e Fator R de 28% só mudam por lei complementar; INSS do sócio (11%/20%) e lucro isento, só por lei. **Atenção em 2027:** a Resolução CGSN 190/2026 muda a apuração de RBT12/Fator R e a CBS/IBS entra na repartição do DAS — revisar a calculadora do ME antes | LC 123/2006 e LC 155/2016; Lei 8.212/1991; Lei 15.270/2025; Resolução CGSN 190/2026 |
-| **Ao longo do ano, sempre que houver lei nova** | Tabela do IRRF e redução só mudam por lei. Acompanhar: (a) o PL da política nacional de atualização dos valores do IRRF, que o Executivo deve enviar até 26/11/2026 (Lei 15.270/2025, art. 6º); (b) propostas de reajuste da tabela mensal; (c) IR regressivo de renda fixa, FGTS e aviso prévio — mudam raramente e só por lei | Lei 15.270/2025, art. 6º; Lei 11.033/2004; Lei 8.036/1990; Lei 12.506/2011 |
+| **Janeiro: DAS-MEI e teto do MEI** | O DAS-MEI acompanha o salário mínimo (5% do mínimo + R$ 1,00 de ICMS e/ou R$ 5,00 de ISS - em 2026: R$ 82,05 / 86,05 / 87,05); o teto de R$ 81.000 só muda por lei complementar | LC 123/2006; Decreto anual do salário mínimo |
+| **Simples, pró-labore e lucros** | Anexos I–V do Simples, teto de R$ 4,8 mi, sublimite de R$ 3,6 mi e Fator R de 28% só mudam por lei complementar; INSS do sócio (11%/20%) e lucro isento, só por lei. **Atenção em 2027:** a Resolução CGSN 190/2026 muda a apuração de RBT12/Fator R e a CBS/IBS entra na repartição do DAS - revisar a calculadora do ME antes | LC 123/2006 e LC 155/2016; Lei 8.212/1991; Lei 15.270/2025; Resolução CGSN 190/2026 |
+| **Ao longo do ano, sempre que houver lei nova** | Tabela do IRRF e redução só mudam por lei. Acompanhar: (a) o PL da política nacional de atualização dos valores do IRRF, que o Executivo deve enviar até 26/11/2026 (Lei 15.270/2025, art. 6º); (b) propostas de reajuste da tabela mensal; (c) IR regressivo de renda fixa, FGTS e aviso prévio - mudam raramente e só por lei | Lei 15.270/2025, art. 6º; Lei 11.033/2004; Lei 8.036/1990; Lei 12.506/2011 |
 
 Datas fixas em lei (valem conferir a cada reforma trabalhista ou previdenciária, mas não mudam de ano para ano):
 

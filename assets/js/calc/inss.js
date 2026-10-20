@@ -172,7 +172,7 @@ export function exibir(r) {
     resumo.push({ rotulo: 'Benefício mensal estimado', valor: brl(m.beneficio), destaque: true });
     resumo.push({ rotulo: 'Pela regra', valor: m.nome });
     const quando = m.faltaMeses === 0 ? 'Você já cumpre os requisitos'
-      : `Faltam ${fmtTempo(m.faltaMeses)} — ${fmtData(m.ano, m.mes)}`;
+      : `Faltam ${fmtTempo(m.faltaMeses)} - ${fmtData(m.ano, m.mes)}`;
     resumo.push({ rotulo: 'Quando', valor: quando });
   } else {
     resumo.push({ rotulo: 'Projeção', valor: 'Nenhuma regra alcançável até os 100 anos', destaque: true });
@@ -190,8 +190,8 @@ export function exibir(r) {
     }
   }
   const linha = (g) => {
-    if (!g.aplica) return [g.nome, 'não se aplica', '—', '—'];
-    if (!g.alcanca) return [g.nome, '—', 'após os 100 anos', '—'];
+    if (!g.aplica) return [g.nome, 'não se aplica', '-', '-'];
+    if (!g.alcanca) return [g.nome, '-', 'após os 100 anos', '-'];
     const falta = g.faltaMeses === 0 ? 'nenhuma (já)' : fmtTempo(g.faltaMeses);
     const data = g.faltaMeses === 0 ? 'agora' : fmtData(g.ano, g.mes);
     return [g.nome, falta, data, brl(g.beneficio)];

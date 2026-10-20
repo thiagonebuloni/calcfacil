@@ -34,7 +34,7 @@ export function formatarNumero(n, casas = 2) {
  * Máscara monetária em tempo real a partir de dígitos.
  * Mantém só os dígitos, trata como centavos e devolve no padrão "1.234,56".
  * Qualquer outro caractere (letras, ponto, vírgula, ponto e vírgula etc.)
- * é descartado — o separador é inserido pela máscara, não digitado.
+ * é descartado - o separador é inserido pela máscara, não digitado.
  * Retorna '' quando não há dígitos (campo limpo).
  */
 export function mascararMoeda(texto) {

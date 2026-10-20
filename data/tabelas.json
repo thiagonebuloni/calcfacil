@@ -2,41 +2,90 @@
   "vigencia": "2026-01-01",
   "atualizadoEm": "2026-10-12",
   "observacao": "Valores vigentes em 2026. Atualize em janeiro (salário mínimo e INSS), confira a tabela do 13º publicada em dezembro e rode os testes (node --test). Calendário completo na seção 8 do README.",
-
   "salarioMinimo": {
     "valor": 1621.0,
     "fonte": "Decreto nº 12.797/2025",
     "url": "https://www.planalto.gov.br"
   },
-
   "inss": {
     "fonte": "Portaria Interministerial MPS/MF nº 13, de 9/01/2026 (tabela de contribuição mensal do INSS)",
     "url": "https://www.gov.br/inss",
     "teto": 8475.55,
     "faixas": [
-      { "ate": 1621.0, "aliquota": 0.075 },
-      { "ate": 2902.84, "aliquota": 0.09 },
-      { "ate": 4354.27, "aliquota": 0.12 },
-      { "ate": 8475.55, "aliquota": 0.14 }
+      {
+        "ate": 1621.0,
+        "aliquota": 0.075
+      },
+      {
+        "ate": 2902.84,
+        "aliquota": 0.09
+      },
+      {
+        "ate": 4354.27,
+        "aliquota": 0.12
+      },
+      {
+        "ate": 8475.55,
+        "aliquota": 0.14
+      }
     ]
   },
-
   "irrf": {
     "fonte": "Receita Federal: tabela progressiva mensal (Lei 15.191/2025, vigente desde maio/2025) e redução mensal da Lei 15.270/2025 (art. 3º-A, aplicável também ao 13º)",
     "url": "https://www.gov.br/receitafederal",
     "faixas": [
-      { "ate": 2428.8, "aliquota": 0, "parcela": 0 },
-      { "ate": 2826.65, "aliquota": 0.075, "parcela": 182.16 },
-      { "ate": 3751.05, "aliquota": 0.15, "parcela": 394.16 },
-      { "ate": 4664.68, "aliquota": 0.225, "parcela": 675.49 },
-      { "ate": null, "aliquota": 0.275, "parcela": 908.73 }
+      {
+        "ate": 2428.8,
+        "aliquota": 0,
+        "parcela": 0
+      },
+      {
+        "ate": 2826.65,
+        "aliquota": 0.075,
+        "parcela": 182.16
+      },
+      {
+        "ate": 3751.05,
+        "aliquota": 0.15,
+        "parcela": 394.16
+      },
+      {
+        "ate": 4664.68,
+        "aliquota": 0.225,
+        "parcela": 675.49
+      },
+      {
+        "ate": null,
+        "aliquota": 0.275,
+        "parcela": 908.73
+      }
     ],
     "faixasDecimoTerceiro": [
-      { "ate": 1214.4, "aliquota": 0, "parcela": 0 },
-      { "ate": 1413.32, "aliquota": 0.075, "parcela": 91.08 },
-      { "ate": 1875.52, "aliquota": 0.15, "parcela": 197.08 },
-      { "ate": 2332.34, "aliquota": 0.225, "parcela": 337.75 },
-      { "ate": null, "aliquota": 0.275, "parcela": 454.36 }
+      {
+        "ate": 1214.4,
+        "aliquota": 0,
+        "parcela": 0
+      },
+      {
+        "ate": 1413.32,
+        "aliquota": 0.075,
+        "parcela": 91.08
+      },
+      {
+        "ate": 1875.52,
+        "aliquota": 0.15,
+        "parcela": 197.08
+      },
+      {
+        "ate": 2332.34,
+        "aliquota": 0.225,
+        "parcela": 337.75
+      },
+      {
+        "ate": null,
+        "aliquota": 0.275,
+        "parcela": 454.36
+      }
     ],
     "fonteDecimoTerceiro": "Lei 7.713/1988, art. 12, §1º: no IRRF do 13º salário os limites da tabela mensal e a parcela a deduzir são divididos por 2 (IN RFB anual da Receita Federal)",
     "deducaoDependente": 189.59,
@@ -50,14 +99,12 @@
       "aplicaAoDecimoTerceiro": true
     }
   },
-
   "avisoPrevio": {
     "fonte": "Lei 12.506/2011",
     "diasBase": 30,
     "diasPorAno": 3,
     "maximo": 90
   },
-
   "fgts": {
     "fonte": "Lei 8.036/1990 e CLT art. 484-A",
     "aliquotaDeposito": 0.08,
@@ -65,17 +112,27 @@
     "multaAcordo": 0.2,
     "saqueAcordo": 0.8
   },
-
   "irRegressivo": {
     "fonte": "Lei 11.033/2004 (renda fixa)",
     "faixas": [
-      { "ateDias": 180, "aliquota": 0.225 },
-      { "ateDias": 360, "aliquota": 0.2 },
-      { "ateDias": 720, "aliquota": 0.175 },
-      { "ateDias": null, "aliquota": 0.15 }
+      {
+        "ateDias": 180,
+        "aliquota": 0.225
+      },
+      {
+        "ateDias": 360,
+        "aliquota": 0.2
+      },
+      {
+        "ateDias": 720,
+        "aliquota": 0.175
+      },
+      {
+        "ateDias": null,
+        "aliquota": 0.15
+      }
     ]
   },
-
   "simples": {
     "fonte": "LC 123/2006, Anexos I a V (redação LC 155/2016); teto e sublimite do art. 3º; Fator R do art. 18, §5º-J",
     "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm",
@@ -84,106 +141,326 @@
     "sublimite": 3600000.0,
     "fatorR": 0.28,
     "margemFatorR": 0.02,
-    "cppNoDas": { "I": true, "II": true, "III": true, "IV": false, "V": false },
+    "cppNoDas": {
+      "I": true,
+      "II": true,
+      "III": true,
+      "IV": false,
+      "V": false
+    },
     "anexos": {
-      "I": { "rotulo": "Comércio", "faixas": [
-        { "ate": 180000.0, "nominal": 0.04, "deducao": 0 },
-        { "ate": 360000.0, "nominal": 0.073, "deducao": 5940 },
-        { "ate": 720000.0, "nominal": 0.095, "deducao": 13860 },
-        { "ate": 1800000.0, "nominal": 0.107, "deducao": 22500 },
-        { "ate": 3600000.0, "nominal": 0.143, "deducao": 87300 },
-        { "ate": null, "nominal": 0.19, "deducao": 378000 }
-      ] },
-      "II": { "rotulo": "Indústria", "faixas": [
-        { "ate": 180000.0, "nominal": 0.045, "deducao": 0 },
-        { "ate": 360000.0, "nominal": 0.078, "deducao": 5940 },
-        { "ate": 720000.0, "nominal": 0.1, "deducao": 13860 },
-        { "ate": 1800000.0, "nominal": 0.112, "deducao": 22500 },
-        { "ate": 3600000.0, "nominal": 0.147, "deducao": 85500 },
-        { "ate": null, "nominal": 0.3, "deducao": 720000 }
-      ] },
-      "III": { "rotulo": "Serviços (Anexo III)", "faixas": [
-        { "ate": 180000.0, "nominal": 0.06, "deducao": 0 },
-        { "ate": 360000.0, "nominal": 0.112, "deducao": 9360 },
-        { "ate": 720000.0, "nominal": 0.135, "deducao": 17640 },
-        { "ate": 1800000.0, "nominal": 0.16, "deducao": 35640 },
-        { "ate": 3600000.0, "nominal": 0.21, "deducao": 125640 },
-        { "ate": null, "nominal": 0.33, "deducao": 648000 }
-      ] },
-      "IV": { "rotulo": "Serviços sem CPP no DAS (Anexo IV)", "faixas": [
-        { "ate": 180000.0, "nominal": 0.045, "deducao": 0 },
-        { "ate": 360000.0, "nominal": 0.09, "deducao": 8100 },
-        { "ate": 720000.0, "nominal": 0.102, "deducao": 12420 },
-        { "ate": 1800000.0, "nominal": 0.14, "deducao": 39780 },
-        { "ate": 3600000.0, "nominal": 0.22, "deducao": 183780 },
-        { "ate": null, "nominal": 0.33, "deducao": 828000 }
-      ] },
-      "V": { "rotulo": "Serviços sujeitos ao Fator R (Anexo V)", "faixas": [
-        { "ate": 180000.0, "nominal": 0.155, "deducao": 0 },
-        { "ate": 360000.0, "nominal": 0.18, "deducao": 4500 },
-        { "ate": 720000.0, "nominal": 0.195, "deducao": 9900 },
-        { "ate": 1800000.0, "nominal": 0.205, "deducao": 17100 },
-        { "ate": 3600000.0, "nominal": 0.23, "deducao": 62100 },
-        { "ate": null, "nominal": 0.305, "deducao": 540000 }
-      ] }
+      "I": {
+        "rotulo": "Comércio",
+        "faixas": [
+          {
+            "ate": 180000.0,
+            "nominal": 0.04,
+            "deducao": 0
+          },
+          {
+            "ate": 360000.0,
+            "nominal": 0.073,
+            "deducao": 5940
+          },
+          {
+            "ate": 720000.0,
+            "nominal": 0.095,
+            "deducao": 13860
+          },
+          {
+            "ate": 1800000.0,
+            "nominal": 0.107,
+            "deducao": 22500
+          },
+          {
+            "ate": 3600000.0,
+            "nominal": 0.143,
+            "deducao": 87300
+          },
+          {
+            "ate": null,
+            "nominal": 0.19,
+            "deducao": 378000
+          }
+        ]
+      },
+      "II": {
+        "rotulo": "Indústria",
+        "faixas": [
+          {
+            "ate": 180000.0,
+            "nominal": 0.045,
+            "deducao": 0
+          },
+          {
+            "ate": 360000.0,
+            "nominal": 0.078,
+            "deducao": 5940
+          },
+          {
+            "ate": 720000.0,
+            "nominal": 0.1,
+            "deducao": 13860
+          },
+          {
+            "ate": 1800000.0,
+            "nominal": 0.112,
+            "deducao": 22500
+          },
+          {
+            "ate": 3600000.0,
+            "nominal": 0.147,
+            "deducao": 85500
+          },
+          {
+            "ate": null,
+            "nominal": 0.3,
+            "deducao": 720000
+          }
+        ]
+      },
+      "III": {
+        "rotulo": "Serviços (Anexo III)",
+        "faixas": [
+          {
+            "ate": 180000.0,
+            "nominal": 0.06,
+            "deducao": 0
+          },
+          {
+            "ate": 360000.0,
+            "nominal": 0.112,
+            "deducao": 9360
+          },
+          {
+            "ate": 720000.0,
+            "nominal": 0.135,
+            "deducao": 17640
+          },
+          {
+            "ate": 1800000.0,
+            "nominal": 0.16,
+            "deducao": 35640
+          },
+          {
+            "ate": 3600000.0,
+            "nominal": 0.21,
+            "deducao": 125640
+          },
+          {
+            "ate": null,
+            "nominal": 0.33,
+            "deducao": 648000
+          }
+        ]
+      },
+      "IV": {
+        "rotulo": "Serviços sem CPP no DAS (Anexo IV)",
+        "faixas": [
+          {
+            "ate": 180000.0,
+            "nominal": 0.045,
+            "deducao": 0
+          },
+          {
+            "ate": 360000.0,
+            "nominal": 0.09,
+            "deducao": 8100
+          },
+          {
+            "ate": 720000.0,
+            "nominal": 0.102,
+            "deducao": 12420
+          },
+          {
+            "ate": 1800000.0,
+            "nominal": 0.14,
+            "deducao": 39780
+          },
+          {
+            "ate": 3600000.0,
+            "nominal": 0.22,
+            "deducao": 183780
+          },
+          {
+            "ate": null,
+            "nominal": 0.33,
+            "deducao": 828000
+          }
+        ]
+      },
+      "V": {
+        "rotulo": "Serviços sujeitos ao Fator R (Anexo V)",
+        "faixas": [
+          {
+            "ate": 180000.0,
+            "nominal": 0.155,
+            "deducao": 0
+          },
+          {
+            "ate": 360000.0,
+            "nominal": 0.18,
+            "deducao": 4500
+          },
+          {
+            "ate": 720000.0,
+            "nominal": 0.195,
+            "deducao": 9900
+          },
+          {
+            "ate": 1800000.0,
+            "nominal": 0.205,
+            "deducao": 17100
+          },
+          {
+            "ate": 3600000.0,
+            "nominal": 0.23,
+            "deducao": 62100
+          },
+          {
+            "ate": null,
+            "nominal": 0.305,
+            "deducao": 540000
+          }
+        ]
+      }
     }
   },
-
   "mei": {
-    "fonte": "LC 123/2006 (teto e regras de desenquadramento); PGMEI — valores de 2026 (Decreto nº 12.797/2025)",
+    "fonte": "LC 123/2006 (teto e regras de desenquadramento); PGMEI - valores de 2026 (Decreto nº 12.797/2025)",
     "url": "https://www8.receita.fazenda.gov.br/simplesnacional/",
     "tetoAnual": 81000.0,
     "tetoMesProporcional": 6750.0,
     "tolerancia": 0.2,
-    "das": { "inss": 81.05, "icms": 1.0, "iss": 5.0 }
+    "das": {
+      "inss": 81.05,
+      "icms": 1.0,
+      "iss": 5.0
+    }
   },
-
   "proLabore": {
     "fonte": "Lei 8.212/1991, art. 21: 11% retido pela empresa ou 20% no carnê-leão, até o teto do INSS",
     "url": "https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm",
     "retencaoEmpresa": 0.11,
     "carneLeao": 0.2
   },
-
   "aposentadoriaInss": {
     "fonte": "EC 103/2019 (reforma da Previdência); valores das transições em 2026 conforme gov.br/INSS e MTE",
     "url": "https://www.gov.br/inss/pt-br/direitos-e-deveres/aposentadorias/regras-de-aposentadorias",
     "carenciaMeses": 180,
     "permanente": {
-      "mulher": { "idade": 62, "contribuicaoAnos": 15 },
-      "homem": { "idade": 65, "contribuicaoAnos": 20 }
+      "mulher": {
+        "idade": 62,
+        "contribuicaoAnos": 15
+      },
+      "homem": {
+        "idade": 65,
+        "contribuicaoAnos": 20
+      }
     },
-    "coeficiente": { "base": 0.6, "adicionalPorAno": 0.02, "anosBaseMulher": 15, "anosBaseHomem": 20 },
+    "coeficiente": {
+      "base": 0.6,
+      "adicionalPorAno": 0.02,
+      "anosBaseMulher": 15,
+      "anosBaseHomem": 20
+    },
     "pontos": {
-      "contribuicaoAnos": { "mulher": 30, "homem": 35 },
+      "contribuicaoAnos": {
+        "mulher": 30,
+        "homem": 35
+      },
       "porAno": [
-        { "ano": 2026, "mulher": 93, "homem": 103 },
-        { "ano": 2027, "mulher": 94, "homem": 104 },
-        { "ano": 2028, "mulher": 95, "homem": 105 },
-        { "ano": 2029, "mulher": 96, "homem": 105 },
-        { "ano": 2030, "mulher": 97, "homem": 105 },
-        { "ano": 2031, "mulher": 98, "homem": 105 },
-        { "ano": 2032, "mulher": 99, "homem": 105 },
-        { "ano": 2033, "mulher": 100, "homem": 105 }
+        {
+          "ano": 2026,
+          "mulher": 93,
+          "homem": 103
+        },
+        {
+          "ano": 2027,
+          "mulher": 94,
+          "homem": 104
+        },
+        {
+          "ano": 2028,
+          "mulher": 95,
+          "homem": 105
+        },
+        {
+          "ano": 2029,
+          "mulher": 96,
+          "homem": 105
+        },
+        {
+          "ano": 2030,
+          "mulher": 97,
+          "homem": 105
+        },
+        {
+          "ano": 2031,
+          "mulher": 98,
+          "homem": 105
+        },
+        {
+          "ano": 2032,
+          "mulher": 99,
+          "homem": 105
+        },
+        {
+          "ano": 2033,
+          "mulher": 100,
+          "homem": 105
+        }
       ]
     },
     "idadeProgressiva": {
-      "contribuicaoAnos": { "mulher": 30, "homem": 35 },
+      "contribuicaoAnos": {
+        "mulher": 30,
+        "homem": 35
+      },
       "porAno": [
-        { "ano": 2026, "mulher": 59.5, "homem": 64.5 },
-        { "ano": 2027, "mulher": 60, "homem": 65 },
-        { "ano": 2028, "mulher": 60.5, "homem": 65 },
-        { "ano": 2029, "mulher": 61, "homem": 65 },
-        { "ano": 2030, "mulher": 61.5, "homem": 65 },
-        { "ano": 2031, "mulher": 62, "homem": 65 }
+        {
+          "ano": 2026,
+          "mulher": 59.5,
+          "homem": 64.5
+        },
+        {
+          "ano": 2027,
+          "mulher": 60,
+          "homem": 65
+        },
+        {
+          "ano": 2028,
+          "mulher": 60.5,
+          "homem": 65
+        },
+        {
+          "ano": 2029,
+          "mulher": 61,
+          "homem": 65
+        },
+        {
+          "ano": 2030,
+          "mulher": 61.5,
+          "homem": 65
+        },
+        {
+          "ano": 2031,
+          "mulher": 62,
+          "homem": 65
+        }
       ]
     },
     "pedagio100": {
-      "mulher": { "idade": 57, "contribuicaoAnos": 30 },
-      "homem": { "idade": 60, "contribuicaoAnos": 35 }
+      "mulher": {
+        "idade": 57,
+        "contribuicaoAnos": 30
+      },
+      "homem": {
+        "idade": 60,
+        "contribuicaoAnos": 35
+      }
     }
   },
-
   "lucros": {
     "fonte": "LC 123/2006, art. 14 (isenção); Lei 15.270/2025, arts. 6º-A (retenção de 10% acima de R$ 50 mil/mês) e 16-A (imposto mínimo anual)",
     "url": "https://www.gov.br/receitafederal",
@@ -192,7 +469,13 @@
     "limiteImpostoMinimoAnual": 600000.0,
     "presuncao": {
       "fonte": "Aproximação usual do lucro presumido por setor (IRPJ/CSLL): 8% comércio/indústria, 32% serviços. Sem contabilidade completa, a distribuição isenta fica limitada a esse percentual da receita.",
-      "margens": { "I": 0.08, "II": 0.08, "III": 0.32, "IV": 0.32, "V": 0.32 }
+      "margens": {
+        "I": 0.08,
+        "II": 0.08,
+        "III": 0.32,
+        "IV": 0.32,
+        "V": 0.32
+      }
     }
   }
 }

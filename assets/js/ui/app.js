@@ -115,7 +115,7 @@ async function iniciar(form) {
 
   // Nos campos monetários só entram dígitos: ponto, vírgula e ponto e vírgula
   // (e letras) são bloqueados na digitação; o formato "1.234,56" é posto pela
-  // máscara em tempo real. Atalhos (Ctrl+V etc.) e navegação seguem livres —
+  // máscara em tempo real. Atalhos (Ctrl+V etc.) e navegação seguem livres -
   // o que vier de colagem é higienizado no 'input' abaixo.
   form.addEventListener('keydown', (ev) => {
     const c = ev.target;
@@ -131,7 +131,7 @@ async function iniciar(form) {
     const c = ev.target;
     // Máscara monetária em tempo real: só entram dígitos; o formato "1.234,56"
     // é aplicado enquanto se digita. Ponto, vírgula e ponto e vírgula digitados
-    // são descartados — nunca chegam ao valor do campo.
+    // são descartados - nunca chegam ao valor do campo.
     if (c?.dataset?.tipo === 'money' && c.value !== mascararMoeda(c.value)) {
       c.value = mascararMoeda(c.value);
     }

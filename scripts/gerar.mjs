@@ -206,7 +206,7 @@ if (cfg.adsenseClient) {
   rmSync(join(raiz, 'ads.txt'));
 }
 
-// Headers de segurança e cache — fonte única para _headers (Cloudflare/Netlify) e vercel.json (Vercel).
+// Headers de segurança e cache - fonte única para _headers (Cloudflare/Netlify) e vercel.json (Vercel).
 // A Vercel exige padrão `/(.*)`; o formato _headers usa `/*`.
 const paraVercel = (source) => source.replace(/\/\*$/, '/(.*)');
 const cabecalhos = [

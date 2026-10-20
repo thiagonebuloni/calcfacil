@@ -101,7 +101,7 @@ export function calcular(e, t) {
   const totalDescontos = inssSaldo + irSaldo.imposto + inss13 + ir13.imposto + descontoAviso;
   const liquido = totalProventos - totalDescontos;
 
-  // FGTS: 8% sobre todas as verbas de natureza salarial — saldo, 13º, aviso indenizado
+  // FGTS: 8% sobre todas as verbas de natureza salarial - saldo, 13º, aviso indenizado
   // e férias vencidas/proporcionais com o 1/3 (Lei 8.036/1990, art. 15, §1º).
   const baseFgts = saldoSalario + decimoTerceiro + avisoPago + feriasProp + tercoProp + feriasVenc + tercoVenc;
   const deposito = arredondar(baseFgts * t.fgts.aliquotaDeposito);
@@ -159,7 +159,7 @@ export function exibir(r) {
   const detalhes = [
     { descricao: 'Tempo de serviço (anos completos)', valor: String(r.anos) },
     { descricao: 'Dias de aviso prévio devidos', valor: String(r.diasAviso) },
-    { descricao: 'Base de cálculo do FGTS (saldo, 13º, aviso e férias — Lei 8.036, art. 15)', valor: brl(f.base) },
+    { descricao: 'Base de cálculo do FGTS (saldo, 13º, aviso e férias - Lei 8.036, art. 15)', valor: brl(f.base) },
     { descricao: 'FGTS a depositar sobre as verbas rescisórias (8%)', valor: brl(f.deposito) },
     ...(f.percMulta > 0 ? [{ descricao: `Multa do FGTS (${Math.round(f.percMulta * 100)}%), paga pelo empregador`, valor: brl(f.multa) }] : []),
     ...(f.saque > 0 ? [{ descricao: r.tipo === 'acordo' ? 'Saque estimado do FGTS (até 80%)' : 'Saque estimado do FGTS', valor: brl(f.saque) }] : []),
