@@ -11,6 +11,19 @@ export function jsonld(obj) {
 export function pagina({ cfg, caminho, titulo, descricao, corpo, ld = [], menuAtual = '', calculadoras, tipoOG = 'website', noindex = false, dataPublicacao = '', dataModificacao = '' }) {
   const url = cfg.url.replace(/\/$/, '') + caminho;
   const siteCfg = { adsenseClient: cfg.adsenseClient || '', adsenseSlots: cfg.adsenseSlots || {}, gaId: cfg.gaId || '' };
+  // Meta tag de verificação do AdSense (o código vem do painel do Google).
+  // Aceita o formato completo <meta name="adsense-..." content="..."> ou apenas o par nome/conteudo.
+  let metaAdsense = '';
+  if (cfg.adsenseVerification) {
+    const bruto = String(cfg.adsenseVerification).trim();
+    if (/^<meta/i.test(bruto)) metaAdsense = bruto;
+    else {
+      const m = bruto.match(/name=["']?([^"'\s]+)["']?.*?content=["']?([^"'\s]+)["']?/i);
+      metaAdsense = m
+        ? `<meta name="${esc(m[1])}" content="${esc(m[2])}">`
+        : `<meta name="adsense-account" content="${esc(bruto)}">`;
+    }
+  }
   const menu = calculadoras
     .map((c) => `<a href="/${c.slug}/"${menuAtual === c.slug ? ' aria-current="page"' : ''}>${esc(c.nomeCurto)}</a>`)
     .join('');
@@ -44,6 +57,7 @@ ${tipoOG === 'article' && dataPublicacao ? `<meta property="article:published_ti
 <meta name="twitter:image" content="${esc(cfg.url.replace(/\/$/, '') + '/assets/img/og.png')}">
 <meta name="twitter:image:alt" content="${esc(titulo)}">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+${metaAdsense}
 <link rel="stylesheet" href="/assets/css/base.css">
 ${ld.map(jsonld).join('\n')}
 </head>
