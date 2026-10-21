@@ -103,8 +103,9 @@ Para **cada** calculadora:
 
 ### Fase 3 - Publicação (semana 4)
 
-- [ ] Conectar o repositório à Cloudflare Pages (diretório de saída: raiz do projeto, sem comando de build)
-- [ ] Apontar o domínio para a hospedagem e confirmar HTTPS
+- [ ] Conectar o repositório à Vercel (diretório de saída: raiz do projeto, sem comando de build)
+- [ ] Apontar o domínio para a hospedagem e confirmar HTTPS (registros A `216.198.79.1` e `64.29.17.1`, CNAME `www` para `d05e5d306a365e27.vercel-dns-017.com`)
+- [ ] Conferir o redirecionamento de `www` e do endereço `.vercel.app` antigo para o domínio final
 - [ ] Gerar e publicar `sitemap.xml` e `robots.txt`
 - [ ] Verificar o site no Search Console e enviar o sitemap
 - [ ] Solicitar indexação das páginas principais

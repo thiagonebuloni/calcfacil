@@ -125,6 +125,19 @@ test('vercel.json e _headers refletem a mesma política de headers', () => {
 });
 
 
+test('vercel.json redireciona www e o endereco anterior para o dominio final', () => {
+  const cfg = JSON.parse(readFileSync(join(raiz, 'site.config.json'), 'utf8'));
+  const base = cfg.url.replace(/\/$/, '');
+  const vc = JSON.parse(readFileSync(join(raiz, 'vercel.json'), 'utf8'));
+  const alvos = ['www.' + base.replace(/^https?:\/\//, ''), (cfg.urlAnterior || '').replace(/^https?:\/\//, '')];
+  for (const host of alvos.filter(Boolean)) {
+    const r = vc.redirects.find((x) => x.has?.some((h) => h.type === 'host' && h.value === host));
+    assert.ok(r, `faltou redirect para o host ${host}`);
+    assert.equal(r.destination, `${base}/:path*`);
+    assert.equal(r.permanent, true);
+  }
+});
+
 test('nenhum valor legal fixo nos módulos de cálculo', () => {
   const proibidos = ['607.2', '2428.8', '8475.55', '0.133145', '978.62', '189.59', '1621'];
   for (const arq of readdirSync(join(raiz, 'assets/js/calc'))) {

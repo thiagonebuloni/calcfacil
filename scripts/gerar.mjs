@@ -215,7 +215,19 @@ const cabecalhos = [
   { source: '/data/*', lines: ['Cache-Control: public, max-age=3600'] },
 ];
 escrever('_headers', cabecalhos.map((c) => `${c.source}\n${c.lines.map((l) => `  ${l}`).join('\n')}`).join('\n\n') + '\n');
+// Redirecionamentos: variações de host (www) e endereço antigo (.vercel.app) para o dominio final.
+const hostBase = base.replace(/^https?:\/\//, '').replace(/:\d+$/, '');
+const hostsAlternativos = [`www.${hostBase}`];
+if (cfg.urlAnterior) hostsAlternativos.push(cfg.urlAnterior.replace(/^https?:\/\//, '').replace(/\/.*$/, ''));
+const redirects = hostsAlternativos.map((host) => ({
+  source: '/(.*)',
+  destination: `${base}/:path*`,
+  has: [{ type: 'host', value: host }],
+  permanent: true,
+}));
+
 escrever('vercel.json', JSON.stringify({
+  redirects,
   headers: cabecalhos.map((c) => ({
     source: paraVercel(c.source),
     headers: c.lines.map((l) => {

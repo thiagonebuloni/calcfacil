@@ -26,12 +26,19 @@ for h in "$DOMINIO" "www.$DOMINIO"; do
 done
 
 echo
-echo "=== 4. Verificacao na Vercel ==="
+echo "=== 4. Redirecionamentos (devem responder 308 para o dominio final) ==="
+for h in "www.$DOMINIO" "calculadoras-financeiras-two.vercel.app"; do
+  out=$(curl -s -o /dev/null -w "%{http_code} %{redirect_url}" --max-time 15 "https://$h/" 2>/dev/null)
+  printf "  %-28s %s\n" "$h" "${out:-sem-resposta}"
+done
+
+echo
+echo "=== 5. Verificacao na Vercel ==="
 cd "$(dirname "$0")/.." 2>/dev/null || cd .
 vercel domains verify "$DOMINIO" 2>&1 | grep -E "DNS Configuration|Project" | sed 's/^/  /'
 
 echo
-echo "=== 5. O esperado ==="
+echo "=== 6. O esperado ==="
 echo "  A  @    -> $IP1"
 echo "  A  @    -> $IP2"
 echo "  CN www  -> $CNAME"
