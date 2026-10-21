@@ -125,17 +125,11 @@ test('vercel.json e _headers refletem a mesma política de headers', () => {
 });
 
 
-test('vercel.json redireciona www e o endereco anterior para o dominio final', () => {
+test('site.config.json guarda o endereco anterior para o redirect de dominio', () => {
   const cfg = JSON.parse(readFileSync(join(raiz, 'site.config.json'), 'utf8'));
-  const base = cfg.url.replace(/\/$/, '');
-  const vc = JSON.parse(readFileSync(join(raiz, 'vercel.json'), 'utf8'));
-  const alvos = ['www.' + base.replace(/^https?:\/\//, ''), (cfg.urlAnterior || '').replace(/^https?:\/\//, '')];
-  for (const host of alvos.filter(Boolean)) {
-    const r = vc.redirects.find((x) => x.has?.some((h) => h.type === 'host' && h.value === host));
-    assert.ok(r, `faltou redirect para o host ${host}`);
-    assert.equal(r.destination, `${base}/:path*`);
-    assert.equal(r.permanent, true);
-  }
+  assert.ok(cfg.urlAnterior, 'falta urlAnterior no site.config.json');
+  assert.notEqual(cfg.urlAnterior.replace(/\/$/, ''), cfg.url.replace(/\/$/, ''), 'urlAnterior deve diferir de url');
+  assert.match(cfg.urlAnterior, /^https?:\/\//, 'urlAnterior deve ser uma URL absoluta');
 });
 
 test('nenhum valor legal fixo nos módulos de cálculo', () => {

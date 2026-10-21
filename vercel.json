@@ -1,28 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "https://calcfinanceira.com.br/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.calcfinanceira.com.br"
-        }
-      ],
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "destination": "https://calcfinanceira.com.br/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "calculadoras-financeiras-two.vercel.app"
-        }
-      ],
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
