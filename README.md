@@ -55,8 +55,7 @@ Em `site.config.json`:
 | `responsavel` | Seu nome ou razão social, para a política de privacidade |
 | `nome` | O nome definitivo do site |
 | `adsenseClient`, `adsenseSlots` | Preencher só depois da aprovação do AdSense |
-| `adsenseVerification` | Meta tag de verificação do AdSense (ex.: `ca-pub-XXXXXXXXXXXXXXXX`) |
-| `adsenseCarregarSempre` | `true` carrega o snippet do AdSense no `<head>` de forma incondicional; `false` (padrão) só carrega depois do consentimento de cookies |
+| `adsenseVerification` | Meta tag de verificação do AdSense (ex.: `ca-pub-XXXXXXXXXXXXXXXX`). Gerada como `<meta name="google-adsense-account" content="...">` |
 | `searchConsoleVerification` | Token do Search Console (verificação por meta tag). Aceita o token puro ou o HTML `<meta name="google-site-verification" content="...">`. Só vale para propriedade de **prefixo de URL**; a propriedade de domínio exige DNS |
 | `gaId` | ID do Google Analytics 4, se quiser usar |
 
@@ -249,6 +248,24 @@ As regras mudam; confirme sempre na Central de Ajuda do AdSense antes de enviar.
 - [ ] Nenhum conteúdo copiado
 - [ ] Algumas semanas de existência e já indexado no Google (ajuda na análise)
 - [ ] Idade mínima e dados de pagamento da conta em ordem
+
+### Verificação do site (painel do AdSense)
+
+O painel oferece quatro métodos. No site já ficam prontos três deles:
+
+| Método | Situação neste repositório |
+|---|---|
+| AdSense code snippet | ✅ Pronto — o `<script async src=".../adsbygoogle.js?client=ca-pub-...">` está no `<head>` de todas as páginas |
+| Meta tag | ✅ Pronto — `<meta name="google-adsense-account" content="ca-pub-...">` em todas as páginas |
+| Ads.txt snippet | ✅ Pronto — `ads.txt` gerado na raiz a partir do `adsenseClient` |
+| Snippet (código do bloco de anúncio) | ❌ Falta — depende dos IDs de slot, preenchidos só depois da aprovação |
+
+Notas importantes:
+
+- O Google confere o snippet lendo o **HTML servido**. Por isso a tag `<script>` precisa estar no `<head>` como markup real; um `<script>` que cria a tag via `document.createElement` **não** passa na verificação.
+- A meta tag oficial é `google-adsense-account`. O nome `adsense-account` não é reconhecido.
+- Anúncios só são exibidos depois do consentimento de cookies (LGPD). O snippet fica sempre no `<head>`, mas os elementos `<ins class="adsbygoogle">` só são criados após o aceite — sem eles, não há requisição de anúncio.
+- Antes da aprovação, `adsenseSlots` fica vazio e nenhum bloco de anúncio aparece. Depois da aprovação, preencher os IDs dos slots e rodar `npm run gerar`.
 
 Depois da aprovação:
 

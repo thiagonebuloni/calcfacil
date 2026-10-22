@@ -138,10 +138,13 @@ test('o AdSense tem o carregador no head de todas as paginas', () => {
   for (const p of todas) {
     const h = readFileSync(p, 'utf8');
     const head = h.slice(h.indexOf('<head>'), h.indexOf('</head>'));
-    assert.match(head, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/, `carregador do AdSense ausente em ${rel(p)}`);
+    // O Google verifica o snippet pelo HTML servido: o <script> precisa estar
+    // no <head> como tag real, e nao dentro de uma string de JavaScript.
+    assert.match(head, /<script async src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-\d+"\s+crossorigin="anonymous"><\/script>/,
+      `snippet do AdSense ausente ou mal formado no head em ${rel(p)}`);
     assert.ok(head.includes(cfg.adsenseClient), `client do AdSense incorreto em ${rel(p)}`);
-    assert.match(head, /crossOrigin = 'anonymous'/, `crossorigin ausente em ${rel(p)}`);
-    assert.match(head, new RegExp(`<meta name="adsense-account" content="${cfg.adsenseClient}">`), `meta adsense-account ausente em ${rel(p)}`);
+    // A meta tag oficial de verificacao e a de subconta.
+    assert.match(head, new RegExp(`<meta name="google-adsense-account" content="${cfg.adsenseClient}">`), `meta google-adsense-account ausente em ${rel(p)}`);
   }
 });
 

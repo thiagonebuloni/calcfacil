@@ -24,28 +24,9 @@
 <meta name="twitter:image" content="https://calcfinanceira.com.br/assets/img/og.png">
 <meta name="twitter:image:alt" content="Simulador de financiamento Price e SAC com tabela de amortização">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-<meta name="adsense-account" content="ca-pub-5271299712587394">
+<meta name="google-adsense-account" content="ca-pub-5271299712587394">
 <meta name="google-site-verification" content="iSM7X0oUdO1tAfmASD1mAkvrqGyaZdj6rEvIYeYyc-A">
-<script>
-(function () {
-  var CLIENT = "ca-pub-5271299712587394";
-  var CHAVE = 'cf_consent_v1';
-  function consentiu() {
-    try { return localStorage.getItem(CHAVE) === 'todos'; } catch (e) { return false; }
-  }
-  function carrega() {
-    if (document.querySelector('script[data-adsense]')) return;
-    var s = document.createElement('script');
-    s.async = true;
-    s.setAttribute('data-adsense', '');
-    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(CLIENT);
-    s.crossOrigin = 'anonymous';
-    document.head.appendChild(s);
-  }
-  if (consentiu()) carrega();
-  window.cfAtivarAdsense = carrega;
-})();
-</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5271299712587394" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/assets/css/base.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Simulador de financiamento","url":"https://calcfinanceira.com.br/financiamento/","description":"Simule um financiamento nos sistemas Price e SAC: parcela, total de juros, saldo devedor e tabela de amortização completa para baixar em CSV.","applicationCategory":"FinanceApplication","operatingSystem":"Any","inLanguage":"pt-BR","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Price ou SAC: qual compensa mais?","acceptedAnswer":{"@type":"Answer","text":"Em juros totais, o SAC compensa mais. Se o orçamento do começo for apertado, o Price pode ser a opção possível. A melhor escolha depende da sua renda e do prazo."}},{"@type":"Question","name":"O que é o CET?","acceptedAnswer":{"@type":"Answer","text":"É o Custo Efetivo Total: soma juros, tarifas, seguros e impostos em uma única taxa anual. É o número certo para comparar propostas."}},{"@type":"Question","name":"Como converter a taxa anual em mensal?","acceptedAnswer":{"@type":"Answer","text":"Pela equivalência composta: (1 + taxa anual)^(1/12) − 1. Dividir por 12 só dá certo para taxas nominais."}},{"@type":"Question","name":"Vale a pena amortizar antecipadamente?","acceptedAnswer":{"@type":"Answer","text":"Em geral, sim, porque reduz o saldo sobre o qual os juros incidem. Pergunte ao banco se o abatimento reduz a parcela ou o prazo."}},{"@type":"Question","name":"Uma entrada maior reduz os juros?","acceptedAnswer":{"@type":"Answer","text":"Reduz. Quanto menor o valor financiado, menores os juros em reais, mesmo com a mesma taxa."}},{"@type":"Question","name":"A parcela do meu contrato ficou diferente da simulação. Por quê?","acceptedAnswer":{"@type":"Answer","text":"Provavelmente por seguros, tarifas, correção do saldo ou uma taxa diferente da informada. Compare com o CET e com a planilha de evolução do contrato."}}]}</script>

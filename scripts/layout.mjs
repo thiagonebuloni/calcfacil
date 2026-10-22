@@ -25,7 +25,7 @@ export function pagina({ cfg, caminho, titulo, descricao, corpo, ld = [], menuAt
       const m = bruto.match(/name=["']?([^"'\s]+)["']?.*?content=["']?([^"'\s]+)["']?/i);
       metaAdsense = m
         ? `<meta name="${esc(m[1])}" content="${esc(m[2])}">`
-        : `<meta name="adsense-account" content="${esc(bruto)}">`;
+        : `<meta name="google-adsense-account" content="${esc(bruto)}">`;
     }
   }
   // Meta tag de verificação do Search Console (propriedade de prefixo de URL).
@@ -39,36 +39,17 @@ export function pagina({ cfg, caminho, titulo, descricao, corpo, ld = [], menuAt
       ? `<meta name="${esc(m[1])}" content="${esc(m[2])}">`
       : `<meta name="google-site-verification" content="${esc(bruto)}">`;
   }
-  // Carregador do AdSense no <head>.
-  // O snippet do Google é carregado de forma assíncrona e só entra em execução
-  // depois do consentimento de cookies (LGPD), a menos que `adsenseCarregarSempre`
-  // esteja ativo no site.config.json.
-  function carregadorAdsense(client, sempre) {
+  // Snippet do AdSense no <head>.
+  // O Google verifica o site lendo o HTML servido: a tag <script> precisa
+  // estar no <head> como markup real, e nao dentro de uma string de JavaScript.
+  // O snippet e assincrono, entao nao bloqueia a renderizacao. Os anuncios em
+  // si so sao exibidos depois do consentimento de cookies (LGPD): quem decide
+  // quando pedir o anuncio e o `assets/js/ui/anuncios.js`, que so insere os
+  // elementos <ins class="adsbygoogle"> depois da escolha do visitante.
+  function snippetAdsense(client) {
     if (!client) return '';
     const url = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(client)}`;
-    if (sempre) {
-      return `<script async src="${url}" crossorigin="anonymous"></script>`;
-    }
-    return `<script>
-(function () {
-  var CLIENT = ${JSON.stringify(client)};
-  var CHAVE = 'cf_consent_v1';
-  function consentiu() {
-    try { return localStorage.getItem(CHAVE) === 'todos'; } catch (e) { return false; }
-  }
-  function carrega() {
-    if (document.querySelector('script[data-adsense]')) return;
-    var s = document.createElement('script');
-    s.async = true;
-    s.setAttribute('data-adsense', '');
-    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(CLIENT);
-    s.crossOrigin = 'anonymous';
-    document.head.appendChild(s);
-  }
-  if (consentiu()) carrega();
-  window.cfAtivarAdsense = carrega;
-})();
-</script>`;
+    return `<script async src="${url}" crossorigin="anonymous"></script>`;
   }
 
   const menu = calculadoras
@@ -106,7 +87,7 @@ ${tipoOG === 'article' && dataPublicacao ? `<meta property="article:published_ti
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 ${metaAdsense}
 ${metaSearchConsole}
-${carregadorAdsense(cfg.adsenseClient, cfg.adsenseCarregarSempre)}
+${snippetAdsense(cfg.adsenseClient)}
 <link rel="stylesheet" href="/assets/css/base.css">
 ${ld.map(jsonld).join('\n')}
 </head>
