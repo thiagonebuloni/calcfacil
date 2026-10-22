@@ -28,6 +28,17 @@ export function pagina({ cfg, caminho, titulo, descricao, corpo, ld = [], menuAt
         : `<meta name="adsense-account" content="${esc(bruto)}">`;
     }
   }
+  // Meta tag de verificação do Search Console (propriedade de prefixo de URL).
+  // A propriedade de domínio (calcfinanceira.com.br) só pode ser verificada por
+  // DNS; este caminho é o plano B quando o registro TXT não é possível.
+  let metaSearchConsole = '';
+  if (cfg.searchConsoleVerification) {
+    const bruto = String(cfg.searchConsoleVerification).trim();
+    const m = bruto.match(/name=["']?([^"'\s]+)["']?.*?content=["']?([^"'\s]+)["']?/i);
+    metaSearchConsole = m
+      ? `<meta name="${esc(m[1])}" content="${esc(m[2])}">`
+      : `<meta name="google-site-verification" content="${esc(bruto)}">`;
+  }
   // Carregador do AdSense no <head>.
   // O snippet do Google é carregado de forma assíncrona e só entra em execução
   // depois do consentimento de cookies (LGPD), a menos que `adsenseCarregarSempre`
@@ -94,6 +105,7 @@ ${tipoOG === 'article' && dataPublicacao ? `<meta property="article:published_ti
 <meta name="twitter:image:alt" content="${esc(titulo)}">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 ${metaAdsense}
+${metaSearchConsole}
 ${carregadorAdsense(cfg.adsenseClient, cfg.adsenseCarregarSempre)}
 <link rel="stylesheet" href="/assets/css/base.css">
 ${ld.map(jsonld).join('\n')}

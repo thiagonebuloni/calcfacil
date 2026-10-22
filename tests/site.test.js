@@ -145,6 +145,23 @@ test('o AdSense tem o carregador no head de todas as paginas', () => {
   }
 });
 
+test('a meta tag do Search Console e gerada quando configurada', () => {
+  const cfg = JSON.parse(readFileSync(join(raiz, 'site.config.json'), 'utf8'));
+  assert.ok(cfg.searchConsoleVerification, 'falta searchConsoleVerification no site.config.json');
+  // Aceita token puro ou o HTML completo da meta tag.
+  const token = cfg.searchConsoleVerification.match(/content=["']?([^"'\s]+)["']?/)?.[1]
+    || cfg.searchConsoleVerification.trim();
+  for (const p of todas) {
+    const h = readFileSync(p, 'utf8');
+    const head = h.slice(h.indexOf('<head>'), h.indexOf('</head>'));
+    assert.match(
+      head,
+      new RegExp(`<meta name="google-site-verification" content="${token}">`),
+      `meta google-site-verification ausente ou incorreta em ${rel(p)}`
+    );
+  }
+});
+
 test('o ads.txt e gerado a partir do adsenseClient', () => {
   const cfg = JSON.parse(readFileSync(join(raiz, 'site.config.json'), 'utf8'));
   const pub = cfg.adsenseClient.replace(/^ca-/, '');

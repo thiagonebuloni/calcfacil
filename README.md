@@ -57,6 +57,7 @@ Em `site.config.json`:
 | `adsenseClient`, `adsenseSlots` | Preencher só depois da aprovação do AdSense |
 | `adsenseVerification` | Meta tag de verificação do AdSense (ex.: `ca-pub-XXXXXXXXXXXXXXXX`) |
 | `adsenseCarregarSempre` | `true` carrega o snippet do AdSense no `<head>` de forma incondicional; `false` (padrão) só carrega depois do consentimento de cookies |
+| `searchConsoleVerification` | Token do Search Console (verificação por meta tag). Aceita o token puro ou o HTML `<meta name="google-site-verification" content="...">`. Só vale para propriedade de **prefixo de URL**; a propriedade de domínio exige DNS |
 | `gaId` | ID do Google Analytics 4, se quiser usar |
 
 Depois: `npm run gerar`, `node --test` e publicar.
@@ -110,6 +111,8 @@ Para **cada** calculadora:
 - [ ] Conferir o redirecionamento de `www` e do endereço `.vercel.app` antigo para o domínio final (aplicar com `bash scripts/configurar-redirects.sh`)
 - [ ] Gerar e publicar `sitemap.xml` e `robots.txt`
 - [ ] Verificar o site no Search Console e enviar o sitemap
+  - Propriedade de domínio (`calcfinanceira.com.br`): o Google só aceita **TXT** ou **CNAME**. O apex já tem registros `A` da Vercel, então CNAME é impossível — use **TXT** no painel do Registro.br (Host/Nome vazio ou `@`, Valor = `google-site-verification=...`). Confira com `bash scripts/verificar-dominio.sh google-site-verification=SEU_TOKEN`
+  - Alternativa sem DNS: verificar a **propriedade de prefixo de URL** (`https://calcfinanceira.com.br/`) via meta tag — preencha `searchConsoleVerification` em `site.config.json` com o token e rode `npm run gerar`. Não cobre `www` nem `http://`, por isso a opção com DNS é melhor
 - [ ] Solicitar indexação das páginas principais
 - [ ] Preencher `gaId` em `site.config.json` para ativar o Analytics (só carrega com consentimento)
 
