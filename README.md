@@ -55,6 +55,8 @@ Em `site.config.json`:
 | `responsavel` | Seu nome ou razão social, para a política de privacidade |
 | `nome` | O nome definitivo do site |
 | `adsenseClient`, `adsenseSlots` | Preencher só depois da aprovação do AdSense |
+| `adsenseVerification` | Meta tag de verificação do AdSense (ex.: `ca-pub-XXXXXXXXXXXXXXXX`) |
+| `adsenseCarregarSempre` | `true` carrega o snippet do AdSense no `<head>` de forma incondicional; `false` (padrão) só carrega depois do consentimento de cookies |
 | `gaId` | ID do Google Analytics 4, se quiser usar |
 
 Depois: `npm run gerar`, `node --test` e publicar.
@@ -114,7 +116,8 @@ Para **cada** calculadora:
 ### Fase 4 - Monetização (semanas 5–6)
 
 - [ ] Conferir o [checklist do AdSense](#10-checklist-do-adsense) e solicitar a aprovação
-- [ ] Após aprovado, preencher `adsenseClient` e `adsenseSlots` em `site.config.json` e rodar `npm run gerar` (o `ads.txt` é criado sozinho; os blocos de anúncio só aparecem depois do consentimento de cookies)
+- [ ] Após aprovado, preencher `adsenseClient`, `adsenseVerification` e `adsenseSlots` em `site.config.json` e rodar `npm run gerar` (o `ads.txt` é criado sozinho; o carregador do AdSense entra no `<head>` de todas as páginas e os blocos de anúncio só aparecem depois do consentimento de cookies)
+- [ ] Conferir que os IDs dos slots (`adsenseSlots`) existem no painel do AdSense, senão os blocos ficam vazios
 - [ ] Posicionar os slots com altura reservada (evitar deslocamento de layout)
 - [ ] Inserir os blocos de afiliados com rótulo de publicidade
 - [ ] Verificar Core Web Vitals depois de ativar os anúncios

@@ -24,7 +24,27 @@
 <meta name="twitter:image" content="https://calcfinanceira.com.br/assets/img/og.png">
 <meta name="twitter:image:alt" content="Calculadora de aposentadoria: quanto preciso juntar para viver de renda">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-
+<meta name="adsense-account" content="ca-pub-5271299712587394">
+<script>
+(function () {
+  var CLIENT = "ca-pub-5271299712587394";
+  var CHAVE = 'cf_consent_v1';
+  function consentiu() {
+    try { return localStorage.getItem(CHAVE) === 'todos'; } catch (e) { return false; }
+  }
+  function carrega() {
+    if (document.querySelector('script[data-adsense]')) return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.setAttribute('data-adsense', '');
+    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(CLIENT);
+    s.crossOrigin = 'anonymous';
+    document.head.appendChild(s);
+  }
+  if (consentiu()) carrega();
+  window.cfAtivarAdsense = carrega;
+})();
+</script>
 <link rel="stylesheet" href="/assets/css/base.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de aposentadoria","url":"https://calcfinanceira.com.br/aposentadoria/","description":"Descubra quanto patrimônio você precisa acumular para viver de renda, quanto precisa investir por mês e em que idade atinge a meta.","applicationCategory":"FinanceApplication","operatingSystem":"Any","inLanguage":"pt-BR","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Isto simula a aposentadoria do INSS?","acceptedAnswer":{"@type":"Answer","text":"Não. Use a calculadora de aposentadoria do INSS deste site para estimar quando você se aposenta e quanto vai receber. Esta página trata da renda que você constrói com investimentos próprios, que pode complementar o benefício."}},{"@type":"Question","name":"O que é rentabilidade real?","acceptedAnswer":{"@type":"Answer","text":"É o rendimento acima da inflação. Se o investimento rende 10% e a inflação é de 5%, o ganho real é de cerca de 4,8%."}},{"@type":"Question","name":"Por que a meta supõe não consumir o patrimônio?","acceptedAnswer":{"@type":"Answer","text":"Porque, assim, a renda dura para sempre e pode ser deixada para a família. Se aceitar consumir o patrimônio até uma certa idade, a meta necessária é menor."}},{"@type":"Question","name":"O resultado considera a inflação?","acceptedAnswer":{"@type":"Answer","text":"Sim, se você usar uma renda em valores de hoje e uma rentabilidade real. Não coloque a rentabilidade nominal."}},{"@type":"Question","name":"Qual rentabilidade real devo usar?","acceptedAnswer":{"@type":"Answer","text":"Escolha uma hipótese prudente. Algo entre 3% e 6% ao ano acima da inflação é comum, mas não há garantia de que o mercado entregue esse valor."}},{"@type":"Question","name":"E se eu quiser me aposentar mais cedo?","acceptedAnswer":{"@type":"Answer","text":"Mude a idade para se aposentar. Você vai ver o aporte mensal subir, porque há menos anos de juros e a meta chega mais cedo."}}]}</script>
@@ -104,7 +124,7 @@
     <p>© 2026 CalcFácil. Tabelas de INSS e IRRF vigentes em 01/01/2026.</p>
   </div>
 </footer>
-<script type="application/json" id="site-config">{"adsenseClient":"","adsenseSlots":{"resultado":"","meio":"","fim":""},"gaId":""}</script>
+<script type="application/json" id="site-config">{"adsenseClient":"ca-pub-5271299712587394","adsenseSlots":{"resultado":"","meio":"","fim":""},"gaId":""}</script>
 <script type="module" src="/assets/js/ui/app.js"></script>
 </body>
 </html>

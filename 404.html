@@ -25,7 +25,27 @@
 <meta name="twitter:image" content="https://calcfinanceira.com.br/assets/img/og.png">
 <meta name="twitter:image:alt" content="Página não encontrada | CalcFácil">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-
+<meta name="adsense-account" content="ca-pub-5271299712587394">
+<script>
+(function () {
+  var CLIENT = "ca-pub-5271299712587394";
+  var CHAVE = 'cf_consent_v1';
+  function consentiu() {
+    try { return localStorage.getItem(CHAVE) === 'todos'; } catch (e) { return false; }
+  }
+  function carrega() {
+    if (document.querySelector('script[data-adsense]')) return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.setAttribute('data-adsense', '');
+    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(CLIENT);
+    s.crossOrigin = 'anonymous';
+    document.head.appendChild(s);
+  }
+  if (consentiu()) carrega();
+  window.cfAtivarAdsense = carrega;
+})();
+</script>
 <link rel="stylesheet" href="/assets/css/base.css">
 
 </head>
@@ -55,7 +75,7 @@
     <p>© 2026 CalcFácil. Tabelas de INSS e IRRF vigentes em 01/01/2026.</p>
   </div>
 </footer>
-<script type="application/json" id="site-config">{"adsenseClient":"","adsenseSlots":{"resultado":"","meio":"","fim":""},"gaId":""}</script>
+<script type="application/json" id="site-config">{"adsenseClient":"ca-pub-5271299712587394","adsenseSlots":{"resultado":"","meio":"","fim":""},"gaId":""}</script>
 <script type="module" src="/assets/js/ui/app.js"></script>
 </body>
 </html>

@@ -10,7 +10,11 @@ export function jsonld(obj) {
 
 export function pagina({ cfg, caminho, titulo, descricao, corpo, ld = [], menuAtual = '', calculadoras, tipoOG = 'website', noindex = false, dataPublicacao = '', dataModificacao = '' }) {
   const url = cfg.url.replace(/\/$/, '') + caminho;
-  const siteCfg = { adsenseClient: cfg.adsenseClient || '', adsenseSlots: cfg.adsenseSlots || {}, gaId: cfg.gaId || '' };
+  const siteCfg = {
+    adsenseClient: cfg.adsenseClient || '',
+    adsenseSlots: cfg.adsenseSlots || {},
+    gaId: cfg.gaId || '',
+  };
   // Meta tag de verificação do AdSense (o código vem do painel do Google).
   // Aceita o formato completo <meta name="adsense-..." content="..."> ou apenas o par nome/conteudo.
   let metaAdsense = '';
@@ -24,6 +28,38 @@ export function pagina({ cfg, caminho, titulo, descricao, corpo, ld = [], menuAt
         : `<meta name="adsense-account" content="${esc(bruto)}">`;
     }
   }
+  // Carregador do AdSense no <head>.
+  // O snippet do Google é carregado de forma assíncrona e só entra em execução
+  // depois do consentimento de cookies (LGPD), a menos que `adsenseCarregarSempre`
+  // esteja ativo no site.config.json.
+  function carregadorAdsense(client, sempre) {
+    if (!client) return '';
+    const url = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(client)}`;
+    if (sempre) {
+      return `<script async src="${url}" crossorigin="anonymous"></script>`;
+    }
+    return `<script>
+(function () {
+  var CLIENT = ${JSON.stringify(client)};
+  var CHAVE = 'cf_consent_v1';
+  function consentiu() {
+    try { return localStorage.getItem(CHAVE) === 'todos'; } catch (e) { return false; }
+  }
+  function carrega() {
+    if (document.querySelector('script[data-adsense]')) return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.setAttribute('data-adsense', '');
+    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(CLIENT);
+    s.crossOrigin = 'anonymous';
+    document.head.appendChild(s);
+  }
+  if (consentiu()) carrega();
+  window.cfAtivarAdsense = carrega;
+})();
+</script>`;
+  }
+
   const menu = calculadoras
     .map((c) => `<a href="/${c.slug}/"${menuAtual === c.slug ? ' aria-current="page"' : ''}>${esc(c.nomeCurto)}</a>`)
     .join('');
@@ -58,6 +94,7 @@ ${tipoOG === 'article' && dataPublicacao ? `<meta property="article:published_ti
 <meta name="twitter:image:alt" content="${esc(titulo)}">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 ${metaAdsense}
+${carregadorAdsense(cfg.adsenseClient, cfg.adsenseCarregarSempre)}
 <link rel="stylesheet" href="/assets/css/base.css">
 ${ld.map(jsonld).join('\n')}
 </head>

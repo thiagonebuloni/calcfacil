@@ -23,7 +23,13 @@ export function ativarTerceiros(cfg) {
   }
 
   if (cfg.adsenseClient) {
-    injetar(`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(cfg.adsenseClient)}`, { crossorigin: 'anonymous' });
+    // O carregador do AdSense já está no <head> (scripts/layout.mjs). Ele decide,
+    // sozinho, se carrega o snippet do Google conforme o consentimento salvo.
+    if (typeof window.cfAtivarAdsense === 'function') {
+      window.cfAtivarAdsense();
+    } else {
+      injetar(`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(cfg.adsenseClient)}`, { crossorigin: 'anonymous' });
+    }
     document.querySelectorAll('.ad-slot[data-slot]').forEach((slot) => {
       const id = cfg.adsenseSlots?.[slot.dataset.slot];
       if (!id) return;
