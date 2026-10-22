@@ -125,6 +125,13 @@ test('vercel.json e _headers refletem a mesma política de headers', () => {
 });
 
 
+test('site.config.json guarda o endereco anterior para o redirect de dominio', () => {
+  const cfg = JSON.parse(readFileSync(join(raiz, 'site.config.json'), 'utf8'));
+  assert.ok(cfg.urlAnterior, 'falta urlAnterior no site.config.json');
+  assert.notEqual(cfg.urlAnterior.replace(/\/$/, ''), cfg.url.replace(/\/$/, ''), 'urlAnterior deve diferir de url');
+  assert.match(cfg.urlAnterior, /^https?:\/\//, 'urlAnterior deve ser uma URL absoluta');
+});
+
 test('nenhum valor legal fixo nos módulos de cálculo', () => {
   const proibidos = ['607.2', '2428.8', '8475.55', '0.133145', '978.62', '189.59', '1621'];
   for (const arq of readdirSync(join(raiz, 'assets/js/calc'))) {

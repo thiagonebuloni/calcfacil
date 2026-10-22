@@ -215,6 +215,9 @@ const cabecalhos = [
   { source: '/data/*', lines: ['Cache-Control: public, max-age=3600'] },
 ];
 escrever('_headers', cabecalhos.map((c) => `${c.source}\n${c.lines.map((l) => `  ${l}`).join('\n')}`).join('\n\n') + '\n');
+// Redirecionamentos de host (www e endereco antigo) sao configurados na Vercel
+// via API de dominios (redirect + redirectStatusCode). Redirects com `has: host`
+// dentro do vercel.json nao sao aplicados pela Vercel, por isso ficam de fora.
 escrever('vercel.json', JSON.stringify({
   headers: cabecalhos.map((c) => ({
     source: paraVercel(c.source),
