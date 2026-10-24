@@ -23,7 +23,12 @@ export function ativarTerceiros(cfg) {
   }
 
   if (cfg.adsenseClient) {
-    injetar(`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(cfg.adsenseClient)}`, { crossorigin: 'anonymous' });
+    // O snippet do AdSense ja esta no <head> de todas as paginas
+    // (scripts/layout.mjs). O Google exige que ele esteja no HTML servido para
+    // verificar o site. Ele e assincrono e nao pede anuncios sozinho: so quando
+    // existem elementos <ins class="adsbygoogle"> na pagina e que a requisicao
+    // de anuncio acontece. Por isso, os <ins> so sao criados aqui, depois do
+    // consentimento de cookies.
     document.querySelectorAll('.ad-slot[data-slot]').forEach((slot) => {
       const id = cfg.adsenseSlots?.[slot.dataset.slot];
       if (!id) return;
@@ -40,11 +45,17 @@ export function ativarTerceiros(cfg) {
   }
 }
 
-// Remove os scripts de terceiros já injetados (recusa de cookies) e libera
-// nova ativação na mesma página, caso o consentimento mude para "todos".
+// Ao recusar (ou trocar para "apenas essenciais"), remove os anuncios ja
+// inseridos na pagina. O snippet do AdSense permanece no <head>: ele e
+// carregado de forma assincrona e, sem os elementos <ins>, nao faz nenhuma
+// requisicao de anuncio.
 export function desativarTerceiros() {
+  document.querySelectorAll('.ad-slot[data-slot]').forEach((slot) => {
+    slot.replaceChildren();
+    slot.hidden = true;
+  });
   document
-    .querySelectorAll('script[src*="googletagmanager"], script[src*="googlesyndication"]')
+    .querySelectorAll('script[src*="googletagmanager"]')
     .forEach((s) => s.remove());
   ativado = false;
 }

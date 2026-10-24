@@ -10,7 +10,11 @@ export function jsonld(obj) {
 
 export function pagina({ cfg, caminho, titulo, descricao, corpo, ld = [], menuAtual = '', calculadoras, tipoOG = 'website', noindex = false, dataPublicacao = '', dataModificacao = '' }) {
   const url = cfg.url.replace(/\/$/, '') + caminho;
-  const siteCfg = { adsenseClient: cfg.adsenseClient || '', adsenseSlots: cfg.adsenseSlots || {}, gaId: cfg.gaId || '' };
+  const siteCfg = {
+    adsenseClient: cfg.adsenseClient || '',
+    adsenseSlots: cfg.adsenseSlots || {},
+    gaId: cfg.gaId || '',
+  };
   // Meta tag de verificação do AdSense (o código vem do painel do Google).
   // Aceita o formato completo <meta name="adsense-..." content="..."> ou apenas o par nome/conteudo.
   let metaAdsense = '';
@@ -21,9 +25,33 @@ export function pagina({ cfg, caminho, titulo, descricao, corpo, ld = [], menuAt
       const m = bruto.match(/name=["']?([^"'\s]+)["']?.*?content=["']?([^"'\s]+)["']?/i);
       metaAdsense = m
         ? `<meta name="${esc(m[1])}" content="${esc(m[2])}">`
-        : `<meta name="adsense-account" content="${esc(bruto)}">`;
+        : `<meta name="google-adsense-account" content="${esc(bruto)}">`;
     }
   }
+  // Meta tag de verificação do Search Console (propriedade de prefixo de URL).
+  // A propriedade de domínio (calcfinanceira.com.br) só pode ser verificada por
+  // DNS; este caminho é o plano B quando o registro TXT não é possível.
+  let metaSearchConsole = '';
+  if (cfg.searchConsoleVerification) {
+    const bruto = String(cfg.searchConsoleVerification).trim();
+    const m = bruto.match(/name=["']?([^"'\s]+)["']?.*?content=["']?([^"'\s]+)["']?/i);
+    metaSearchConsole = m
+      ? `<meta name="${esc(m[1])}" content="${esc(m[2])}">`
+      : `<meta name="google-site-verification" content="${esc(bruto)}">`;
+  }
+  // Snippet do AdSense no <head>.
+  // O Google verifica o site lendo o HTML servido: a tag <script> precisa
+  // estar no <head> como markup real, e nao dentro de uma string de JavaScript.
+  // O snippet e assincrono, entao nao bloqueia a renderizacao. Os anuncios em
+  // si so sao exibidos depois do consentimento de cookies (LGPD): quem decide
+  // quando pedir o anuncio e o `assets/js/ui/anuncios.js`, que so insere os
+  // elementos <ins class="adsbygoogle"> depois da escolha do visitante.
+  function snippetAdsense(client) {
+    if (!client) return '';
+    const url = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(client)}`;
+    return `<script async src="${url}" crossorigin="anonymous"></script>`;
+  }
+
   const menu = calculadoras
     .map((c) => `<a href="/${c.slug}/"${menuAtual === c.slug ? ' aria-current="page"' : ''}>${esc(c.nomeCurto)}</a>`)
     .join('');
@@ -58,7 +86,10 @@ ${tipoOG === 'article' && dataPublicacao ? `<meta property="article:published_ti
 <meta name="twitter:image:alt" content="${esc(titulo)}">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 ${metaAdsense}
+${metaSearchConsole}
+${snippetAdsense(cfg.adsenseClient)}
 <link rel="stylesheet" href="/assets/css/base.css">
+<script src="https://cdn.vercel.com/analytics/script.js" defer></script>
 ${ld.map(jsonld).join('\n')}
 </head>
 <body>

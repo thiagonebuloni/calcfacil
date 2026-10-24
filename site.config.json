@@ -4,13 +4,14 @@
   "url": "https://calcfinanceira.com.br",
   "urlAnterior": "https://calculadoras-financeiras-two.vercel.app",
   "email": "magnust9999@gmail.com",
-  "adsenseClient": "",
+  "adsenseClient": "ca-pub-5271299712587394",
   "adsenseSlots": {
     "resultado": "",
     "meio": "",
     "fim": ""
   },
-  "adsenseVerification": "",
+  "adsenseVerification": "ca-pub-5271299712587394",
+  "searchConsoleVerification": "iSM7X0oUdO1tAfmASD1mAkvrqGyaZdj6rEvIYeYyc-A",
   "gaId": "",
   "responsavel": ""
 }

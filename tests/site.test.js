@@ -132,6 +132,29 @@ test('site.config.json guarda o endereco anterior para o redirect de dominio', (
   assert.match(cfg.urlAnterior, /^https?:\/\//, 'urlAnterior deve ser uma URL absoluta');
 });
 
+test('a meta tag do Search Console e gerada quando configurada', () => {
+  const cfg = JSON.parse(readFileSync(join(raiz, 'site.config.json'), 'utf8'));
+  assert.ok(cfg.searchConsoleVerification, 'falta searchConsoleVerification no site.config.json');
+  // Aceita token puro ou o HTML completo da meta tag.
+  const token = cfg.searchConsoleVerification.match(/content=["']?([^"'\s]+)["']?/)?.[1]
+    || cfg.searchConsoleVerification.trim();
+  for (const p of todas) {
+    const h = readFileSync(p, 'utf8');
+    const head = h.slice(h.indexOf('<head>'), h.indexOf('</head>'));
+    assert.match(
+      head,
+      new RegExp(`<meta name="google-site-verification" content="${token}">`),
+      `meta google-site-verification ausente ou incorreta em ${rel(p)}`
+    );
+  }
+});
+
+test('o ads.txt e gerado a partir do adsenseClient', () => {
+  const cfg = JSON.parse(readFileSync(join(raiz, 'site.config.json'), 'utf8'));
+  const pub = cfg.adsenseClient.replace(/^ca-/, '');
+  assert.equal(readFileSync(join(raiz, 'ads.txt'), 'utf8').trim(), `google.com, ${pub}, DIRECT, f08c47fec0942fa0`);
+});
+
 test('nenhum valor legal fixo nos módulos de cálculo', () => {
   const proibidos = ['607.2', '2428.8', '8475.55', '0.133145', '978.62', '189.59', '1621'];
   for (const arq of readdirSync(join(raiz, 'assets/js/calc'))) {
