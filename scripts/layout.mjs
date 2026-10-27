@@ -113,6 +113,7 @@ ${corpo}
       <a href="/aviso-legal/">Aviso legal</a>
       <button type="button" class="link" data-abrir-cookies hidden>Preferências de cookies</button>
     </nav>
+    <p>Planejando uma viagem? Compare seguro viagem — <a href="https://www.awin1.com/cread.php?awinmid=128757&awinaffid=3132449&ued=https%3A%2F%2Fhellosafe.com.br%2Fseguro-viagem" rel="sponsored noopener" target="_blank">publicidade</a>.</p>
     <p>Os resultados são estimativas informativas e não substituem contador, advogado ou consultor financeiro. Este site pode receber comissão por indicações feitas por links de afiliados, sempre identificados como publicidade.</p>
     <p>© ${new Date().getFullYear()} ${nome}. Tabelas de INSS e IRRF vigentes em ${cfg._vigenciaBR}.</p>
   </div>
