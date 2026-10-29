@@ -42,6 +42,7 @@ export const calculadoras = [
       ['Horas extras e comissões entram no 13º?', 'Entram. A média dos valores variáveis integra a base. Use o campo de média para incluí-los.'],
       ['O 13º tem desconto de INSS e Imposto de Renda?', 'Tem, e os dois incidem sobre o valor total do 13º, descontados na 2ª parcela. A 1ª parcela vem sem descontos.'],
       ['Posso receber a 1ª parcela junto com as férias?', 'Pode. O empregado precisa pedir por escrito em janeiro do mesmo ano, e a empresa paga a 1ª parcela no mês das férias.'],
+['Como economizar com o que tenho?', "Para economizar no 13º, aprove a parte de cada parcela para pagar dívidas, montar reserva ou investir em algo que caiba no seu bolso. O guia Mais de 70 formas para economizar traz dicas práticas para reduzir gastos e poupar mais. Acesse <a href='https://go.hotmart.com/F108245511X?dp=1' rel='noopener' target='_blank'>aqui</a>."],
     ],
   },
   {
@@ -81,6 +82,7 @@ export const calculadoras = [
       ['Posso vender todas as férias?', 'Não. O limite do abono pecuniário é de 1/3, ou seja, 10 dias.'],
       ['O que acontece se a empresa não conceder as férias a tempo?', 'Ela precisa pagar as férias em dobro, com o 1/3.'],
       ['Horas extras e comissões entram no cálculo?', 'Entram. A média dos valores variáveis recebidos no período integra a base das férias.'],
+['Como economizar com o que tenho?', "Para economizar nas férias, compare passagens, hospedagem e projetos, e evite compras de impulso. O guia Mais de 70 formas para economizar oferece dicas práticas para reduzir custos e poupar mais. Acesse <a href='https://go.hotmart.com/F108245511X?dp=1' rel='noopener' target='_blank'>aqui</a>."],
     ],
   },
   {
@@ -142,6 +144,7 @@ export const calculadoras = [
       ['Esta calculadora inclui horas extras, comissões e adicionais?', 'Não. Se você recebe valores variáveis, adicionais ou tem estabilidade, a rescisão real pode ser maior. Use o salário médio ou confira com o RH.'],
       ['A homologação no sindicato ainda é obrigatória?', 'Não. Desde a reforma trabalhista de 2017, a homologação da rescisão no sindicato deixou de ser obrigatória.'],
       ['O valor que recebi foi diferente. O que faço?', 'Peça o demonstrativo à empresa e compare as verbas. Se houver divergência, procure o sindicato da categoria ou um advogado trabalhista.'],
+['Como economizar com o que tenho?', "Na hora da rescisão, não gaste o dinheiro sem um plano. A calculadora mostra cada verba; use parte para pagar dívidas, outra para reserva. O guia Mais de 70 formas para economizar ajuda a organizar o dinheiro. Acesse <a href='https://go.hotmart.com/F108245511X?dp=1' rel='noopener' target='_blank'>aqui</a>."],
     ],
   },
   {
@@ -185,6 +188,7 @@ export const calculadoras = [
       ['O rendimento futuro é garantido?', 'Não. A simulação mostra o que aconteceria se a taxa informada se mantivesse. Rentabilidade passada ou projetada não é garantia de resultado.'],
       ['O IR regressivo vale para qualquer investimento?', 'Vale para boa parte da renda fixa, como CDB e Tesouro Direto. Alguns produtos têm isenção (como LCI e LCA) e fundos têm regras próprias. Confira as do seu investimento.'],
       ['Por que o prazo faz tanta diferença?', 'Porque os juros incidem sobre juros anteriores. Os últimos anos de uma aplicação costumam render mais que os primeiros.'],
+['Como economizar com o que tenho?', "Para melhorar os juros compostos, aumente a economia, reduza dívidas que engatem juros e mantenha o capital aplicado. O guia Mais de 70 formas para economizar traz passos práticos. Acesse <a href='https://go.hotmart.com/F108245511X?dp=1' rel='noopener' target='_blank'>aqui</a>."],
     ],
   },
   {
@@ -228,6 +232,7 @@ export const calculadoras = [
       ['Vale a pena amortizar antecipadamente?', 'Em geral, sim, porque reduz o saldo sobre o qual os juros incidem. Pergunte ao banco se o abatimento reduz a parcela ou o prazo.'],
       ['Uma entrada maior reduz os juros?', 'Reduz. Quanto menor o valor financiado, menores os juros em reais, mesmo com a mesma taxa.'],
       ['A parcela do meu contrato ficou diferente da simulação. Por quê?', 'Provavelmente por seguros, tarifas, correção do saldo ou uma taxa diferente da informada. Compare com o CET e com a planilha de evolução do contrato.'],
+['Como economizar com o que tenho?', "Para economizar no financiamento, busque melhor taxa, faça entrada e evite compras no cartão nas datas difíceis. O guia Mais de 70 formas para economizar mostra como melhorar o controle do bolso. Acesse <a href='https://go.hotmart.com/F108245511X?dp=1' rel='noopener' target='_blank'>aqui</a>."],
     ],
   },
   {
@@ -268,6 +273,7 @@ export const calculadoras = [
       ['O resultado considera a inflação?', 'Sim, se você usar uma renda em valores de hoje e uma rentabilidade real. Não coloque a rentabilidade nominal.'],
       ['Qual rentabilidade real devo usar?', 'Escolha uma hipótese prudente. Algo entre 3% e 6% ao ano acima da inflação é comum, mas não há garantia de que o mercado entregue esse valor.'],
       ['E se eu quiser me aposentar mais cedo?', 'Mude a idade para se aposentar. Você vai ver o aporte mensal subir, porque há menos anos de juros e a meta chega mais cedo.'],
+['Como economizar com o que tenho?', "Para o futuro, crie metas de economia, reduza despesas superficiais e mantenha reserva. O guia Mais de 70 formas para economizar traz dicas práticas. Acesse <a href='https://go.hotmart.com/F108245511X?dp=1' rel='noopener' target='_blank'>aqui</a>."],
     ],
   },
   {
@@ -331,6 +337,7 @@ export const calculadoras = [
       ['E se a meta não couber no faturamento?', 'O otimizador marca como inviável, mostra o melhor cenário possível e estima o faturamento mínimo necessário para atingir a meta.'],
       ['O que muda perto do teto de ME?', 'ME fatura até R$ 360 mil por ano. Perto do teto o otimizador avisa; acima dele a empresa vira EPP, ainda no Simples, com alíquotas maiores.'],
       ['Preciso de contador mesmo com a simulação?', 'Sim. É uma estimativa com as tabelas vigentes: o contador valida o anexo, a folha de pró-labore e os recolhimentos antes de colocar em prática.'],
+['Como economizar com o que tenho?', "Na ME, economize controlando lançamentos e monetizando bens. O guia Mais de 70 formas para economizar ajuda no dia a dia. Acesse <a href='https://go.hotmart.com/F108245511X?dp=1' rel='noopener' target='_blank'>aqui</a>."],
     ],
   },
   {
@@ -377,6 +384,7 @@ export const calculadoras = [
       ['O que é o pedágio de 100%?', 'Para quem já contribuía antes da reforma: é preciso pagar em dobro o tempo que faltava em 11/2019 para 30/35 anos, além de ter 57/60 anos de idade. Em troca, o benefício é 100% da média, sem o redutor do coeficiente.'],
       ['Aposentadoria do INSS tem piso e teto?', 'Tem. Nenhum benefício fica abaixo do salário mínimo nem acima do teto do INSS. A calculadora já aplica os dois.'],
       ['E se eu quiser complementar a renda?', 'Use a calculadora de aposentadoria privada do site: informe a renda total que você quer e descubra quanto precisa investir por mês para completar o que o INSS vai pagar.'],
+['Como economizar com o que tenho?', "Na aposentadoria do INSS, economize planejando os rendimentos, evitando dívidas e aumentando a reserva. O guia Mais de 70 formas para economizar traz dicas úteis. Acesse <a href='https://go.hotmart.com/F108245511X?dp=1' rel='noopener' target='_blank'>aqui</a>."],
     ],
   },
 ];
@@ -698,7 +706,7 @@ export const institucionais = {
 <h2>Para agilizar a resposta</h2>
 <ul>
 <li>Se encontrou um erro de cálculo, diga qual calculadora, os valores que digitou e o resultado que você esperava, com a fonte.</li>
-<li>Se tem uma sugestão de calculadora.</li>
+<li>Se tem uma sugestão de calculadora, descreva a conta que gostaria de fazer.</li>
 <li>Não enviamos orientação jurídica, contábil ou financeira individual. Para isso, procure um profissional.</li>
 </ul>
 <p>Respondemos assim que possível.</p>`,
