@@ -89,7 +89,6 @@ ${metaAdsense}
 ${metaSearchConsole}
 ${snippetAdsense(cfg.adsenseClient)}
 <link rel="stylesheet" href="/assets/css/base.css">
-<script src="https://cdn.vercel.com/analytics/script.js" defer></script>
 ${ld.map(jsonld).join('\n')}
 </head>
 <body>
