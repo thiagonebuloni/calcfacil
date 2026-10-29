@@ -69,7 +69,7 @@ ${slot('resultado')}
 ${slot('meio')}
 <section class="faq">
 <h2>Perguntas frequentes</h2>
-${c.faq.map(([q, a]) => `<details><summary>${esc(tokens(q))}</summary><p>${esc(tokens(a))}</p></details>`).join('\n')}
+${c.faq.map(([q, a]) => `<details><summary>${esc(tokens(q))}</summary><p>${a}</p></details>`).join('\n')}
 </section>
 ${slot('fim')}
 <section class="relacionadas">
