@@ -17,9 +17,15 @@ export const AFILIADOS = {
   'rescisao': [],
   'juros-compostos': [],
   'financiamento': [],
-  'aposentadoria': [],
-  'me': [],
-};
+  'aposentadoria': [
+    {
+      titulo: 'Mais de 70 formas para economizar',
+      texto: 'Dicas práticas e objetivas para reduzir despesas, poupar mais e organizar o dinheiro no dia a dia.',
+      botao: 'Ver dicas',
+      url: 'https://go.hotmart.com/F108245511X?dp=1',
+    },
+  ],
+  'me': [];
 
 import { el } from './render.js';
 
