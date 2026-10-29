@@ -4,7 +4,6 @@ import { parseNumero, mascararMoeda, formatarBRL } from '../core/moeda.js';
 import { renderizar } from './render.js';
 import { blocoAfiliado } from './afiliados.js';
 import { iniciarCookies } from './cookies.js';
-import '../core/analytics.js';
 
 const cfg = (() => {
   try { return JSON.parse(document.getElementById('site-config')?.textContent || '{}'); } catch { return {}; }

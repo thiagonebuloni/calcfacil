@@ -12,7 +12,14 @@
 // Chaves aceitas: decimo-terceiro, ferias, rescisao, juros-compostos, financiamento, aposentadoria, me.
 
 export const AFILIADOS = {
-  'decimo-terceiro': [],
+  'decimo-terceiro': [
+    {
+      titulo: 'Mais de 70 formas para economizar',
+      texto: 'Dicas práticas e objetivas para reduzir despesas, poupar mais e organizar o dinheiro no dia a dia.',
+      botao: 'Ver dicas',
+      url: 'https://go.hotmart.com/F108245511X?dp=1',
+    },
+  ],
   'ferias': [],
   'rescisao': [],
   'juros-compostos': [],
@@ -25,7 +32,8 @@ export const AFILIADOS = {
       url: 'https://go.hotmart.com/F108245511X?dp=1',
     },
   ],
-  'me': [];
+  'me': []
+};
 
 import { el } from './render.js';
 
