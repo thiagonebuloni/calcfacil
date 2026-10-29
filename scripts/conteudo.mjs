@@ -698,7 +698,7 @@ export const institucionais = {
 <h2>Para agilizar a resposta</h2>
 <ul>
 <li>Se encontrou um erro de cálculo, diga qual calculadora, os valores que digitou e o resultado que você esperava, com a fonte.</li>
-<li>Se tem uma sugestão de calculadora, descreva a conta que gostaria de fazer.</li>
+<li>Se tem uma sugestão de calculadora.</li>
 <li>Não enviamos orientação jurídica, contábil ou financeira individual. Para isso, procure um profissional.</li>
 </ul>
 <p>Respondemos assim que possível.</p>`,
