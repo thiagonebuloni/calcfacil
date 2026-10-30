@@ -139,6 +139,22 @@ for (const entrada of readdirSync(blogDir)) {
   if (slugsDoArray.has(entrada)) continue;
   paginas.push(`/blog/${entrada}/`);
 }
+// Posts de blog existentes no diretório mas não no array `blog`
+const postsExistentes = [];
+for (const entrada of readdirSync(blogDir)) {
+  const caminhoPasta = join(blogDir, entrada);
+  if (!statSync(caminhoPasta).isDirectory()) continue;
+  if (slugsDoArray.has(entrada)) continue;
+  const htmlPost = readFileSync(join(caminhoPasta, 'index.html'), 'utf8');
+  const mTitulo = htmlPost.match(/<title>([^<]+)<\/title>/);
+  const mDesc = htmlPost.match(/<meta name="description" content="([^"]*)"/);
+  postsExistentes.push({
+    slug: entrada,
+    titulo: mTitulo ? mTitulo[1].replace(` | ${cfg.nome}`, '') : entrada,
+    descricao: mDesc ? mDesc[1] : '',
+  });
+}
+
 emitir('/blog/', {
   titulo: `Blog ${cfg.nome}: guias de cálculo trabalhista e financeiro`,
   descricao: 'Guias práticos sobre rescisão, 13º salário, férias, financiamento e investimentos, com exemplos numéricos.',
@@ -148,7 +164,7 @@ emitir('/blog/', {
 <h1>Blog</h1>
 <p class="lead">Guias curtos, com exemplos numéricos, para entender as contas por trás das calculadoras.</p>
 <ul class="blog-lista">
-${blog.map((a) => `<li><a href="/blog/${a.slug}/">${esc(a.titulo)}</a><p>${esc(a.descricao)}</p></li>`).join('\n')}
+${[...blog, ...postsExistentes].map((a) => `<li><a href="/blog/${a.slug}/">${esc(a.titulo)}</a><p>${esc(a.descricao)}</p></li>`).join('\n')}
 </ul>`,
   ld: [migalhas([['Início', '/'], ['Blog', '/blog/']])],
 });
