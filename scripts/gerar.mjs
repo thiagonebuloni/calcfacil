@@ -1,7 +1,7 @@
 // Gera todas as páginas estáticas a partir de site.config.json, data/tabelas.json e scripts/conteudo.mjs.
 // Uso: npm run gerar
 
-import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { calculadoras, blog, institucionais } from './conteudo.mjs';
@@ -127,6 +127,17 @@ ${tokens(a.corpo)}
       migalhas([['Início', '/'], ['Blog', '/blog/'], [a.titulo, caminho]]),
     ],
   });
+}
+
+// ---------- Posts de blog existentes mas não listados em conteudo.mjs ----------
+// Garante que qualquer post em /blog/*/ entre no sitemap, mesmo sem estar no array `blog`.
+const blogDir = join(raiz, 'blog');
+const slugsDoArray = new Set(blog.map((a) => a.slug));
+for (const entrada of readdirSync(blogDir)) {
+  const caminhoPasta = join(blogDir, entrada);
+  if (!statSync(caminhoPasta).isDirectory()) continue;
+  if (slugsDoArray.has(entrada)) continue;
+  paginas.push(`/blog/${entrada}/`);
 }
 emitir('/blog/', {
   titulo: `Blog ${cfg.nome}: guias de cálculo trabalhista e financeiro`,
