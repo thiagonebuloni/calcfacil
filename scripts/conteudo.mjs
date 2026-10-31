@@ -800,6 +800,47 @@ export const blog = [
 <p>Salário de R$ 3.000,00 com média de R$ 400,00 de horas extras. As férias de 30 dias saem de (R$ 3.000 + R$ 400) ÷ 30 × 30 = R$ 3.400,00, mais o terço. Sem as horas extras, seriam R$ 3.000,00. A diferença de R$ 400,00 só nas férias mostra por que vale a pena informar a média nas calculadoras.</p>
 <p>Na <a href="/ferias/">calculadora de férias</a> e na <a href="/decimo-terceiro/">calculadora de 13º salário</a> há um campo específico para a média de horas extras e comissões - preencha para ter o valor mais próximo da realidade.</p>`,
   },
+  {
+    slug: 'fgts-saque-aniversario-como-funciona',
+    titulo: 'Saque aniversário do FGTS: como funciona, vantagens e desvantagens',
+    descricao: 'Entenda o saque aniversário do FGTS: como aderir, calendário de saques, quanto você pode retirar por ano e se vale a pena em relação ao saque rescisão.',
+    data: '2026-10-29',
+    calc: 'rescisao',
+    corpo: `
+<p>O saque aniversário é uma modalidade de retirada do FGTS em que você pode sacar parte do saldo todo ano, no mês do seu aniversário, em vez de esperar a demissão para retirar tudo. Nem todo mundo está nessa modalidade - é preciso optar por ela.</p>
+<h2>Como funciona o saque aniversário</h2>
+<p>Quem adere ao saque aniversário ganha direito a retirar um percentual do saldo do FGTS, mais uma parcela adicional fixa, todo ano no mês de nascimento. O valor que você pode sacar depende do saldo total na conta:</p>
+<ul>
+<li><strong>Até R$ 500,00:</strong> 50% do saldo + R$ 0,00</li>
+<li><strong>De R$ 500,01 a R$ 1.000,00:</strong> 40% do saldo + R$ 50,00</li>
+<li><strong>De R$ 1.000,01 a R$ 5.000,00:</strong> 30% do saldo + R$ 150,00</li>
+<li><strong>De R$ 5.000,01 a R$ 10.000,00:</strong> 20% do saldo + R$ 400,00</li>
+<li><strong>De R$ 10.000,01 a R$ 15.000,00:</strong> 15% do saldo + R$ 650,00</li>
+<li><strong>De R$ 15.000,01 a R$ 20.000,00:</strong> 10% do saldo + R$ 1.100,00</li>
+<li><strong>Acima de R$ 20.000,01:</strong> 5% do saldo + R$ 1.900,00</li>
+</ul>
+<h2>Como aderir (e como sair)</h2>
+<p>Para entrar no saque aniversário, basta fazer a opção pelo app FGTS ou site da Caixa. A adesão vale a partir do mês seguinte. Se você quiser voltar ao saque rescisão (retirar tudo em caso de demissão sem justa causa), precisa solicitar a desistência e aguardar um período de carência de 25 meses.</p>
+<h2>Saque aniversário vs saque rescisão - qual escolher?</h2>
+<p>Essa é a principal dúvida. No saque aniversário:</p>
+<ul>
+<li><strong>Vantagem:</strong> você recebe uma parte do FGTS todo ano, sem precisar ser demitido.</li>
+<li><strong>Desvantagem:</strong> se for demitido sem justa causa, você <strong>não pode sacar o saldo total</strong> do FGTS, apenas a multa de 40% paga pelo empregador. O saldo continua na conta e só pode ser sacado nas condições normais (aposentadoria, compra da casa própria, etc.).</li>
+</ul>
+<p>Já no saque rescisão (modalidade padrão), você retira o saldo completo da conta em caso de demissão sem justa causa, mais a multa de 40%.</p>
+<h2>Calendário de saques</h2>
+<p>O saque é liberado no mês de aniversário do trabalhador e nos dois meses seguintes. Exemplo: se você nasceu em março, pode sacar em março, abril e maio. Quem não sacar dentro desse prazo perde o saque desse ano (o saldo volta para a conta do FGTS).</p>
+<h2>Exemplo numérico</h2>
+<p>Se você tem R$ 8.000,00 de saldo no FGTS e faz aniversário em julho:</p>
+<ul>
+<li>Percentual: 20% de R$ 8.000,00 = R$ 1.600,00</li>
+<li>Parcela adicional: R$ 400,00</li>
+<li><strong>Total que pode sacar em julho: R$ 2.000,00</strong></li>
+</ul>
+<h2>O que acontece se você for demitido?</h2>
+<p>Se você está no saque aniversário e é demitido sem justa causa, você recebe a multa de 40% sobre o saldo total, mas <strong>não saca o saldo da conta</strong>. Esse saldo fica disponível para saque apenas nas demais situações previstas em lei (aposentadoria, doença grave, etc.). Por isso, a escolha entre saque aniversário e saque rescisão deve considerar sua estabilidade no emprego e sua necessidade de reserva de emergência.</p>
+<p>A calculadora de <a href="/rescisao/">rescisão trabalhista</a> deste site mostra o valor da multa de 40% do FGTS, para você comparar com o que receberia no saque aniversário.</p>`,
+  },
 ];
 
 export const institucionais = {
