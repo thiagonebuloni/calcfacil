@@ -37,7 +37,7 @@
 <header class="topo">
   <div class="wrap topo-in">
     <a class="marca" href="/" aria-label="CalcFácil, página inicial">Calc<span>Fácil</span></a>
-    <nav class="menu" aria-label="Calculadoras"><a href="/decimo-terceiro/">13º salário</a><a href="/ferias/">Férias</a><a href="/rescisao/">Rescisão</a><a href="/juros-compostos/">Juros compostos</a><a href="/financiamento/" aria-current="page">Financiamento</a><a href="/aposentadoria/">Aposentadoria</a><a href="/me/">ME pró-labore × lucros</a><a href="/inss/">INSS</a><a href="/blog/">Blog</a></nav>
+    <nav class="menu" aria-label="Navegação principal"><a href="/decimo-terceiro/">13º salário</a><a href="/ferias/">Férias</a><a href="/rescisao/">Rescisão</a><a href="/juros-compostos/">Juros compostos</a><a href="/financiamento/" aria-current="page">Financiamento</a><a href="/aposentadoria/">Aposentadoria</a><a href="/me/">ME pró-labore × lucros</a><a href="/inss/">INSS</a><a href="/blog/">Blog</a><a href="/glossario/">Glossário</a></nav>
   </div>
 </header>
 <main id="conteudo" class="wrap">
@@ -46,6 +46,7 @@
 <article>
 <h1>Simulador de financiamento: Price e SAC</h1>
 <p class="lead">Informe o valor do bem, a entrada, a taxa e o prazo. Compare as parcelas e o total de juros nos dois sistemas.</p>
+<p class="byline"><img src="/assets/img/icone-perfil.svg" alt="" width="24" height="24" class="byline-icone" style="vertical-align:middle;margin-right:.4rem;border-radius:4px;"> Escrito por Thiago Ribeiro · Última atualização: 12/10/2026</p>
 <form class="calc" data-calc="financiamento" novalidate>
 <div class="campos">
 <div class="campo"><label for="f-valor">Valor do bem (R$)</label><input type="text" inputmode="decimal" autocomplete="off" id="f-valor" name="valor" data-tipo="money" value="300.000,00"><span class="erro" id="erro-valor" role="alert"></span></div>
@@ -61,19 +62,25 @@
 <div class="ad-slot" data-slot="resultado" hidden></div>
 <section class="texto">
 <h2>Como o financiamento é calculado</h2>
-<p>Em qualquer sistema, cada parcela tem duas partes: os juros do mês, que incidem sobre o saldo devedor, e a amortização, que reduz a dívida.</p>
+<p>Em qualquer sistema, cada parcela tem duas partes: os juros do mês, que incidem sobre o saldo devedor, e a amortização, que reduz a dívida. À medida que o saldo cai, os juros mensais também caem.</p>
 <h3>Price (Tabela Price)</h3>
-<p>As parcelas são iguais do início ao fim. No começo, a maior parte paga juros, e a amortização cresce ao longo do tempo.</p>
+<p>As parcelas são iguais do início ao fim. No começo, a maior parte da parcela paga juros, e a amortização cresce ao longo do tempo.</p>
 <p class="formula">parcela = valor financiado × i ÷ (1 − (1 + i)^−n)</p>
 <h3>SAC (Sistema de Amortização Constante)</h3>
-<p>A amortização é a mesma todo mês (valor financiado ÷ n). Como os juros caem junto com o saldo, as parcelas diminuem. A primeira é a mais alta.</p>
+<p>A amortização é a mesma todo mês (valor financiado ÷ n). Como os juros caem junto com o saldo, as parcelas diminuem mês a mês. A primeira é a mais alta.</p>
 <p class="formula">parcela do mês k = amortização + saldo devedor × i</p>
 <h3>Qual escolher</h3>
-<p>O SAC costuma custar menos juros no total, mas exige uma parcela inicial maior. O Price cabe melhor em um orçamento apertado no começo, com um custo total maior.</p>
-<h3>Exemplo</h3>
-<p>R$ 100.000,00 a 1% ao mês em 12 meses. No Price, a parcela é de R$ 8.884,88 e os juros somam R$ 6.618,53. No SAC, a primeira parcela é de R$ 9.333,33, a última de R$ 8.416,70 e os juros somam R$ 6.500,00.</p>
+<p>O SAC costuma custar menos juros no total, mas exige uma parcela inicial maior. O Price cabe melhor em um orçamento apertado no começo, com um custo total maior ao final.</p>
 <h3>O que esta simulação não inclui</h3>
-<p>Seguros, tarifas, IOF, correção monetária (como TR ou IPCA) e o Custo Efetivo Total (CET). A parcela do contrato real costuma ser maior. Peça o CET ao banco antes de comparar propostas.</p></section>
+<p>Seguros, tarifas, IOF, correção monetária (como TR ou IPCA) e o Custo Efetivo Total (CET). A parcela do contrato real costuma ser maior. Peça o CET ao banco antes de comparar propostas — ele soma juros, tarifas, seguros e impostos em uma única taxa anual.</p>
+<h3>Dicas para reduzir o custo</h3>
+<ul>
+<li><strong>Entrada maior:</strong> quanto menor o valor financiado, menores os juros em reais, mesmo com a mesma taxa.</li>
+<li><strong>Amortização antecipada:</strong> reduz o saldo sobre o qual os juros incidem. Pergunte ao banco se o abatimento reduz a parcela ou o prazo.</li>
+<li><strong>Pesquise o CET:</strong> não compare apenas a taxa de juros; compare o Custo Efetivo Total de cada proposta.</li>
+</ul>
+<h3>Exemplo</h3>
+<p>R$ 100.000,00 a 1% ao mês em 12 meses. No Price, a parcela é de R$ 8.884,88 e os juros somam R$ 6.618,53. No SAC, a primeira parcela é de R$ 9.333,33, a última de R$ 8.416,70 e os juros somam R$ 6.500,00.</p></section>
 <div class="ad-slot" data-slot="meio" hidden></div>
 <section class="faq">
 <h2>Perguntas frequentes</h2>

@@ -37,7 +37,7 @@
 <header class="topo">
   <div class="wrap topo-in">
     <a class="marca" href="/" aria-label="CalcFácil, página inicial">Calc<span>Fácil</span></a>
-    <nav class="menu" aria-label="Calculadoras"><a href="/decimo-terceiro/" aria-current="page">13º salário</a><a href="/ferias/">Férias</a><a href="/rescisao/">Rescisão</a><a href="/juros-compostos/">Juros compostos</a><a href="/financiamento/">Financiamento</a><a href="/aposentadoria/">Aposentadoria</a><a href="/me/">ME pró-labore × lucros</a><a href="/inss/">INSS</a><a href="/blog/">Blog</a></nav>
+    <nav class="menu" aria-label="Navegação principal"><a href="/decimo-terceiro/" aria-current="page">13º salário</a><a href="/ferias/">Férias</a><a href="/rescisao/">Rescisão</a><a href="/juros-compostos/">Juros compostos</a><a href="/financiamento/">Financiamento</a><a href="/aposentadoria/">Aposentadoria</a><a href="/me/">ME pró-labore × lucros</a><a href="/inss/">INSS</a><a href="/blog/">Blog</a><a href="/glossario/">Glossário</a></nav>
   </div>
 </header>
 <main id="conteudo" class="wrap">
@@ -46,6 +46,7 @@
 <article>
 <h1>Calculadora de 13º salário</h1>
 <p class="lead">Informe o salário e os meses trabalhados no ano. Você vê quanto recebe em cada parcela e como os descontos foram calculados.</p>
+<p class="byline"><img src="/assets/img/icone-perfil.svg" alt="" width="24" height="24" class="byline-icone" style="vertical-align:middle;margin-right:.4rem;border-radius:4px;"> Escrito por Thiago Ribeiro · Última atualização: 12/10/2026</p>
 <form class="calc" data-calc="decimo-terceiro" novalidate>
 <div class="campos">
 <div class="campo"><label for="f-salario">Salário bruto mensal (R$)</label><input type="text" inputmode="decimal" autocomplete="off" id="f-salario" name="salario" data-tipo="money" value="3.000,00"><span class="erro" id="erro-salario" role="alert"></span></div>
@@ -59,17 +60,21 @@
 <div class="ad-slot" data-slot="resultado" hidden></div>
 <section class="texto">
 <h2>Como o 13º salário é calculado</h2>
-<p>O 13º equivale a 1/12 da remuneração por mês trabalhado no ano. Cada mês em que você trabalhou 15 dias ou mais conta como mês inteiro. Quem trabalhou o ano todo recebe um salário extra completo.</p>
-<p class="formula">13º bruto = (salário + média de variáveis) ÷ 12 × meses trabalhados</p>
+<p>O 13º salário equivale a um salário extra pago por ano, dividido em duas parcelas. Cada mês em que você trabalhou 15 dias ou mais conta como um mês inteiro no cálculo.</p>
+<p class="formula">13º bruto = (salário mensal + média de horas extras e comissões) ÷ 12 × meses trabalhados no ano</p>
+<h3>O que conta como mês trabalhado</h3>
+<p>Conta como mês completo todo mês em que você esteve ao serviço por pelo menos 15 dias. Faltas e faltas justificadas não reduzem o mês, mas afastamentos pagos pelo INSS (como auxílio-doença e acidente) não contam como tempo de serviço para o 13º.</p>
 <h3>As duas parcelas</h3>
 <ul>
-<li><strong>1ª parcela:</strong> 50% do valor bruto, sem descontos, paga entre 1º de fevereiro e 30 de novembro.</li>
-<li><strong>2ª parcela:</strong> paga até 20 de dezembro. Sobre o total do 13º incidem INSS e IRRF, e o que você já recebeu na 1ª parcela é abatido.</li>
+<li><strong>1ª parcela:</strong> corresponde a 50% do valor bruto, sem descontos de INSS ou Imposto de Renda. Deve ser paga entre 1º de fevereiro e 30 de novembro de cada ano.</li>
+<li><strong>2ª parcela:</strong> corresponde aos outros 50% brutos, com os descontos de INSS e IRRF aplicados sobre o valor total do 13º (descontados apenas nesta parcela). Deve ser paga até 20 de dezembro. O valor já recebido na 1ª parcela é abatido do líquido final.</li>
 </ul>
-<h3>Descontos</h3>
-<p>O INSS segue a tabela progressiva de 2026, calculada sobre o 13º separadamente do salário do mês. Para o IRRF vale a tabela própria do 13º - os limites e a parcela da tabela mensal divididos por 2 (Lei 7.713/1988, art. 12, §1º) - com a dedução mais vantajosa entre INSS mais dependentes e o desconto simplificado. A redução do IR de 2026 (Lei 15.270/2025, art. 3º-A, §3º) também se aplica ao 13º.</p>
-<h3>Exemplo</h3>
-<p>Salário de R$ 3.000,00 e 12 meses trabalhados: 13º bruto de R$ 3.000,00, INSS de R$ 248,60 e IRRF zero. O líquido é R$ 2.751,40, pago em R$ 1.500,00 na 1ª parcela e R$ 1.251,40 na 2ª.</p></section>
+<h3>Descontos (INSS e IRRF)</h3>
+<p>O INSS incide sobre o 13º seguindo a tabela progressiva de 2026, calculada separadamente do salário do mês. Para o IRRF, vale a tabela própria do 13º: os limites e a parcela a deduzir da tabela mensal são divididos por 2 (Lei 7.713/1988, art. 12, §1º). Você pode escolher a dedução mais vantajosa entre o desconto simplificado e a dedução por dependentes. A redução do Imposto de Renda de 2026 (Lei 15.270/2025, art. 3º-A) também se aplica ao 13º.</p>
+<h3>Proporcional ao tempo de serviço</h3>
+<p>Se você entrou ou saiu no meio do ano, o 13º é proporcional aos meses trabalhados. Cada mês com 15 dias ou mais conta como um mês cheio. Exemplo: quem trabalhou 8 meses recebe 8/12 do valor anual.</p>
+<h3>Exemplo numérico</h3>
+<p>Salário de R$ 3.000,00 e 12 meses trabalhados: 13º bruto de R$ 3.000,00. Com INSS de R$ 248,60 e IRRF zero (após dedução simplificada), o líquido é de R$ 2.751,40. Isso se paga em R$ 1.500,00 na 1ª parcela e R$ 1.251,40 na 2ª parcela (já descontada).</p></section>
 <div class="ad-slot" data-slot="meio" hidden></div>
 <section class="faq">
 <h2>Perguntas frequentes</h2>

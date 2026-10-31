@@ -57,6 +57,7 @@ for (const c of calculadoras) {
 <article>
 <h1>${esc(c.h1)}</h1>
 <p class="lead">${esc(c.lead)}</p>
+<p class="byline"><img src="/assets/img/icone-perfil.svg" alt="" width="24" height="24" class="byline-icone" style="vertical-align:middle;margin-right:.4rem;border-radius:4px;"> Escrito por ${esc(c.autor || cfg.responsavel)} · Última atualização: ${atualizadoBR}</p>
 <form class="calc" data-calc="${c.slug}" novalidate>
 <div class="campos">
 ${c.campos.map(campoHTML).join('\n')}
@@ -175,6 +176,7 @@ for (const [slug, p] of Object.entries(institucionais)) {
     titulo: tokens(p.titulo) + (slug === 'sobre' ? '' : ` | ${cfg.nome}`),
     descricao: tokens(p.descricao),
     corpo: `<article class="artigo">${tokens(p.corpo)}</article>`,
+    menuAtual: slug === 'glossario' ? 'glossario' : '',
     ld: [migalhas([['Início', '/'], [tokens(p.titulo), `/${slug}/`]])],
   });
 }
@@ -255,7 +257,30 @@ escrever('vercel.json', JSON.stringify({
   })),
 }, null, 2) + '\n');
 
-escrever('assets/img/favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0b7557"/><rect x="8" y="10" width="16" height="3.5" rx="1.5" fill="#fff"/><rect x="8" y="18.5" width="16" height="3.5" rx="1.5" fill="#ffe58a"/></svg>
+escrever('assets/img/favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="t">
+  <title id="t">Calculadoras financeiras</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B2A4A"/>
+      <stop offset="1" stop-color="#0F6B6B"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <rect x="14" y="8" width="36" height="48" rx="6" fill="#F8FAFC"/>
+  <rect x="18" y="12" width="28" height="14" rx="3" fill="#0B2A4A"/>
+  <rect x="21" y="19" width="5" height="4" rx="1" fill="#34D399"/>
+  <rect x="28" y="16" width="5" height="7" rx="1" fill="#34D399"/>
+  <rect x="35" y="13.5" width="5" height="9.5" rx="1" fill="#FCD34D"/>
+  <rect x="18" y="30" width="13" height="6" rx="2" fill="#C7D7E6"/>
+  <rect x="33" y="30" width="13" height="6" rx="2" fill="#C7D7E6"/>
+  <rect x="18" y="38" width="13" height="6" rx="2" fill="#C7D7E6"/>
+  <rect x="33" y="38" width="13" height="6" rx="2" fill="#C7D7E6"/>
+  <rect x="18" y="46" width="28" height="6" rx="2" fill="#059669"/>
+  <circle cx="48" cy="48" r="11" fill="#FCD34D" stroke="#0B2A4A" stroke-width="2"/>
+  <path d="M44 53L52 43" stroke="#0B2A4A" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="44.5" cy="44.5" r="2" fill="#0B2A4A"/>
+  <circle cx="51.5" cy="51.5" r="2" fill="#0B2A4A"/>
+</svg>
 `);
 
 console.log(`Geradas ${paginas.length} páginas indexáveis (+404). Vigência das tabelas: ${tabelas.vigencia}.`);

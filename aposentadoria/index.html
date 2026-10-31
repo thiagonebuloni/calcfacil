@@ -37,7 +37,7 @@
 <header class="topo">
   <div class="wrap topo-in">
     <a class="marca" href="/" aria-label="CalcFácil, página inicial">Calc<span>Fácil</span></a>
-    <nav class="menu" aria-label="Calculadoras"><a href="/decimo-terceiro/">13º salário</a><a href="/ferias/">Férias</a><a href="/rescisao/">Rescisão</a><a href="/juros-compostos/">Juros compostos</a><a href="/financiamento/">Financiamento</a><a href="/aposentadoria/" aria-current="page">Aposentadoria</a><a href="/me/">ME pró-labore × lucros</a><a href="/inss/">INSS</a><a href="/blog/">Blog</a></nav>
+    <nav class="menu" aria-label="Navegação principal"><a href="/decimo-terceiro/">13º salário</a><a href="/ferias/">Férias</a><a href="/rescisao/">Rescisão</a><a href="/juros-compostos/">Juros compostos</a><a href="/financiamento/">Financiamento</a><a href="/aposentadoria/" aria-current="page">Aposentadoria</a><a href="/me/">ME pró-labore × lucros</a><a href="/inss/">INSS</a><a href="/blog/">Blog</a><a href="/glossario/">Glossário</a></nav>
   </div>
 </header>
 <main id="conteudo" class="wrap">
@@ -46,6 +46,7 @@
 <article>
 <h1>Calculadora de aposentadoria</h1>
 <p class="lead">Diga a renda mensal que você quer e a idade em que pretende parar de trabalhar. Você vê o patrimônio necessário e quanto investir por mês.</p>
+<p class="byline"><img src="/assets/img/icone-perfil.svg" alt="" width="24" height="24" class="byline-icone" style="vertical-align:middle;margin-right:.4rem;border-radius:4px;"> Escrito por Thiago Ribeiro · Última atualização: 12/10/2026</p>
 <form class="calc" data-calc="aposentadoria" novalidate>
 <div class="campos">
 <div class="campo"><label for="f-idadeAtual">Idade atual</label><input type="text" inputmode="numeric" autocomplete="off" id="f-idadeAtual" name="idadeAtual" data-tipo="number" value="30"><span class="erro" id="erro-idadeAtual" role="alert"></span></div>
@@ -63,12 +64,14 @@
 <h2>Como calculamos a aposentadoria</h2>
 <p>Esta é uma calculadora de planejamento financeiro, não uma simulação do benefício do INSS. Ela responde: quanto preciso ter investido para viver só dos rendimentos?</p>
 <p class="formula">patrimônio necessário = renda mensal ÷ rentabilidade real mensal</p>
-<p>A ideia é que o patrimônio renda, depois de descontada a inflação, o suficiente para pagar a sua renda sem consumir o principal. Com 4% reais ao ano, isso equivale a juntar cerca de 25 vezes o gasto anual.</p>
+<p>A ideia é que o patrimônio renda, depois de descontada a inflação, o suficiente para pagar a sua renda sem consumir o principal. Com 4% reais ao ano, isso equivale a juntar cerca de 25 vezes o gasto anual — conhecida como "regra dos 25" ou regra de 4% para saques seguros.</p>
 <h3>Aporte necessário</h3>
 <p>Para chegar à meta na idade escolhida, o aporte mensal é a parcela que, somada ao patrimônio atual e aos juros, atinge o valor necessário:</p>
 <p class="formula">aporte = (meta − patrimônio × (1 + i)^n) × i ÷ ((1 + i)^n − 1)</p>
 <h3>Por que usar valores reais</h3>
-<p>Se você informar a renda em valores de hoje e a rentabilidade acima da inflação, o resultado já está corrigido. Assim, o patrimônio necessário mantém o poder de compra no futuro.</p>
+<p>Se você informar a renda em valores de hoje e a rentabilidade acima da inflação, o resultado já está corrigido. Assim, o patrimônio necessário mantém o poder de compra no futuro, independentemente da inflação acumulada até a aposentadoria.</p>
+<h3>O tempo é seu maior aliado</h3>
+<p>Quanto mais cedo você começa a investir, menor o aporte mensal necessário. Isso acontece porque os juros compostos agem sobre um período maior e os aportes dos primeiros anos têm mais tempo para render. Adiar o investimento em 5 ou 10 anos pode dobrar o valor que você precisaria poupar todo mês.</p>
 <h3>Exemplo</h3>
 <p>Quem tem 30 anos e quer R$ 5.000,00 por mês aos 60, com 4% reais ao ano, precisa de cerca de R$ 1.527.305,26. Investindo R$ 1.000,00 por mês a partir do zero, chega a cerca de R$ 685.270,56 nesse prazo. Para atingir a meta, o aporte teria de ser de aproximadamente R$ 2.228,76 por mês.</p></section>
 <div class="ad-slot" data-slot="meio" hidden></div>

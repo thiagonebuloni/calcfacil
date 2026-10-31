@@ -37,7 +37,7 @@
 <header class="topo">
   <div class="wrap topo-in">
     <a class="marca" href="/" aria-label="CalcFácil, página inicial">Calc<span>Fácil</span></a>
-    <nav class="menu" aria-label="Calculadoras"><a href="/decimo-terceiro/">13º salário</a><a href="/ferias/" aria-current="page">Férias</a><a href="/rescisao/">Rescisão</a><a href="/juros-compostos/">Juros compostos</a><a href="/financiamento/">Financiamento</a><a href="/aposentadoria/">Aposentadoria</a><a href="/me/">ME pró-labore × lucros</a><a href="/inss/">INSS</a><a href="/blog/">Blog</a></nav>
+    <nav class="menu" aria-label="Navegação principal"><a href="/decimo-terceiro/">13º salário</a><a href="/ferias/" aria-current="page">Férias</a><a href="/rescisao/">Rescisão</a><a href="/juros-compostos/">Juros compostos</a><a href="/financiamento/">Financiamento</a><a href="/aposentadoria/">Aposentadoria</a><a href="/me/">ME pró-labore × lucros</a><a href="/inss/">INSS</a><a href="/blog/">Blog</a><a href="/glossario/">Glossário</a></nav>
   </div>
 </header>
 <main id="conteudo" class="wrap">
@@ -46,6 +46,7 @@
 <article>
 <h1>Calculadora de férias</h1>
 <p class="lead">Veja quanto você recebe nas férias, com o terço constitucional, a opção de vender 10 dias e os descontos de INSS e Imposto de Renda.</p>
+<p class="byline"><img src="/assets/img/icone-perfil.svg" alt="" width="24" height="24" class="byline-icone" style="vertical-align:middle;margin-right:.4rem;border-radius:4px;"> Escrito por Thiago Ribeiro · Última atualização: 12/10/2026</p>
 <form class="calc" data-calc="ferias" novalidate>
 <div class="campos">
 <div class="campo"><label for="f-salario">Salário bruto mensal (R$)</label><input type="text" inputmode="decimal" autocomplete="off" id="f-salario" name="salario" data-tipo="money" value="3.000,00"><span class="erro" id="erro-salario" role="alert"></span></div>
@@ -61,16 +62,20 @@
 <div class="ad-slot" data-slot="resultado" hidden></div>
 <section class="texto">
 <h2>Como as férias são calculadas</h2>
-<p>O valor das férias é o salário proporcional aos dias de descanso, acrescido de 1/3 (terço constitucional).</p>
-<p class="formula">férias = (salário + média de variáveis) ÷ 30 × dias de férias<br>1/3 constitucional = férias ÷ 3</p>
-<h3>Abono pecuniário</h3>
-<p>Você pode converter até 1/3 das férias (10 dias) em dinheiro. O abono vale o salário de 10 dias mais 1/3: o valor do abono sofre INSS, e abono e 1/3 entram na base do Imposto de Renda. O pedido pode ser feito a qualquer tempo, dentro do período concessivo.</p>
-<h3>Descontos e prazo</h3>
-<p>O IRRF incide sobre as férias mais o 1/3; o INSS incide só sobre as férias - o 1/3 constitucional é isento desde 2020 (Lei 8.212/1991, art. 28, §9º, IV). As alíquotas são as tabelas de 2026. O pagamento deve ser feito até 2 dias antes do início do descanso.</p>
-<h3>Fracionamento</h3>
-<p>As férias podem ser divididas em até 3 períodos, desde que você concorde: um deles com pelo menos 14 dias corridos e os demais com pelo menos 5 dias cada.</p>
-<h3>Exemplo</h3>
-<p>Salário de R$ 3.000,00 e 30 dias: férias de R$ 3.000,00 mais R$ 1.000,00 de terço, total bruto de R$ 4.000,00. O INSS é R$ 248,60 e o IRRF é zero, então o líquido é R$ 3.751,40.</p></section>
+<p>O valor das férias corresponde ao salário proporcional aos dias de descanso, acrescido do terço constitucional (1/3). As férias são um direito anual do trabalhador após 12 meses de contrato.</p>
+<p class="formula">férias = (salário + média de variáveis) ÷ 30 × dias de férias<br>1/3 constitucional = valor das férias ÷ 3</p>
+<h3>O que entra no cálculo</h3>
+<p>Integram a base das férias o salário mensal e a média dos valores variáveis recebidos no período (horas extras, comissões, adicionais). O 1/3 constitucional é pago sobre o valor das férias e não sofre desconto de INSS desde 2020 (Lei 8.212/1991, art. 28, §9º, IV).</p>
+<h3>Abono pecuniário (venda de 10 dias)</h3>
+<p>Você pode converter até 1/3 das férias (10 dias) em dinheiro. O abono vale o salário de 10 dias mais o 1/3 sobre eles. O valor do abono sofre desconto de INSS, e tanto o abono quanto o 1/3 entram na base de cálculo do Imposto de Renda. O pedido pode ser feito a qualquer tempo dentro do período concessivo.</p>
+<h3>Descontos e prazo de pagamento</h3>
+<p>O IRRF incide sobre as férias mais o 1/3; o INSS incide somente sobre as férias (o 1/3 é isento). As alíquotas seguem as tabelas de 2026. O pagamento das férias deve ser feito até 2 dias antes do início do descanso.</p>
+<h3>Fracionamento das férias</h3>
+<p>As férias podem ser divididas em até 3 períodos, desde que haja concordância entre empregado e empregador: um período deve ter pelo menos 14 dias corridos e os demais, pelo menos 5 dias cada.</p>
+<h3>Se a empresa não conceder as férias a tempo</h3>
+<p>O empregador tem 12 meses (período concessivo) para conceder as férias depois do término do período aquisitivo. Se não o fizer, deve pagar as férias em dobro, com o respectivo 1/3 constitucional.</p>
+<h3>Exemplo numérico</h3>
+<p>Salário de R$ 3.000,00 e 30 dias de férias: férias de R$ 3.000,00 mais R$ 1.000,00 de terço, total bruto de R$ 4.000,00. Com INSS de R$ 248,60 (sobre as férias) e IRRF zero, o líquido é de R$ 3.751,40.</p></section>
 <div class="ad-slot" data-slot="meio" hidden></div>
 <section class="faq">
 <h2>Perguntas frequentes</h2>

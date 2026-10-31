@@ -37,7 +37,7 @@
 <header class="topo">
   <div class="wrap topo-in">
     <a class="marca" href="/" aria-label="CalcFácil, página inicial">Calc<span>Fácil</span></a>
-    <nav class="menu" aria-label="Calculadoras"><a href="/decimo-terceiro/">13º salário</a><a href="/ferias/">Férias</a><a href="/rescisao/">Rescisão</a><a href="/juros-compostos/" aria-current="page">Juros compostos</a><a href="/financiamento/">Financiamento</a><a href="/aposentadoria/">Aposentadoria</a><a href="/me/">ME pró-labore × lucros</a><a href="/inss/">INSS</a><a href="/blog/">Blog</a></nav>
+    <nav class="menu" aria-label="Navegação principal"><a href="/decimo-terceiro/">13º salário</a><a href="/ferias/">Férias</a><a href="/rescisao/">Rescisão</a><a href="/juros-compostos/" aria-current="page">Juros compostos</a><a href="/financiamento/">Financiamento</a><a href="/aposentadoria/">Aposentadoria</a><a href="/me/">ME pró-labore × lucros</a><a href="/inss/">INSS</a><a href="/blog/">Blog</a><a href="/glossario/">Glossário</a></nav>
   </div>
 </header>
 <main id="conteudo" class="wrap">
@@ -46,6 +46,7 @@
 <article>
 <h1>Calculadora de juros compostos</h1>
 <p class="lead">Informe o capital, o aporte mensal, a taxa e o prazo. Veja o montante, quanto veio de juros e a evolução mês a mês.</p>
+<p class="byline"><img src="/assets/img/icone-perfil.svg" alt="" width="24" height="24" class="byline-icone" style="vertical-align:middle;margin-right:.4rem;border-radius:4px;"> Escrito por Thiago Ribeiro · Última atualização: 12/10/2026</p>
 <form class="calc" data-calc="juros-compostos" novalidate>
 <div class="campos">
 <div class="campo"><label for="f-capital">Capital inicial (R$)</label><input type="text" inputmode="decimal" autocomplete="off" id="f-capital" name="capital" data-tipo="money" value="10.000,00"><span class="erro" id="erro-capital" role="alert"></span></div>
@@ -62,11 +63,13 @@
 <div class="ad-slot" data-slot="resultado" hidden></div>
 <section class="texto">
 <h2>Como os juros compostos são calculados</h2>
-<p>Nos juros compostos, o rendimento de cada período é somado ao saldo e passa a render também. É o efeito "juros sobre juros".</p>
+<p>Nos juros compostos, o rendimento de cada período é somado ao saldo e passa a render também. É o efeito "juros sobre juros", que faz o dinheiro crescer mais rápido quanto maior o tempo de aplicação.</p>
 <p class="formula">M = C × (1 + i)^n + PMT × ((1 + i)^n − 1) ÷ i</p>
-<p>M é o montante, C o capital inicial, PMT o aporte mensal, i a taxa mensal e n o número de meses. Os aportes são considerados no fim de cada mês.</p>
+<p>M é o montante final, C o capital inicial, PMT o aporte mensal, i a taxa mensal e n o número de meses. Os aportes são considerados no fim de cada mês.</p>
 <h3>Taxa ao ano ou ao mês</h3>
-<p>Uma taxa anual não vira mensal dividindo por 12. A conversão correta é a equivalência composta: i = (1 + taxa anual)^(1/12) − 1. Uma taxa de 12% ao ano equivale a cerca de 0,9489% ao mês.</p>
+<p>Uma taxa anual não se converte em mensal dividindo por 12. A conversão correta usa a equivalência composta: i = (1 + taxa anual)^(1/12) − 1. Uma taxa de 12% ao ano equivale a cerca de 0,9489% ao mês.</p>
+<h3>Regra do 72</h3>
+<p>Uma forma rápida de estimar o tempo para dobrar o dinheiro é dividir 72 pela taxa mensal (ou anual, desde que use a mesma unidade). A 1% ao mês, o capital dobra em cerca de 72 meses (6 anos).</p>
 <h3>Imposto de Renda regressivo</h3>
 <p>Na renda fixa, o IR incide só sobre o rendimento, com alíquota que cai com o tempo de aplicação: 22,5% até 180 dias, 20% de 181 a 360 dias, 17,5% de 361 a 720 dias e 15% acima de 720 dias. Cada aporte tem o seu próprio prazo, e a calculadora trata um a um.</p>
 <h3>Exemplos</h3>

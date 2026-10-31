@@ -69,6 +69,7 @@ h1 { font-size: clamp(1.75rem, 5.5vw, 2.6rem); max-width: 22ch; text-wrap: balan
 h2 { font-size: clamp(1.35rem, 3.5vw, 1.7rem); margin-top: 2.25rem; }
 h3 { font-size: 1.15rem; margin-top: 1.5rem; }
 .lead { font-size: 1.125rem; color: var(--tinta-suave); max-width: 60ch; margin: 0 0 1.5rem; }
+.byline { font-size: .875rem; color: var(--tinta-suave); margin: 0 0 1.5rem; border-bottom: 1px solid var(--linha); padding-bottom: .6rem; }
 .texto, .artigo { max-width: 42rem; }
 .texto p, .texto li, .artigo p, .artigo li { max-width: 68ch; }
 .texto ul, .texto ol, .artigo ul, .artigo ol { padding-left: 1.25rem; }

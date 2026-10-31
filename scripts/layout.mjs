@@ -96,7 +96,7 @@ ${ld.map(jsonld).join('\n')}
 <header class="topo">
   <div class="wrap topo-in">
     <a class="marca" href="/" aria-label="${nome}, página inicial">${marca}</a>
-    <nav class="menu" aria-label="Calculadoras">${menu}<a href="/blog/"${menuAtual === 'blog' ? ' aria-current="page"' : ''}>Blog</a></nav>
+    <nav class="menu" aria-label="Navegação principal">${menu}<a href="/blog/"${menuAtual === 'blog' ? ' aria-current="page"' : ''}>Blog</a><a href="/glossario/"${menuAtual === 'glossario' ? ' aria-current="page"' : ''}>Glossário</a></nav>
   </div>
 </header>
 <main id="conteudo" class="wrap">

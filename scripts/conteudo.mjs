@@ -1,6 +1,7 @@
 // Conteúdo editorial das páginas. Tokens: {ANO} (ano de vigência das tabelas) e {NOME} (nome do site).
 // Os exemplos numéricos abaixo são os mesmos casos verificados em tests/.
 
+const autor = 'Thiago Ribeiro';
 const salario = { name: 'salario', rotulo: 'Salário bruto mensal (R$)', tipo: 'money', valor: '3.000,00' };
 const media = { name: 'media', rotulo: 'Média de horas extras e comissões (R$)', tipo: 'money', valor: '', placeholder: '0,00', ajuda: 'Opcional. Média mensal dos valores variáveis.' };
 const dependentes = { name: 'dependentes', rotulo: 'Dependentes no Imposto de Renda', tipo: 'number', valor: '0' };
@@ -10,6 +11,7 @@ export const calculadoras = [
     slug: 'decimo-terceiro',
     nome: 'Calculadora de 13º salário',
     nomeCurto: '13º salário',
+    autor: 'Thiago Ribeiro',
     titulo: 'Calculadora de 13º salário {ANO}: 1ª e 2ª parcela líquidas',
     descricao: 'Calcule o 13º salário com INSS e IRRF de {ANO}: valor da 1ª e da 2ª parcela, proporcional aos meses trabalhados, com média de horas extras e dependentes.',
     resumoLista: 'Valor das duas parcelas, já com INSS e IR.',
@@ -24,17 +26,21 @@ export const calculadoras = [
     relacionadas: ['ferias', 'rescisao', 'juros-compostos'],
     comoCalcula: `
 <h2>Como o 13º salário é calculado</h2>
-<p>O 13º equivale a 1/12 da remuneração por mês trabalhado no ano. Cada mês em que você trabalhou 15 dias ou mais conta como mês inteiro. Quem trabalhou o ano todo recebe um salário extra completo.</p>
-<p class="formula">13º bruto = (salário + média de variáveis) ÷ 12 × meses trabalhados</p>
+<p>O 13º salário equivale a um salário extra pago por ano, dividido em duas parcelas. Cada mês em que você trabalhou 15 dias ou mais conta como um mês inteiro no cálculo.</p>
+<p class="formula">13º bruto = (salário mensal + média de horas extras e comissões) ÷ 12 × meses trabalhados no ano</p>
+<h3>O que conta como mês trabalhado</h3>
+<p>Conta como mês completo todo mês em que você esteve ao serviço por pelo menos 15 dias. Faltas e faltas justificadas não reduzem o mês, mas afastamentos pagos pelo INSS (como auxílio-doença e acidente) não contam como tempo de serviço para o 13º.</p>
 <h3>As duas parcelas</h3>
 <ul>
-<li><strong>1ª parcela:</strong> 50% do valor bruto, sem descontos, paga entre 1º de fevereiro e 30 de novembro.</li>
-<li><strong>2ª parcela:</strong> paga até 20 de dezembro. Sobre o total do 13º incidem INSS e IRRF, e o que você já recebeu na 1ª parcela é abatido.</li>
+<li><strong>1ª parcela:</strong> corresponde a 50% do valor bruto, sem descontos de INSS ou Imposto de Renda. Deve ser paga entre 1º de fevereiro e 30 de novembro de cada ano.</li>
+<li><strong>2ª parcela:</strong> corresponde aos outros 50% brutos, com os descontos de INSS e IRRF aplicados sobre o valor total do 13º (descontados apenas nesta parcela). Deve ser paga até 20 de dezembro. O valor já recebido na 1ª parcela é abatido do líquido final.</li>
 </ul>
-<h3>Descontos</h3>
-<p>O INSS segue a tabela progressiva de {ANO}, calculada sobre o 13º separadamente do salário do mês. Para o IRRF vale a tabela própria do 13º - os limites e a parcela da tabela mensal divididos por 2 (Lei 7.713/1988, art. 12, §1º) - com a dedução mais vantajosa entre INSS mais dependentes e o desconto simplificado. A redução do IR de 2026 (Lei 15.270/2025, art. 3º-A, §3º) também se aplica ao 13º.</p>
-<h3>Exemplo</h3>
-<p>Salário de R$ 3.000,00 e 12 meses trabalhados: 13º bruto de R$ 3.000,00, INSS de R$ 248,60 e IRRF zero. O líquido é R$ 2.751,40, pago em R$ 1.500,00 na 1ª parcela e R$ 1.251,40 na 2ª.</p>`,
+<h3>Descontos (INSS e IRRF)</h3>
+<p>O INSS incide sobre o 13º seguindo a tabela progressiva de {ANO}, calculada separadamente do salário do mês. Para o IRRF, vale a tabela própria do 13º: os limites e a parcela a deduzir da tabela mensal são divididos por 2 (Lei 7.713/1988, art. 12, §1º). Você pode escolher a dedução mais vantajosa entre o desconto simplificado e a dedução por dependentes. A redução do Imposto de Renda de 2026 (Lei 15.270/2025, art. 3º-A) também se aplica ao 13º.</p>
+<h3>Proporcional ao tempo de serviço</h3>
+<p>Se você entrou ou saiu no meio do ano, o 13º é proporcional aos meses trabalhados. Cada mês com 15 dias ou mais conta como um mês cheio. Exemplo: quem trabalhou 8 meses recebe 8/12 do valor anual.</p>
+<h3>Exemplo numérico</h3>
+<p>Salário de R$ 3.000,00 e 12 meses trabalhados: 13º bruto de R$ 3.000,00. Com INSS de R$ 248,60 e IRRF zero (após dedução simplificada), o líquido é de R$ 2.751,40. Isso se paga em R$ 1.500,00 na 1ª parcela e R$ 1.251,40 na 2ª parcela (já descontada).</p>`,
     faq: [
       ['Quem tem direito ao 13º salário?', 'Empregados com carteira assinada (incluindo domésticos e temporários), trabalhadores avulsos, aposentados e pensionistas do INSS. Servidores públicos seguem a lei do seu ente.'],
       ['Quando o 13º é pago?', 'A 1ª parcela entre 1º de fevereiro e 30 de novembro. A 2ª até 20 de dezembro.'],
@@ -49,6 +55,7 @@ export const calculadoras = [
     slug: 'ferias',
     nome: 'Calculadora de férias',
     nomeCurto: 'Férias',
+    autor: 'Thiago Ribeiro',
     titulo: 'Calculadora de férias {ANO}: valor com 1/3 e abono pecuniário',
     descricao: 'Calcule o valor líquido das suas férias com 1/3 constitucional, venda de 10 dias (abono pecuniário), INSS, IRRF e a data limite de pagamento.',
     resumoLista: 'Férias com 1/3, abono e a data limite de pagamento.',
@@ -65,16 +72,20 @@ export const calculadoras = [
     relacionadas: ['decimo-terceiro', 'rescisao', 'juros-compostos'],
     comoCalcula: `
 <h2>Como as férias são calculadas</h2>
-<p>O valor das férias é o salário proporcional aos dias de descanso, acrescido de 1/3 (terço constitucional).</p>
-<p class="formula">férias = (salário + média de variáveis) ÷ 30 × dias de férias<br>1/3 constitucional = férias ÷ 3</p>
-<h3>Abono pecuniário</h3>
-<p>Você pode converter até 1/3 das férias (10 dias) em dinheiro. O abono vale o salário de 10 dias mais 1/3: o valor do abono sofre INSS, e abono e 1/3 entram na base do Imposto de Renda. O pedido pode ser feito a qualquer tempo, dentro do período concessivo.</p>
-<h3>Descontos e prazo</h3>
-<p>O IRRF incide sobre as férias mais o 1/3; o INSS incide só sobre as férias - o 1/3 constitucional é isento desde 2020 (Lei 8.212/1991, art. 28, §9º, IV). As alíquotas são as tabelas de {ANO}. O pagamento deve ser feito até 2 dias antes do início do descanso.</p>
-<h3>Fracionamento</h3>
-<p>As férias podem ser divididas em até 3 períodos, desde que você concorde: um deles com pelo menos 14 dias corridos e os demais com pelo menos 5 dias cada.</p>
-<h3>Exemplo</h3>
-<p>Salário de R$ 3.000,00 e 30 dias: férias de R$ 3.000,00 mais R$ 1.000,00 de terço, total bruto de R$ 4.000,00. O INSS é R$ 248,60 e o IRRF é zero, então o líquido é R$ 3.751,40.</p>`,
+<p>O valor das férias corresponde ao salário proporcional aos dias de descanso, acrescido do terço constitucional (1/3). As férias são um direito anual do trabalhador após 12 meses de contrato.</p>
+<p class="formula">férias = (salário + média de variáveis) ÷ 30 × dias de férias<br>1/3 constitucional = valor das férias ÷ 3</p>
+<h3>O que entra no cálculo</h3>
+<p>Integram a base das férias o salário mensal e a média dos valores variáveis recebidos no período (horas extras, comissões, adicionais). O 1/3 constitucional é pago sobre o valor das férias e não sofre desconto de INSS desde 2020 (Lei 8.212/1991, art. 28, §9º, IV).</p>
+<h3>Abono pecuniário (venda de 10 dias)</h3>
+<p>Você pode converter até 1/3 das férias (10 dias) em dinheiro. O abono vale o salário de 10 dias mais o 1/3 sobre eles. O valor do abono sofre desconto de INSS, e tanto o abono quanto o 1/3 entram na base de cálculo do Imposto de Renda. O pedido pode ser feito a qualquer tempo dentro do período concessivo.</p>
+<h3>Descontos e prazo de pagamento</h3>
+<p>O IRRF incide sobre as férias mais o 1/3; o INSS incide somente sobre as férias (o 1/3 é isento). As alíquotas seguem as tabelas de {ANO}. O pagamento das férias deve ser feito até 2 dias antes do início do descanso.</p>
+<h3>Fracionamento das férias</h3>
+<p>As férias podem ser divididas em até 3 períodos, desde que haja concordância entre empregado e empregador: um período deve ter pelo menos 14 dias corridos e os demais, pelo menos 5 dias cada.</p>
+<h3>Se a empresa não conceder as férias a tempo</h3>
+<p>O empregador tem 12 meses (período concessivo) para conceder as férias depois do término do período aquisitivo. Se não o fizer, deve pagar as férias em dobro, com o respectivo 1/3 constitucional.</p>
+<h3>Exemplo numérico</h3>
+<p>Salário de R$ 3.000,00 e 30 dias de férias: férias de R$ 3.000,00 mais R$ 1.000,00 de terço, total bruto de R$ 4.000,00. Com INSS de R$ 248,60 (sobre as férias) e IRRF zero, o líquido é de R$ 3.751,40.</p>`,
     faq: [
       ['Quando tenho direito a tirar férias?', 'Depois de 12 meses de trabalho (período aquisitivo). A empresa tem os 12 meses seguintes (período concessivo) para conceder o descanso.'],
       ['Quem escolhe a época das férias?', 'O empregador define, de acordo com o interesse da empresa. Ele precisa avisar com pelo menos 30 dias de antecedência.'],
@@ -89,6 +100,7 @@ export const calculadoras = [
     slug: 'rescisao',
     nome: 'Calculadora de rescisão trabalhista',
     nomeCurto: 'Rescisão',
+    autor: 'Thiago Ribeiro',
     titulo: 'Calculadora de rescisão trabalhista {ANO} (CLT): sem justa causa, pedido e acordo',
     descricao: 'Simule sua rescisão CLT: saldo de salário, aviso prévio, 13º e férias proporcionais, multa do FGTS, INSS e IRRF. Sem justa causa, pedido de demissão, justa causa ou acordo.',
     resumoLista: 'Saldo, aviso, 13º, férias e multa do FGTS por tipo de saída.',
@@ -151,6 +163,7 @@ export const calculadoras = [
     slug: 'juros-compostos',
     nome: 'Calculadora de juros compostos',
     nomeCurto: 'Juros compostos',
+    autor: 'Thiago Ribeiro',
     titulo: 'Calculadora de juros compostos com aportes mensais e IR',
     descricao: 'Simule o crescimento de um investimento com juros compostos e aportes mensais. Taxa mensal ou anual, gráfico, tabela mês a mês e desconto do IR regressivo.',
     resumoLista: 'Quanto seu dinheiro rende com aportes e tempo.',
@@ -169,11 +182,13 @@ export const calculadoras = [
     relacionadas: ['aposentadoria', 'financiamento', 'decimo-terceiro'],
     comoCalcula: `
 <h2>Como os juros compostos são calculados</h2>
-<p>Nos juros compostos, o rendimento de cada período é somado ao saldo e passa a render também. É o efeito "juros sobre juros".</p>
+<p>Nos juros compostos, o rendimento de cada período é somado ao saldo e passa a render também. É o efeito "juros sobre juros", que faz o dinheiro crescer mais rápido quanto maior o tempo de aplicação.</p>
 <p class="formula">M = C × (1 + i)^n + PMT × ((1 + i)^n − 1) ÷ i</p>
-<p>M é o montante, C o capital inicial, PMT o aporte mensal, i a taxa mensal e n o número de meses. Os aportes são considerados no fim de cada mês.</p>
+<p>M é o montante final, C o capital inicial, PMT o aporte mensal, i a taxa mensal e n o número de meses. Os aportes são considerados no fim de cada mês.</p>
 <h3>Taxa ao ano ou ao mês</h3>
-<p>Uma taxa anual não vira mensal dividindo por 12. A conversão correta é a equivalência composta: i = (1 + taxa anual)^(1/12) − 1. Uma taxa de 12% ao ano equivale a cerca de 0,9489% ao mês.</p>
+<p>Uma taxa anual não se converte em mensal dividindo por 12. A conversão correta usa a equivalência composta: i = (1 + taxa anual)^(1/12) − 1. Uma taxa de 12% ao ano equivale a cerca de 0,9489% ao mês.</p>
+<h3>Regra do 72</h3>
+<p>Uma forma rápida de estimar o tempo para dobrar o dinheiro é dividir 72 pela taxa mensal (ou anual, desde que use a mesma unidade). A 1% ao mês, o capital dobra em cerca de 72 meses (6 anos).</p>
 <h3>Imposto de Renda regressivo</h3>
 <p>Na renda fixa, o IR incide só sobre o rendimento, com alíquota que cai com o tempo de aplicação: 22,5% até 180 dias, 20% de 181 a 360 dias, 17,5% de 361 a 720 dias e 15% acima de 720 dias. Cada aporte tem o seu próprio prazo, e a calculadora trata um a um.</p>
 <h3>Exemplos</h3>
@@ -195,6 +210,7 @@ export const calculadoras = [
     slug: 'financiamento',
     nome: 'Simulador de financiamento',
     nomeCurto: 'Financiamento',
+    autor: 'Thiago Ribeiro',
     titulo: 'Simulador de financiamento Price e SAC com tabela de amortização',
     descricao: 'Simule um financiamento nos sistemas Price e SAC: parcela, total de juros, saldo devedor e tabela de amortização completa para baixar em CSV.',
     resumoLista: 'Price ou SAC, com tabela de amortização.',
@@ -212,19 +228,25 @@ export const calculadoras = [
     relacionadas: ['juros-compostos', 'aposentadoria', 'decimo-terceiro'],
     comoCalcula: `
 <h2>Como o financiamento é calculado</h2>
-<p>Em qualquer sistema, cada parcela tem duas partes: os juros do mês, que incidem sobre o saldo devedor, e a amortização, que reduz a dívida.</p>
+<p>Em qualquer sistema, cada parcela tem duas partes: os juros do mês, que incidem sobre o saldo devedor, e a amortização, que reduz a dívida. À medida que o saldo cai, os juros mensais também caem.</p>
 <h3>Price (Tabela Price)</h3>
-<p>As parcelas são iguais do início ao fim. No começo, a maior parte paga juros, e a amortização cresce ao longo do tempo.</p>
+<p>As parcelas são iguais do início ao fim. No começo, a maior parte da parcela paga juros, e a amortização cresce ao longo do tempo.</p>
 <p class="formula">parcela = valor financiado × i ÷ (1 − (1 + i)^−n)</p>
 <h3>SAC (Sistema de Amortização Constante)</h3>
-<p>A amortização é a mesma todo mês (valor financiado ÷ n). Como os juros caem junto com o saldo, as parcelas diminuem. A primeira é a mais alta.</p>
+<p>A amortização é a mesma todo mês (valor financiado ÷ n). Como os juros caem junto com o saldo, as parcelas diminuem mês a mês. A primeira é a mais alta.</p>
 <p class="formula">parcela do mês k = amortização + saldo devedor × i</p>
 <h3>Qual escolher</h3>
-<p>O SAC costuma custar menos juros no total, mas exige uma parcela inicial maior. O Price cabe melhor em um orçamento apertado no começo, com um custo total maior.</p>
-<h3>Exemplo</h3>
-<p>R$ 100.000,00 a 1% ao mês em 12 meses. No Price, a parcela é de R$ 8.884,88 e os juros somam R$ 6.618,53. No SAC, a primeira parcela é de R$ 9.333,33, a última de R$ 8.416,70 e os juros somam R$ 6.500,00.</p>
+<p>O SAC costuma custar menos juros no total, mas exige uma parcela inicial maior. O Price cabe melhor em um orçamento apertado no começo, com um custo total maior ao final.</p>
 <h3>O que esta simulação não inclui</h3>
-<p>Seguros, tarifas, IOF, correção monetária (como TR ou IPCA) e o Custo Efetivo Total (CET). A parcela do contrato real costuma ser maior. Peça o CET ao banco antes de comparar propostas.</p>`,
+<p>Seguros, tarifas, IOF, correção monetária (como TR ou IPCA) e o Custo Efetivo Total (CET). A parcela do contrato real costuma ser maior. Peça o CET ao banco antes de comparar propostas — ele soma juros, tarifas, seguros e impostos em uma única taxa anual.</p>
+<h3>Dicas para reduzir o custo</h3>
+<ul>
+<li><strong>Entrada maior:</strong> quanto menor o valor financiado, menores os juros em reais, mesmo com a mesma taxa.</li>
+<li><strong>Amortização antecipada:</strong> reduz o saldo sobre o qual os juros incidem. Pergunte ao banco se o abatimento reduz a parcela ou o prazo.</li>
+<li><strong>Pesquise o CET:</strong> não compare apenas a taxa de juros; compare o Custo Efetivo Total de cada proposta.</li>
+</ul>
+<h3>Exemplo</h3>
+<p>R$ 100.000,00 a 1% ao mês em 12 meses. No Price, a parcela é de R$ 8.884,88 e os juros somam R$ 6.618,53. No SAC, a primeira parcela é de R$ 9.333,33, a última de R$ 8.416,70 e os juros somam R$ 6.500,00.</p>`,
     faq: [
       ['Price ou SAC: qual compensa mais?', 'Em juros totais, o SAC compensa mais. Se o orçamento do começo for apertado, o Price pode ser a opção possível. A melhor escolha depende da sua renda e do prazo.'],
       ['O que é o CET?', 'É o Custo Efetivo Total: soma juros, tarifas, seguros e impostos em uma única taxa anual. É o número certo para comparar propostas.'],
@@ -239,6 +261,7 @@ export const calculadoras = [
     slug: 'aposentadoria',
     nome: 'Calculadora de aposentadoria',
     nomeCurto: 'Aposentadoria',
+    autor: 'Thiago Ribeiro',
     titulo: 'Calculadora de aposentadoria: quanto preciso juntar para viver de renda',
     descricao: 'Descubra quanto patrimônio você precisa acumular para viver de renda, quanto precisa investir por mês e em que idade atinge a meta.',
     resumoLista: 'Patrimônio e aporte para viver de renda.',
@@ -258,12 +281,14 @@ export const calculadoras = [
 <h2>Como calculamos a aposentadoria</h2>
 <p>Esta é uma calculadora de planejamento financeiro, não uma simulação do benefício do INSS. Ela responde: quanto preciso ter investido para viver só dos rendimentos?</p>
 <p class="formula">patrimônio necessário = renda mensal ÷ rentabilidade real mensal</p>
-<p>A ideia é que o patrimônio renda, depois de descontada a inflação, o suficiente para pagar a sua renda sem consumir o principal. Com 4% reais ao ano, isso equivale a juntar cerca de 25 vezes o gasto anual.</p>
+<p>A ideia é que o patrimônio renda, depois de descontada a inflação, o suficiente para pagar a sua renda sem consumir o principal. Com 4% reais ao ano, isso equivale a juntar cerca de 25 vezes o gasto anual — conhecida como "regra dos 25" ou regra de 4% para saques seguros.</p>
 <h3>Aporte necessário</h3>
 <p>Para chegar à meta na idade escolhida, o aporte mensal é a parcela que, somada ao patrimônio atual e aos juros, atinge o valor necessário:</p>
 <p class="formula">aporte = (meta − patrimônio × (1 + i)^n) × i ÷ ((1 + i)^n − 1)</p>
 <h3>Por que usar valores reais</h3>
-<p>Se você informar a renda em valores de hoje e a rentabilidade acima da inflação, o resultado já está corrigido. Assim, o patrimônio necessário mantém o poder de compra no futuro.</p>
+<p>Se você informar a renda em valores de hoje e a rentabilidade acima da inflação, o resultado já está corrigido. Assim, o patrimônio necessário mantém o poder de compra no futuro, independentemente da inflação acumulada até a aposentadoria.</p>
+<h3>O tempo é seu maior aliado</h3>
+<p>Quanto mais cedo você começa a investir, menor o aporte mensal necessário. Isso acontece porque os juros compostos agem sobre um período maior e os aportes dos primeiros anos têm mais tempo para render. Adiar o investimento em 5 ou 10 anos pode dobrar o valor que você precisaria poupar todo mês.</p>
 <h3>Exemplo</h3>
 <p>Quem tem 30 anos e quer R$ 5.000,00 por mês aos 60, com 4% reais ao ano, precisa de cerca de R$ 1.527.305,26. Investindo R$ 1.000,00 por mês a partir do zero, chega a cerca de R$ 685.270,56 nesse prazo. Para atingir a meta, o aporte teria de ser de aproximadamente R$ 2.228,76 por mês.</p>`,
     faq: [
@@ -280,6 +305,7 @@ export const calculadoras = [
     slug: 'me',
     nome: 'Otimizador pró-labore × lucros (ME)',
     nomeCurto: 'ME pró-labore × lucros',
+    autor: 'Thiago Ribeiro',
     titulo: 'Pró-labore ou lucros na ME {ANO}: otimizador do Simples Nacional',
     descricao: 'Informe a meta líquida, o faturamento e a folha. O otimizador varre o pró-labore, aplica o Fator R e recomenda a divisão com menos imposto, com as tabelas de {ANO}.',
     resumoLista: 'Meta líquida, Fator R e a divisão com menos imposto.',
@@ -344,6 +370,7 @@ export const calculadoras = [
     slug: 'inss',
     nome: 'Calculadora de aposentadoria do INSS',
     nomeCurto: 'INSS',
+    autor: 'Thiago Ribeiro',
     titulo: 'Calculadora de aposentadoria do INSS {ANO}: quando vou me aposentar e quanto vou receber',
     descricao: 'Estime quando você se aposenta pelo INSS e o valor do benefício: regra permanente, transição por pontos, idade mínima progressiva e pedágio de 100%.',
     resumoLista: 'Quando aposenta e valor do benefício.',
@@ -675,6 +702,104 @@ export const blog = [
 <p>Como a primeira parcela chega sem desconto, ela é ideal para abater dívida cara - cartão, cheque especial - antes dos juros de dezembro. A segunda, já líquida, pode ir para a reserva ou para amortizar financiamento. O erro clássico é tratar as duas como "extras" separados e gastar dobrado.</p>
 <p>Quer saber exatamente quanto vem em cada parcela no seu caso, com horas extras e dependentes? Jogue os números na <a href="/decimo-terceiro/">calculadora de 13º salário</a> e confira antes do contracheque chegar.</p>`,
   },
+  {
+    slug: 'irrf-2026-isencao-e-reducao-quem-nao-paga',
+    titulo: 'IRRF 2026: quem está isento e quem paga menos com a redução',
+    descricao: 'Veja quem não paga Imposto de Renda na fonte em 2026, como funciona a redução do IRRF e como a dedução por dependente muda o desconto.',
+    data: '2026-10-28',
+    calc: 'rescisao',
+    corpo: `
+<p>Muito trabalhador olha o contracheque e se pergunta por que o Imposto de Renda retido na fonte (IRRF) é aquele número - ou por que, às vezes, ele é zero. A resposta mudou em 2026: com a Lei 15.270/2025, quem ganha até R$ 5.000,00 por mês pode ficar isento, e quem está acima disso paga menos graças à redução mensal.</p>
+<h2>Quem está isento do IRRF em 2026</h2>
+<p>O desconto simplificado sobe de R$ 564,80 para R$ 607,20, e o limite de isenção sobe de R$ 4.664,68 para R$ 5.000,00 mensais. Isso significa:</p>
+<ul>
+<li><strong>Até R$ 2.428,80:</strong> IRRF zerado (primeira faixa já é isenta).</li>
+<li><strong>De R$ 2.428,81 a R$ 5.000,00:</strong> com a redução, o imposto pode cair a zero dependendo da faixa e dos dependentes.</li>
+<li><strong>Acima de R$ 5.000,00:</strong> ainda há desconto, mas a redução mensal de até R$ 312,89 diminui o valor a pagar.</li>
+</ul>
+<h2>Como a redução funciona na prática</h2>
+<p>A redução não é um desconto direto no salário: ela baixa a base sobre qual incide o IRRF. Em vez de calcular o imposto sobre o salário bruto, você subtrai a parcela da redução (R$ 312,89 no teto) e calcula sobre o resto. Quanto mais próximo do teto de R$ 5.000,00, maior o alívio - até R$ 312,89 a menos de imposto por mês.</p>
+<h2>E os dependentes?</h2>
+<p>Cada dependente adiciona uma dedução mensal de R$ 189,59 na base de cálculo. Se você tem dois dependentes, são R$ 379,18 a menos na base do IRRF - o suficiente para tirar muita gente da faixa de pagamento ou reduzir bastante o desconto.</p>
+<h2>Exemplo numérico</h2>
+<p>Salário bruto de R$ 4.000,00, sem dependentes: com a tabela antiga, o IRRF seria de cerca de R$ 203,24. Com a redução de R$ 312,89 aplicada, a base cai para R$ 3.687,11 e o imposto fica em cerca de R$ 122,31 - uma economia de R$ 80,93 por mês, ou quase R$ 1.000,00 por ano.</p>
+<p>Quer conferir no seu caso? A <a href="/rescisao/">calculadora de rescisão</a> aplica as mesmas tabelas de IRRF de 2026 sobre o 13º, férias e rescisão, e a <a href="/decimo-terceiro/">calculadora de 13º salário</a> mostra o IRRF da segunda parcela com a redução já incluída.</p>`,
+  },
+  {
+    slug: 'fgts-quando-sacar-multa-e-extrato',
+    titulo: 'FGTS: quando sacar, quanto é a multa e como consultar o extrato',
+    descricao: 'Tudo sobre o Fundo de Garantia do Tempo de Serviço: saque em demissão sem justa causa, multa de 40% ou 20% e como ver o extrato pelo app.',
+    data: '2026-10-25',
+    calc: 'rescisao',
+    corpo: `
+<p>O FGTS é aquele dinheiro que o patrão deposita todo mês em uma conta vinculada a você - 8% do seu salário, sem desconto no contracheque. Ele fica parado até você ter direito a sacar, que acontece em situações previstas em lei. Vamos tirar as dúvidas mais comuns.</p>
+<h2>Quando você tem direito a sacar o FGTS</h2>
+<ul>
+<li><strong>Demissão sem justa causa:</strong> saque total do saldo + multa de 40% sobre o saldo.</li>
+<li><strong>Demissão por acordo (art. 484-A da CLT):</strong> saque de até 80% do saldo + multa de 20%.</li>
+<li><strong>Aposentadoria:</strong> saque total.</li>
+<li><strong>Compra da casa própria:</strong> uso para amortizar, quitar ou dar entrada no imóvel.</li>
+<li><strong>Doença grave (câncer, entre outras) ou falecimento:</strong> saque para o titular ou dependentes.</li>
+</ul>
+<h2>Multa de 40% ou 20% - quem paga?</h2>
+<p>A multa é paga pelo <strong>empregador</strong> e não sai do seu saldo do FGTS. Em demissão sem justa causa, é 40% sobre o saldo total da conta (incluindo o depósito do mês da demissão). Na demissão por acordo, cai para 20%. Quem pede demissão não tem direito à multa nem ao saque total - só recebe as demais verbas rescisórias.</p>
+<h2>Exemplo numérico</h2>
+<p>Se o seu saldo do FGTS é de R$ 10.000,00 no momento da demissão sem justa causa:</p>
+<ul>
+<li>Você saca: R$ 10.000,00 (saldo total)</li>
+<li>Multa do empregador: R$ 4.000,00 (40%)</li>
+<li>Total que entra no seu bolso: R$ 14.000,00</li>
+</ul>
+<p>Já na demissão por acordo, você sacaria até R$ 8.000,00 (80%) e receberia multa de 20% (R$ 2.000,00), mas perderia o direito ao seguro-desemprego.</p>
+<h2>Como consultar o extrato</h2>
+<p>Pelo app FGTS (Caixa) ou pelo site da Caixa, com o número do NIS e a senha cadastrada. Você vê todos os depósitos feitos pelos empregadores ao longo dos anos. Se algum depósito estiver faltando, procure o RH da empresa anterior - o empregador que não recolhe FGTS está sujeito a multa e ao processo trabalhista.</p>
+<p>A calculadora de <a href="/rescisao/">rescisão trabalhista</a> deste site já inclui o FGTS e a multa no resultado, para você conferir se o valor da rescisão bate com o que a empresa deve pagar.</p>`,
+  },
+  {
+    slug: 'aviso-previo-trabalhado-ou-indenizado',
+    titulo: 'Aviso prévio: trabalhado ou indenizado, qual a diferença e como calcula',
+    descricao: 'Saiba como funciona o aviso prévio de 30 dias mais 3 por ano, a diferença entre cumprir ou ser dispensado, e como ele afeta o 13º e as férias.',
+    data: '2026-10-22',
+    calc: 'rescisao',
+    corpo: `
+<p>O aviso prévio é aquele período de 30 dias (ou mais) entre a comunicação da demissão e o fim efetivo do contrato. Ele serve para o empregado se organizar e para a empresa se ajustar. A regra básica vem da Lei 12.506/2011: 30 dias mais 3 dias por ano completo de serviço, no máximo 90 dias.</p>
+<h2>Aviso prévio trabalhado</h2>
+<p>Você cumpre o aviso na empresa. Para não prejudicar a busca por um novo emprego, a CLT permite: reduzir a jornada em 2 horas por dia durante todo o aviso, ou faltar 7 dias corridos (que podem ser fracionados). O saldo de salário, férias e 13º seguem sendo calculados normalmente, já que você continua trabalhando.</p>
+<h2>Aviso prévio indenizado</h2>
+<p>A empresa dispensa você de cumprir o aviso e paga o valor correspondente em dinheiro. Você sai no dia da demissão e recebe o aviso como verba rescisória. Aqui está a pegadinha: o aviso prévio indenizado <strong>não sofre desconto de INSS</strong>, mas entra na base de cálculo do <strong>Imposto de Renda</strong>.</p>
+<h2>Como o aviso afeta o 13º e as férias</h2>
+<p>O aviso prévio (trabalhado ou indenizado) conta como tempo de serviço. Isso significa que ele pode somar um mês extra ao seu 13º proporcional e às férias proporcionais. Exemplo: se você foi demitido com 9 meses completos e aviso indenizado de 42 dias, o contrato se "alongou" quase um mês e meio - o que pode render mais avos no 13º e nas férias.</p>
+<h2>Prazo de pagamento</h2>
+<p>A empresa tem até 10 dias corridos após o término do contrato para pagar todas as verbas rescisórias, incluindo o aviso prévio. Se atrasar, há multa e correção pelo índice do FGTS.</p>
+<p>Confira cada verba na <a href="/rescisao/">calculadora de rescisão</a>: ela mostra separadamente o saldo de salário, o aviso prévio, o 13º proporcional, as férias com terço e a multa do FGTS.</p>`,
+  },
+  {
+    slug: 'horas-extras-adicionais-entram-em-o-qual',
+    titulo: 'Horas extras e adicionais: entram no 13º, férias, rescisão e FGTS?',
+    descricao: 'Descubra quais valores variáveis integram a base de cálculo das férias, do 13º salário, da rescisão e do depósito do FGTS, e o que não conta.',
+    data: '2026-10-20',
+    calc: 'ferias',
+    corpo: `
+<p>Salário base não é tudo o que entra nas contas trabalhistas. Horas extras, comissões, adicional noturno, insalubridade e periculosidade podem subir - ou não - o valor das férias, do 13º, da rescisão e do depósito do FGTS. Confira o que entra e o que fica de fora.</p>
+<h2>O que entra na base de cálculo</h2>
+<ul>
+<li><strong>Férias:</strong> entram horas extras, comissões e adicionais recebidos no período. A média dos valores variáveis soma ao salário para calcular o valor das férias.</li>
+<li><strong>13º salário:</strong> entram. A média mensal dos valores variáveis integra o 13º bruto (salário + média de variáveis) ÷ 12 × meses trabalhados.</li>
+<li><strong>Rescisão:</strong> entram no saldo de salário, aviso prévio, 13º proporcional e férias proporcionais/vencidas, quando são habituais.</li>
+<li><strong>FGTS:</strong> o depósito de 8% incide sobre as verbas de natureza salarial, incluindo horas extras e adicionais habituais (Lei 8.036/1990, art. 15).</li>
+</ul>
+<h2>O que NÃO entra</h2>
+<ul>
+<li>Auxílios eventuais (ex.: auxílio-transporte reembolsado sem natureza de salário).</li>
+<li>Gorjetas (não integram o salário para FGTS, salvo acordo/coletivo).</li>
+<li>Diárias de viagem (reembolso de despesas, não remuneração).</li>
+</ul>
+<h2>Proporcionalidade e o limite dos 15 dias</h2>
+<p>Para o 13º, cada mês com 15 dias ou mais trabalhados conta como mês inteiro. Se você recebeu horas extras em um mês mas trabalhou menos de 15 dias, esse mês não entra na contagem do 13º proporcional.</p>
+<h2>Exemplo</h2>
+<p>Salário de R$ 3.000,00 com média de R$ 400,00 de horas extras. As férias de 30 dias saem de (R$ 3.000 + R$ 400) ÷ 30 × 30 = R$ 3.400,00, mais o terço. Sem as horas extras, seriam R$ 3.000,00. A diferença de R$ 400,00 só nas férias mostra por que vale a pena informar a média nas calculadoras.</p>
+<p>Na <a href="/ferias/">calculadora de férias</a> e na <a href="/decimo-terceiro/">calculadora de 13º salário</a> há um campo específico para a média de horas extras e comissões - preencha para ter o valor mais próximo da realidade.</p>`,
+  },
 ];
 
 export const institucionais = {
@@ -771,5 +896,92 @@ export const institucionais = {
 </ul>
 <h2>Publicidade</h2>
 <p>O site pode exibir anúncios e links de afiliados, sempre identificados. A empresa anunciante ou parceira pode pagar comissão ao {NOME}. Isso não altera os resultados das calculadoras.</p>`,
+  },
+  glossario: {
+    titulo: 'Glossário de termos financeiros e trabalhistas',
+    descricao: 'Significado de termos como FGTS, INSS, IRRF, 13º salário, aviso prévio, Fator R, pró-labore, CET e outros usados nas calculadoras do {NOME}.',
+    corpo: `
+<h1>Glossário de termos financeiros e trabalhistas</h1>
+<p>Referência rápida para os termos usados nas calculadoras e artigos do {NOME}. Se algo não estiver aqui, envie sua dúvida pela página de <a href="/contato/">contato</a>.</p>
+
+<h2>Números</h2>
+<dl>
+<dt><strong>13º salário</strong></dt>
+<dd>Gratificação de Natal paga em duas parcelas (até 30 de novembro e até 20 de dezembro), equivalente a 1/12 do salário por mês trabalhado no ano.</dd>
+</dl>
+
+<h2>A</h2>
+<dl>
+<dt><strong>Adicionais</strong></dt>
+<dd>Valores pagos além do salário base, como adicional noturno, de insalubridade ou de periculosidade. Costumam integrar a base de férias, 13º e FGTS.</dd>
+
+<dt><strong>Abono pecuniário</strong></dt>
+<dd>Direito de vender até 1/3 das férias (10 dias) em dinheiro, recebendo o salário desses dias mais o terço constitucional.</dd>
+</dl>
+
+<h2>C</h2>
+<dl>
+<dt><strong>CET (Custo Efetivo Total)</strong></dt>
+<dd>Custo real de um financiamento, somando juros, tarifas, seguros, IOF e impostos em uma única taxa anual. É o número correto para comparar propostas de crédito.</dd>
+
+<dt><strong>CLT</strong></dt>
+<dd>Consolidação das Leis do Trabalho (Decreto-Lei 5.452/1943), que rege os direitos e deveres de empregados e empregadores no regime CLT.</dd>
+</dl>
+
+<h2>F</h2>
+<dl>
+<dt><strong>FGTS</strong></dt>
+<dd>Fundo de Garantia do Tempo de Serviço. O empregador deposita 8% do salário todo mês em conta vinculada ao trabalhador. Pode ser sacado em demissão sem justa causa, aposentadoria e compra da casa própria.</dd>
+
+<dt><strong>Fator R</strong></dt>
+<dd>Índice do Simples Nacional que divide a folha de pagamento dos últimos 12 meses pelo faturamento dos últimos 12 meses. Acima de 28%, atividades intelectuais pagam pelo Anexo III; abaixo, pelo Anexo V.</dd>
+</dl>
+
+<h2>I</h2>
+<dl>
+<dt><strong>INSS</strong></dt>
+<dd>Instituto Nacional do Seguro Social. Recolhe contribuições e paga benefícios como aposentadoria, auxílio-doença, salário-maternidade e pensão por morte.</dd>
+
+<dt><strong>IRRF</strong></dt>
+<dd>Imposto de Renda Retido na Fonte. É o Imposto de Renda descontado na fonte pagadora sobre salários, 13º, férias, rescisão e rendimentos de investimentos.</dd>
+</dl>
+
+<h2>J</h2>
+<dl>
+<dt><strong>Juros compostos</strong></dt>
+<dd>Modalidade em que o rendimento de cada período soma-se ao saldo e passa a render também. É o efeito "juros sobre juros", que acelera o crescimento do dinheiro com o tempo.</dd>
+</dl>
+
+<h2>P</h2>
+<dl>
+<dt><strong>Pró-labore</strong></dt>
+<dd>Remuneração do sócio-administrador pelo trabalho na empresa. É obrigatório para o sócio que administra e incide INSS (11% até o teto) e IRRF.</dd>
+</dl>
+
+<h2>R</h2>
+<dl>
+<dt><strong>Rescisão trabalhista</strong></dt>
+<dd>Encerramento do contrato de trabalho. Pode ocorrer por demissão sem justa causa, pedido de demissão, justa causa ou acordo, com verbas diferentes em cada caso.</dd>
+</dl>
+
+<h2>S</h2>
+<dl>
+<dt><strong>Seguro-desemprego</strong></dt>
+<dd>Benefício temporário pago ao trabalhador demitido sem justa causa que cumprir os requisitos de tempo de trabalho e não tiver renda própria suficiente.</dd>
+
+<dt><strong>Terço constitucional</strong></dt>
+<dd>Acréscimo de 1/3 sobre o valor das férias, previsto no artigo 7º, inciso XVII, da Constituição Federal. É isento de INSS.</dd>
+
+<dt><strong>Teto do INSS</strong></dt>
+<dd>Valor máximo sobre o qual incide a contribuição do INSS e que limita o benefício. Em {ANO}, é de R$ 8.475,55.</dd>
+</dl>
+
+<h2>V</h2>
+<dl>
+<dt><strong>Vigência</strong></dt>
+<dd>Período em que uma tabela ou lei está em vigor. As tabelas de INSS e IRRF deste site valem a partir de 01/01/{ANO} e são revisadas todo ano.</dd>
+</dl>
+
+<aside class="aviso-legal"><p>Este glossário tem caráter informativo e educacional. Os valores e regras podem mudar com a legislação. Consulte um profissional para decisões importantes.</p></aside>`,
   },
 };
