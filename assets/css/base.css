@@ -58,6 +58,19 @@ a:hover { text-decoration-thickness: 2px; }
 .menu { display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; font-size: .95rem; }
 .menu a { color: var(--tinta-suave); text-decoration: none; padding: .2rem 0; }
 .menu a:hover, .menu a[aria-current="page"] { color: var(--tinta); text-decoration: underline; text-underline-offset: .3em; }
+.menu-grupo { position: relative; }
+.menu-grupo summary { color: var(--tinta-suave); cursor: pointer; list-style: none; padding: .2rem 0; }
+.menu-grupo summary::-webkit-details-marker { display: none; }
+.menu-grupo summary::after { content: "⌄"; display: inline-block; margin-left: .3rem; transition: transform .15s ease; }
+.menu-grupo[open] summary::after { transform: rotate(180deg); }
+.menu-grupo[open] summary, .menu-grupo summary:hover { color: var(--tinta); }
+.menu-grupo.menu-atual summary { color: var(--tinta); text-decoration: underline; text-underline-offset: .3em; }
+.menu-subitens { position: absolute; top: 100%; left: -.75rem; z-index: 21; display: grid; min-width: 12rem; gap: .1rem; padding: .4rem; border: 1px solid var(--linha); border-radius: 6px; background: var(--superficie); box-shadow: 0 .5rem 1.25rem rgb(20 35 58 / 14%); }
+.menu-subitens a { padding: .45rem .55rem; border-radius: 3px; }
+.menu-subitens a:hover { background: var(--papel); }
+@media (max-width: 40rem) {
+  .menu-subitens { position: static; min-width: 0; margin-top: .2rem; box-shadow: none; }
+}
 
 main { padding-block: 1.5rem 3rem; }
 .migalhas { font-size: .875rem; color: var(--tinta-suave); margin-bottom: 1rem; }

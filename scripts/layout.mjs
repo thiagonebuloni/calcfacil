@@ -52,9 +52,22 @@ export function pagina({ cfg, caminho, titulo, descricao, corpo, ld = [], menuAt
     return `<script async src="${url}" crossorigin="anonymous"></script>`;
   }
 
-  const menu = calculadoras
-    .map((c) => `<a href="/${c.slug}/"${menuAtual === c.slug ? ' aria-current="page"' : ''}>${esc(c.nomeCurto)}</a>`)
-    .join('');
+  const gruposMenu = [
+    { nome: 'Trabalhista', slugs: ['decimo-terceiro', 'ferias', 'rescisao'] },
+    { nome: 'Finanças', slugs: ['juros-compostos', 'financiamento'] },
+    { nome: 'Aposentadoria', slugs: ['aposentadoria', 'inss'] },
+  ];
+  const slugsAgrupados = new Set(gruposMenu.flatMap((grupo) => grupo.slugs));
+  const linkMenu = (c) => `<a href="/${c.slug}/"${menuAtual === c.slug ? ' aria-current="page"' : ''}>${esc(c.nomeCurto)}</a>`;
+  const menu = gruposMenu
+    .map((grupo) => {
+      const itens = grupo.slugs
+        .map((slug) => calculadoras.find((c) => c.slug === slug))
+        .filter(Boolean);
+      const atual = itens.some((c) => c.slug === menuAtual);
+      return `<details class="menu-grupo${atual ? ' menu-atual' : ''}"><summary>${esc(grupo.nome)}</summary><div class="menu-subitens">${itens.map(linkMenu).join('')}</div></details>`;
+    })
+    .join('') + calculadoras.filter((c) => !slugsAgrupados.has(c.slug)).map(linkMenu).join('');
   const nome = esc(cfg.nome);
   const [antes, ...resto] = cfg.nome.split(/(?<=Calc)/);
   const marca = resto.length ? `${esc(antes)}<span>${esc(resto.join(''))}</span>` : nome;

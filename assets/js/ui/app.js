@@ -159,4 +159,13 @@ async function iniciar(form) {
   });
 }
 
+document.querySelectorAll('.menu-grupo').forEach((grupo) => {
+  grupo.addEventListener('pointerenter', (ev) => {
+    if (ev.pointerType === 'mouse') grupo.open = true;
+  });
+  grupo.addEventListener('pointerleave', (ev) => {
+    if (ev.pointerType === 'mouse') grupo.open = false;
+  });
+});
+
 document.querySelectorAll('form[data-calc]').forEach(iniciar);

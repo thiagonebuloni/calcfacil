@@ -39,6 +39,32 @@ test('cada página tem title, description, canonical e um único h1', () => {
   }
 });
 
+test('a navegação agrupa as calculadoras por tema em todas as páginas', () => {
+  const grupos = {
+    Trabalhista: ['decimo-terceiro', 'ferias', 'rescisao'],
+    Finanças: ['juros-compostos', 'financiamento'],
+    Aposentadoria: ['aposentadoria', 'inss'],
+  };
+  for (const p of todas) {
+    const h = readFileSync(p, 'utf8');
+    const nav = h.match(/<nav class="menu"[\s\S]*?<\/nav>/)?.[0];
+    assert.ok(nav, `navegação ausente em ${rel(p)}`);
+    for (const [nome, slugs] of Object.entries(grupos)) {
+      const grupo = nav.match(new RegExp(`<details class="menu-grupo[^"]*"[^>]*><summary>${nome}<\\/summary>([\\s\\S]*?)<\\/details>`))?.[1];
+      assert.ok(grupo, `grupo ${nome} ausente em ${rel(p)}`);
+      for (const slug of slugs) assert.match(grupo, new RegExp(`href="/${slug}/"`), `${slug} fora do grupo ${nome} em ${rel(p)}`);
+    }
+    assert.doesNotMatch(nav, /<details class="menu-grupo[^"]*" open>/, `grupo aberto por padrão em ${rel(p)}`);
+    assert.equal((nav.match(/href="\/(?:decimo-terceiro|ferias|rescisao|juros-compostos|financiamento|aposentadoria|inss)\//g) || []).length, 7, `link duplicado ou ausente na navegação de ${rel(p)}`);
+  }
+});
+
+test('grupos da navegação abrem e fecham ao passar o mouse', () => {
+  const app = readFileSync(join(raiz, 'assets/js/ui/app.js'), 'utf8');
+  assert.match(app, /addEventListener\('pointerenter'[\s\S]*?ev\.pointerType === 'mouse'[\s\S]*?grupo\.open = true/);
+  assert.match(app, /addEventListener\('pointerleave'[\s\S]*?ev\.pointerType === 'mouse'[\s\S]*?grupo\.open = false/);
+});
+
 test('nenhum token do gerador ficou sem substituição', () => {
   for (const p of todas) {
     const h = readFileSync(p, 'utf8').replace(/<script[\s\S]*?<\/script>/g, '');
