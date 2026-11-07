@@ -65,6 +65,17 @@ test('grupos da navegação abrem e fecham ao passar o mouse', () => {
   assert.match(app, /addEventListener\('pointerleave'[\s\S]*?ev\.pointerType === 'mouse'[\s\S]*?grupo\.open = false/);
 });
 
+test('o post de compras internacionais usa o mesmo bloco de publicidade da calculadora', () => {
+  const post = readFileSync(join(raiz, 'blog/compras-internacionais-impostos/index.html'), 'utf8');
+  const app = readFileSync(join(raiz, 'assets/js/ui/app.js'), 'utf8');
+  const afiliados = readFileSync(join(raiz, 'assets/js/ui/afiliados.js'), 'utf8');
+  assert.match(post, /<div data-afiliado="importacao"><\/div>/);
+  assert.match(app, /querySelectorAll\('\[data-afiliado\]'\)[\s\S]*?blocoAfiliado\(slot\.dataset\.afiliado\)/);
+  assert.match(afiliados, /Fones Earfun Clip Hi-Res — open-ear sem fio/);
+  assert.match(afiliados, /Earfun Clip — áudio sem fio com microfone/);
+  assert.match(afiliados, /Oferta Earfun — fones open-ear para chamadas/);
+});
+
 test('nenhum token do gerador ficou sem substituição', () => {
   for (const p of todas) {
     const h = readFileSync(p, 'utf8').replace(/<script[\s\S]*?<\/script>/g, '');

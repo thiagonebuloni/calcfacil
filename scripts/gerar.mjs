@@ -114,6 +114,7 @@ for (const a of blog) {
 <p class="fonte">Publicado em ${br(a.data)}. Tabelas de INSS e IRRF de ${cfg._vigenciaBR}.</p>
 ${tokens(a.corpo)}
 <p><a class="btn" href="/${calc.slug}/">Abrir a ${esc(calc.nome.toLowerCase())}</a></p>
+${a.afiliado ? `<div data-afiliado="${esc(a.afiliado)}"></div>` : ''}
 <div class="ad-slot" data-slot="fim" hidden></div>
 <aside class="aviso-legal"><p>Conteúdo informativo. Não substitui a orientação de um profissional. <a href="/aviso-legal/">Aviso legal</a>.</p></aside>
 </article>`,

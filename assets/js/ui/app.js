@@ -168,4 +168,10 @@ document.querySelectorAll('.menu-grupo').forEach((grupo) => {
   });
 });
 
+document.querySelectorAll('[data-afiliado]').forEach((slot) => {
+  const afiliado = blocoAfiliado(slot.dataset.afiliado);
+  if (afiliado) slot.replaceWith(afiliado);
+  else slot.remove();
+});
+
 document.querySelectorAll('form[data-calc]').forEach(iniciar);
